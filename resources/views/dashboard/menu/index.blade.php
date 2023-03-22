@@ -95,7 +95,7 @@
 @section('modals')
 
   {!! __html::blank_modal('show_menu_modal','lg') !!}
-  {!! __html::blank_modal('edit_menu_modal','sm') !!}
+  {!! __html::blank_modal('sm','edit_menu_modal') !!}
   {!! __html::blank_modal('list_submenus','lg') !!}
   {!! __html::blank_modal('edit_submenu_modal','sm') !!}
 

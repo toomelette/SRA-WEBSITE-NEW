@@ -48,6 +48,7 @@ Edit
                                     [
                                         'HRU Dashboard' => 'hru',
                                         'RECORDS Dashboard' => 'records',
+                                        'WEBSITE' => 'website',
                                     ]
                                     , '', '', '', '')
                                    !!}

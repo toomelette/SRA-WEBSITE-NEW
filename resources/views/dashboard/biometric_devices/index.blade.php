@@ -30,7 +30,7 @@
                             </div>
                         </div>
                         <div class="box-footer no-padding">
-                            <ul class="nav nav-stacked">
+                                <ul class="nav nav-stacked">
                                 <li><a href="#">IP Address <span class="pull-right badge bg-blue">{{$device->ip_address}}</span></a></li>
                                 <li><a href="#">Last Fetch <span class="pull-right badge bg-aqua">{{\Carbon\Carbon::parse($device->updated_at)->format('M d, Y | H:i A')}}</span></a></li>
                                 <li><a href="#">Last UID <span class="pull-right badge bg-green">{{$device->last_uid}}</span></a></li>

@@ -31,12 +31,7 @@ class LoginController extends Controller{
     protected $maxAttempts = 4;
     protected $decayMinutes = 2;
 
-
-
-
-
     public function __construct(UserInterface $user_repo, __cache $__cache){
-
 
         $this->user_repo = $user_repo;
 
@@ -47,11 +42,6 @@ class LoginController extends Controller{
         $this->middleware('guest')->except('logout');
 
     }
-
-
-
-
-
     
     public function username(){
 
@@ -88,7 +78,7 @@ class LoginController extends Controller{
             if($this->auth->user()->is_activated == false){
 
                 $this->session->flush();
-                $this->session->flash('AUTH_UNACTIVATED','Your account is currently UNACTIVATED! Please contact the designated IT Personel to activate your account.');
+                $this->session->flash('AUTH_UNACTIVATED','Your account is currently UNACTIVATED! Please contact the designated IT Personnel to activate your account.');
                 $this->auth->logout();
 
             }else{
@@ -115,11 +105,6 @@ class LoginController extends Controller{
 
     }
 
-
-
-
-
-
     public function logout(Request $request){
         
         if($request->isMethod('post')){
@@ -130,7 +115,6 @@ class LoginController extends Controller{
                 ->withProperties(['attributes' => 'Logged out'])
                 ->log('auth');
 
-
             $this->session->flush();
             $this->guard()->logout();
             $request->session()->invalidate();
@@ -138,7 +122,6 @@ class LoginController extends Controller{
 //            $this->__cache->deletePattern(''. config('app.name') .'_cache:users:fetch:*');
 //            $this->__cache->deletePattern(''. config('app.name') .'_cache:users:findBySlug:'. $user->slug .'');
 //            $this->__cache->deletePattern(''. config('app.name') .'_cache:users:getByIsOnline:'. $user->is_online .'');
-
 
             return redirect('/');
 

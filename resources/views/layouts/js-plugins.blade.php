@@ -1,6 +1,4 @@
 
-
-
 <script type="text/javascript" src="{{ asset('template/bower_components/jquery/dist/jquery.min.js') }}"></script>  
 
 <script type="text/javascript" src="{{ asset('template/plugins/jquery-ui/jquery-ui.js') }}"></script>
@@ -67,6 +65,9 @@
 {{-- SWAL 2 --}}
 <script type="text/javascript" src="{{asset('template/plugins/swal2/dist/sweetalert2.all.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('template/plugins/bootstrap-notify/bootstrap-notify.min.js')}}"></script>
+
+{{-- SWAL 2 --}}
+<script type="text/javascript" src="{{asset('constra/js/sweetalert2.all.min.js')}}"></script>
 
 {{--TYPEAHEAD--}}
 <script type="text/javascript" src="{{asset('template/plugins/typeahead/js/bootstrap-typeahead.min.js')}}"></script>

@@ -119,9 +119,15 @@ class HomeController extends Controller{
                 'documents_per_month' => $documents_per_month_arr,
             ]);
         }
-
         if(Auth::user()->dash == ''){
-            return redirect('/dashboard/dtr/my_dtr');
+            return view('dashboard.home.index')->with([
+                'all_documents' => 0,
+                'all_emails_sent' => 0,
+                'all_contacts' => 0,
+                'avg_sent_by_week' => "",
+                'emails_per_contact' => "",
+                'documents_per_month' => "",
+            ]);
         }
     	return $this->home->view();
     }

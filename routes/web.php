@@ -5,6 +5,7 @@
 use App\Swep\Helpers\Helper;
 use Rats\Zkteco\Lib\ZKTeco;
 
+
 Route::group(['as' => 'auth.'], function () {
 	
 	Route::get('/', 'Auth\LoginController@showLoginForm')->name('showLogin');
@@ -17,9 +18,119 @@ Route::group(['as' => 'auth.'], function () {
     Route::get('/reset_password_via_email','Auth\AccountRecoveryController@reset_password_via_email')->name('reset_password_via_email');
 });
 
-
 /** HOME **/
 Route::get('dashboard/home', 'HomeController@index')->name('dashboard.home')->middleware('check.user_status');
+
+Route::post('/contactUsStore', 'ContactUsController@store')->name('contactUsStore');
+Route::post('/sugarTraderStore', 'SugarTraderController@store')->name('sugarTraderStore');
+Route::post('/bioethanolProducerStore', 'BioethanolProducerController@store')->name('bioethanolProducerStore');
+Route::post('/powerCogenerationStore', 'PowerCogenerationController@store')->name('powerCogenerationStore');
+
+Route::get('navRoute', 'NavigationController@navRoute')->name('navRoute');
+Route::get('newsRoute/{id}', 'NewsController@newsRoute')->name('newsRoute');
+
+Route::get('home/index', 'NavigationController@home')->name('home.index');
+
+Route::get('aboutUs/overview', 'NavigationController@overview')->name('aboutUs.overview');
+Route::get('aboutUs/mandate', 'NavigationController@mandate')->name('aboutUs.mandate');
+Route::get('aboutUs/charter', 'NavigationController@charter')->name('aboutUs.charter');
+Route::get('aboutUs/organizationalChart', 'NavigationController@organizationalChart')->name('aboutUs.organizationalChart');
+Route::get('aboutUs/corporateObjectives', 'NavigationController@corporateObjectives')->name('aboutUs.corporateObjectives');
+Route::get('aboutUs/history', 'NavigationController@history')->name('aboutUs.history');
+Route::get('aboutUs/officials', 'NavigationController@officials')->name('aboutUs.officials');
+Route::get('aboutUs/administrators', 'NavigationController@administrators')->name('aboutUs.administrators');
+
+Route::get('historicalStatistics/index', 'NavigationController@historicalStatistics')->name('historicalStatistics.index');
+
+Route::get('service/servicePledge', 'NavigationController@servicePledge')->name('service.servicePledge');
+Route::get('service/serviceOffered', 'NavigationController@serviceOffered')->name('service.serviceOffered');
+Route::get('service/serviceGuide', 'NavigationController@serviceGuide')->name('service.serviceGuide');
+Route::get('service/serviceFeeCharges', 'NavigationController@serviceFeeCharges')->name('service.serviceFeeCharges');
+
+Route::get('downloads/applicationForm', 'SubNavController@applicationForm')->name('downloads.applicationForm');
+Route::get('downloads/sugarMonitoringSystem', 'SubNavController@sugarMonitoringSystem')->name('downloads.sugarMonitoringSystem');
+
+Route::get('aboutSugarcane/sugarcaneVarities', 'SubNavController@sugarcaneVarities')->name('aboutSugarcane/sugarcaneVarities');
+
+Route::get('governmentWebsite/index', 'FooterNavigationController@governmentWebsite')->name('governmentWebsite.index');
+
+Route::get('departmentOfAgriculture/theSecretary', 'FooterSubNavigationController@theSecretary')->name('departmentOfAgriculture.theSecretary');
+Route::get('departmentOfAgriculture/topStories', 'FooterSubNavigationController@topStories')->name('departmentOfAgriculture.topStories');
+Route::get('departmentOfAgriculture/guideMap', 'FooterSubNavigationController@guideMap')->name('departmentOfAgriculture.guideMap');
+
+Route::get('gad/annualReport', 'FooterSubNavigationController@annualReport')->name('gad.annualReport');
+Route::get('gad/mandate', 'FooterSubNavigationController@mandate')->name('gad.mandate');
+Route::get('gad/memorandum', 'FooterSubNavigationController@memorandum')->name('gad.memorandum');
+Route::get('gad/lawsAndPolicies', 'FooterSubNavigationController@lawsAndPolicies')->name('gad.lawsAndPolicies');
+
+Route::get('eriaAseanNtm/index', 'FooterNavigationController@eriaAseanNtm')->name('eriaAseanNtm.index');
+
+/** Automatic Weather Station Data **/
+Route::get('automaticWeatherStationData/automaticWSD', 'FooterSubNavigationController@automaticWSD')->name('automaticWeatherStationData.automaticWSD');
+
+/** PAGASA Climate Outlook **/
+Route::get('pagasaClimateOutlook/pagasaCOL', 'FooterSubNavigationController@pagasaCOL')->name('pagasaClimateOutlook.pagasaCOL');
+
+/** Industry Update **/
+Route::get('industryUpdate/sugarSupplyDemand', 'SubNavController@sugarSupplyDemand')->name('industryUpdate.sugarSupplyDemand');
+Route::get('industryUpdate/millsitePrices', 'SubNavController@millSitePrices')->name('industryUpdate.millsitePrices');
+Route::get('industryUpdate/bioethanolReferencePrice', 'SubNavController@bioethanolReferencePrice')->name('industryUpdate.bioethanolReferencePrice');
+Route::get('industryUpdate/metroManilaPrices', 'SubNavController@metroManilaPrices')->name('industryUpdate.metroManilaPrices');
+Route::get('industryUpdate/sugarStatistics', 'SubNavController@sugarStatistics')->name('industryUpdate.sugarStatistics');
+Route::get('industryUpdate/millingSchedule', 'SubNavController@millingSchedule')->name('industryUpdate.millingSchedule');
+Route::get('industryUpdate/vacantPosition', 'SubNavController@vacantPosition')->name('industryUpdate.vacantPosition');
+Route::get('industryUpdate/roadmap', 'SubNavController@roadmap')->name('industryUpdate.roadmap');
+Route::get('industryUpdate/expiredImportClearance', 'SubNavController@expiredImportClearance')->name('industryUpdate.expiredImportClearance');
+Route::get('industryUpdate/blockFarm', 'SubNavController@blockFarm')->name('industryUpdate.blockFarm');
+Route::get('industryUpdate/cropEstimates', 'SubNavController@cropEstimates')->name('industryUpdate.cropEstimates');
+Route::get('industryUpdate/weeklyComparativeProduction', 'SubNavController@weeklyCP')->name('industryUpdate.weeklyComparativeProduction');
+
+
+
+
+/** Policy **/
+Route::get('policy/sugarOrder', 'SubNavController@sugarOrder')->name('policy.sugarOrder');
+Route::get('policy/circularLetter', 'SubNavController@circularLetter')->name('policy.circularLetter');
+Route::get('policy/memorandumOrder', 'SubNavController@memorandumOrder')->name('policy.memorandumOrder');
+Route::get('policy/memorandumCircular', 'SubNavController@memorandumCircular')->name('policy.memorandumCircular');
+Route::get('policy/molassesOrder', 'SubNavController@molassesOrder')->name('policy.molassesOrder');
+Route::get('policy/muscovadoOrder', 'SubNavController@muscovadoOrder')->name('policy.muscovadoOrder');
+Route::get('policy/generalAdministrativeOrder', 'SubNavController@generalAdministrativeOrder')->name('policy.generalAdministrativeOrder');
+Route::get('policy/officeCircular', 'SubNavController@officeCircular')->name('policy.officeCircular');
+Route::get('policy/sugarLaw', 'SubNavController@sugarLaw')->name('policy.sugarLaw');
+Route::get('policy/bio_energy', 'SubNavController@bio_energy')->name('policy.bio_energy');
+
+/** SIDA **/
+Route::get('sida/sidaUpdates', 'SubNavController@sidaUpdates')->name('sidaUpdates');
+Route::get('sida/infographics', 'SubNavController@infographics')->name('infographics');
+Route::get('sida/guideLines', 'SubNavController@guideLines')->name('guideLines');
+Route::get('sida/laws', 'SubNavController@laws')->name('laws');
+Route::get('sida/fundUtilization', 'SubNavController@fundUtilization')->name('fundUtilization');
+
+Route::get('businessOpportunities/sugarTrader', 'SubNavController@sugarTrader')->name('sugarTrader');
+Route::get('businessOpportunities/bioethanolProducer', 'SubNavController@bioethanolProducer')->name('bioethanolProducer');
+Route::get('businessOpportunities/powerCogeneration', 'SubNavController@powerCogeneration')->name('powerCogeneration');
+
+Route::get('aboutSugarcane/sugarcaneVarieties', 'SubNavController@sugarcaneVarieties')->name('sugarcaneVarieties');
+
+/** BID CORNER **/
+Route::get('bidCorner/invitationBid', 'SubNavController@invitationBid')->name('invitationBid');
+Route::get('bidCorner/supplementalBid', 'SubNavController@supplementalBid')->name('supplementalBid');
+Route::get('bidCorner/noticeAward', 'SubNavController@noticeAward')->name('noticeAward');
+Route::get('bidCorner/noticeProceed', 'SubNavController@noticeProceed')->name('noticeProceed');
+Route::get('bidCorner/philgepsPosting', 'SubNavController@philgepsPosting')->name('philgepsPosting');
+Route::get('bidCorner/bidAnnouncement', 'SubNavController@bidAnnouncement')->name('bidAnnouncement');
+
+/*NAFMIP*/
+Route::get('nafmip/index', 'SubNavController@nafmip')->name('nafmip');
+/*JAPAN NPGA*/
+Route::get('japan_npga/index', 'SubNavController@japan_npga')->name('japan_npga');
+
+/*Logo*/
+Route::get('citizensCharter/citizensCharter', 'SubNavController@citizensCharter')->name('citizensCharter');
+
+
+
 
 
 Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
@@ -37,15 +148,14 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
     Route::get('/mis_requests/{slug}/print','MisRequestsController@printRequestForm')->name('mis_requests.print_request_form');
     Route::post('/mis_requests/store_img','MisRequestsController@storeImg')->name('mis_requests.store_img');
     Route::get('/mis_requests_status/index_open','MisRequestsStatusController@indexOpen')->name('mis_requests_status.index_open');
+
 });
 
 /** Dashboard **/
 Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
     'middleware' => ['check.user_status', 'check.user_route', 'last_activity']
 ], function () {
-
 	/** USER **/
-
 	Route::post('/user/activate/{slug}', 'UserController@activate')->name('user.activate');
 	Route::post('/user/deactivate/{slug}', 'UserController@deactivate')->name('user.deactivate');
 	Route::get('/user/{slug}/reset_password', 'UserController@resetPassword')->name('user.reset_password');
@@ -56,7 +166,6 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
 
 	Route::resource('user', 'UserController');
 
-
 	/** DISBURSEMENT VOUCHERS **/
 	Route::get('/disbursement_voucher/user_index', 'DisbursementVoucherController@userIndex')->name('disbursement_voucher.user_index');
 	Route::get('/disbursement_voucher/print/{slug}/{type}', 'DisbursementVoucherController@print')->name('disbursement_voucher.print');
@@ -66,7 +175,6 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
 	Route::get('/disbursement_voucher/{slug}/save_as', 'DisbursementVoucherController@saveAs')->name('disbursement_voucher.save_as');
 	Route::resource('disbursement_voucher', 'DisbursementVoucherController');
 
-
 	/** PROFILE **/
 	Route::get('/profile', 'ProfileController@details')->name('profile.details');
 	Route::patch('/profile/update_account_username/{slug}', 'ProfileController@updateAccountUsername')->name('profile.update_account_username');
@@ -74,9 +182,17 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
 	Route::patch('/profile/update_account_color/{slug}', 'ProfileController@updateAccountColor')->name('profile.update_account_color');
 	Route::get('/profile/print_pds/{slug}/{page}', 'ProfileController@printPds')->name('profile.print_pds');
 
-
 	/** MENU **/
 	Route::resource('menu', 'MenuController');
+
+    /** NAVIGATION**/
+    Route::resource('navigation', 'NavigationController');
+
+    /** SUB NAVIGATION**/
+    Route::resource('subnav', 'SubNavController');
+
+    /** NEWS**/
+    Route::resource('news', 'NewsController');
 
     /** MENU **/
     Route::get('/submenu/fetch','SubmenuController@fetch')->name('submenu.fetch');
@@ -152,31 +268,22 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
 
 	Route::get('/document/dissemination/print/{slug}', 'DocumentController@print')->name('document.dissemination.print');
 
-	
-
-
-
-
 	/** Document Folder Codes **/
 	Route::get('/document_folder/browse/{folder_code}', 'DocumentFolderController@browse')->name('document_folder.browse');
 	Route::resource('document_folder', 'DocumentFolderController');
 
-
 	/** Email Contacts **/
 	Route::resource('email_contact', 'EmailContactController');
-
 
 	/** Permission Slip **/
 	Route::get('/permission_slip/report', 'PermissionSlipController@report')->name('permission_slip.report');
 	Route::get('/permission_slip/report_generate', 'PermissionSlipController@reportGenerate')->name('permission_slip.report_generate');
 	Route::resource('permission_slip', 'PermissionSlipController');
 
-
 	/** Leave Card **/
 	Route::get('/leave_card/report', 'LeaveCardController@report')->name('leave_card.report');
 	Route::get('/leave_card/report_generate', 'LeaveCardController@reportGenerate')->name('leave_card.report_generate');
 	Route::resource('leave_card', 'LeaveCardController');
-
 
 	/** Applicant **/
 	Route::post('/applicant/addToShortList/{slug}', 'ApplicantController@addToShortList')->name('applicant.add_to_shortlist');
@@ -185,14 +292,11 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
 	Route::get('/applicant/report_generate', 'ApplicantController@reportGenerate')->name('applicant.report_generate');
 	Route::resource('applicant', 'ApplicantController');
 
-
 	/** Course **/
 	Route::resource('course', 'CourseController');
 
-
 	/** Plantilla **/
 	Route::resource('plantilla', 'PlantillaController');
-
 
     /** Activity Logs **/
     Route::get('/activity_logs/fetch_properties', 'ActivityLogsController@fetch_properties')->name('activity_logs_fetch_properties');
@@ -232,41 +336,108 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
     Route::put('mis_requests/{request_slug}/update','MisRequestsController@update')->name('mis_requests.update');
     Route::resource('mis_requests_status','MisRequestsStatusController');
 
+    /** Application Form**/
+    Route::resource('applicationForm', 'ApplicationFormController');
+
+    /** Sugar Monitoring System **/
+    Route::resource('sugarMonitoringSystem', 'SugarMonitoringSystemController');
+
+    /** Sugarcane Varieties **/
+    Route::resource('sugarcaneVarieties', 'SugarcaneVarietiesController');
+
     /** Budget Proposal**/
     Route::resource('budget_proposal', 'BudgetProposalController');
+
+    /** Contact Us**/
+    Route::resource('contactUs', 'ContactUsController');
+
+
+    /** INDUSTRY UPDATE**/
+    /** Sugar Supply and Demand Situation**/
+    Route::resource('sugarSupplyDemand', 'SugarSupplyDemandController');
+
+    /** Millsite Prices**/
+    Route::resource('millsitePrices', 'MillsitePricesController');
+
+    /** Bioethanol Reference Price Prices**/
+    Route::resource('bioethanolReferencePrice', 'bioethanolRPController');
+
+    /** Metro Manila Prices**/
+    Route::resource('metroManilaPrices', 'MetroManilaPricesController');
+
+    /** Sugar Statistics Prices**/
+    Route::resource('sugarStatistics', 'SugarStatisticsController');
+
+    /** Roadmap**/
+    Route::resource('roadMap', 'roadMapController');
+
+    /** Expired Import Clearance**/
+    Route::resource('expiredImportClearance', 'ExpiredImportClearanceController');
+
+    /** Crops Estimates Statistics**/
+    Route::resource('cropEstimatesStatistics', 'CropESController');
+
+    /** Weekly Comparative Production**/
+    Route::resource('weeklyComparativeProduction', 'WeeklyComparativeProductionController');
+
+    /** Block Farm**/
+    Route::resource('blockFarm', 'BlockFarmController');
+
+    /** POLICY**/
+    /** Circular Letter**/
+    Route::resource('circularLetter', 'CircularLetterController');
+
+    /** Circular Letter**/
+    Route::resource('sugarOrder', 'SugarOrderController');
+
+    /** Memorandum Order**/
+    Route::resource('memorandumOrder', 'MemorandumOrderController');
+
+    /** Memorandum Circular**/
+    Route::resource('memorandumCircular', 'MemorandumCircularController');
+
+    /** Molasses Order**/
+    Route::resource('molassesOrder', 'MolassesOrderController');
+
+    /** Muscovado Order**/
+    Route::resource('muscovadoOrder', 'MuscovadoOrderController');
+
+    /** General Administrative Order**/
+    Route::resource('generalAdministrativeOrder', 'GeneralAdministrativeOrderController');
+
+    /** Office Circular**/
+    Route::resource('officeCircular', 'OfficeCircularController');
+
+    /** Sugar Trader**/
+    /** Sugar Trader**/
+    Route::resource('sugarTrader', 'SugarTraderController');
+
+    /** Bioethanol Producer**/
+    Route::resource('bioethanolProducer', 'BioethanolProducerController');
+
+    /** Power Cogeneration**/
+    Route::resource('powerCogeneration', 'PowerCogenerationController');
+
+    /** Sugar Law**/
+    Route::resource('sugarLaw', 'SugarLawController');
+
+    /** Bioenegy**/
+    Route::resource('bioEnergy', 'BioEnergyController');
+
+//    /*Logo*/
+//    Route::get("citizensCharter/citizensCharterUpdate", 'CitizensCharterController@citizensCharter')->name('citizensCharter.citizensCharter');
+////    Route::get('/disbursement_voucher/user_index', 'DisbursementVoucherController@userIndex')->name('disbursement_voucher.user_index');
+//
+////    Route::resource('CitizenCharter', 'CitizenCharterController');
+
 });
 
 
 
-
-
-Route::get('/dtr', function (){
-    return redirect('/dashboard/dtr/my_dtr');
-});
-Route::get('/assign',function (){
-    $users = \App\Models\User::query()->where('user_id','=','')->get();
-    foreach ($users as $user){
-        $user->user_id = rand(1111111,9999999);
-        $user->update();
-    }
-    return 1;
+Route::get('/login', function (){
+    return view('auth.index');
 });
 
-Route::get('/dashboard/compute', function (\App\Swep\Services\DTRService $service){
-
-    return $service->compute();
-
-
-});
-
-Route::get('/dashboard/tree', function (){
-    return view('dashboard.blank');
-});
-
-Route::get('/file_explorer',function (){
-
-   return view('dashboard.file_explorer.index');
-})->name('dashboard.documents.file_explorer.index');
 
 /** Test Route **/
 
@@ -280,103 +451,17 @@ Route::get('/dashboard/test', function(){
 //
 //    $zk->disconnect();
 
-	return dd([
+	return ([
 	    'slug' => Illuminate\Support\Str::random(16),
         'small' => strtoupper(Illuminate\Support\Str::random(7)),
     ]);
 
 });
 
-Route::get('dashboard/prayer', function (){
-    $path = asset('json/quotes.json');
-    $content = json_decode(file_get_contents($path),true);
-
-    $today = Carbon::now()->format('Y-m-d');
-    $qod_db = \App\Models\QuoteOfTheDay::query()->where('date',$today)->first();
-    if(empty($qod_db)){
-        $random = rand(0,1643);
-        $qod = new \App\Models\QuoteOfTheDay();
-        $qod->quote = $random;
-        $qod->date = $today;
-        $qod->save();
-
-    }
-    $qod_db_2 = \App\Models\QuoteOfTheDay::query()->where('date',$today)->first();
-    return view('dashboard.prayer.index')->with([
-        'qod' => $content[$qod_db_2->quote],
-    ]);
-})->name('dashboard.prayer');
-
-Route::get('dashboard/zk_test',function (){
-
-    $zk = new \Rats\Zkteco\Lib\ZKTeco('10.36.1.21');
-    $zk->connect();
-
-    return $zk->getUser();
-    //return $zk->serialNumber();
-});
 
 
-Route::get('jo',function (){
-   return view('dashboard.public.jo_entry')->with([
-       'user_menus_records ' => '',
-
-   ]);
-});
-
-Route::get('check_device',function (\App\Swep\Services\DTRService $DTRService){
-    if(!request()->has('ip')){
-        return 'Missing IP';
-    }
-    $ip = request()->get('ip');
-    $zk = new ZKTeco($ip);
-    $zk->connect();
-    return $zk->getAttendance();
-//    return $DTRService->clearAttendance('10.36.1.23');
-});
-
-Route::get('dashboard/set', function (){
-    if(request()->ajax()){
-        if(request()->has('set')){
-            $zk = new ZKTeco('10.36.1.'.request()->get('dev'));
-            $zk->connect();
-            $zk->setTime(request()->get('date').' '.request()->get('time'));
-            return 1;
-        }
-        if (request()->has('reset')){
-            $zk = new ZKTeco('10.36.1.'.request()->get('dev'));
-            $zk->connect();
-            $zk->setTime(\Carbon\Carbon::now()->format('Y-m-d H:i:s'));
-            return 1;
-        }
-        if(request()->has('verify')){
-            if(request()->get('password') === 'superadmin'){
-                request()->session()->put('verify',['expires_on'=>\Carbon\Carbon::now()->addMinutes(1)->format('Y-m-d H:i:s'),'type'=>'su']);
-                return 1;
-            }
-            if(request()->get('password') ==='misvis'){
-                request()->session()->put('verify',['expires_on'=>\Carbon\Carbon::now()->addMinutes(1)->format('Y-m-d H:i:s'),'type'=>'u']);
-                return 1;
-            }
-        }
-    }
-
-    if (request()->session()->exists('verify')) {
-        if(request()->session()->get('verify')['expires_on'] < \Carbon\Carbon::now()->format('Y-m-d H:i:s')){
-            request()->session()->forget('verify');
-            return view('dashboard.set.verify');
-        }else{
-            request()->session()->get('verify')['type'];
-            if(request()->session()->get('verify')['type'] == 'su'){
-                return view('dashboard.set.index');
-            }elseif(request()->session()->get('verify')['type'] == 'u'){
-                return view('dashboard.set.lower');
-            }
-        }
-    }
+Route::resource("testpage", "TestController" );
 
 
-    return view('dashboard.set.verify');
 
-})->name('dashboard.set');
-
+Route::resource('simplepage', 'SimpleController' );

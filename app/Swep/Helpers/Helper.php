@@ -2,7 +2,9 @@
 
 
 namespace App\Swep\Helpers;
+use App\Models\CropYear;
 use App\Models\MisRequestsNature;
+use App\Models\Year;
 use Carbon;
 use Illuminate\Support\Facades\Auth;
 
@@ -219,6 +221,30 @@ class Helper
 
             foreach ($natures as $nature){
                 $array[$nature->group][$nature->nature_of_request] = $nature->slug;
+            }
+        }
+        return $array;
+    }
+
+    public static function cropYear() {
+        $cropYear = CropYear::query()->get()->sortByDesc('name');
+        $array = [];
+        if(!empty($cropYear)){
+
+            foreach ($cropYear as $cY){
+                $array[$cY->name]  = $cY->slug;
+            }
+        }
+        return $array;
+    }
+
+    public static function year() {
+        $year = Year::query()->get()->sortByDesc('name');
+        $array = [];
+        if(!empty($year)){
+
+            foreach ($year as $y){
+                $array[$y->name]  = $y->slug;
             }
         }
         return $array;

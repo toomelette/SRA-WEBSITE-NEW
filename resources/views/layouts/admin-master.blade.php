@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SRA Web Portal - AFD</title>
+    <title>SRA | Sugar Regulatory Administration</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -46,9 +46,9 @@
 
       <footer class="main-footer">
         <div class="pull-right hidden-xs">
-          <b>Version</b> 1.1.0
+          <b>Version</b> 1.0
         </div>
-        <strong>Copyright &copy; 2018-2019 <a href="#">MIS-Visayas</a>.</strong> All rights
+        <strong>Copyright &copy; 2022 <a href="#">MIS-Visayas</a>.</strong> All rights
         reserved.
       </footer>
 
