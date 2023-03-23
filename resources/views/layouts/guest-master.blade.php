@@ -23,6 +23,9 @@
     @include('layouts.constra-topnav')
 
   <div class="banner-carousel banner-carousel-1 mb-0">
+
+    <div class="banner-carousel-item" style="background-image:url({{asset('constra/images/slider-main/2023-NWMC.jpg')}})"></div>
+
     <div class="banner-carousel-item" style="background-image:url({{asset('constra/images/slider-main/Tubo-LGAREC3.jpg')}})">
       <div class="slider-content">
         <div class="container h-100">
@@ -98,13 +101,13 @@
 
           </div>
 
-          <div class="col-md-2 col-sm-6 ts-facts mt-5 mt-md-0">
-            <div class="ts-facts-img">
-                <a target="_blank" href="https://www.lbp-eservices.com/egps/portal/index.jsp"><img loading="lazy" width="100%" src="{{asset('constra/images/SRA/linkbizbtn_wbg-300x135.png')}}" alt="facts-img"></a>
+{{--          <div class="col-md-2 col-sm-6 ts-facts mt-5 mt-md-0">--}}
+{{--            <div class="ts-facts-img">--}}
+{{--                <a target="_blank" href="https://www.lbp-eservices.com/egps/portal/index.jsp"><img loading="lazy" width="100%" src="{{asset('constra/images/SRA/linkbizbtn_wbg-300x135.png')}}" alt="facts-img"></a>--}}
 
 {{--              <img class="mt-3" loading="lazy" width="80%" src="{{asset('constra/images/SRA/NAFMIP1.jpg')}}" alt="facts-img">--}}
-            </div>
-          </div>
+{{--            </div>--}}
+{{--          </div>--}}
 
           <div class="col-md-2 col-sm-6 ts-facts mt-5 mt-md-0">
             <div class="ts-facts-img">
