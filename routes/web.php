@@ -112,6 +112,7 @@ Route::get('businessOpportunities/bioethanolProducer', 'SubNavController@bioetha
 Route::get('businessOpportunities/powerCogeneration', 'SubNavController@powerCogeneration')->name('powerCogeneration');
 
 Route::get('aboutSugarcane/sugarcaneVarieties', 'SubNavController@sugarcaneVarieties')->name('sugarcaneVarieties');
+Route::get('aboutSugarcane/researches', 'SubNavController@researches')->name('researches');
 
 /** BID CORNER **/
 Route::get('bidCorner/invitationBid', 'SubNavController@invitationBid')->name('invitationBid');

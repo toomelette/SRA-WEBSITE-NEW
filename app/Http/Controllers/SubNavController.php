@@ -212,9 +212,14 @@ class SubNavController extends Controller
         return view('landingPage.businessOpportunities.powerCogeneration');
     }
 
+    public function researches(){
+        return view('landingPage.aboutSugarcane.researches');
+    }
+
     public function sugarcaneVarieties(){
         return view('landingPage.aboutSugarcane.sugarcaneVarieties');
     }
+
 
     ////SIDA//////////
     public function sidaUpdates(){
