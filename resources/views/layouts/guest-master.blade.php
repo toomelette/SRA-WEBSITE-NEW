@@ -162,7 +162,7 @@
                 <tr>
                     <td>Weekly Comparative Production</td>
                   @foreach($weekly_comparative_production as $WCP)
-                    <td style="color: green"><a target="_blank" href="/home/sra_website/{!! $WCP->path !!}">{{carbon::parse($WCP->date)->format('F j, Y')}}</a></td>
+                    <td class="text-success"><a target="_blank" href="/home/sra_website/{!! $WCP->path !!}">{{carbon::parse($WCP->date)->format('F j, Y')}}</a></td>
                     @endforeach
                 </tr>
                 <tr>
@@ -293,22 +293,22 @@
         <div class="row">
           <!-- Col end -->
 
-            <div class="container p-3 my-3 border">
-                <h1 style="text-align: center; color: whitesmoke; opacity: 0.712417;">Bulletin Board</h1>
-                <table class="table table-condensed text-justify" >
-                    <tr>
-                        <td style="color: whitesmoke">
-                          <p style="font-size: 20px;"> Notice To The Public.  &nbsp;<a  class="learn-more d-inline-block" target="_blank" href="{{asset("constra/files/BullitenBoard/NoticetoPublic.pdf")}}" aria-label="read-more"><i class="fa fa-caret-right"></i> Read more</a></p>
-                        </td>
-                    </tr>
+{{--            <div class="container p-3 my-3 border">--}}
+{{--                <h1 style="text-align: center; color: whitesmoke; opacity: 0.712417;">Bulletin Board</h1>--}}
+{{--                <table class="table table-condensed text-justify" >--}}
+{{--                    <tr>--}}
+{{--                        <td style="color: whitesmoke">--}}
+{{--                          <p style="font-size: 20px;"> Notice To The Public.  &nbsp;<a  class="learn-more d-inline-block" target="_blank" href="{{asset("constra/files/BullitenBoard/NoticetoPublic.pdf")}}" aria-label="read-more"><i class="fa fa-caret-right"></i> Read more</a></p>--}}
+{{--                        </td>--}}
+{{--                    </tr>--}}
 
-                    <tr>
-                        <td style="color: whitesmoke">
-                            <p style="font-size: 20px;">Notice of Invitation for Additional SPRO II Applicants in Regulation Department-Visayas. &nbsp;<a class="learn-more d-inline-block" target="_blank" href="{{asset("constra/files/BullitenBoard/Notice-of-invitation-for-SPRO-II-Vis.pdf")}}" aria-label="read-more"><i class="fa fa-caret-right"></i> Read more</a></p>
-                        </td>
-                    </tr>
+{{--                    <tr>--}}
+{{--                        <td style="color: whitesmoke">--}}
+{{--                            <p style="font-size: 20px;">Notice of Invitation for Additional SPRO II Applicants in Regulation Department-Visayas. &nbsp;<a class="learn-more d-inline-block" target="_blank" href="{{asset("constra/files/BullitenBoard/Notice-of-invitation-for-SPRO-II-Vis.pdf")}}" aria-label="read-more"><i class="fa fa-caret-right"></i> Read more</a></p>--}}
+{{--                        </td>--}}
+{{--                    </tr>--}}
 
-                </table>
+{{--                </table>--}}
 
 
             </div>
@@ -328,50 +328,71 @@
         <div class="col-6">
           <div class="row text-center">
             <div class="col-12">
-              <h3 class="section-sub-title">Recent News</h3>
+              <h3 class="section-sub-title">Bulletin Board</h3>
             </div>
           </div>
-          <div class="row" style="border-right-style: dotted;">
-            @php
-              $newsList = \App\Models\News::query()->get();
-              $newsImageList = [];
-            @endphp
-            @if(count($newsList) >0)
-              @foreach($newsList as $news)
-                @php
-                  $ldate = date('Y-m-d');
+          <div class="row facts-wrapper" style="border-right-style: dotted;" >
 
-                  if(Carbon::parse($news->date_start)->format('Y-m-d') <= $ldate && Carbon::parse($news->date_end)->format('Y-m-d') >= $ldate) {
-                       $newsImageList = \App\Models\NewsImage::query()->where('news_id','=',$news->slug)->orderByDesc('id')->limit(3)->get();
-                    }
-                @endphp
-                @foreach($newsImageList as $newsImage)
-                  @if($newsImageList->count()<2)
-                    <div class="col-lg-4 col-md-6 mb-4">
-                      <div class="latest-post">
-                        <div class="latest-post-media">
-                          <a href="" class="latest-post-img">
-                            <img loading="lazy" class="img-fluid" src="{{ url('home/sra_website/'.$newsImage->path) }}" alt="img">
-                          </a>
-                        </div>
-                        <div class="post-body">
-                          <h4 class="post-title">
-                            <a class="btn" onclick="viewNews('{!!$news->id!!}')" class="d-inline-block">{!!$news->title!!}</a>
-                          </h4>
-                          <div class="latest-post-meta">
-                      <span class="post-item-date">
-                        <i class="fa fa-clock-o"></i> {{Carbon::parse($news->date)->format('M|j|Y')}}
-                      </span>
-                          </div>
-                        </div>
-                      </div><!-- Latest post end -->
-                    </div><!-- 1st post col end -->
-                  @endif
-                @endforeach
-              @endforeach
-            @endif
+
+            <table class="table table-condensed text-justify" >
+              <tr>
+                <td class="">
+                  <b style="font-size: 20px; ">Notice To The Public.  &nbsp;<a  class="text-success" target="_blank" href="{{asset("constra/files/BullitenBoard/NoticetoPublic.pdf")}}" aria-label="read-more"><i class="fa fa-caret-right"></i> Read more</a></b>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <b style="font-size: 20px;">Notice of Invitation for Additional SPRO II Applicants in Regulation Department-Visayas. &nbsp;<a class="text-success" target="_blank" href="{{asset("constra/files/BullitenBoard/Notice-of-invitation-for-SPRO-II-Vis.pdf")}}" ><i class="fa fa-caret-right"></i> Read more</a></b>
+                </td>
+              </tr>
+
+              <tr><td></td></tr>
+
+            </table>
+
+
+
+{{--            @php--}}
+{{--              $newsList = \App\Models\News::query()->get();--}}
+{{--              $newsImageList = [];--}}
+{{--            @endphp--}}
+{{--            @if(count($newsList) >0)--}}
+{{--              @foreach($newsList as $news)--}}
+{{--                @php--}}
+{{--                  $ldate = date('Y-m-d');--}}
+
+{{--                  if(Carbon::parse($news->date_start)->format('Y-m-d') <= $ldate && Carbon::parse($news->date_end)->format('Y-m-d') >= $ldate) {--}}
+{{--                       $newsImageList = \App\Models\NewsImage::query()->where('news_id','=',$news->slug)->orderByDesc('id')->limit(3)->get();--}}
+{{--                    }--}}
+{{--                @endphp--}}
+{{--                @foreach($newsImageList as $newsImage)--}}
+{{--                  @if($newsImageList->count()<2)--}}
+{{--                    <div class="col-lg-4 col-md-6 mb-4">--}}
+{{--                      <div class="latest-post">--}}
+{{--                        <div class="latest-post-media">--}}
+{{--                          <a href="" class="latest-post-img">--}}
+{{--                            <img loading="lazy" class="img-fluid" src="{{ url('home/sra_website/'.$newsImage->path) }}" alt="img">--}}
+{{--                          </a>--}}
+{{--                        </div>--}}
+{{--                        <div class="post-body">--}}
+{{--                          <h4 class="post-title">--}}
+{{--                            <a class="btn" onclick="viewNews('{!!$news->id!!}')" class="d-inline-block">{!!$news->title!!}</a>--}}
+{{--                          </h4>--}}
+{{--                          <div class="latest-post-meta">--}}
+{{--                      <span class="post-item-date">--}}
+{{--                        <i class="fa fa-clock-o"></i> {{Carbon::parse($news->date)->format('M|j|Y')}}--}}
+{{--                      </span>--}}
+{{--                          </div>--}}
+{{--                        </div>--}}
+{{--                      </div><!-- Latest post end -->--}}
+{{--                    </div><!-- 1st post col end -->--}}
+{{--                  @endif--}}
+{{--                @endforeach--}}
+{{--              @endforeach--}}
+{{--            @endif--}}
             <div class="general-btn text-center mt-4">
-              <a class="btn btn-primary" href="">See All News</a>
+{{--              <a class="btn btn-primary" href="">See All News</a>--}}
             </div>
           </div>
         </div>
