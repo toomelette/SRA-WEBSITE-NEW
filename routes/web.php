@@ -129,7 +129,7 @@ Route::get('japan_npga/index', 'SubNavController@japan_npga')->name('japan_npga'
 
 /*Logo*/
 Route::get('citizensCharter/citizensCharter', 'SubNavController@citizensCharter')->name('citizensCharter');
-
+Route::get('ph_tp_seal/index', 'SubNavController@ph_tp_seal')->name('ph_tp_seal');
 
 
 

@@ -82,7 +82,7 @@
 
           <div class="col-md-2 col-sm-6 ts-facts mt-5 mt-sm-0">
             <div class="ts-facts-img">
-              <img loading="lazy" width="80%" src="{{asset('constra/images/SRA/Translogo.png')}}" alt="facts-img">
+              <a href="/ph_tp_seal/index"><img loading="lazy" width="80%" src="{{asset('constra/images/SRA/Translogo.png')}}" alt="facts-img"></a>
             </div>
 
           </div><!-- Col end -->

@@ -271,4 +271,8 @@ class SubNavController extends Controller
     public function citizensCharter(){
         return view('landingPage.citizensCharter.citizensCharter');
     }
+
+    public function ph_tp_seal(){
+        return view('landingPage.ph_tp_seal.index');
+    }
 }

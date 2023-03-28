@@ -51,8 +51,8 @@
 {{--                                            <li>GAD Laws and Policies <a style="color: #ffb600" href="constra/files/PagasaClimate Outlook/climateoutlook.pdf" target="_blank"> Read more… </a></li>--}}
 {{--                                        </ul>--}}
                     <h3>CLIMATE OUTLOOK MARCH-AUGUST 2023</h3>
-                    <embed style="border: 10px solid green" src="{{asset('constra/files/PagasaClimateOutlook/climateoutlook.pdf#toolbar=0')}}" width="100%" height="1000px"/>
-                    <a href="{{asset('constra/files/PagasaClimateOutlook/climateoutlook.pdf')}}" download class="btn btn-primary"> <i class="fa fa-download"></i>Download File</a>
+                    <embed style="border: 10px solid green" src="https://pubfiles.pagasa.dost.gov.ph/climps/climateforum/outlook.pdf#toolbar=0" width="100%" height="600"/>
+{{--                    <a href="{{asset('constra/files/PagasaClimateOutlook/climateoutlook.pdf')}}" download class="btn btn-primary"> <i class="fa fa-download"></i>Download File</a>--}}
 
                 </div>
             </div><!-- Content row end -->

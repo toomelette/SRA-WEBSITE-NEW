@@ -65,7 +65,7 @@
                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#our-values-accordion">
                                 <div class="card-body">
 
-                                    <embed style="border: 10px solid green;" src="{{asset('constra/files/ResearchesAbstract/ABSTRACT-OF-COMPLETED-RESEARCHES-(2022).pdf#toolbar=0')}}" width="100%" height="800px"/>
+                                    <embed style="border: 10px solid green;" src="{{asset('constra/files/ResearchesAbstract/ABSTRACT-OF-COMPLETED-RESEARCHES-(2022).pdf#toolbar=0')}}" width="100%" height="600px"/>
 {{--                                    <ol>--}}
 {{--                                        <li><u><a href="" style="color: #EA7919">Raw Sugar Production by Month, Area, Yield per Hectare</a></u> - 1st Qtr</li>--}}
 {{--                                        <li><u><a href="" style="color: #EA7919">Refined Sugar Production by Month</a></u> - 1st Qtr</li>--}}
@@ -88,7 +88,7 @@
                         </div>
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#our-values-accordion">
                                 <div class="card-body">
-                                    <embed style="border: 10px solid green;" src="{{asset('constra/files/ResearchesAbstract/ABSTRACT-OF-COMPLETED-RESEARCHES-(2021).pdf#toolbar=0')}}" width="100%" height="800px"/>
+                                    <embed style="border: 10px solid green;" src="{{asset('constra/files/ResearchesAbstract/ABSTRACT-OF-COMPLETED-RESEARCHES-(2021).pdf#toolbar=0')}}" width="100%" height="600px"/>
 
                                     {{--                                    <ol style="list-style-type: upper-alpha" class="text-justify">--}}
 {{--A--}}{{--                    <li>Variety Improvement and Pest Management</li>--}}
@@ -136,7 +136,7 @@
                             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#our-values-accordion">
                                 <div class="card-body">
 
-                                    <embed style="border: 10px solid green;" src="{{asset('constra/files/ResearchesAbstract/ABSTRACT-OF-COMPLETED-RESEARCHES-(2020).pdf#toolbar=0')}}" width="100%" height="800px"/>
+                                    <embed style="border: 10px solid green;" src="{{asset('constra/files/ResearchesAbstract/ABSTRACT-OF-COMPLETED-RESEARCHES-(2020).pdf#toolbar=0')}}" width="100%" height="600px"/>
 {{--                                    <h5>Downloadable Files</h5>--}}
 {{--                                    <ol>--}}
 {{--                                        <li><u><a href="" style="color: #EA7919">Raw Sugar Production by Month, Area, Yield per Hectare</a></u></li>--}}
