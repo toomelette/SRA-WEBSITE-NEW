@@ -24,7 +24,7 @@
 
   <div class="banner-carousel banner-carousel-1 mb-0">
 
-    <div class="banner-carousel-item" style="background-image:url({{asset('constra/images/slider-main/2023-NWMC.jpg')}})"></div>
+{{--    <div class="banner-carousel-item" style="background-image:url({{asset('constra/images/slider-main/2023-NWMC.jpg')}})"></div>--}}
 
     <div class="banner-carousel-item" style="background-image:url({{asset('constra/images/slider-main/Tubo-LGAREC3.jpg')}})">
       <div class="slider-content">
@@ -73,30 +73,30 @@
       <div class="action-style-box">
         <div class="row align-items-center">
 
-          <div class="col-md-2 col-sm-6 ts-facts">
+          <div class="col-md-2 col-sm-6 ml-4 ts-facts">
             <div class="ts-facts-img">
-              <a href="/citizensCharter/citizensCharter"><img loading="lazy" width="100%" src="{{asset('constra/images/SRA/CITIZEN-Charter-new300x241.png')}}" alt="facts-img"></a>
+              <a href="/citizensCharter/citizensCharter"><img loading="lazy" width="110%" src="{{asset('constra/images/SRA/sra_citizens_charter_logo.png')}}" alt="facts-img"></a>
             </div>
 
           </div><!-- Col end -->
 
-          <div class="col-md-2 col-sm-6 ts-facts mt-5 mt-sm-0">
+          <div class="col-md-2 col-sm-6 ts-facts mt-5 mt-sm-0 ml-4">
             <div class="ts-facts-img">
               <a href="/ph_tp_seal/index"><img loading="lazy" width="80%" src="{{asset('constra/images/SRA/Translogo.png')}}" alt="facts-img"></a>
             </div>
 
           </div><!-- Col end -->
 
-          <div class="col-md-2 col-sm-6 ts-facts mt-5 mt-md-0">
+          <div class="col-md-2 col-sm-6 ts-facts mt-5 mt-md-0 ml-4">
             <div class="ts-facts-img">
               <img loading="lazy" width="80%" src="{{asset('constra/images/SRA/GCG-logo.png')}}" alt="facts-img">
             </div>
 
           </div><!-- Col end -->
 
-          <div class="col-md-2 col-sm-6 ts-facts mt-5 mt-md-0">
+          <div class="col-md-2 col-sm-6 ts-facts mt-5 mt-md-0 ml-4">
             <div class="ts-facts-img">
-              <a href="https://www.foi.gov.ph/" target="_blank"><img loading="lazy" width="80%" src="{{asset('constra/images/SRA/foi_logo-300x300.png')}}" alt="facts-img"></a>
+              <a href="https://www.foi.gov.ph/" target="_blank"><img loading="lazy" width="85%" src="{{asset('constra/images/SRA/foi_logo-300x300.png')}}" alt="facts-img"></a>
             </div>
 
           </div>
@@ -109,11 +109,11 @@
 {{--            </div>--}}
 {{--          </div>--}}
 
-          <div class="col-md-2 col-sm-6 ts-facts mt-5 mt-md-0">
+          <div class="col-md-2 col-sm-6 ts-facts mt-5 mt-md-0 ml-4">
             <div class="ts-facts-img">
 {{--              <img loading="lazy" width="80%" src="{{asset('constra/images/SRA/japan-npga-300x112.png')}}" alt="facts-img">--}}
 
-              <img   loading="lazy" width="115%" src="{{asset('constra/images/SRA/SRA-ISO2-300x109.jpg')}}" alt="facts-img">
+              <img   loading="lazy" width="120%" src="{{asset('constra/images/SRA/SRA-ISO2-300x109.jpg')}}" alt="facts-img">
             </div>
 
           </div>
@@ -144,14 +144,14 @@
                 <tr>
                     <td style="width: 70%" >Sugar Supply and Demand Situation</td>
                   @php
-                    $latest_sugarSupplyDemand = \App\Models\SugarSupplyDemand::query()->orderby('created_at','desc')->first();
+                    $latest_sugarSupplyDemand = \App\Models\SugarSupplyDemand::query()->orderby('date','desc')->first();
                     $weekly_comparative_production = \App\Models\WeeklyComparativeProduction::query()->orderByDesc('date')->limit(1)->get();
-                    $sugarStatistics = \App\Models\SugarStatistics::query()->orderby('created_at','desc')->limit(1)->get();
-                    $metroManilaPrices = \App\Models\MetroManilaPrices::query()->orderBy('created_at', 'desc')->limit(1)->get();
-                    $millsitePrices = \App\Models\MillsitePrices::query()->orderBy('created_at', 'desc')->limit(1)->get();
-                    $bioethanolRF = \App\Models\BioethanolReferencePrice::query()->orderBy('created_at', 'desc')->limit(1)->get();
-                    $circularletter = \App\Models\CircularLetter::query()->orderByDesc('created_at')->limit(1)->get();
-                    $memorandomCercular = \App\Models\MemorandumCircular::query()->orderBy('id', 'asc')->limit(1)->get()
+                    $sugarStatistics = \App\Models\SugarStatistics::query()->orderby('date','desc')->limit(1)->get();
+                    $metroManilaPrices = \App\Models\MetroManilaPrices::query()->orderBy('date', 'desc')->limit(1)->get();
+                    $millsitePrices = \App\Models\MillsitePrices::query()->orderBy('date', 'desc')->limit(1)->get();
+                    $bioethanolRF = \App\Models\BioethanolReferencePrice::query()->orderBy('date', 'desc')->limit(1)->get();
+                    $circularletter = \App\Models\CircularLetter::query()->orderByDesc('date')->limit(1)->get();
+                    $memorandomCercular = \App\Models\MemorandumCircular::query()->orderBy('date', 'desc')->limit(1)->get()
                   @endphp
 
                   @if(! empty($latest_sugarSupplyDemand))
@@ -162,7 +162,7 @@
                 <tr>
                     <td>Weekly Comparative Production</td>
                   @foreach($weekly_comparative_production as $WCP)
-                    <td class="text-success"><a target="_blank" href="/home/sra_website/{!! $WCP->path !!}">{{carbon::parse($WCP->date)->format('F j, Y')}}</a></td>
+                    <td style="color: green"><a target="_blank" href="/home/sra_website/{!! $WCP->path !!}">{{carbon::parse($WCP->date)->format('F j, Y')}}</a></td>
                     @endforeach
                 </tr>
                 <tr>
@@ -175,21 +175,21 @@
                 <tr>
                     <td>Sugar Prices in Metro Manila</td>
                   @foreach($metroManilaPrices as $latest_MMP)
-                  <td style="color: green"><a href="">{{$latest_MMP->created_at}}</a></td>
+                  <td style="color: green"><a target="_blank" href="/home/sra_website/{!!$latest_MMP->path!!}">{{Carbon::parse($latest_MMP->date)->format('F j, Y')}}</a></td>
                   @endforeach
 
                 </tr>
                 <tr>
                     <td>Weekly Millsite Prices of Sugar and Molasses</td>
                   @foreach($millsitePrices as $latest_MSP)
-                  <td style="color: green"><a href="">{{$latest_MSP->date}}</a></td>
+                  <td style="color: green"><a target="_blank" href="/home/sra_website/{!!$latest_MSP->path!!}">{{Carbon::parse($latest_MSP->date)->format('F j, Y')}}</a></td>
                   @endforeach
 
                 </tr>
                 <tr>
                     <td>Bioethanol Reference Price</td>
                   @foreach($bioethanolRF as $latest_BRP)
-                    <td style="color: green"><a href="">{{$latest_BRP->date}}</a></td>
+                    <td style="color: green"><a target="_blank" href="/home/sra_website/{!!$latest_BRP->path!!}">{{Carbon::parse($latest_BRP->date)->format('F j, Y')}}</a></td>
                   @endforeach
 
                 </tr>

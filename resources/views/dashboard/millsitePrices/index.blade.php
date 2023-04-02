@@ -43,11 +43,12 @@
                 </div>
             </div>
             <div class="box-body">
-                <div id="millsite_prices_table_container" style="">
-                    <table class="table table-bordered table-striped table-hover" id="millsite_prices_table" style="width: 100% !important">
+                <div id="millSitePrices_table_container" style="">
+                    <table class="table table-bordered table-striped table-hover" id="millSitePrices_table" style="width: 100% !important">
                         <thead>
                         <tr class="">
                             <th width="10%" class="">Crop Year</th>
+                            <th width="10%" class="">Date</th>
                             <th width="20%" class="">File Title</th>
                             <th width="35%" class="">Title</th>
                             <th width="25%" class="">Path</th>
@@ -67,7 +68,6 @@
             </div>
         </div>
     </section>
-
 
 @endsection
 
@@ -104,13 +104,14 @@
             //Initialize DataTable
             modal_loader = $("#modal_loader").parent('div').html();
             active = '';
-            millsite_prices_tbl = $("#millsite_prices_table").DataTable({
+            sugar_supply_demand_tbl = $("#millSitePrices_table").DataTable({
                 'dom' : 'lBfrtip',
                 "processing": true,
                 "serverSide": true,
-                "ajax" : '{{ route("dashboard.millsitePrices.index") }}',
+                "ajax" : '{{ route("dashboard.millSitePrices.index") }}',
                 "columns": [
                     { "data": "crop_year" },
+                    { "data": "date"},
                     { "data": "file_title" },
                     { "data": "title" },
                     { "data": "path" },
@@ -131,7 +132,7 @@
                 "responsive": false,
                 "initComplete": function( settings, json ) {
                     $('#tbl_loader').fadeOut(function(){
-                        $("#millsite_prices_table_container").fadeIn();
+                        $("#millSitePrices_table_container").fadeIn();
                     });
                 },
                 "language":
@@ -150,8 +151,8 @@
             style_datatable("#millsite_prices_table");
 
             //Need to press enter to search
-            $('#millsite_prices_table_filter input').unbind();
-            $('#millsite_prices_table_filter input').bind('keyup', function (e) {
+            $('#millSitePrices_table_filter input').unbind();
+            $('#millSitePrices_table_filter input').bind('keyup', function (e) {
                 if (e.keyCode == 13) {
                     millsite_prices_tbl.search(this.value).draw();
                 }

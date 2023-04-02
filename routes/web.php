@@ -73,7 +73,7 @@ Route::get('pagasaClimateOutlook/pagasaCOL', 'FooterSubNavigationController@paga
 
 /** Industry Update **/
 Route::get('industryUpdate/sugarSupplyDemand', 'SubNavController@sugarSupplyDemand')->name('industryUpdate.sugarSupplyDemand');
-Route::get('industryUpdate/millsitePrices', 'SubNavController@millSitePrices')->name('industryUpdate.millsitePrices');
+Route::get('industryUpdate/millsitePrices', 'SubNavController@millsitePrices')->name('industryUpdate.millsitePrices');
 Route::get('industryUpdate/bioethanolReferencePrice', 'SubNavController@bioethanolReferencePrice')->name('industryUpdate.bioethanolReferencePrice');
 Route::get('industryUpdate/metroManilaPrices', 'SubNavController@metroManilaPrices')->name('industryUpdate.metroManilaPrices');
 Route::get('industryUpdate/sugarStatistics', 'SubNavController@sugarStatistics')->name('industryUpdate.sugarStatistics');
@@ -358,7 +358,7 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
     Route::resource('sugarSupplyDemand', 'SugarSupplyDemandController');
 
     /** Millsite Prices**/
-    Route::resource('millsitePrices', 'MillsitePricesController');
+    Route::resource('millSitePrices', 'MillSitePricesController');
 
     /** Bioethanol Reference Price Prices**/
     Route::resource('bioethanolReferencePrice', 'bioethanolRPController');

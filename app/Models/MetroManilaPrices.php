@@ -42,6 +42,7 @@ class MetroManilaPrices extends Model{
     protected $attributes = [
         'slug' => '',
         'crop_year_slug' => '',
+        'date' => null,
         'crop_year' => '',
         'file_title' => '',
         'title' => '',

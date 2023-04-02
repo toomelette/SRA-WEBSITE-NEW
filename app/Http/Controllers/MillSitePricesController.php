@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\MillsitePrices\MillSitePricesFormRequest;
 use App\Http\Requests\MillsitePrices\MillSitePricesFilterRequest;
+use App\Http\Requests\SugarSupplyDemand\SugarSupplyDemandFormRequest;
 use App\Models\MillSitePrices;
 use App\Models\CropYear;
+use App\Models\SugarSupplyDemand;
 use App\Swep\ViewHelpers\__html;
-use http\Message;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Yajra\DataTables\DataTables;
@@ -27,10 +28,10 @@ class MillSitePricesController extends Controller{
 
     public function index(){
         if(request()->ajax()){
-            $millsite_prices = MillsitePrices::query()->orderByDesc('crop_year');
+            $millsite_prices = MillSitePrices::query()->orderByDesc('crop_year');
             return DataTables::of($millsite_prices)
                 ->addColumn('action',function ($data){
-                    $destroy_route = "'".route("dashboard.millsitePrices.destroy","slug")."'";
+                    $destroy_route = "'".route("dashboard.millSitePrices.destroy","slug")."'";
                     $slug = "'".$data->slug."'";
                     return '<div class="btn-group">
 
@@ -47,14 +48,14 @@ class MillSitePricesController extends Controller{
                 ->escapeColumns([])
                 ->toJson();
         }
-        return view('dashboard.millsitePrices.index');
+        return view('dashboard.millSitePrices.index');
     }
 
 
 
     public function create(){
 
-        return view('dashboard.millsitePrices.create');
+        return view('dashboard.millSitePrices.create');
 
     }
 
@@ -62,19 +63,20 @@ class MillSitePricesController extends Controller{
 
     public function store(MillSitePricesFormRequest $request)
     {
-        $millSitePrices = new MillsitePrices();
-        $millSitePrices->slug = Str::random(15);
+        $millsitePrices = new MillSitePrices();
+        $millsitePrices->slug = Str::random(15);
         $cropYear = CropYear::query()->where('slug','=',$request->crop_year)->first();
-        $millSitePrices->crop_year_slug = $cropYear->slug;
-        $millSitePrices->crop_year = $cropYear->name;
-        $millSitePrices->file_title = $request->file_title;
-        $millSitePrices->title = $request->title;
+        $millsitePrices->crop_year_slug = $cropYear->slug;
+        $millsitePrices->crop_year = $cropYear->name;
+        $millsitePrices->date = $request->date;
+        $millsitePrices->file_title = $request->file_title;
+        $millsitePrices->title = $request->title;
 
         if (!empty($request->img_url)) {
             foreach ($request->file('img_url') as $file) {
                 $client_original_filename = $file->getClientOriginalName();
-                $path = 'millsite_prices/'. $millSitePrices->crop_year;
-                $millSitePrices->path = $path . '/' . $file->getClientOriginalName();
+                $path = 'millsite_prices/'. $millsitePrices->crop_year;
+                $millsitePrices->path = $path . '/' . $file->getClientOriginalName();
 
                 $original_ext = $file->getClientOriginalExtension();
                 $original_file_name_only = str_replace('.' . $original_ext, '', $file->getClientOriginalName());
@@ -84,8 +86,8 @@ class MillSitePricesController extends Controller{
                 $file->storeAs($path, $client_original_filename);
             }
         }
-        $millSitePrices->save();
-        return redirect('dashboard/millsitePrices/create');
+        $millsitePrices->save();
+        return redirect('dashboard/millSitePrices/index');
     }
 
 
@@ -113,12 +115,12 @@ class MillSitePricesController extends Controller{
     }
 
     public function destroy($slug){
-        $millsitePrices = MillsitePrices::query()->where('slug','=',$slug)->first();
+        $millsitePrices = MillSitePrices::query()->where('slug','=',$slug)->first();
         if(!empty($millsitePrices)){
             $millsitePrices->delete();
             return 1;
         }
-        abort(503,'Error deleting Millsite Prices. [MillsitePricesController::destroy]');
+        abort(503,'Error deleting Millsite Prices. [MillSitePricesController::destroy]');
         return 1;
 
         $millsitePrices = MillSitePrices::query()->find($slug);
@@ -128,6 +130,11 @@ class MillSitePricesController extends Controller{
         abort(503, 'Error deleting of Millsite Prices!');
 
         return $millsitePrices;
+    }
+
+    public function showLatest(){
+        $latestData = MillSitePrices::latest()->first();
+        return view('latest_data', ['data' =>$latestData]);
     }
 
 

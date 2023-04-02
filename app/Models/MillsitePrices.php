@@ -41,6 +41,7 @@ class MillsitePrices extends Model{
 
     protected $attributes = [
         'slug' => '',
+        'date' => null,
         'crop_year_slug' => '',
         'crop_year' => '',
         'file_title' => '',
@@ -53,5 +54,7 @@ class MillsitePrices extends Model{
         'user_created' => '',
         'user_updated' => '',
     ];
+
+
 
 }

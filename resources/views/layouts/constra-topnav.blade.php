@@ -36,14 +36,24 @@
     <div class="container">
       <div class="logo-area">
         <div class="row align-items-center">
-          <div class="col-lg-12">
-            <img loading="lazy" src="{{asset('constra/images/sra_head_logo_new.png')}}" alt="Logo">
-          </div>
-        </div><!-- logo area end -->
+          <div class="col-lg-12" >
+               <a href="/"><img loading="lazy" class="background-image" src="{{asset('constra/images/SRA/sra_head_logo_new.png')}}" alt="Logo"></a>
+{{--            <h3 align="text-center"> REPUBLIC OF THE PHILIPPINES</h3>--}}
+{{--            <h3>Department of Agriculture</h3>--}}
+{{--            <h1>SUGAR REGULATORY ADMINISTRATION</h1>--}}
 
+          </div>
+        </div><!-- logo area end -pure->
       </div><!-- Row end -->
     </div><!-- Container end -->
   </div>
+
+{{--    <div class="page-header" id="wrapper">--}}
+{{--      <div class="bg-text">--}}
+{{--        <h1> <img src="{{asset('constra/images/SRA/ph_seal_sra_logo.png')}}" id="img1" style="width:105px; height: 105px; margin-top:-12px; border-radius: 50%; margin-right: 60px;">REPUBLIC OF THE PHILIPPINES </h1>--}}
+{{--        <h1>jaslkdjkasjdklajdjakljasd</h1>--}}
+{{--      </div>--}}
+{{--    </div>--}}
 
   <div class="site-navigation" style="background-color: green">
     <div class="container">

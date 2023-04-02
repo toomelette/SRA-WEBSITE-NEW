@@ -23,8 +23,12 @@
 
           <div class="col-md-11">
             {!! __form::select_static2(
-              '12 year', 'year', 'Year:', '', \App\Swep\Helpers\Helper::year(), '', '', '', 'required'
+              '8 year', 'year', 'Year:', '', \App\Swep\Helpers\Helper::year(), '', '', '', 'required'
             ) !!}
+
+            {!! __form::textbox(
+            '4', 'date', 'date', 'Date *', '', old('date'), $errors->has('date'), $errors->first('date'), 'required'
+             ) !!}
 
             {!! __form::file(
              '4', 'img_url[]', 'Upload PDF *', $errors->has('img_url'), $errors->first('img_url'), 'required'

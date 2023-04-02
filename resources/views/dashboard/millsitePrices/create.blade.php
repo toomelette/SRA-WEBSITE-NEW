@@ -17,15 +17,17 @@
                 </div>
             </div>
             @csrf
-            <form id="millsitePricesForm" method="POST" autocomplete="off" enctype="multipart/form-data">
+            <form id="millSitePricesForm" method="POST" autocomplete="off" enctype="multipart/form-data">
 
                 <div class="box-body">
 
                     <div class="col-md-11">
 
-
                         {!! __form::select_static2(
-                        '12 crop_year', 'crop_year', 'Crop Year:', '', \App\Swep\Helpers\Helper::cropYear(), '', '', '', 'required'
+                        '8 crop_year', 'crop_year', 'Crop Year: *', '', \App\Swep\Helpers\Helper::cropYear(), '', '', '', 'required'
+                        ) !!}
+                        {!! __form::textbox(
+                          '4', 'date', 'date', 'Date *', '', old('date'), $errors->has('date'), $errors->first('date'), 'required'
                         ) !!}
 
                         {!! __form::file(
@@ -37,14 +39,14 @@
                         ) !!}
 
                         {!! __form::textbox(
-                          '8', 'title', 'text', 'Millsite Prices Title *', 'Millsite Prices Title', old('title'), $errors->has('title'), $errors->first('title'), 'required'
+                          '8', 'title', 'text', 'Title *', 'Title', old('title'), $errors->has('title'), $errors->first('title'), 'required'
                         ) !!}
 
                     </div>
                 </div>
 
                 <div class="box-footer">
-                    <button id="btnmillsitePrices" type="submit" class="btn btn-default">Save</button>
+                    <button id="btnMillSitePricesSubmit" type="submit" class="btn btn-default">Save</button>
                 </div>
 
             </form>
@@ -55,30 +57,16 @@
 
 @endsection
 
-
-
-
-
-@section('modals')
-
-@endsection
-
-
-
-
-
-
 @section('scripts')
 
     <script type="text/javascript">
-
-        $("#millsitePricesForm").submit(function (e) {
+        $("#millSitePricesForm").submit(function (e) {
             e.preventDefault();
             let form = $(this);
             let formData = new FormData(this);
             loading_btn(form);
             $.ajax({
-                url: "{{route('dashboard.millsitePrices.store')}}",
+                url: "{{route('dashboard.millSitePrices.store')}}",
                 type: 'POST',
                 data: new FormData(this),
                 processData: false,
@@ -88,7 +76,7 @@
                 },
                 success: function (res) {
                     $('form').trigger("reset");
-                    $('#btnmillsitePrices').removeAttr("disabled");
+                    $('#btnMillSitePricesSubmit').removeAttr("disabled");
                     Swal.fire({
                         title: 'Success!',
                         text: 'Millsite Prices successfully added!',
@@ -102,7 +90,6 @@
             })
         })
 
-
         $("#img_url").fileinput({
             theme: "fa",
             allowedFileExtensions: ["pdf", "jpeg", "jpg", "png", "txt"],
@@ -114,9 +101,6 @@
             browseClass: "btn btn-primary btn-md",
         });
         $(".kv-file-remove").hide();
-
-
-
     </script>
 
 @endsection

@@ -48,6 +48,7 @@
                         <thead>
                         <tr class="">
                             <th width="10%" class="">Crop Year</th>
+                            <th width="10%" class="">Date</th>
                             <th width="20%" class="">File Title</th>
                             <th width="35%" class="">Title</th>
                             <th width="25%" class="">Path</th>
@@ -110,6 +111,7 @@
                 "ajax" : '{{ route("dashboard.sugarSupplyDemand.index") }}',
                 "columns": [
                     { "data": "crop_year" },
+                    { "data": "date"},
                     { "data": "file_title" },
                     { "data": "title" },
                     { "data": "path" },
@@ -150,7 +152,7 @@
 
             //Need to press enter to search
             $('#sugar_supply_demand_table_filter input').unbind();
-            $('#sugar_supply_demandr_table_filter input').bind('keyup', function (e) {
+            $('#sugar_supply_demand_table_filter input').bind('keyup', function (e) {
                 if (e.keyCode == 13) {
                     sugar_supply_demand_tbl.search(this.value).draw();
                 }

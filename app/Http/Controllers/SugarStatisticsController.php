@@ -70,7 +70,7 @@ class SugarStatisticsController extends Controller{
         if (!empty($request->img_url)) {
             foreach ($request->file('img_url') as $file) {
                 $client_original_filename = $file->getClientOriginalName();
-                $path = 'sugar_law/'. $sugarStatistics->crop_year;
+                $path = 'sugar_statistics/'. $sugarStatistics->crop_year;
                 $sugarStatistics->path = $path . '/' . $file->getClientOriginalName();
 
                 $original_ext = $file->getClientOriginalExtension();

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Requests\WeeklyComparativeProduction\WeeklyComparativeProductionFilterRequest;
 use App\Http\Requests\WeeklyComparativeProduction\WeeklyComparativeProductionFormRequest;
 use App\Models\WeeklyComparativeProduction;

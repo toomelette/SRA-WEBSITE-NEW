@@ -62,7 +62,7 @@
                                 <h4>Series of {!!$cropYear->name!!}</h4>
                             @endif
                             @foreach ($bioethanol_reference_price as $bioethanolReferencePrice)
-                                @if($cropYear->slug == $milesitePrices->crop_year_slug)
+                                @if($cropYear->slug == $bioethanolReferencePrice->crop_year_slug)
                                     <ul>
                                         <li><a style="color: #ffb600" href="/home/sra_website/{!!$bioethanolReferencePrice->path!!}" target="_blank">{!!$bioethanolReferencePrice->file_title!!}, </a>{!!$bioethanolReferencePrice->title!!}</li>
                                     </ul>

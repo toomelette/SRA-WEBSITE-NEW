@@ -43,7 +43,7 @@ class SugarStatistics extends Model{
         'slug' => '',
         'crop_year_slug' => '',
         'crop_year' => '',
-        'date' => 'null',
+        'date' => null,
         'file_title' => '',
         'title' => '',
         'path' => '',
