@@ -336,13 +336,17 @@
             <table class="table table-condensed text-justify" >
               <tr>
                 <td class="">
+                  <a href="{{asset("constra/files/BullitenBoard/NoticetoPublic.pdf")}}" target="_blank"><img loading="lazy" class="testimonial-thumb" src="{{asset('constra/images/pin.png')}}" alt=""></a>
                   <b style="font-size: 20px; ">Notice To The Public.  &nbsp;<a  class="text-success" target="_blank" href="{{asset("constra/files/BullitenBoard/NoticetoPublic.pdf")}}" aria-label="read-more"><i class="fa fa-caret-right"></i> Read more</a></b>
                 </td>
               </tr>
 
+
+
               <tr>
                 <td>
-                  <b style="font-size: 20px;">Notice of Invitation for Additional SPRO II Applicants in Regulation Department-Visayas. &nbsp;<a class="text-success" target="_blank" href="{{asset("constra/files/BullitenBoard/Notice-of-invitation-for-SPRO-II-Vis.pdf")}}" ><i class="fa fa-caret-right"></i> Read more</a></b>
+                  <a href="{{asset("constra/files/BullitenBoard/Notice-of-invitation-for-SPRO-II-Vis.pdf")}}" target="_blank"><img loading="lazy" class="testimonial-thumb" src="{{asset('constra/images/pin.png')}}" alt=""></a>
+                  <b style="font-size: 20px;">Notice of Invitation for Additional SPRO II Applicants in Regulation Department-Visayas. &nbsp; &nbsp;<a class="text-success" target="_blank" href="{{asset("constra/files/BullitenBoard/Notice-of-invitation-for-SPRO-II-Vis.pdf")}}" ><i class="fa fa-caret-right"></i> Read more</a></b>
                 </td>
               </tr>
 
