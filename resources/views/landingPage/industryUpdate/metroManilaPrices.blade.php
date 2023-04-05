@@ -46,6 +46,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
+
                     <p>
                     @php
                         $metro_manila_prices = \App\Models\MetroManilaPrices::query()->get()->sortByDesc('id');
@@ -59,18 +60,69 @@
                     @if(count($metro_manila_prices) > 0)
                         @foreach($crop_year as $cropYear)
                             @if(in_array($cropYear->name, $clYearList))
-                                <h4>Series of {!!$cropYear->name!!}</h4>
-                            @endif
-                            @foreach ($metro_manila_prices as $metroManilaPrices)
+
+                                <div class="accordion accordion-group" id="our-values-accordion">
+                                    <div class="card">
+                                        <div class="card-header p-0 bg-transparent" id="heading1">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-block text-left {{($loop->iteration != 1) ? 'collapsed'  : ''}}" type="button" data-toggle="collapse" data-target="#collapse_{{$cropYear->slug}}" aria-expanded="{{($loop->iteration == 1) ? 'true'  : 'false'}}" aria-controls="collapse1">
+                                                    METRO MANILA PRICE {!!$cropYear->name!!}
+                                                </button>
+
+                                            </h2>
+                                        </div>
+                                        <div id="collapse_{{$cropYear->slug}}" class="collapse {{($loop->iteration == 1) ? 'show'  : ''}}" aria-labelledby="heading1" data-parent="#our-values-accordion" style="">
+                                            <div class="card-body">
+                                                <ul>
+                                                    @foreach ($metro_manila_prices as $metroManilaPrices)
+                                                        @if($cropYear->slug == $metroManilaPrices->crop_year_slug)
+                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/home/sra_website/{!!$metroManilaPrices->path!!}" >{!!$metroManilaPrices->file_title!!},</a>{!!$metroManilaPrices->title!!}</a></li>
+                                                        @endif
+                                                    @endforeach
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                @endif
+                                @foreach ($metro_manila_prices as $metroManilaPrices)
                                 @if($cropYear->slug == $metroManilaPrices->crop_year_slug)
-                                    <ul>
-                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$metroManilaPrices->path!!}" target="_blank">{!!$metroManilaPrices->file_title!!}, </a>{!!$metroManilaPrices->title!!}</li>
-                                    </ul>
-                                    @endif
-                                    @endforeach
-                                    @endforeach
-                                    @endif
-                                    </p>
+
+                                @endif
+                                @endforeach
+                                @endforeach
+                                @endif
+                                </p>
+
+
+{{--                    <p>--}}
+{{--                    @php--}}
+{{--                        $metro_manila_prices = \App\Models\MetroManilaPrices::query()->get()->sortByDesc('id');--}}
+{{--                        $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');--}}
+{{--                        $clYearList = array();--}}
+{{--                        foreach($metro_manila_prices as $cl){--}}
+{{--                          array_push($clYearList, $cl->crop_year);--}}
+{{--                        }--}}
+{{--                        $clYearList = array_unique($clYearList);--}}
+{{--                    @endphp--}}
+{{--                    @if(count($metro_manila_prices) > 0)--}}
+{{--                        @foreach($crop_year as $cropYear)--}}
+{{--                            @if(in_array($cropYear->name, $clYearList))--}}
+{{--                                <h4>Series of {!!$cropYear->name!!}</h4>--}}
+{{--                            @endif--}}
+{{--                            @foreach ($metro_manila_prices as $metroManilaPrices)--}}
+{{--                                @if($cropYear->slug == $metroManilaPrices->crop_year_slug)--}}
+{{--                                    <ul>--}}
+{{--                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$metroManilaPrices->path!!}" target="_blank">{!!$metroManilaPrices->file_title!!}, </a>{!!$metroManilaPrices->title!!}</li>--}}
+{{--                                    </ul>--}}
+{{--                                    @endif--}}
+{{--                                    @endforeach--}}
+{{--                                    @endforeach--}}
+{{--                                    @endif--}}
+{{--                                    </p>--}}
                 </div><!-- Col end -->
             </div><!-- Content row end -->
 

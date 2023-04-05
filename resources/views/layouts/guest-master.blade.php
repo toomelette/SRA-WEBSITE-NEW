@@ -137,7 +137,6 @@
       <div class="row">
         <div class="col-lg-6">
           <div class="ts-intro">
-
             <div class="container">
               <h4 style="font-size: 32px;" class="section-sub-title">Latest Industry Updates</h4>
               <table class="table table-condensed text-justify" style="width: 100%">

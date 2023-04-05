@@ -66,6 +66,7 @@ class CircularLetterController extends Controller{
         $cropYear = CropYear::query()->where('slug','=',$request->crop_year)->first();
         $circularLetter->crop_year_slug = $cropYear->slug;
         $circularLetter->crop_year = $cropYear->name;
+        $circularLetter->date = $request->date;
         $circularLetter->file_title = $request->file_title;
         $circularLetter->title = $request->title;
 

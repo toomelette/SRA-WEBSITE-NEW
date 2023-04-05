@@ -59,13 +59,37 @@
                     @if(count($sugar_supply_demand) > 0)
                         @foreach($crop_year as $cropYear)
                             @if(in_array($cropYear->name, $clYearList))
-                                <h4>Series of {!!$cropYear->name!!}</h4>
+
+                                <div class="accordion accordion-group" id="our-values-accordion">
+                                    <div class="card">
+                                        <div class="card-header p-0 bg-transparent" id="heading1">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-block text-left {{($loop->iteration != 1) ? 'collapsed'  : ''}}" type="button" data-toggle="collapse" data-target="#collapse_{{$cropYear->slug}}" aria-expanded="{{($loop->iteration == 1) ? 'true'  : 'false'}}" aria-controls="collapse1">
+                                                 SUGAR SUPPLY AND DEMAND SITUATION {!!$cropYear->name!!}
+                                                </button>
+
+                                            </h2>
+                                        </div>
+                                        <div id="collapse_{{$cropYear->slug}}" class="collapse {{($loop->iteration == 1) ? 'show'  : ''}}" aria-labelledby="heading1" data-parent="#our-values-accordion" style="">
+                                            <div class="card-body">
+                                                <ul>
+                                                    @foreach ($sugar_supply_demand as $sugarSupplyDemand)
+                                                        @if($cropYear->slug == $sugarSupplyDemand->crop_year_slug)
+                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/home/sra_website/{!!$sugarSupplyDemand->path!!}" >{!!$sugarSupplyDemand->file_title!!},</a>{!!$sugarSupplyDemand->title!!}</a></li>
+                                                        @endif
+                                                    @endforeach
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                             @endif
                             @foreach ($sugar_supply_demand as $sugarSupplyDemand)
                                 @if($cropYear->slug == $sugarSupplyDemand->crop_year_slug)
-                                    <ul>
-                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$sugarSupplyDemand->path!!}" target="_blank">{!!$sugarSupplyDemand->file_title!!},</a>{!!$sugarSupplyDemand->title!!}</li>
-                                    </ul>
+
                                     @endif
                                     @endforeach
                                     @endforeach
@@ -74,84 +98,11 @@
 
 
 
-                    <div class="accordion accordion-group" id="our-values-accordion">
-                    @php
-                        $sugar_supply_demand = \App\Models\SugarSupplyDemand::query()->get()->sortByDesc('id');
-                        $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');
-                        $clYearList = array();
-                        foreach($sugar_supply_demand as $cl){
-                          array_push($clYearList, $cl->crop_year);
-                        }
-                        $clYearList = array_unique($clYearList);
-                    @endphp
-                    @if(count($sugar_supply_demand) > 0)
-                        @foreach($crop_year as $cropYear)
-                            @if(in_array($cropYear->name, $clYearList))
-                                    @foreach ($sugar_supply_demand as $sugarSupplyDemand)
-                                        @if($cropYear->slug == $sugarSupplyDemand->crop_year_slug)
-                                    <div class="card">
-                                        <div class="card-header p-0 bg-transparent">
-                                            <h2 class="mb-0">
-                                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse{!!$cropYear->slug!!}" >
-                                                    SUGAR SUPPLY DEMAND SITUATION {!!$cropYear->name!!}
-                                                </button></h2></div>
-
-                            @endif
-
-                                  <div id="collapse{!!$cropYear->slug!!}" class="collapse" >
-                                     <div class="card-body">
-                                    <ul>
-                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$sugarSupplyDemand->path!!}" target="_blank">{!!$sugarSupplyDemand->file_title!!},</a>{!!$sugarSupplyDemand->title!!}</li>
-                                    </ul>
-                                         @endforeach
-                                         @endif
-                                    @endforeach
-                                    @endif
                                      </div>
                                   </div>
                              </div>
 
 
-
-{{--                        <div class="accordion accordion-group" id="our-values-accordion">--}}
-{{--                            @php--}}
-{{--                                    $navigation_not_main = \App\Models\Navigation::query()->where('is_main', '=', 0)->get();--}}
-{{--                                    $sugarSupplyDemandSeries=\App\Models\SugarSupplyDemand::query()->get()->sortByDesc('id');--}}
-{{--                                    $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');--}}
-{{--                                    $clYearList = array();--}}
-{{--                                foreach($sugar_supply_demand as $cl){--}}
-{{--                                  array_push($clYearList, $cl->crop_year);--}}
-{{--                                }--}}
-{{--                                  $clYearList = array_unique($clYearList);--}}
-{{--                            @endphp--}}
-{{--                            @if(count($sugarSupplyDemandSeries) > 0)--}}
-{{--                                @foreach ($sugarSupplyDemandSeries as $sugarSDS)--}}
-{{--                                    @foreach($crop_year as $cropYear)--}}
-{{--                                    <div class="card">--}}
-{{--                                        <div class="card-header p-0 bg-transparent" id="heading">--}}
-{{--                                            <h2 class="mb-0">--}}
-{{--                                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse{!!$sugarSDS->title!!}" aria-expanded="{{($sugarSDS->crop_year==1)?'true':'false'}}" aria-controls="collapse{!!$sugarSDS->crop_year!!}">--}}
-{{--                                                    SUGAR SUPPLY DEMAND SITUATION {!!$sugarSDS->crop_year!!}--}}
-{{--                                                </button>--}}
-{{--                                            </h2>--}}
-{{--                                        </div>--}}
-{{--                                        <div id="collapse{!!$sugarSDS->title!!}" class="collapse {{($sugarSDS->crop_year==1)?'':' '}}" aria-labelledby="heading{!!$sugarSDS->crop_year!!}" data-parent="#our-values-accordion">--}}
-{{--                                            <div class="card-body">--}}
-
-{{--                                                    <ul>--}}
-{{--                                                            --}}{{--                            <li><a class="btn" onclick="viewNav('{!!$Snav_not_main->route!!}')">{!!$Snav_not_main->name!!}</a></li>--}}
-{{--                                                            <li class="text-justify"><a class="btn" target="_blank" href="/home/sra_website/{!! $sugarSDS->path!!}">{!!$sugarSDS->title!!}</a></li>--}}
-
-{{--                                                    </ul>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                    @endforeach--}}
-{{--                                    @endif--}}
-{{--                                @endforeach--}}
-{{--                            @endif--}}
-{{--                        </div>--}}
-{{--                        <!--/ Accordion end -->--}}
 
 
 

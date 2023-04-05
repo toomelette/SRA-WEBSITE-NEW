@@ -46,31 +46,50 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
+
                     <p>
                     @php
                         $crop_estimates = \App\Models\CropEstimates::query()->get()->sortByDesc('id');
-                        $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');
-                        $clYearList = array();
-                        foreach($crop_estimates as $cl){
-                          array_push($clYearList, $cl->crop_year);
-                        }
-                        $clYearList = array_unique($clYearList);
                     @endphp
                     @if(count($crop_estimates) > 0)
-                        @foreach($crop_year as $cropYear)
-                            @if(in_array($cropYear->name, $clYearList))
-                                <h4>Series of {!!$cropYear->name!!}</h4>
-                            @endif
-                            @foreach ($crop_estimates as &$cropEstimates)
-                                @if($cropYear->slug == $cropEstimates->crop_year_slug)
-                                    <ul>
-                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$cropEstimates->path!!}" target="_blank">{!!$cropEstimates->file_title!!}, </a>{!!$cropEstimates->title!!}</li>
-                                    </ul>
-                                    @endif
-                                    @endforeach
-                                    @endforeach
-                                    @endif
-                                    </p>
+                        <ul>
+                            <div class="row">
+                                @foreach ($crop_estimates as $cropEstimates)
+                                    <div class="col-6 mb-5">
+
+                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$cropEstimates->path!!}" target="_blank">
+                                                <img loading="lazy" class="testimonial-thumb" src="{{asset('constra/images/SRA/pdfDefault.gif')}}" alt="PDF LOGO"></a><br>{!!$cropEstimates->title!!}</li>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </ul>
+                        @endif
+                        </p>
+{{--                    <p>--}}
+{{--                    @php--}}
+{{--                        $crop_estimates = \App\Models\CropEstimates::query()->get()->sortByDesc('id');--}}
+{{--                        $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');--}}
+{{--                        $clYearList = array();--}}
+{{--                        foreach($crop_estimates as $cl){--}}
+{{--                          array_push($clYearList, $cl->crop_year);--}}
+{{--                        }--}}
+{{--                        $clYearList = array_unique($clYearList);--}}
+{{--                    @endphp--}}
+{{--                    @if(count($crop_estimates) > 0)--}}
+{{--                        @foreach($crop_year as $cropYear)--}}
+{{--                            @if(in_array($cropYear->name, $clYearList))--}}
+{{--                                <h4>Series of {!!$cropYear->name!!}</h4>--}}
+{{--                            @endif--}}
+{{--                            @foreach ($crop_estimates as &$cropEstimates)--}}
+{{--                                @if($cropYear->slug == $cropEstimates->crop_year_slug)--}}
+{{--                                    <ul>--}}
+{{--                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$cropEstimates->path!!}" target="_blank">{!!$cropEstimates->file_title!!}, </a>{!!$cropEstimates->title!!}</li>--}}
+{{--                                    </ul>--}}
+{{--                                    @endif--}}
+{{--                                    @endforeach--}}
+{{--                                    @endforeach--}}
+{{--                                    @endif--}}
+{{--                                    </p>--}}
                 </div><!-- Col end -->
             </div><!-- Content row end -->
 

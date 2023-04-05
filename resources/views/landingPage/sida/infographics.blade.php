@@ -44,34 +44,42 @@
 
     <section id="main-container" class="main-container">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>
-                    @php
-                        $infographics = \App\Models\SidaUpdates::query()->get()->sortByDesc('id');
-                        $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');
-                        $clYearList = array();
-                        foreach($infographics as $cl){
-                          array_push($clYearList, $cl->crop_year);
-                          array_push($clYearList, $cl->crop_year);
-                        }
-                        $clYearList = array_unique($clYearList);
-                    @endphp
-                    @if(count($infographics) > 0)
-                        @foreach($crop_year as $cropYear)
-                            @if(in_array($cropYear->name, $clYearList))
-                                <h4>Series of {!!$cropYear->name!!}</h4>
-                            @endif
-                            @foreach ($infographics as $infogRaphics)
-                                @if($cropYear->slug == $infogRaphics->crop_year_slug)
-                                    <ul>
-                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$infogRaphics->path!!}" target="_blank">{!!$infogRaphics->file_title!!}, </a>{!!$infogRaphics->title!!}</li>
-                                    </ul>
-                                    @endif
-                                    @endforeach
-                                    @endforeach
-                                    @endif
-                                    </p>
+            <div class="">
+                    <div class="col-lg-12">
+                    <embed style="border: 3px solid green;"  src="{{asset('constra/files/ResearchesAbstract/ABSTRACT-OF-COMPLETED-RESEARCHES-(2022).pdf#toolbar=0')}}" width="100%" height="400"/>sdada
+                    <embed style="border: 3px solid green;" src="{{asset('constra/files/ResearchesAbstract/ABSTRACT-OF-COMPLETED-RESEARCHES-(2022).pdf#toolbar=0')}}" width="100%" height="400px"/>
+                    </div>
+
+
+
+
+
+{{--                    <p>--}}
+{{--                    @php--}}
+{{--                        $infographics = \App\Models\SidaUpdates::query()->get()->sortByDesc('id');--}}
+{{--                        $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');--}}
+{{--                        $clYearList = array();--}}
+{{--                        foreach($infographics as $cl){--}}
+{{--                          array_push($clYearList, $cl->crop_year);--}}
+{{--                          array_push($clYearList, $cl->crop_year);--}}
+{{--                        }--}}
+{{--                        $clYearList = array_unique($clYearList);--}}
+{{--                    @endphp--}}
+{{--                    @if(count($infographics) > 0)--}}
+{{--                        @foreach($crop_year as $cropYear)--}}
+{{--                            @if(in_array($cropYear->name, $clYearList))--}}
+{{--                                <h4>Series of {!!$cropYear->name!!}</h4>--}}
+{{--                            @endif--}}
+{{--                            @foreach ($infographics as $infogRaphics)--}}
+{{--                                @if($cropYear->slug == $infogRaphics->crop_year_slug)--}}
+{{--                                    <ul>--}}
+{{--                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$infogRaphics->path!!}" target="_blank">{!!$infogRaphics->file_title!!}, </a>{!!$infogRaphics->title!!}</li>--}}
+{{--                                    </ul>--}}
+{{--                                    @endif--}}
+{{--                                    @endforeach--}}
+{{--                                    @endforeach--}}
+{{--                                    @endif--}}
+{{--                                    </p>--}}
                 </div><!-- Col end -->
             </div><!-- Content row end -->
 

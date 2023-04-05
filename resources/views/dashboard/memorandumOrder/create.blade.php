@@ -23,7 +23,7 @@
 
           <div class="col-md-11">
             {!! __form::select_static2(
-              '12 year', 'year', 'Year:', '', \App\Swep\Helpers\Helper::year(), '', '', '', 'required'
+              '12 year', 'year', 'Year: *', '', \App\Swep\Helpers\Helper::year(), '', '', '', 'required'
             ) !!}
 
             {!! __form::file(

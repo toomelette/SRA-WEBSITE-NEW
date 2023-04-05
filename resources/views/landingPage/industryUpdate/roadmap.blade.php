@@ -46,31 +46,51 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
+
                     <p>
                     @php
                         $road_map = \App\Models\RoadMap::query()->get()->sortByDesc('id');
-                        $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');
-                        $clYearList = array();
-                        foreach($road_map as $cl){
-                          array_push($clYearList, $cl->crop_year);
-                        }
-                        $clYearList = array_unique($clYearList);
                     @endphp
                     @if(count($road_map) > 0)
-                        @foreach($crop_year as $cropYear)
-                            @if(in_array($cropYear->name, $clYearList))
-                                <h4>Series of {!!$cropYear->name!!}</h4>
-                            @endif
-                            @foreach ($road_map as $roadMap)
-                                @if($cropYear->slug == $roadMap->crop_year_slug)
-                                    <ul>
-                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$roadMap->path!!}" target="_blank">{!!$roadMap->file_title!!}, </a>{!!$roadMap->title!!}</li>
-                                    </ul>
-                                    @endif
-                                    @endforeach
-                                    @endforeach
-                                    @endif
-                                    </p>
+                        <ul>
+                            <div class="row">
+                                @foreach ($road_map as $roadMap)
+                                    <div class="col-6 mb-5">
+
+                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$roadMap->path!!}" target="_blank">
+                                                <img loading="lazy" class="testimonial-thumb" src="{{asset('constra/images/SRA/pdfDefault.gif')}}" alt="PDF LOGO"></a><br>{!!$roadMap->title!!}</li>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </ul>
+                        @endif
+                        </p>
+
+{{--                    <p>--}}
+{{--                    @php--}}
+{{--                        $road_map = \App\Models\RoadMap::query()->get()->sortByDesc('id');--}}
+{{--                        $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');--}}
+{{--                        $clYearList = array();--}}
+{{--                        foreach($road_map as $cl){--}}
+{{--                          array_push($clYearList, $cl->crop_year);--}}
+{{--                        }--}}
+{{--                        $clYearList = array_unique($clYearList);--}}
+{{--                    @endphp--}}
+{{--                    @if(count($road_map) > 0)--}}
+{{--                        @foreach($crop_year as $cropYear)--}}
+{{--                            @if(in_array($cropYear->name, $clYearList))--}}
+{{--                                <h4>Series of {!!$cropYear->name!!}</h4>--}}
+{{--                            @endif--}}
+{{--                            @foreach ($road_map as $roadMap)--}}
+{{--                                @if($cropYear->slug == $roadMap->crop_year_slug)--}}
+{{--                                    <ul>--}}
+{{--                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$roadMap->path!!}" target="_blank">{!!$roadMap->file_title!!}, </a>{!!$roadMap->title!!}</li>--}}
+{{--                                    </ul>--}}
+{{--                                    @endif--}}
+{{--                                    @endforeach--}}
+{{--                                    @endforeach--}}
+{{--                                    @endif--}}
+{{--                                    </p>--}}
                 </div><!-- Col end -->
             </div><!-- Content row end -->
 
