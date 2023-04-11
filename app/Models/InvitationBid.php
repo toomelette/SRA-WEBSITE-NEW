@@ -29,11 +29,11 @@ class InvitationBid extends Model{
 
     protected $table = 'invitation_bid';
 
-    protected $dates = ['created_at', 'updated_at'];
+    protected $dates = ['created_at', 'updated_at', 'date'];
 
     public $timestamps = true;
 
-    protected static $logName = 'invitationBid';
+    protected static $logName = 'invitation_bid';
     protected static $logAttributes = ['*'];
     protected static $ignoreChangedAttributes = ['updated_at','ip_updated','user_updated'];
     protected static $logOnlyDirty = true;
@@ -41,6 +41,7 @@ class InvitationBid extends Model{
 
     protected $attributes = [
         'slug' => '',
+        'date' => null,
         'crop_year_slug' => '',
         'crop_year' => '',
         'file_title' => '',
@@ -53,5 +54,7 @@ class InvitationBid extends Model{
         'user_created' => '',
         'user_updated' => '',
     ];
+
+
 
 }

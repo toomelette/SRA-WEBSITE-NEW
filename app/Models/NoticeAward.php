@@ -33,7 +33,7 @@ class NoticeAward extends Model{
 
     public $timestamps = true;
 
-    protected static $logName = 'noticeAward';
+    protected static $logName = 'notice_award';
     protected static $logAttributes = ['*'];
     protected static $ignoreChangedAttributes = ['updated_at','ip_updated','user_updated'];
     protected static $logOnlyDirty = true;
@@ -43,6 +43,7 @@ class NoticeAward extends Model{
         'slug' => '',
         'crop_year_slug' => '',
         'crop_year' => '',
+        'date' => null,
         'file_title' => '',
         'title' => '',
         'path' => '',

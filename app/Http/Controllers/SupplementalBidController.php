@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\SugarSupplyDemand\SugarSupplyDemandFormRequest;
-use App\Http\Requests\SugarSupplyDemand\SugarSupplyDemandFilterRequest;
-use App\Models\SugarSupplyDemand;
+use App\Http\Requests\SupplementalBid\SupplementalBidFormRequest;
+use App\Http\Requests\SupplementalBid\SupplementalBidFilterRequest;
+use App\Models\SupplementalBid;
 use App\Models\CropYear;
 use App\Swep\ViewHelpers\__html;
 use Carbon\Carbon;
@@ -13,7 +13,7 @@ use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Auth;
 
 
-class SugarSupplyDemandController extends Controller{
+class SupplementalBidController extends Controller{
 
     protected $news;
 
@@ -26,10 +26,10 @@ class SugarSupplyDemandController extends Controller{
 
     public function index(){
         if(request()->ajax()){
-            $sugar_supply_demand = SugarSupplyDemand::query()->orderByDesc('crop_year');
-            return DataTables::of($sugar_supply_demand)
+            $supplemental_bid = SupplementalBid::query()->orderByDesc('crop_year');
+            return DataTables::of($supplemental_bid)
                 ->addColumn('action',function ($data){
-                    $destroy_route = "'".route("dashboard.sugarSupplyDemand.destroy","slug")."'";
+                    $destroy_route = "'".route("dashboard.supplementalBid.destroy","slug")."'";
                     $slug = "'".$data->slug."'";
                     return '<div class="btn-group">
 
@@ -46,35 +46,35 @@ class SugarSupplyDemandController extends Controller{
                 ->escapeColumns([])
                 ->toJson();
         }
-        return view('dashboard.sugarSupplyDemand.index');
+        return view('dashboard.supplementalBid.index');
     }
 
 
 
     public function create(){
 
-        return view('dashboard.sugarSupplyDemand.create');
+        return view('dashboard.supplementalBid.create');
 
     }
 
 
 
-    public function store(SugarSupplyDemandFormRequest $request)
+    public function store(SupplementalBidFormRequest $request)
     {
-        $sugarSupplyDemand = new SugarSupplyDemand();
-        $sugarSupplyDemand->slug = Str::random(15);
+        $supplementalBid = new SupplementalBid();
+        $supplementalBid->slug = Str::random(15);
         $cropYear = CropYear::query()->where('slug','=',$request->crop_year)->first();
-        $sugarSupplyDemand->crop_year_slug = $cropYear->slug;
-        $sugarSupplyDemand->crop_year = $cropYear->name;
-        $sugarSupplyDemand->date = $request->date;
-        $sugarSupplyDemand->file_title = $request->file_title;
-        $sugarSupplyDemand->title = $request->title;
+        $supplementalBid->crop_year_slug = $cropYear->slug;
+        $supplementalBid->crop_year = $cropYear->name;
+        $supplementalBid->date = $request->date;
+        $supplementalBid->file_title = $request->file_title;
+        $supplementalBid->title = $request->title;
 
         if (!empty($request->img_url)) {
             foreach ($request->file('img_url') as $file) {
                 $client_original_filename = $file->getClientOriginalName();
-                $path = 'sugar_supply_demand/'. $sugarSupplyDemand->crop_year;
-                $sugarSupplyDemand->path = $path . '/' . $file->getClientOriginalName();
+                $path = 'supplemental_bid/'. $supplementalBid->crop_year;
+                $supplementalBid->path = $path . '/' . $file->getClientOriginalName();
 
                 $original_ext = $file->getClientOriginalExtension();
                 $original_file_name_only = str_replace('.' . $original_ext, '', $file->getClientOriginalName());
@@ -84,8 +84,8 @@ class SugarSupplyDemandController extends Controller{
                 $file->storeAs($path, $client_original_filename);
             }
         }
-        $sugarSupplyDemand->save();
-        return redirect('dashboard/sugarSupplyDemand/create');
+        $supplementalBid->save();
+        return redirect('dashboard/supplementalBid/create');
     }
 
 
@@ -99,7 +99,7 @@ class SugarSupplyDemandController extends Controller{
     }
 
 
-    public function update(SugarSupplyDemandFormRequest $request, $slug){
+    public function update(SupplementalBidFormRequest $request, $slug){
         $news = News::query()->where('slug',$slug)->first();
         $news->title = $request->title;
         $news->description = $request->description;
@@ -113,25 +113,25 @@ class SugarSupplyDemandController extends Controller{
     }
 
     public function destroy($slug){
-        $sugarSupplyDemand = SugarSupplyDemand::query()->where('slug','=',$slug)->first();
-        if(!empty($sugarSupplyDemand)){
-            $sugarSupplyDemand->delete();
+        $supplementalBid = SupplementalBid::query()->where('slug','=',$slug)->first();
+        if(!empty($supplementalBid)){
+            $supplementalBid->delete();
             return 1;
         }
-        abort(503,'Error deleting Sugar Supply Demand. [SugarSupplyDemandController::destroy]');
+        abort(503,'Error deleting Supplemental Bid. [SupplementalBidController::destroy]');
         return 1;
 
-        $sugarSupplyDemand = SugarSupplyDemand::query()->find($slug);
-        if ($sugarSupplyDemand->delete()){
+        $supplementalBid = SupplementalBid::query()->find($slug);
+        if ($supplementalBid->delete()){
             return 1;
         }
-        abort(503, 'Error deleting of Sugar Supply Demand!');
+        abort(503, 'Error deleting of Supplemental Bid!');
 
-        return $sugarSupplyDemand;
+        return $supplementalBid;
     }
 
     public function showLatest(){
-        $latestData = SugarSupplyDemand::latest()->first();
+        $latestData = SupplementalBid::latest()->first();
         return view('latest_data', ['data' =>$latestData]);
     }
 

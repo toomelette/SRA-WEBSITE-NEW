@@ -425,11 +425,19 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
     /** Bioenegy**/
     Route::resource('bioEnergy', 'BioEnergyController');
 
-//    /*Logo*/
-//    Route::get("citizensCharter/citizensCharterUpdate", 'CitizensCharterController@citizensCharter')->name('citizensCharter.citizensCharter');
-////    Route::get('/disbursement_voucher/user_index', 'DisbursementVoucherController@userIndex')->name('disbursement_voucher.user_index');
-//
-////    Route::resource('CitizenCharter', 'CitizenCharterController');
+    /** Invitation to Bid**/
+    Route::resource('invitationBid','InvitationBidController');
+
+    /** Supplemental Bid**/
+    Route::resource('supplementalBid','SupplementalBidController');
+
+    /** Notice of Award**/
+    Route::resource('noticeAward','NoticeAwardController');
+
+    /** Notice of Proceed**/
+    Route::resource('noticeProceed','NoticeProceedController');
+
+
 
 });
 
