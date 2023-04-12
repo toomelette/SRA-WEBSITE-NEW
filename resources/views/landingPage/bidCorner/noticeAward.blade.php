@@ -63,7 +63,7 @@
                                 <h4>Series of {!!$cropYear->name!!}</h4>
                             @endif
                             @foreach ($noticeAward as $notice_award)
-                                @if($cropYear->slug == $noticeAward->crop_year_slug)
+                                @if($cropYear->slug == $notice_award->crop_year_slug)
                                     <ul>
                                         <li><a style="color: #ffb600" href="/home/sra_website/{!!$notice_award->path!!}" target="_blank">{!!$notice_award->file_title!!}, </a>{!!$notice_award->title!!}</li>
                                     </ul>

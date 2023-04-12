@@ -46,8 +46,28 @@
         <div class="container">
             <div class="">
                     <div class="col-lg-12">
-                    <embed style="border: 3px solid green;"  src="{{asset('constra/files/ResearchesAbstract/ABSTRACT-OF-COMPLETED-RESEARCHES-(2022).pdf#toolbar=0')}}" width="100%" height="400"/>sdada
-                    <embed style="border: 3px solid green;" src="{{asset('constra/files/ResearchesAbstract/ABSTRACT-OF-COMPLETED-RESEARCHES-(2022).pdf#toolbar=0')}}" width="100%" height="400px"/>
+
+                        <h3>About Us</h3>
+                        <embed style="border: 3px solid green;"  src="{{asset('constra/files/SIDA/Sida_Infographics/About-SIDA.pdf#toolbar=0')}}" width="100%" height="600"/><br><br><br>
+
+                        <h3>SIDA Program Updates</h3>
+                        <embed style="border: 3px solid green;"  src="{{asset('constra/files/SIDA/Sida_Infographics/sida-program-updates-edited.pdf#toolbar=0')}}" width="100%" height="600"/><br><br><br>
+
+                        <h3>Socialized Credit Program</h3>
+                        <embed style="border: 3px solid green;"  src="{{asset('constra/files/SIDA/Sida_Infographics/SCP_Dec2020.pdf#toolbar=0')}}" width="100%" height="600"/><br><br><br>
+
+                        <h3>Scholarship Program</h3>
+                        <embed style="border: 3px solid green;"  src="{{asset('constra/files/SIDA/Sida_Infographics/Scholarship-Program.pdf#toolbar=0')}}" width="100%" height="600"/><br><br><br>
+
+                        <h3>RDE Program</h3>
+                        <embed style="border: 3px solid green;"  src="{{asset('constra/files/SIDA/Sida_Infographics/RDE-Program.pdf#toolbar=0')}}" width="100%" height="600"/><br><br><br>
+
+                        <h3>Infra Program</h3>
+                        <embed style="border: 3px solid green;"  src="{{asset('constra/files/SIDA/Sida_Infographics/Infra-Program.pdf#toolbar=0')}}" width="100%" height="600"/><br><br><br>
+
+                        <h3>Block Farm Program</h3>
+                        <embed style="border: 3px solid green;"  src="{{asset('constra/files/SIDA/Sida_Infographics/Block-Farm-Program.pdf#toolbar=0')}}" width="100%" height="600"/><br><br><br>
+
                     </div>
 
 

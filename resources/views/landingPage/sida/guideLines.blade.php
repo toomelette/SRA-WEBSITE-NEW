@@ -5,7 +5,7 @@
     <!-- Basic Page Needs
   ================================================== -->
     <meta charset="utf-8">
-    <title>Guide Lines | SRA</title>
+    <title>SIDA Guide Lines | SRA</title>
 
     <!-- Mobile Specific Metas
   ================================================== -->
@@ -28,11 +28,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="banner-heading">
-                            <h1 class="banner-title">Guide Lines</h1>
+                            <h1 class="banner-title">Sida Guide Lines</h1>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb justify-content-center">
                                     <li class="breadcrumb-item active" aria-current="page">SIDA</li>
-                                    <li class="breadcrumb-item active" aria-current="page">Guide Lines</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Sida Guide Lines</li>
                                 </ol>
                             </nav>
                         </div>
@@ -48,7 +48,7 @@
                 <div class="col-lg-12">
                     <p>
                     @php
-                        $guide_lines = \App\Models\SidaUpdates::query()->get()->sortByDesc('id');
+                        $guide_lines = \App\Models\SidaGuideLines::query()->get()->sortByDesc('id');
                         $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');
                         $clYearList = array();
                         foreach($guide_lines as $cl){

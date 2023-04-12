@@ -18,7 +18,7 @@ class MillSitePricesFormRequest extends FormRequest{
 
 
         $rules = [
-            'year'=>'required|string|max:45',
+            'crop_year'=>'required|string|max:45',
 
         ];
 

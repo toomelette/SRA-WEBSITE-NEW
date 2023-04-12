@@ -425,19 +425,23 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
     /** Bioenegy**/
     Route::resource('bioEnergy', 'BioEnergyController');
 
-    /** Invitation to Bid**/
+
+
+    /** Bid Corner**/
     Route::resource('invitationBid','InvitationBidController');
 
-    /** Supplemental Bid**/
     Route::resource('supplementalBid','SupplementalBidController');
 
-    /** Notice of Award**/
     Route::resource('noticeAward','NoticeAwardController');
 
-    /** Notice of Proceed**/
     Route::resource('noticeProceed','NoticeProceedController');
 
+    Route::resource('philgepsPosting','PhilgepsPostingController');
 
+    Route::resource('bidAnnouncement','bidAnnouncementController');
+
+    /** SIDA **/
+    Route::resource('sidaGuideLines','SidaGuideLinesController');
 
 });
 
