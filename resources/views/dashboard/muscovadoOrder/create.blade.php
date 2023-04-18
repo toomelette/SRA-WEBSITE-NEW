@@ -2,29 +2,32 @@
 
 @section('content')
 
-<section class="content-header">
-    <h1>Add Muscovado Order</h1>
-</section>
+  <section class="content-header">
+    <h1>Muscovado Order</h1>
+  </section>
 
-<section class="content">
-            
+  <section class="content">
+
     <div class="box">
-        
+
       <div class="box-header with-border">
         <h3 class="box-title">Form</h3>
         <div class="pull-right">
-            <code>Fields with asterisks(*) are required</code>
-        </div> 
+          <code>Fields with asterisks(*) are required</code>
+        </div>
       </div>
       @csrf
-      <form id="muscovadoOrderForm" method="POST" autocomplete="off" enctype="multipart/form-data">
+      <form id="MuscovadoOrderForm" method="POST" autocomplete="off" enctype="multipart/form-data">
 
         <div class="box-body">
 
           <div class="col-md-11">
 
             {!! __form::select_static2(
-            '12 crop_year', 'crop_year', 'Crop Year:', '', \App\Swep\Helpers\Helper::cropYear(), '', '', '', 'required'
+            '8 crop_year', 'crop_year', 'Crop Year: *', '', \App\Swep\Helpers\Helper::cropYear(), '', '', '', 'required'
+            ) !!}
+            {!! __form::textbox(
+              '4', 'date', 'date', 'Date *', '', old('date'), $errors->has('date'), $errors->first('date'), 'required'
             ) !!}
 
             {!! __form::file(
@@ -36,7 +39,7 @@
             ) !!}
 
             {!! __form::textbox(
-              '8', 'title', 'text', 'Muscovado Order Title *', 'Muscovado Order Title', old('title'), $errors->has('title'), $errors->first('title'), 'required'
+              '8', 'title', 'text', 'Title *', '', old('title'), $errors->has('title'), $errors->first('title'), 'required'
             ) !!}
 
           </div>
@@ -50,21 +53,14 @@
 
     </div>
 
-</section>
+  </section>
 
 @endsection
-
-
-@section('modals')
-
-@endsection
-
 
 @section('scripts')
 
   <script type="text/javascript">
-
-    $("#muscovadoOrderForm").submit(function (e) {
+    $("#MuscovadoOrderForm").submit(function (e) {
       e.preventDefault();
       let form = $(this);
       let formData = new FormData(this);
@@ -83,7 +79,7 @@
           $('#btnMuscovadoOrderSubmit').removeAttr("disabled");
           Swal.fire({
             title: 'Success!',
-            text: 'Muscovado Order successfully added!',
+            text: 'New Muscovado Order successfully added!',
             icon: 'success',
             confirmButtonText: 'Done'
           })
@@ -93,7 +89,6 @@
         }
       })
     })
-
 
     $("#img_url").fileinput({
       theme: "fa",
@@ -106,9 +101,6 @@
       browseClass: "btn btn-primary btn-md",
     });
     $(".kv-file-remove").hide();
-
-
-
   </script>
-    
+
 @endsection

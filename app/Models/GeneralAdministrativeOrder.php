@@ -42,6 +42,7 @@ class GeneralAdministrativeOrder extends Model {
     protected $attributes = [
         'slug' => '',
         'year' => '',
+        'date' => null,
         'file_title' => '',
         'title' => '',
         'path' => '',

@@ -6,6 +6,7 @@ use App\Http\Requests\MuscovadoOrder\MuscovadoOrderFilterRequest;
 use App\Http\Requests\MuscovadoOrder\MuscovadoOrderFormRequest;
 use App\Models\CropYear;
 use App\Models\MuscovadoOrder;
+use App\Models\SugarSupplyDemand;
 use App\Swep\ViewHelpers\__html;
 use Illuminate\Support\Str;
 use Yajra\DataTables\DataTables;
@@ -29,12 +30,12 @@ class MuscovadoOrderController extends Controller{
                 ->addColumn('action',function ($data){
                     $destroy_route = "'".route("dashboard.muscovadoOrder.destroy","slug")."'";
                     $slug = "'".$data->slug."'";
-//                    return '<div class="btn-group">
-//
-//                                <button type="button" onclick="delete_data('.$slug.','.$destroy_route.')" data="'.$data->slug.'" class="btn btn-sm btn-danger" data-toggle="tooltip" title="" data-placement="top" data-original-title="Delete">
-//                                    <i class="fa fa-trash"></i>
-//                                </button>
-//                            </div>';
+                    return '<div class="btn-group">
+
+                                <button type="button" onclick="delete_data('.$slug.','.$destroy_route.')" data="'.$data->slug.'" class="btn btn-sm btn-danger" data-toggle="tooltip" title="" data-placement="top" data-original-title="Delete">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>';
                     return '<div class="btn-group">
                                 
                                
@@ -64,6 +65,7 @@ class MuscovadoOrderController extends Controller{
         $cropYear = CropYear::query()->where('slug','=',$request->crop_year)->first();
         $muscovadoOrder->crop_year_slug = $cropYear->slug;
         $muscovadoOrder->crop_year = $cropYear->name;
+        $muscovadoOrder->date = $request->date;
         $muscovadoOrder->file_title = $request->file_title;
         $muscovadoOrder->title = $request->title;
 
@@ -97,7 +99,7 @@ class MuscovadoOrderController extends Controller{
         }
 
 
-        public function update(MolassesOrderFormRequest $request, $slug){
+        public function update(MuscovadoOrderFormRequest $request, $slug){
             $news = News::query()->where('slug',$slug)->first();
             $news->title = $request->title;
             $news->description = $request->description;
@@ -111,11 +113,28 @@ class MuscovadoOrderController extends Controller{
         }
 
 
-        public function destroy($slug){
-            $news = News::query()->where('slug',$slug)->first();
-            $news->delete();
+    public function destroy($slug){
+        $muscovadoOrder = MuscovadoOrder::query()->where('slug','=',$slug)->first();
+        if(!empty($muscovadoOrder)){
+            $muscovadoOrder->delete();
             return 1;
         }
+        abort(503,'Error deleting Muscovado Order. [MuscovadoOrderController::destroy]');
+        return 1;
+
+        $muscovadoOrder = MuscovadoOrder::query()->find($slug);
+        if ($muscovadoOrder->delete()){
+            return 1;
+        }
+        abort(503, 'Error deleting of Muscovado Order!');
+
+        return $muscovadoOrder;
+    }
+
+    public function showLatest(){
+        $latestData = MuscovadoOrder::Latest()->first();
+        return view('latest_data', ['data' =>$latestData]);
+    }
 
 
 

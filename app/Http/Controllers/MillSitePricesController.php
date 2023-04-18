@@ -87,7 +87,7 @@ class MillSitePricesController extends Controller{
             }
         }
         $millsitePrices->save();
-        return redirect('dashboard/millSitePrices/index');
+        return redirect('dashboard/millSitePrices/create');
     }
 
 

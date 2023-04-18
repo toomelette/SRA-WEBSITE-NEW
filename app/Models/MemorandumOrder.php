@@ -42,6 +42,8 @@ class MemorandumOrder extends Model{
     protected $attributes = [
         'slug' => '',
         'year' => '',
+        'year_slug' => '',
+        'date' => null,
         'file_title' => '',
         'title' => '',
         'path' => '',

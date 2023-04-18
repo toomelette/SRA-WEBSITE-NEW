@@ -24,7 +24,11 @@
                     <div class="col-md-11">
 
                         {!! __form::select_static2(
-                        '12 crop_year', 'crop_year', 'Crop Year:', '', \App\Swep\Helpers\Helper::cropYear(), '', '', '', 'required'
+                        '8 crop_year', 'crop_year', 'Crop Year:', '', \App\Swep\Helpers\Helper::cropYear(), '', '', '', 'required'
+                        ) !!}
+
+                        {!! __form::textbox(
+                          '4', 'date', 'date', 'Date *', '', old('date'), $errors->has('date'), $errors->first('date'), 'required'
                         ) !!}
 
                         {!! __form::file(

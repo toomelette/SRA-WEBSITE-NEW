@@ -46,7 +46,54 @@
         <div class="container">
             <div class="card">
                 <div class="col-lg-12">
-                    <a href="/ph_tp_seal/index"> <img src="{{asset('constra/images/pin.png')}}" height="50%" width="50%"></a>
+
+                    <!-- Gallery -->
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                            <a href=""><img
+                                    src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                                    class="w-100 shadow-1-strong rounded mb-4"
+                                    alt="Boat on Calm Water"
+                            /></a>
+
+                            <img
+                                    src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.webp"
+                                    class="w-100 shadow-1-strong rounded mb-4"
+                                    alt="Wintry Mountain Landscape"
+                            />
+                        </div>
+
+                        <div class="col-lg-4 mb-4 mb-lg-0">
+                            <img
+                                    src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
+                                    class="w-100 shadow-1-strong rounded mb-4"
+                                    alt="Mountains in the Clouds"
+                            />
+
+                            <img
+                                    src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                                    class="w-100 shadow-1-strong rounded mb-4"
+                                    alt="Boat on Calm Water"
+                            />
+                        </div>
+
+                        <div class="col-lg-4 mb-4 mb-lg-0">
+                            <img
+                                    src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).webp"
+                                    class="w-100 shadow-1-strong rounded mb-4"
+                                    alt="Waves at Sea"
+                            />
+
+                            <img
+                                    src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain3.webp"
+                                    class="w-100 shadow-1-strong rounded mb-4"
+                                    alt="Yosemite National Park"
+                            />
+                        </div>
+                    </div>
+                    <!-- Gallery -->
+
+{{--                    <a href="/ph_tp_seal/index"> <img src="{{asset('constra/images/pin.png')}}" height="50%" width="50%"></a>--}}
 {{--                        <div class="card-img-overlay">--}}
 {{--                            <div class="card-body text-dark">--}}
 {{--                                <p class="card-title display-1 font-weight-bolder">Sample</p>--}}

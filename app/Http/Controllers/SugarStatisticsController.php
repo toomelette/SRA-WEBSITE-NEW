@@ -63,6 +63,7 @@ class SugarStatisticsController extends Controller{
         $sugarStatistics->slug = Str::random(15);
         $cropYear = CropYear::query()->where('slug','=',$request->crop_year)->first();
         $sugarStatistics->crop_year_slug = $cropYear->slug;
+        $sugarStatistics->date = $request->date;
         $sugarStatistics->crop_year = $cropYear->name;
         $sugarStatistics->file_title = $request->file_title;
         $sugarStatistics->title = $request->title;

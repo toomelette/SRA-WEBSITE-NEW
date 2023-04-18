@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\OfficeCircular\OfficeCircularFormRequest;
 use App\Http\Requests\OfficeCircular\OfficeCircularFilterRequest;
 use App\Models\OfficeCircular;
+use App\Models\SugarSupplyDemand;
 use App\Models\Year;
 use App\Swep\ViewHelpers\__html;
 use Illuminate\Support\Str;
@@ -28,12 +29,12 @@ class OfficeCircularController extends Controller{
                 ->addColumn('action',function ($data){
                     $destroy_route = "'".route("dashboard.officeCircular.destroy","slug")."'";
                     $slug = "'".$data->slug."'";
-//                    return '<div class="btn-group">
-//
-//                                <button type="button" onclick="delete_data('.$slug.','.$destroy_route.')" data="'.$data->slug.'" class="btn btn-sm btn-danger" data-toggle="tooltip" title="" data-placement="top" data-original-title="Delete">
-//                                    <i class="fa fa-trash"></i>
-//                                </button>
-//                            </div>';
+                    return '<div class="btn-group">
+
+                                <button type="button" onclick="delete_data('.$slug.','.$destroy_route.')" data="'.$data->slug.'" class="btn btn-sm btn-danger" data-toggle="tooltip" title="" data-placement="top" data-original-title="Delete">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>';
                     return '<div class="btn-group">
                                 
                                
@@ -60,7 +61,9 @@ class OfficeCircularController extends Controller{
         $officeCircular = new OfficeCircular();
         $officeCircular->slug = Str::random(15);
         $year = Year::query()->where('slug','=',$request->year)->first();
+        $officeCircular->year_slug = $year->slug;
         $officeCircular->year = $year->name;
+        $officeCircular->date = $request->date;
         $officeCircular->file_title = $request->file_title;
         $officeCircular->title = $request->title;
 
@@ -108,11 +111,28 @@ class OfficeCircularController extends Controller{
         }
 
 
-        public function destroy($slug){
-            $news = MemorandumOrder::query()->where('slug',$slug)->first();
-            $news->delete();
+    public function destroy($slug){
+        $officeCircular = OfficeCircular::query()->where('slug','=',$slug)->first();
+        if(!empty($officeCircular)){
+            $officeCircular->delete();
             return 1;
         }
+        abort(503,'Error deleting Office Circular. [OfficeCircularController::destroy]');
+        return 1;
+
+        $officeCircular = OfficeCircular::query()->find($slug);
+        if ($officeCircular->delete()){
+            return 1;
+        }
+        abort(503, 'Error deleting of Office Circular!');
+
+        return $officeCircular;
+    }
+
+    public function showLatest(){
+        $latestData = OfficeCircular::latest()->first();
+        return view('latest_data', ['data' =>$latestData]);
+    }
 
 
 

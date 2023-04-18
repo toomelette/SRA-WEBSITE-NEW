@@ -39,7 +39,7 @@
                         ) !!}
 
                         {!! __form::textbox(
-                          '8', 'title', 'text', 'Title *', 'Title', old('title'), $errors->has('title'), $errors->first('title'), 'required'
+                          '8', 'title', 'text', 'Title *', '', old('title'), $errors->has('title'), $errors->first('title'), 'required'
                         ) !!}
 
                     </div>

@@ -48,7 +48,7 @@
                 <div class="col-lg-12">
                     <p>
                     @php
-                        $laws = \App\Models\Laws::query()->get()->sortByDesc('id');
+                        $laws = \App\Models\SidaLaws::query()->get()->sortByDesc('id');
                         $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');
                         $clYearList = array();
                         foreach($laws as $cl){

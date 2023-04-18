@@ -65,6 +65,7 @@ class SugarLawController extends Controller{
         $cropYear = CropYear::query()->where('slug','=',$request->crop_year)->first();
         $sugarLaw->crop_year_slug = $cropYear->slug;
         $sugarLaw->crop_year = $cropYear->name;
+        $sugarLaw->date = $request->date;
         $sugarLaw->file_title = $request->file_title;
         $sugarLaw->title = $request->title;
 

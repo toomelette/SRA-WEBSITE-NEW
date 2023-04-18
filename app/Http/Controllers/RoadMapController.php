@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RoadMap\RoadMapFilterRequest;
 use App\Http\Requests\RoadMap\RoadMapFormRequest;
 use App\Models\CropYear;
+use App\Models\MemorandumOrder;
 use App\Models\RoadMap;
 use App\Swep\ViewHelpers\__html;
 use Illuminate\Support\Str;
@@ -71,6 +72,7 @@ class RoadMapController extends Controller{
         $cropYear = CropYear::query()->where('slug','=',$request->crop_year)->first();
         $roadMap->crop_year_slug = $cropYear->slug;
         $roadMap->crop_year = $cropYear->name;
+        $roadMap->date = $request->date;
         $roadMap->file_title = $request->file_title;
         $roadMap->title = $request->title;
 
@@ -134,6 +136,11 @@ class RoadMapController extends Controller{
         abort(503, 'Error deleting of Roadmap!');
 
         return $roadMap;
+    }
+
+    public function showLatest(){
+        $latestData = RoadMap::latest()->first();
+        return view('latest_data', ['data' =>$latestData]);
     }
 
 

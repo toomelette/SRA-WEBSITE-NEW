@@ -6,6 +6,7 @@ use App\Http\Requests\CircularLetter\CircularLetterFormRequest;
 use App\Http\Requests\CircularLetter\CircularLetterFilterRequest;
 use App\Models\CircularLetter;
 use App\Models\CropYear;
+use App\Models\SugarSupplyDemand;
 use App\Swep\ViewHelpers\__html;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
@@ -31,12 +32,12 @@ class CircularLetterController extends Controller{
                 ->addColumn('action',function ($data){
                     $destroy_route = "'".route("dashboard.circularLetter.destroy","slug")."'";
                     $slug = "'".$data->slug."'";
-//                    return '<div class="btn-group">
-//
-//                                <button type="button" onclick="delete_data('.$slug.','.$destroy_route.')" data="'.$data->slug.'" class="btn btn-sm btn-danger" data-toggle="tooltip" title="" data-placement="top" data-original-title="Delete">
-//                                    <i class="fa fa-trash"></i>
-//                                </button>
-//                            </div>';
+                    return '<div class="btn-group">
+
+                                <button type="button" onclick="delete_data('.$slug.','.$destroy_route.')" data="'.$data->slug.'" class="btn btn-sm btn-danger" data-toggle="tooltip" title="" data-placement="top" data-original-title="Delete">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>';
                     return '<div class="btn-group">
                                 
                                
@@ -112,11 +113,28 @@ class CircularLetterController extends Controller{
 
         }
 
-        public function destroy($slug){
-            $news = News::query()->where('slug',$slug)->first();
-            $news->delete();
+    public function destroy($slug){
+        $circularLetter = CircularLetter::query()->where('slug','=',$slug)->first();
+        if(!empty($circularLetter)){
+            $circularLetter->delete();
             return 1;
         }
+        abort(503,'Error deleting Circular Letter. [CircularLetterController::destroy]');
+        return 1;
+
+        $circularLetter = CircularLetter::query()->find($slug);
+        if ($circularLetter->delete()){
+            return 1;
+        }
+        abort(503, 'Error deleting of Circular Letter!');
+
+        return $circularLetter;
+    }
+
+    public function showLatest(){
+        $latestData = CircularLetter::latest()->first();
+        return view('latest_data', ['data' =>$latestData]);
+    }
 
 
 

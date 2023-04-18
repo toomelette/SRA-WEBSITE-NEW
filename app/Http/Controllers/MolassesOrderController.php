@@ -6,6 +6,7 @@ use App\Http\Requests\MolassesOrder\MolassesOrderFilterRequest;
 use App\Http\Requests\MolassesOrder\MolassesOrderFormRequest;
 use App\Models\CropYear;
 use App\Models\MolassesOrder;
+use App\Models\SugarSupplyDemand;
 use App\Swep\ViewHelpers\__html;
 use Illuminate\Support\Str;
 use Yajra\DataTables\DataTables;
@@ -29,12 +30,12 @@ class MolassesOrderController extends Controller{
                 ->addColumn('action',function ($data){
                     $destroy_route = "'".route("dashboard.molassesOrder.destroy","slug")."'";
                     $slug = "'".$data->slug."'";
-//                    return '<div class="btn-group">
-//
-//                                <button type="button" onclick="delete_data('.$slug.','.$destroy_route.')" data="'.$data->slug.'" class="btn btn-sm btn-danger" data-toggle="tooltip" title="" data-placement="top" data-original-title="Delete">
-//                                    <i class="fa fa-trash"></i>
-//                                </button>
-//                            </div>';
+                    return '<div class="btn-group">
+
+                                <button type="button" onclick="delete_data('.$slug.','.$destroy_route.')" data="'.$data->slug.'" class="btn btn-sm btn-danger" data-toggle="tooltip" title="" data-placement="top" data-original-title="Delete">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>';
                     return '<div class="btn-group">
                                 
                                
@@ -64,6 +65,7 @@ class MolassesOrderController extends Controller{
         $cropYear = CropYear::query()->where('slug','=',$request->crop_year)->first();
         $molassesOrder->crop_year_slug = $cropYear->slug;
         $molassesOrder->crop_year = $cropYear->name;
+        $molassesOrder->date = $request->date;
         $molassesOrder->file_title = $request->file_title;
         $molassesOrder->title = $request->title;
 
@@ -111,11 +113,28 @@ class MolassesOrderController extends Controller{
         }
 
 
-        public function destroy($slug){
-            $news = News::query()->where('slug',$slug)->first();
-            $news->delete();
+    public function destroy($slug){
+        $molassesOrder = MolassesOrder::query()->where('slug','=',$slug)->first();
+        if(!empty($molassesOrder)){
+            $molassesOrder->delete();
             return 1;
         }
+        abort(503,'Error deleting Molasses Order. [MolassesOrderController::destroy]');
+        return 1;
+
+        $molassesOrder = MolassesOrder::query()->find($slug);
+        if ($molassesOrder->delete()){
+            return 1;
+        }
+        abort(503, 'Error deleting of Molasses Order!');
+
+        return $molassesOrder;
+    }
+
+    public function showLatest(){
+        $latestData = MolassesOrder::latest()->first();
+        return view('latest_data', ['data' =>$latestData]);
+    }
 
 
 

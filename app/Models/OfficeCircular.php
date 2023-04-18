@@ -41,7 +41,9 @@ class OfficeCircular extends Model {
 
     protected $attributes = [
         'slug' => '',
+        'year_slug' => '',
         'year' => '',
+        'date' => null,
         'file_title' => '',
         'title' => '',
         'path' => '',

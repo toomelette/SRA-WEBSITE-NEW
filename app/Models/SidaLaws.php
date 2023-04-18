@@ -27,13 +27,13 @@ class SidaLaws extends Model{
 
     use Sortable, LogsActivity;
 
-    protected $table = 'laws';
+    protected $table = 'sida_laws';
 
     protected $dates = ['created_at', 'updated_at'];
 
     public $timestamps = true;
 
-    protected static $logName = 'laws';
+    protected static $logName = 'sida_laws';
     protected static $logAttributes = ['*'];
     protected static $ignoreChangedAttributes = ['updated_at','ip_updated','user_updated'];
     protected static $logOnlyDirty = true;

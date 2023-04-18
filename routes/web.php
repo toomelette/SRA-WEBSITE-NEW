@@ -354,62 +354,46 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
 
 
     /** INDUSTRY UPDATE**/
-    /** Sugar Supply and Demand Situation**/
     Route::resource('sugarSupplyDemand', 'SugarSupplyDemandController');
 
-    /** Millsite Prices**/
     Route::resource('millSitePrices', 'MillSitePricesController');
 
-    /** Bioethanol Reference Price Prices**/
     Route::resource('bioethanolReferencePrice', 'bioethanolRPController');
 
-    /** Metro Manila Prices**/
     Route::resource('metroManilaPrices', 'MetroManilaPricesController');
 
-    /** Sugar Statistics Prices**/
     Route::resource('sugarStatistics', 'SugarStatisticsController');
 
-    /** Roadmap**/
     Route::resource('roadMap', 'roadMapController');
 
-    /** Expired Import Clearance**/
     Route::resource('expiredImportClearance', 'ExpiredImportClearanceController');
 
-    /** Crops Estimates Statistics**/
     Route::resource('cropEstimatesStatistics', 'CropESController');
 
-    /** Weekly Comparative Production**/
     Route::resource('weeklyComparativeProduction', 'WeeklyComparativeProductionController');
 
-    /** Block Farm**/
-    Route::resource('blockFarm', 'BlockFarmController');
+    Route::resource('millingSchedule', 'MillingScheduleController');
+
+
 
     /** POLICY**/
-    /** Circular Letter**/
     Route::resource('circularLetter', 'CircularLetterController');
 
-    /** Circular Letter**/
     Route::resource('sugarOrder', 'SugarOrderController');
 
-    /** Memorandum Order**/
     Route::resource('memorandumOrder', 'MemorandumOrderController');
 
-    /** Memorandum Circular**/
     Route::resource('memorandumCircular', 'MemorandumCircularController');
 
-    /** Molasses Order**/
     Route::resource('molassesOrder', 'MolassesOrderController');
 
-    /** Muscovado Order**/
     Route::resource('muscovadoOrder', 'MuscovadoOrderController');
 
-    /** General Administrative Order**/
     Route::resource('generalAdministrativeOrder', 'GeneralAdministrativeOrderController');
 
-    /** Office Circular**/
     Route::resource('officeCircular', 'OfficeCircularController');
 
-    /** Sugar Trader**/
+
     /** Sugar Trader**/
     Route::resource('sugarTrader', 'SugarTraderController');
 
@@ -442,6 +426,8 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
 
     /** SIDA **/
     Route::resource('sidaGuideLines','SidaGuideLinesController');
+    Route::resource('blockFarm', 'BlockFarmController');
+    Route::resource('sidaLaws', 'SidaLawsController');
 
 });
 

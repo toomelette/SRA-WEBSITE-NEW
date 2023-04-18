@@ -68,6 +68,7 @@ class BioethanolRPController extends Controller{
         $cropYear = CropYear::query()->where('slug','=',$request->crop_year)->first();
         $bioethanolRP->crop_year_slug = $cropYear->slug;
         $bioethanolRP->crop_year = $cropYear->name;
+        $bioethanolRP->date = $request->date;
         $bioethanolRP->file_title = $request->file_title;
         $bioethanolRP->title = $request->title;
 

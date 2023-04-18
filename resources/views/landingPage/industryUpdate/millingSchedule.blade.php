@@ -49,7 +49,7 @@
                     <h3>MILLING SCHEDULE</h3>
                     <ul style="list-style-type: disc;">
                         @php
-                            $milling_schedule = \App\Models\MillingShedule::query()->get()->sortByDesc('id');
+                            $milling_schedule = \App\Models\MillingShedule::query()->get()->sortByDesc('date');
                         @endphp
                         @if(count($milling_schedule) > 0)
 

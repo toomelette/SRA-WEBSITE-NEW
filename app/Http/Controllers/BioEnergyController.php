@@ -65,6 +65,7 @@ class BioEnergyController extends Controller{
         $cropYear = CropYear::query()->where('slug','=',$request->crop_year)->first();
         $bioEnergy->crop_year_slug = $cropYear->slug;
         $bioEnergy->crop_year = $cropYear->name;
+        $bioEnergy->date = $request->date;
         $bioEnergy->file_title = $request->file_title;
         $bioEnergy->title = $request->title;
 

@@ -6,6 +6,7 @@ use App\Http\Requests\GeneralAdministrativeOrder\GeneralAdministrativeOrderFormR
 use App\Http\Requests\GeneralAdministrativeOrder\GeneralAdministrativeOrderFilterRequest;
 use App\Models\GeneralAdministrativeOrder;
 use App\Models\MemorandumCircular;
+use App\Models\SugarSupplyDemand;
 use App\Models\Year;
 use App\Swep\ViewHelpers\__html;
 use Illuminate\Support\Str;
@@ -30,12 +31,12 @@ class GeneralAdministrativeOrderController extends Controller{
                 ->addColumn('action',function ($data){
                     $destroy_route = "'".route("dashboard.generalAdministrativeOrder.destroy","slug")."'";
                     $slug = "'".$data->slug."'";
-//                    return '<div class="btn-group">
-//
-//                                <button type="button" onclick="delete_data('.$slug.','.$destroy_route.')" data="'.$data->slug.'" class="btn btn-sm btn-danger" data-toggle="tooltip" title="" data-placement="top" data-original-title="Delete">
-//                                    <i class="fa fa-trash"></i>
-//                                </button>
-//                            </div>';
+                    return '<div class="btn-group">
+
+                                <button type="button" onclick="delete_data('.$slug.','.$destroy_route.')" data="'.$data->slug.'" class="btn btn-sm btn-danger" data-toggle="tooltip" title="" data-placement="top" data-original-title="Delete">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>';
                     return '<div class="btn-group">
                                 
                                
@@ -64,6 +65,7 @@ class GeneralAdministrativeOrderController extends Controller{
         $generalAdministrativeOrder->slug = Str::random(15);
         $year = Year::query()->where('slug','=',$request->year)->first();
         $generalAdministrativeOrder->year = $year->name;
+        $generalAdministrativeOrder->date = $request->date;
         $generalAdministrativeOrder->file_title = $request->file_title;
         $generalAdministrativeOrder->title = $request->title;
 
@@ -111,11 +113,28 @@ class GeneralAdministrativeOrderController extends Controller{
         }
 
 
-        public function destroy($slug){
-            $news = MemorandumOrder::query()->where('slug',$slug)->first();
-            $news->delete();
+    public function destroy($slug){
+        $generalAdministrativeOrder = GeneralAdministrativeOrder::query()->where('slug','=',$slug)->first();
+        if(!empty($generalAdministrativeOrder)){
+            $generalAdministrativeOrder->delete();
             return 1;
         }
+        abort(503,'Error deleting General Administrative Order. [GeneralAdministrativeOrderController::destroy]');
+        return 1;
+
+        $generalAdministrativeOrder = GeneralAdministrativeOrder::query()->find($slug);
+        if ($generalAdministrativeOrder->delete()){
+            return 1;
+        }
+        abort(503, 'Error deleting of General Administrative Order!');
+
+        return $generalAdministrativeOrder;
+    }
+
+    public function showLatest(){
+        $latestData = GeneralAdministrativeOrder::latest()->first();
+        return view('latest_data', ['data' =>$latestData]);
+    }
 
 
 
