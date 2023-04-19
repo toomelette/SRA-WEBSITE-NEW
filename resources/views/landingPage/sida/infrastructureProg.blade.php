@@ -5,7 +5,7 @@
     <!-- Basic Page Needs
   ================================================== -->
     <meta charset="utf-8">
-    <title>Block Farm | SRA</title>
+    <title>Infrastructure Program | SRA</title>
 
     <!-- Mobile Specific Metas
   ================================================== -->
@@ -28,11 +28,12 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="banner-heading">
-                            <h1 class="banner-title">Block Farm</h1>
+                            <h1 class="banner-title">Infrastructure Program</h1>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb justify-content-center">
+                                    <li class="breadcrumb-item active" aria-current="page">SIDA</li>
                                     <li class="breadcrumb-item active" aria-current="page">Industry Update</li>
-                                    <li class="breadcrumb-item active" aria-current="page">Block Farm</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Infrastructure Program</li>
                                 </ol>
                             </nav>
                         </div>
@@ -46,31 +47,31 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p>
-                    @php
-                        $block_farm = \App\Models\BlockFarm::query()->get()->sortByDesc('id');
-                        $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');
-                        $clYearList = array();
-                        foreach($block_farm as $cl){
-                          array_push($clYearList, $cl->crop_year);
-                        }
-                        $clYearList = array_unique($clYearList);
-                    @endphp
-                    @if(count($block_farm) > 0)
-                        @foreach($crop_year as $cropYear)
-                            @if(in_array($cropYear->name, $clYearList))
-                                <h4>Series of {!!$cropYear->name!!}</h4>
-                            @endif
-                            @foreach ($block_farm as $blockFarm)
-                                @if($cropYear->slug == $blockFarm->crop_year_slug)
-                                    <ul>
-                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$blockFarm->path!!}" target="_blank">{!!$blockFarm->file_title!!}, </a>{!!$blockFarm->title!!}</li>
-                                    </ul>
-                                    @endif
-                                    @endforeach
-                                    @endforeach
-                                    @endif
-                                    </p>
+{{--                    <p>--}}
+{{--                    @php--}}
+{{--                        $block_farm = \App\Models\BlockFarm::query()->get()->sortByDesc('id');--}}
+{{--                        $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');--}}
+{{--                        $clYearList = array();--}}
+{{--                        foreach($block_farm as $cl){--}}
+{{--                          array_push($clYearList, $cl->crop_year);--}}
+{{--                        }--}}
+{{--                        $clYearList = array_unique($clYearList);--}}
+{{--                    @endphp--}}
+{{--                    @if(count($block_farm) > 0)--}}
+{{--                        @foreach($crop_year as $cropYear)--}}
+{{--                            @if(in_array($cropYear->name, $clYearList))--}}
+{{--                                <h4>Series of {!!$cropYear->name!!}</h4>--}}
+{{--                            @endif--}}
+{{--                            @foreach ($block_farm as $blockFarm)--}}
+{{--                                @if($cropYear->slug == $blockFarm->crop_year_slug)--}}
+{{--                                    <ul>--}}
+{{--                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$blockFarm->path!!}" target="_blank">{!!$blockFarm->file_title!!}, </a>{!!$blockFarm->title!!}</li>--}}
+{{--                                    </ul>--}}
+{{--                                    @endif--}}
+{{--                                    @endforeach--}}
+{{--                                    @endforeach--}}
+{{--                                    @endif--}}
+{{--                                    </p>--}}
                 </div><!-- Col end -->
             </div><!-- Content row end -->
 

@@ -45,91 +45,65 @@
     <section id="main-container" class="main-container">
         <div class="container">
             <div class="card">
-                <div class="col-lg-12">
+                <div class="col-lg-12" style="margin-top: 15px">
 
                     <!-- Gallery -->
                     <div class="row">
                         <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-                            <a href=""><img
-                                    src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                            <a href="/sida/blockFarm">
+                            <img
+                                    src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-blockfarm.jpg')}}"
                                     class="w-100 shadow-1-strong rounded mb-4"
-                                    alt="Boat on Calm Water"
+                                    alt="BLOCK FARM PROGRAM"
+                                    height="250px;"
                             /></a>
 
-                            <img
-                                    src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.webp"
-                                    class="w-100 shadow-1-strong rounded mb-4"
-                                    alt="Wintry Mountain Landscape"
-                            />
+                            <a href="/sida/socializedCreditProg">
+                                <img
+                                        src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-socialized.jpg')}}"
+                                        class="w-100 shadow-1-strong rounded mb-4"
+                                        alt="SOCIALIZED CREDIT PROGRAM"
+                                        height="250px;"
+                                /></a>
                         </div>
 
-                        <div class="col-lg-4 mb-4 mb-lg-0">
-                            <img
-                                    src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
-                                    class="w-100 shadow-1-strong rounded mb-4"
-                                    alt="Mountains in the Clouds"
-                            />
+                        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                            <a href="/sida/farmMechanization">
+                                <img
+                                        src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-farm-mech.jpg')}}"
+                                        class="w-100  shadow-1-strong rounded mb-4"
+                                        alt="FARM MECHANIZATION"
+                                        height="250px;"
+                                /></a>
 
-                            <img
-                                    src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-                                    class="w-100 shadow-1-strong rounded mb-4"
-                                    alt="Boat on Calm Water"
-                            />
+                            <a href="/sida/infrastructureProg">
+                                <img
+                                        src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-Infra.jpg')}}"
+                                        class="w-100 shadow-1-strong rounded mb-4"
+                                        alt="INFRASTRUCTURE PROGRAM"
+                                        height="250px;"
+                                /></a>
                         </div>
 
-                        <div class="col-lg-4 mb-4 mb-lg-0">
-                            <img
-                                    src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).webp"
-                                    class="w-100 shadow-1-strong rounded mb-4"
-                                    alt="Waves at Sea"
-                            />
+                        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                            <a href="/sida/RDEProg">
+                                <img
+                                        src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-RDE.jpg')}}"
+                                        class="w-100 shadow-1-strong rounded mb-4"
+                                        alt="RESEARCH DEVELOPMENT & EXTENSION PROGRAM "
+                                        height="250px;"
+                                /></a>
 
-                            <img
-                                    src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain3.webp"
-                                    class="w-100 shadow-1-strong rounded mb-4"
-                                    alt="Yosemite National Park"
-                            />
+                            <a href="/sida/scholarshipProg">
+                                <img
+                                        src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-scholarship.jpg')}}"
+                                        class="w-100 shadow-1-strong rounded mb-4"
+                                        alt="SCHOLARSHIP PROGRAM"
+                                        height="250px;"
+                                /></a>
                         </div>
                     </div>
-                    <!-- Gallery -->
 
-{{--                    <a href="/ph_tp_seal/index"> <img src="{{asset('constra/images/pin.png')}}" height="50%" width="50%"></a>--}}
-{{--                        <div class="card-img-overlay">--}}
-{{--                            <div class="card-body text-dark">--}}
-{{--                                <p class="card-title display-1 font-weight-bolder">Sample</p>--}}
-{{--                                <p class="card-subtitle display-4 font-weight-light"> The Subtitle</p>--}}
-{{--                                <p class="card-text"> dklasjdkljaskdjklsajdiowdjskljdklsajdj kasdjkl  kjaksdjj9jskd jkjklsdippa jkkljsdklj kjkljsd jwjdi j</p>--}}
-{{--                            </div>--}}
-                        </div>
-
-
-
-
-{{--                    <p>--}}
-{{--                    @php--}}
-{{--                        $sida_updates = \App\Models\SidaUpdates::query()->get()->sortByDesc('id');--}}
-{{--                        $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');--}}
-{{--                        $clYearList = array();--}}
-{{--                        foreach($sida_updates as $cl){--}}
-{{--                          array_push($clYearList, $cl->crop_year);--}}
-{{--                        }--}}
-{{--                        $clYearList = array_unique($clYearList);--}}
-{{--                    @endphp--}}
-{{--                    @if(count($sida_updates) > 0)--}}
-{{--                        @foreach($crop_year as $cropYear)--}}
-{{--                            @if(in_array($cropYear->name, $clYearList))--}}
-{{--                                <h4>Series of {!!$cropYear->name!!}</h4>--}}
-{{--                            @endif--}}
-{{--                            @foreach ($sida_updates as $sidaUpdates)--}}
-{{--                                @if($cropYear->slug == $sidaUpdates->crop_year_slug)--}}
-{{--                                    <ul>--}}
-{{--                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$sidaUpdates->path!!}" target="_blank">{!!$sidaUpdates->file_title!!}, </a>{!!$sidaUpdates->title!!}</li>--}}
-{{--                                    </ul>--}}
-{{--                                    @endif--}}
-{{--                                    @endforeach--}}
-{{--                                    @endforeach--}}
-{{--                                    @endif--}}
-{{--                                    </p>--}}
                 </div><!-- Col end -->
             </div><!-- Content row end -->
 

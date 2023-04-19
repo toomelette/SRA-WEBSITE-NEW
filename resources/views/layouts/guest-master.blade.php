@@ -412,13 +412,13 @@
             <div class="col-4">
               <div class="latest-post">
                 <div class="latest-post-media">
-                  <a href="" class="latest-post-img">
+                  <a class="latest-post-img">
                     <img loading="lazy" class="img-fluid" src="{{ url('constra/images/SRA/SRA_DA logo.png') }}" alt="img">
                   </a>
                 </div>
                 <div class="post-body">
                   <h4 class="post-title">
-                    <a href="" class="d-inline-block">List of Vacant Position as of July ...</a>
+                    <a class="d-inline-block">List of Vacant Position as of July ...</a>
                   </h4>
                   <div class="latest-post-meta">
                       <span class="post-item-date">
@@ -431,13 +431,13 @@
             <div class="col-4">
               <div class="latest-post">
                 <div class="latest-post-media">
-                  <a href="" class="latest-post-img">
+                  <a  class="latest-post-img">
                     <img loading="lazy" class="img-fluid" src="{{ url('constra/images/SRA/SRA_DA logo.png') }}" alt="img">
                   </a>
                 </div>
                 <div class="post-body">
                   <h4 class="post-title">
-                    <a href="" class="d-inline-block">List of Vacant Position as of April ...</a>
+                    <a  class="d-inline-block">List of Vacant Position as of April ...</a>
                   </h4>
                   <div class="latest-post-meta">
                       <span class="post-item-date">
@@ -450,13 +450,13 @@
             <div class="col-4">
               <div class="latest-post">
                 <div class="latest-post-media">
-                  <a href="" class="latest-post-img">
+                  <a  class="latest-post-img">
                     <img loading="lazy" class="img-fluid" src="{{ url('constra/images/SRA/SRA_DA logo.png') }}" alt="img">
                   </a>
                 </div>
                 <div class="post-body">
                   <h4 class="post-title">
-                    <a href="" class="d-inline-block">List of Vacant Position as of Feb 2...</a>
+                    <a  class="d-inline-block">List of Vacant Position as of Feb 2...</a>
                   </h4>
                   <div class="latest-post-meta">
                       <span class="post-item-date">
@@ -467,7 +467,7 @@
               </div><!-- Latest post end -->
             </div><!-- 1st post col end -->
             <div class="general-btn text-center mt-4 ml-3">
-              <a class="btn btn-primary" href="http://localhost:8003/industryUpdate/vacantPosition">See All Vacant Positions</a>
+              <a class="btn btn-primary" href="/industryUpdate/vacantPosition">See All Vacant Positions</a>
             </div>
           </div>
         </div>

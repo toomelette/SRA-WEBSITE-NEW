@@ -81,7 +81,6 @@ Route::get('industryUpdate/millingSchedule', 'SubNavController@millingSchedule')
 Route::get('industryUpdate/vacantPosition', 'SubNavController@vacantPosition')->name('industryUpdate.vacantPosition');
 Route::get('industryUpdate/roadmap', 'SubNavController@roadmap')->name('industryUpdate.roadmap');
 Route::get('industryUpdate/expiredImportClearance', 'SubNavController@expiredImportClearance')->name('industryUpdate.expiredImportClearance');
-Route::get('industryUpdate/blockFarm', 'SubNavController@blockFarm')->name('industryUpdate.blockFarm');
 Route::get('industryUpdate/cropEstimates', 'SubNavController@cropEstimates')->name('industryUpdate.cropEstimates');
 Route::get('industryUpdate/weeklyComparativeProduction', 'SubNavController@weeklyCP')->name('industryUpdate.weeklyComparativeProduction');
 
@@ -106,6 +105,16 @@ Route::get('sida/infographics', 'SubNavController@infographics')->name('infograp
 Route::get('sida/guideLines', 'SubNavController@guideLines')->name('guideLines');
 Route::get('sida/laws', 'SubNavController@laws')->name('laws');
 Route::get('sida/fundUtilization', 'SubNavController@fundUtilization')->name('fundUtilization');
+Route::get('sida/blockFarm', 'SubNavController@blockFarm')->name('sida.blockFarm');
+Route::get('sida/socializedCreditProg', 'SubNavController@socializedCreditProg')->name('sida.socializedCreditProg');
+Route::get('sida/farmMechanization', 'SubNavController@farmMechanization')->name('sida.farmMechanization');
+Route::get('sida/infrastructureProg', 'SubNavController@infrastructureProg')->name('sida.infrastructureProg');
+Route::get('sida/RDEProg', 'SubNavController@RDEProg')->name('sida.RDEProg');
+Route::get('sida/scholarshipProg', 'SubNavController@scholarshipProg')->name('sida.scholarshipProg');
+
+
+
+
 
 Route::get('businessOpportunities/sugarTrader', 'SubNavController@sugarTrader')->name('sugarTrader');
 Route::get('businessOpportunities/bioethanolProducer', 'SubNavController@bioethanolProducer')->name('bioethanolProducer');
@@ -374,6 +383,8 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
 
     Route::resource('millingSchedule', 'MillingScheduleController');
 
+    Route::resource('vacantPosition', 'VacantPositionController');
+
 
 
     /** POLICY**/
@@ -428,6 +439,10 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
     Route::resource('sidaGuideLines','SidaGuideLinesController');
     Route::resource('blockFarm', 'BlockFarmController');
     Route::resource('sidaLaws', 'SidaLawsController');
+    Route::resource('fundUtilization', 'fundUtilizationController');
+    Route::resource('socializedCreditProg', 'socializedCreditProgController');
+    Route::resource('infrastructureProg', 'infrastructureProgController');
+
 
 });
 

@@ -41,8 +41,9 @@ class VacantPosition extends Model{
 
     protected $attributes = [
         'slug' => '',
-        'crop_year_slug' => '',
-        'crop_year' => '',
+        'year_slug' => '',
+        'year' => '',
+        'date' => null,
         'file_title' => '',
         'title' => '',
         'path' => '',

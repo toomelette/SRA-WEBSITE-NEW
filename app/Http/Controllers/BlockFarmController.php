@@ -67,6 +67,7 @@ class BlockFarmController extends Controller{
         $cropYear = CropYear::query()->where('slug','=',$request->crop_year)->first();
         $blockFarm->crop_year_slug = $cropYear->slug;
         $blockFarm->crop_year = $cropYear->name;
+        $blockFarm->date = $request->date;
         $blockFarm->file_title = $request->file_title;
         $blockFarm->title = $request->title;
 

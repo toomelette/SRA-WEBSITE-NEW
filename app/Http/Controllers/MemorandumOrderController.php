@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\MemorandumOrder\MemorandumOrderFormRequest;
 use App\Http\Requests\MemorandumOrder\MemorandumOrderFilterRequest;
 use App\Models\MemorandumOrder;
-use App\Models\SugarSupplyDemand;
 use App\Models\Year;
 use App\Swep\ViewHelpers\__html;
 use Illuminate\Support\Str;

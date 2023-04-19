@@ -169,9 +169,6 @@ class SubNavController extends Controller
         return view('landingPage.industryUpdate.roadmap');
     }
 
-    public function blockFarm(){
-        return view('landingPage.industryUpdate.blockFarm');
-    }
 
     public function expiredImportClearance(){
         return view('landingPage.industryUpdate.expiredImportClearance');
@@ -237,6 +234,29 @@ class SubNavController extends Controller
     public function fundUtilization(){
         return view('landingPage.sida.fundUtilization');
     }
+    public function blockFarm(){
+        return view('landingPage.sida.blockFarm');
+    }
+    public function socializedCreditProg(){
+        return view('landingPage.sida.socializedCreditProg');
+    }
+    public function farmMechanization(){
+        return view('landingPage.sida.farmMechanization');
+    }
+    public function infrastructureProg(){
+        return view('landingPage.sida.infrastructureProg');
+    }
+    public function RDEProg(){
+        return view('landingPage.sida.RDEProg');
+    }
+    public function scholarshipProg(){
+        return view('landingPage.sida.scholarshipProg');
+    }
+
+
+
+
+
 
     //////BID CORNER/////////
     public function invitationBid(){
