@@ -93,7 +93,7 @@
           $('#btnMemorandumOrderSubmit').removeAttr('disabled');
           Swal.fire({
             title: 'Success!',
-            text: 'Memorandum Order successfully added!',
+            text: 'New Memorandum Order successfully added!',
             icon: 'success',
             confirmButtonText: 'Done'
           })

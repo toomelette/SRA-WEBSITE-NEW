@@ -437,12 +437,14 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
 
     /** SIDA **/
     Route::resource('sidaGuideLines','SidaGuideLinesController');
-    Route::resource('blockFarm', 'BlockFarmController');
+    Route::resource('blockFarmVisayas', 'BlockFarmVisayasController');
     Route::resource('sidaLaws', 'SidaLawsController');
     Route::resource('fundUtilization', 'fundUtilizationController');
     Route::resource('socializedCreditProg', 'socializedCreditProgController');
     Route::resource('infrastructureProg', 'infrastructureProgController');
-
+    Route::resource('farmMechanization', 'FarmMechanizationController');
+    Route::resource('scholarshipProg', 'ScholarshipProgController');
+    Route::resource('rdeProg', 'RDEController');
 
 });
 

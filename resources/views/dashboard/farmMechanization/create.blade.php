@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="content-header">
-        <h1>Add Block Farm</h1>
+        <h1>Farm Mechanization</h1>
     </section>
 
     <section class="content">
@@ -17,18 +17,18 @@
                 </div>
             </div>
             @csrf
-            <form id="blockfarmForm" method="POST" autocomplete="off" enctype="multipart/form-data">
+            <form id="FarmMechanization_Form" method="POST" autocomplete="off" enctype="multipart/form-data">
 
                 <div class="box-body">
 
                     <div class="col-md-11">
-
                         {!! __form::select_static2(
-                       '8 crop_year', 'crop_year', 'Crop Year: *', '', \App\Swep\Helpers\Helper::cropYear(), '', '', '', 'required'
-                       ) !!}
-                        {!! __form::textbox(
-                          '4', 'date', 'date', 'Date *', '', old('date'), $errors->has('date'), $errors->first('date'), 'required'
+                          '8 year', 'year', 'Year: *', '', \App\Swep\Helpers\Helper::year(), '', '', '', 'required'
                         ) !!}
+
+                        {!! __form::textbox(
+                                     '4', 'date', 'date', 'Date *', '', old('date'), $errors->has('date'), $errors->first('date'), 'required'
+                         ) !!}
 
                         {!! __form::file(
                          '4', 'img_url[]', 'Upload PDF *', $errors->has('img_url'), $errors->first('img_url'), 'required'
@@ -39,14 +39,14 @@
                         ) !!}
 
                         {!! __form::textbox(
-                          '8', 'title', 'text', 'Block FArm Title *', 'Block Farm Title', old('title'), $errors->has('title'), $errors->first('title'), 'required'
+                          '8', 'title', 'text', 'Title *', '', old('title'), $errors->has('title'), $errors->first('title'), 'required'
                         ) !!}
 
                     </div>
                 </div>
 
                 <div class="box-footer">
-                    <button id="btnBlockFarmSubmit" type="submit" class="btn btn-default">Save</button>
+                    <button id="btnFarmMechanization_FormSubmit" type="submit" class="btn btn-default">Save</button>
                 </div>
 
             </form>
@@ -57,16 +57,30 @@
 
 @endsection
 
+
+
+
+
+@section('modals')
+
+@endsection
+
+
+
+
+
+
 @section('scripts')
 
     <script type="text/javascript">
-        $("#blockfarmForm").submit(function (e) {
+
+        $("#FarmMechanization_Form").submit(function (e) {
             e.preventDefault();
             let form = $(this);
             let formData = new FormData(this);
             loading_btn(form);
             $.ajax({
-                url: "{{route('dashboard.blockFarm.store')}}",
+                url: "{{route('dashboard.farmMechanization.store')}}",
                 type: 'POST',
                 data: new FormData(this),
                 processData: false,
@@ -76,10 +90,10 @@
                 },
                 success: function (res) {
                     $('form').trigger("reset");
-                    $('#btnBlockFarmSubmit').removeAttr("disabled");
+                    $('#btnFarmMechanization_FormSubmit').removeAttr('disabled');
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Block Farm successfully added!',
+                        text: 'New Farm Mechanization successfully added!',
                         icon: 'success',
                         confirmButtonText: 'Done'
                     })
@@ -101,6 +115,7 @@
             browseClass: "btn btn-primary btn-md",
         });
         $(".kv-file-remove").hide();
+
     </script>
 
 @endsection

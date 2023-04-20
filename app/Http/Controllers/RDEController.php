@@ -2,19 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\BlockFarm\BlockFarmFilterRequest;
-use App\Http\Requests\BlockFarm\BlockFarmFormRequest;
-use App\Models\BlockFarm;
-use App\Models\CropYear;
-use App\Models\SugarOrder;
+use App\Http\Requests\RDEProg\RDEProgFormRequest;
+use App\Http\Requests\RDEProg\RDEProgFilterRequest;
+use App\Models\RDEProg;
+use App\Models\Year;
 use App\Swep\ViewHelpers\__html;
-use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Yajra\DataTables\DataTables;
-use Illuminate\Support\Facades\Auth;
 
 
-class BlockFarmController extends Controller{
+class RDEController extends Controller{
 
     protected $news;
 
@@ -27,10 +24,10 @@ class BlockFarmController extends Controller{
 
     public function index(){
         if(request()->ajax()){
-            $block_farm = BlockFarm::query()->orderByDesc('crop_year');
-            return DataTables::of($block_farm)
+            $rde_prog = RDEProg::query()->orderByDesc('year');
+            return DataTables::of($rde_prog)
                 ->addColumn('action',function ($data){
-                    $destroy_route = "'".route("dashboard.blockFarm.destroy","slug")."'";
+                    $destroy_route = "'".route("dashboard.rdeProg.destroy","slug")."'";
                     $slug = "'".$data->slug."'";
                     return '<div class="btn-group">
 
@@ -47,35 +44,35 @@ class BlockFarmController extends Controller{
                 ->escapeColumns([])
                 ->toJson();
         }
-        return view('dashboard.blockFarm.index');
+        return view('dashboard.rdeProg.index');
     }
 
 
 
     public function create(){
 
-        return view('dashboard.blockFarm.create');
+        return view('dashboard.rdeProg.create');
 
     }
 
 
 
-    public function store(BlockFarmFormRequest $request)
+    public function store(RDEProgFormRequest $request)
     {
-        $blockFarm = new BlockFarm();
-        $blockFarm->slug = Str::random(15);
-        $cropYear = CropYear::query()->where('slug','=',$request->crop_year)->first();
-        $blockFarm->crop_year_slug = $cropYear->slug;
-        $blockFarm->crop_year = $cropYear->name;
-        $blockFarm->date = $request->date;
-        $blockFarm->file_title = $request->file_title;
-        $blockFarm->title = $request->title;
+        $rdeProg = new RDEProg();
+        $rdeProg->slug = Str::random(15);
+        $year = Year::query()->where('slug','=',$request->year)->first();
+        $rdeProg->year_slug = $year->slug;
+        $rdeProg->year = $year->name;
+        $rdeProg->date = $request->date;
+        $rdeProg->file_title = $request->file_title;
+        $rdeProg->title = $request->title;
 
         if (!empty($request->img_url)) {
             foreach ($request->file('img_url') as $file) {
                 $client_original_filename = $file->getClientOriginalName();
-                $path = 'block_farm/'. $blockFarm->crop_year;
-                $blockFarm->path = $path . '/' . $file->getClientOriginalName();
+                $path = 'sida_rde_prog/'. $rdeProg->year;
+                $rdeProg->path = $path . '/' . $file->getClientOriginalName();
 
                 $original_ext = $file->getClientOriginalExtension();
                 $original_file_name_only = str_replace('.' . $original_ext, '', $file->getClientOriginalName());
@@ -85,8 +82,9 @@ class BlockFarmController extends Controller{
                 $file->storeAs($path, $client_original_filename);
             }
         }
-        $blockFarm->save();
-        return redirect('dashboard/blockFarm/create');
+
+        $rdeProg->save();
+        return redirect('dashboard/rdeProg/create');
     }
 
 
@@ -100,7 +98,7 @@ class BlockFarmController extends Controller{
     }
 
 
-    public function update(BlockFarmFormRequest $request, $slug){
+    public function update(RDEProgFormRequest $request, $slug){
         $news = News::query()->where('slug',$slug)->first();
         $news->title = $request->title;
         $news->description = $request->description;
@@ -109,26 +107,32 @@ class BlockFarmController extends Controller{
         $news->date_start = $request->date_start;
         $news->date_end = $request->date_end;
         $news->update();
-        return redirect('dashboard/news/edit');
+        return redirect('dashboard/rdeProg/edit');
 
     }
 
+
     public function destroy($slug){
-        $blockFarm = BlockFarm::query()->where('slug','=',$slug)->first();
-        if(!empty($blockFarm)){
-            $blockFarm->delete();
+        $rdeProg = RDEProg::query()->where('slug','=',$slug)->first();
+        if(!empty($rdeProg)){
+            $rdeProg->delete();
             return 1;
         }
-        abort(503,'Error deleting Block Farm. [BlockFarmController::destroy]');
+        abort(503,'Error deleting RDE Program. [RDEController::destroy]');
         return 1;
 
-        $blockFarm = BlockFarm::query()->find($slug);
-        if ($blockFarm->delete()){
+        $rdeProg = RDEProg::query()->find($slug);
+        if ($rdeProg->delete()){
             return 1;
         }
-        abort(503, 'Error deleting of Block Farm !');
+        abort(503, 'Error deleting of RDE Program!');
 
-        return $blockFarm;
+        return $rdeProg;
+    }
+
+    public function showLatest(){
+        $latestData = RDEProg::latest()->first();
+        return view('latest_data', ['data' =>$latestData]);
     }
 
 

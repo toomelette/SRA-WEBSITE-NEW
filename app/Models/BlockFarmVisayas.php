@@ -8,7 +8,7 @@ use Kyslik\ColumnSortable\Sortable;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 
-class BlockFarm extends Model{
+class BlockFarmVisayas extends Model{
 
 
     public static function boot()
@@ -27,13 +27,13 @@ class BlockFarm extends Model{
 
     use Sortable, LogsActivity;
 
-    protected $table = 'block_farm';
+    protected $table = 'block_farm_visayas';
 
     protected $dates = ['created_at', 'updated_at'];
 
     public $timestamps = true;
 
-    protected static $logName = 'block_farm';
+    protected static $logName = 'block_farm_visayas';
     protected static $logAttributes = ['*'];
     protected static $ignoreChangedAttributes = ['updated_at','ip_updated','user_updated'];
     protected static $logOnlyDirty = true;
@@ -41,8 +41,8 @@ class BlockFarm extends Model{
 
     protected $attributes = [
         'slug' => '',
-        'crop_year_slug' => '',
-        'crop_year' => '',
+        'year_slug' => '',
+        'year' => '',
         'date' => null,
         'file_title' => '',
         'title' => '',

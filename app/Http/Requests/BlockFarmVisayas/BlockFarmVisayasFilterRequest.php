@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\BlockFarm;
+namespace App\Http\Requests\BlockFarmVisayas;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BlockFarmFilterRequest extends FormRequest{
+class BlockFarmVisayasFilterRequest extends FormRequest{
 
 
 

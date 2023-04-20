@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="content-header">
-        <h1>Manage Block Farm</h1>
+        <h1>Research Development & Extension Program</h1>
     </section>
 
     <section class="content">
@@ -43,11 +43,11 @@
                 </div>
             </div>
             <div class="box-body">
-                <div id="block_farm_table_container" style="">
-                    <table class="table table-bordered table-striped table-hover" id="block_farm_table" style="width: 100% !important">
+                <div id="table_container" style="">
+                    <table class="table table-bordered table-striped table-hover" id="table_table" style="width: 100% !important">
                         <thead>
                         <tr class="">
-                            <th width="10%" class="">Crop Year</th>
+                            <th width="10%" class="">Year</th>
                             <th width="10%" class="">Date</th>
                             <th width="20%" class="">File Title</th>
                             <th width="35%" class="">Title</th>
@@ -68,6 +68,7 @@
             </div>
         </div>
     </section>
+
 
 @endsection
 
@@ -104,14 +105,14 @@
             //Initialize DataTable
             modal_loader = $("#modal_loader").parent('div').html();
             active = '';
-            block_farm_tbl = $("#block_farm_table").DataTable({
+            sida_rde_prog = $("#table_table").DataTable({
                 'dom' : 'lBfrtip',
                 "processing": true,
                 "serverSide": true,
-                "ajax" : '{{ route("dashboard.blockFarm.index") }}',
+                "ajax" : '{{ route("dashboard.rdeProg.index") }}',
                 "columns": [
-                    { "data": "crop_year" },
-                    { "data": "date"},
+                    { "data": "year" },
+                    { "data": "date" },
                     { "data": "file_title" },
                     { "data": "title" },
                     { "data": "path" },
@@ -132,7 +133,7 @@
                 "responsive": false,
                 "initComplete": function( settings, json ) {
                     $('#tbl_loader').fadeOut(function(){
-                        $("#block_farm_table_container").fadeIn();
+                        $("#table_container").fadeIn();
                     });
                 },
                 "language":
@@ -143,18 +144,18 @@
                     $('[data-toggle="tooltip"]').tooltip();
                     $('[data-toggle="modal"]').tooltip();
                     if(active != ''){
-                        $("#block_block_table #"+active).addClass('success');
+                        $("#table_table #"+active).addClass('success');
                     }
                 }
             })
 
-            style_datatable("#block_farm_table");
+            style_datatable("#table_table");
 
             //Need to press enter to search
-            $('#block_farm_table_filter input').unbind();
-            $('#block_farm_table_filter input').bind('keyup', function (e) {
+            $('#table_filter input').unbind();
+            $('#table_filter input').bind('keyup', function (e) {
                 if (e.keyCode == 13) {
-                    block_farm_tbl.search(this.value).draw();
+                    sida_rde_prog.search(this.value).draw();
                 }
             });
         });

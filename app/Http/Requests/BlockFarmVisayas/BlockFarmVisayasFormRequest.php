@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\BlockFarm;
+namespace App\Http\Requests\BlockFarmVisayas;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BlockFarmFormRequest extends FormRequest{
+class BlockFarmVisayasFormRequest extends FormRequest{
 
 
     public function authorize(){
@@ -18,7 +18,7 @@ class BlockFarmFormRequest extends FormRequest{
 
 
         $rules = [
-            'crop_year'=>'required|string|max:45',
+            'year'=>'required|string|max:45',
         ];
 
         return $rules;
