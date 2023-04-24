@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="content-header">
-        <h1>Add Block Farm</h1>
+        <h1>Add Established HYV Nurseries</h1>
     </section>
 
     <section class="content">
@@ -39,7 +39,7 @@
                         ) !!}
 
                         {!! __form::textbox(
-                          '8', 'title', 'text', 'Block FArm Title *', 'Block Farm Title', old('title'), $errors->has('title'), $errors->first('title'), 'required'
+                          '8', 'title', 'text', 'Title *', '', old('title'), $errors->has('title'), $errors->first('title'), 'required'
                         ) !!}
 
                     </div>
@@ -66,7 +66,7 @@
             let formData = new FormData(this);
             loading_btn(form);
             $.ajax({
-                url: "{{route('dashboard.blockFarmVisayas.store')}}",
+                url: "{{route('dashboard.blockFarmHYVNurseriesVis.store')}}",
                 type: 'POST',
                 data: new FormData(this),
                 processData: false,
@@ -79,7 +79,7 @@
                     $('#btnBlockFarmSubmit').removeAttr("disabled");
                     Swal.fire({
                         title: 'Success!',
-                        text: 'New Block Farm (Visayas) successfully added!',
+                        text: 'New Farm Mechanization Support (Visayas) successfully added!',
                         icon: 'success',
                         confirmButtonText: 'Done'
                     })

@@ -62,10 +62,10 @@
 {{--                            @if(in_array($cropYear->name, $clYearList))--}}
 {{--                                <h4>Series of {!!$cropYear->name!!}</h4>--}}
 {{--                            @endif--}}
-{{--                            @foreach ($block_farm as $blockFarmVisayas)--}}
-{{--                                @if($cropYear->slug == $blockFarmVisayas->crop_year_slug)--}}
+{{--                            @foreach ($block_farm as $blockFarmEstablishedVisayas)--}}
+{{--                                @if($cropYear->slug == $blockFarmEstablishedVisayas->crop_year_slug)--}}
 {{--                                    <ul>--}}
-{{--                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$blockFarmVisayas->path!!}" target="_blank">{!!$blockFarmVisayas->file_title!!}, </a>{!!$blockFarmVisayas->title!!}</li>--}}
+{{--                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$blockFarmEstablishedVisayas->path!!}" target="_blank">{!!$blockFarmEstablishedVisayas->file_title!!}, </a>{!!$blockFarmEstablishedVisayas->title!!}</li>--}}
 {{--                                    </ul>--}}
 {{--                                    @endif--}}
 {{--                                    @endforeach--}}

@@ -43,38 +43,6 @@
     </div><!-- Banner area end -->
 
     <section id="main-container" class="main-container">
-{{--        <div class="container">--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-lg-12">--}}
-{{--                    <p>--}}
-{{--                    @php--}}
-{{--                        $sugar_supply_demand = \App\Models\SugarSupplyDemand::query()->get()->sortByDesc('id');--}}
-{{--                        $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');--}}
-{{--                        $clYearList = array();--}}
-{{--                        foreach($sugar_supply_demand as $cl){--}}
-{{--                          array_push($clYearList, $cl->crop_year);--}}
-{{--                        }--}}
-{{--                        $clYearList = array_unique($clYearList);--}}
-{{--                    @endphp--}}
-{{--                    @if(count($sugar_supply_demand) > 0)--}}
-{{--                        @foreach($crop_year as $cropYear)--}}
-{{--                            @if(in_array($cropYear->name, $clYearList))--}}
-{{--                                <h4>Series of {!!$cropYear->name!!}</h4>--}}
-{{--                            @endif--}}
-{{--                            @foreach ($sugar_supply_demand as $sugarSupplyDemand)--}}
-{{--                                @if($cropYear->slug == $sugarSupplyDemand->crop_year_slug)--}}
-{{--                                    <ul>--}}
-{{--                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$sugarSupplyDemand->path!!}" target="_blank">{!!$sugarSupplyDemand->file_title!!},</a>{!!$sugarSupplyDemand->title!!}</li>--}}
-{{--                                    </ul>--}}
-{{--                                    @endif--}}
-{{--                                    @endforeach--}}
-{{--                                    @endforeach--}}
-{{--                                    @endif--}}
-{{--                                    </p>--}}
-{{--                </div><!-- Col end -->--}}
-{{--            </div><!-- Content row end -->--}}
-
-{{--        </div><!-- Container end -->--}}
         <div class="container mt-3">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">

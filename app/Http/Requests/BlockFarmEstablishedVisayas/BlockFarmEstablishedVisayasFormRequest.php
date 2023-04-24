@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\BlockFarmVisayas;
+namespace App\Http\Requests\BlockFarmEstablishedVisayas;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BlockFarmVisayasFormRequest extends FormRequest{
+class BlockFarmEstablishedVisayasFormRequest extends FormRequest{
 
 
     public function authorize(){

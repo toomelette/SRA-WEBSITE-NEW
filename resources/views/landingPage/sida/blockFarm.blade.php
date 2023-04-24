@@ -47,57 +47,52 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p>
-                    @php
-                    $blocf_farm = \App\Models\BlockFarmVisayas::query()->get()->sortByDesc('id');
-                    $Year = \App\Models\Year::query()->get()->sortByDesc('id');
-                    $clYearList = array();
-                    foreach($blocf_farm as $cl){
-                    array_push($clYearList, $cl->year);
-                    }
-                    $clYearList = array_unique($clYearList);
-                    @endphp
-                    @if(count($blocf_farm) > 0)
-                        @foreach($Year as $year)
-                            @if(in_array($year->name, $clYearList))
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" role="presentation" data-toggle="tab" href="#home">SIDA BLOCK FARM (LUZON AND MINDANAO)</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" role="presentation" data-toggle="tab" href="#menu1">SIDA BLOCK FARM (VISAYAS)</a>
+                        </li>
 
-                                <div class="accordion accordion-group text-justify" id="our-values-accordion">
-                                    <div class="card">
-                                        <div class="card-header p-0 bg-transparent" id="heading1">
-                                            <h2 class="mb-0">
-                                                <button class="btn btn-block text-left {{($loop->iteration != 1) ? 'collapsed'  : ''}}" type="button" data-toggle="collapse" data-target="#collapse_{{$year->slug}}" aria-expanded="{{($loop->iteration == 1) ? 'true'  : 'false'}}" aria-controls="collapse1">
-                                                     {!!$year->name!!}
-                                                </button>
+                    </ul>
 
-                                            </h2>
-                                        </div>
-                                        <div id="collapse_{{$year->slug}}" class="collapse {{($loop->iteration == 1) ? 'show'  : ''}}" aria-labelledby="heading1" data-parent="#our-values-accordion" style="">
-                                            <div class="card-body">
-                                                <ul>
-                                                    @foreach ($blocf_farm as $blockFarm)
-                                                        @if($year->name == $blockFarm->year)
-                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/home/sra_website/{!!$blockFarm->path!!}" >{!!$blockFarm->file_title!!},</a>{!!$blockFarm->title!!}</a></li>
-                                                        @endif
-                                                    @endforeach
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div id="home" class="container tab-pane active"><br>
+                            <h3>SIDA BLOCK FARM (LUZON AND MINDANAO)</h3>
+                            <style>
+                                table1 {
+                                    border-top: 5px solid green;
 
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
+                                }
+
+                            </style>
+                            @include('landingPage.sida.SidaBlockFarmLuzonandMindao.establishedBlockFarm-LuzonandMindanao')
+                </div><!-- Col end -->
+
+                    <div id="menu1" class="container tab-pane fade"><br>
+
+                            <div>
+                                @include('landingPage.sida.SidaBlockFarmVisayas.establishedBlockFam-Visayas')
+                            </div>
+                                <div>
+                            @include('landingPage.sida.SidaBlockFarmVisayas.farmmechanizationsupp-Visayas')
+                                </div>
+                                <div>
+                            @include('landingPage.sida.SidaBlockFarmVisayas.establishedHYVNurseries-Visayas')
                                 </div>
 
 
-                                @endif
-                                @foreach ($blocf_farm as $blockFarm)
-                                @if($year->slug == $blockFarm->year)
+                    </div>
 
-                                @endif
-                                @endforeach
-                                @endforeach
-                                @endif
-                                </p>
-                </div><!-- Col end -->
+                </div>
+            </div>
+
             </div><!-- Content row end -->
+
+
 
         </div><!-- Container end -->
     </section><!-- Main container end -->

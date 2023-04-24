@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="content-header">
-        <h1>Manage Block Farm</h1>
+        <h1>Manage Established Block Farm</h1>
     </section>
 
     <section class="content">
@@ -104,11 +104,11 @@
             //Initialize DataTable
             modal_loader = $("#modal_loader").parent('div').html();
             active = '';
-            block_farm_visayas_tbl = $("#block_farm_table").DataTable({
+            block_farm_established_lozun_mindanao_tbl = $("#block_farm_table").DataTable({
                 'dom' : 'lBfrtip',
                 "processing": true,
                 "serverSide": true,
-                "ajax" : '{{ route("dashboard.blockFarmVisayas.index") }}',
+                "ajax" : '{{ route("dashboard.blockFarmEstablishedLozMin.store") }}',
                 "columns": [
                     { "data": "year" },
                     { "data": "date"},
@@ -154,7 +154,7 @@
             $('#block_farm_table_filter input').unbind();
             $('#block_farm_table_filter input').bind('keyup', function (e) {
                 if (e.keyCode == 13) {
-                    block_farm_visayas_tbl.search(this.value).draw();
+                    block_farm_established_lozun_mindanao_tbl.search(this.value).draw();
                 }
             });
         });

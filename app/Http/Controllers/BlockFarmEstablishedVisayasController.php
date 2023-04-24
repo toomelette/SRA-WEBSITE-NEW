@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\BlockfarmVisayas\BlockfarmVisayasFilterRequest;
-use App\Http\Requests\BlockfarmVisayas\BlockfarmVisayasFormRequest;
-use App\Models\BlockFarmVisayas;
+use App\Http\Requests\BlockFarmEstablishedVisayas\BlockFarmEstablishedLozunMindanaoFilterRequest;
+use App\Http\Requests\BlockFarmEstablishedVisayas\BlockFarmMechSuppVisFormRequest;
+use App\Models\BlockFarmEstablishedVisayas;
 use App\Models\Year;
 use App\Swep\ViewHelpers\__html;
 use Carbon\Carbon;
@@ -13,7 +13,7 @@ use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Auth;
 
 
-class BlockFarmVisayasController extends Controller{
+class BlockFarmEstablishedVisayasController extends Controller{
 
     protected $news;
 
@@ -26,10 +26,10 @@ class BlockFarmVisayasController extends Controller{
 
     public function index(){
         if(request()->ajax()){
-            $block_farm = BlockFarmVisayas::query()->orderByDesc('year');
+            $block_farm = BlockFarmEstablishedVisayas::query()->orderByDesc('year');
             return DataTables::of($block_farm)
                 ->addColumn('action',function ($data){
-                    $destroy_route = "'".route("dashboard.blockFarmVisayas.destroy","slug")."'";
+                    $destroy_route = "'".route("dashboard.blockFarmEstablishedVisayas.destroy","slug")."'";
                     $slug = "'".$data->slug."'";
                     return '<div class="btn-group">
 
@@ -46,22 +46,22 @@ class BlockFarmVisayasController extends Controller{
                 ->escapeColumns([])
                 ->toJson();
         }
-        return view('dashboard.blockFarmVisayas.index');
+        return view('dashboard.blockFarmEstablishedVisayas.index');
     }
 
 
 
     public function create(){
 
-        return view('dashboard.blockFarmVisayas.create');
+        return view('dashboard.blockFarmEstablishedVisayas.create');
 
     }
 
 
 
-    public function store(BlockFarmVisayasFormRequest $request)
+    public function store(BlockFarmMechSuppVisFormRequest $request)
     {
-        $blockFarm = new BlockFarmVisayas();
+        $blockFarm = new BlockFarmEstablishedVisayas();
         $blockFarm->slug = Str::random(15);
         $year = Year::query()->where('slug','=',$request->year)->first();
         $blockFarm->year_slug = $year->slug;
@@ -85,7 +85,7 @@ class BlockFarmVisayasController extends Controller{
             }
         }
         $blockFarm->save();
-        return redirect('dashboard/blockFarmVisayas/create');
+        return redirect('dashboard/blockFarmEstablishedVisayas/create');
     }
 
 
@@ -99,7 +99,7 @@ class BlockFarmVisayasController extends Controller{
     }
 
 
-    public function update(BlockFarmVisayasFormRequest $request, $slug){
+    public function update(BlockFarmMechSuppVisFormRequest $request, $slug){
         $news = News::query()->where('slug',$slug)->first();
         $news->title = $request->title;
         $news->description = $request->description;
@@ -113,15 +113,15 @@ class BlockFarmVisayasController extends Controller{
     }
 
     public function destroy($slug){
-        $blockFarm = BlockFarmVisayas::query()->where('slug','=',$slug)->first();
+        $blockFarm = BlockFarmEstablishedVisayas::query()->where('slug','=',$slug)->first();
         if(!empty($blockFarm)){
             $blockFarm->delete();
             return 1;
         }
-        abort(503,'Error deleting Block Farm. [BlockFarmVisayasController::destroy]');
+        abort(503,'Error deleting Block Farm Established. [BlockFarmEstablishedVisayasController::destroy]');
         return 1;
 
-        $blockFarm = BlockFarmVisayas::query()->find($slug);
+        $blockFarm = BlockFarmEstablishedVisayas::query()->find($slug);
         if ($blockFarm->delete()){
             return 1;
         }

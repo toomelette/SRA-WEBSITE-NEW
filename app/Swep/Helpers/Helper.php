@@ -5,6 +5,7 @@ namespace App\Swep\Helpers;
 use App\Models\CropYear;
 use App\Models\MisRequestsNature;
 use App\Models\Year;
+use App\Models\YearBlockFarm;
 use Carbon;
 use Illuminate\Support\Facades\Auth;
 
@@ -245,6 +246,18 @@ class Helper
 
             foreach ($year as $y){
                 $array[$y->name]  = $y->slug;
+            }
+        }
+        return $array;
+    }
+
+    public static function yearBlockFarm() {
+        $yearBlackFarm = YearBlockFarm::query()->get()->sortByDesc('name');
+        $array = [];
+        if(!empty($yearBlackFarm)){
+
+            foreach ($yearBlackFarm as $yBF){
+                $array[$yBF->name]  = $yBF->slug;
             }
         }
         return $array;
