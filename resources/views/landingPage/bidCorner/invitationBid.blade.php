@@ -5,7 +5,7 @@
     <!-- Basic Page Needs
   ================================================== -->
     <meta charset="utf-8">
-    <title>Invitation to Bid | SRA</title>
+    <title>Invitation to BID | SRA</title>
 
     <!-- Mobile Specific Metas
   ================================================== -->
@@ -46,32 +46,83 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
+
                     <p>
                     @php
-                        $invitationBid = \App\Models\InvitationBid::query()->get()->sortByDesc('id');
-                        $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');
+                        $bf_estab_v = \App\Models\InvitationBid::query()->get()->sortByDesc('id');
+                        $Year = \App\Models\Year::query()->get()->sortByDesc('id');
                         $clYearList = array();
-                        foreach($invitationBid as $cl){
-                          array_push($clYearList, $cl->crop_year);
-                          array_push($clYearList, $cl->crop_year);
+                        foreach($bf_estab_v as $cl){
+                        array_push($clYearList, $cl->year);
                         }
                         $clYearList = array_unique($clYearList);
                     @endphp
-                    @if(count($invitationBid) > 0)
-                        @foreach($crop_year as $cropYear)
-                            @if(in_array($cropYear->name, $clYearList))
-                                <h4>Series of {!!$cropYear->name!!}</h4>
-                            @endif
-                            @foreach ($invitationBid as $invitation_Bid)
-                                @if($cropYear->slug == $invitation_Bid->crop_year_slug)
-                                    <ul>
-                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$invitation_Bid->path!!}" target="_blank">{!!$invitation_Bid->file_title!!}, </a>{!!$invitation_Bid->title!!}</li>
-                                    </ul>
-                                    @endif
-                                    @endforeach
-                                    @endforeach
-                                    @endif
-                                    </p>
+                    @if(count($bf_estab_v) > 0)
+                        @foreach($Year as $year)
+                            @if(in_array($year->name, $clYearList))
+
+                                <div class="accordion accordion-group text-justify" id="our-values-accordion">
+                                    <div class="card">
+                                        <div class="card-header p-0 bg-transparent" id="heading1">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-block text-left {{($loop->iteration != 1) ? 'collapsed'  : ''}}" type="button" data-toggle="collapse" data-target="#collapse_{{$year->slug}}" aria-expanded="{{($loop->iteration == 1) ? 'true'  : 'false'}}" aria-controls="collapse1">
+                                                    {!!$year->name!!}
+                                                </button>
+
+                                            </h2>
+                                        </div>
+                                        <div id="collapse_{{$year->slug}}" class="collapse {{($loop->iteration == 1) ? 'show'  : ''}}" aria-labelledby="heading1" data-parent="#our-values-accordion" style="">
+                                            <div class="card-body">
+                                                <ul>
+                                                    @foreach ($bf_estab_v as $bfEstabV)
+                                                        @if($year->name == $bfEstabV->year)
+                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/home/sra_website/{!!$bfEstabV->path!!}" >{!!$bfEstabV->file_title!!}</a>{!!$bfEstabV->title!!}</a></li>
+                                                        @endif
+                                                    @endforeach
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                @endif
+                                @foreach ($bf_estab_v as $bfEstabV)
+                                @if($year->slug == $bfEstabV->year)
+
+                                @endif
+                                @endforeach
+                                @endforeach
+                                @endif
+                                </p><br>
+
+{{--                    <p>--}}
+{{--                    @php--}}
+{{--                        $invitationBid = \App\Models\InvitationBid::query()->get()->sortByDesc('id');--}}
+{{--                        $crop_year = \App\Models\Year::query()->get()->sortByDesc('id');--}}
+{{--                        $clYearList = array();--}}
+{{--                        foreach($invitationBid as $cl){--}}
+{{--                          array_push($clYearList, $cl->crop_year);--}}
+{{--                          array_push($clYearList, $cl->crop_year);--}}
+{{--                        }--}}
+{{--                        $clYearList = array_unique($clYearList);--}}
+{{--                    @endphp--}}
+{{--                    @if(count($invitationBid) > 0)--}}
+{{--                        @foreach($crop_year as $cropYear)--}}
+{{--                            @if(in_array($cropYear->name, $clYearList))--}}
+{{--                                <h4>Series of {!!$cropYear->name!!}</h4>--}}
+{{--                            @endif--}}
+{{--                            @foreach ($invitationBid as $invitation_Bid)--}}
+{{--                                @if($cropYear->slug == $invitation_Bid->crop_year_slug)--}}
+{{--                                    <ul>--}}
+{{--                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$invitation_Bid->path!!}" target="_blank">{!!$invitation_Bid->file_title!!}, </a>{!!$invitation_Bid->title!!}</li>--}}
+{{--                                    </ul>--}}
+{{--                                    @endif--}}
+{{--                                    @endforeach--}}
+{{--                                    @endforeach--}}
+{{--                                    @endif--}}
+{{--                                    </p>--}}
                 </div><!-- Col end -->
             </div><!-- Content row end -->
 

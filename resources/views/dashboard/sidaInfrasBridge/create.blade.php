@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="content-header">
-        <h1>Infrastructure Program</h1>
+        <h1>SIDA Infrastructure (Bridge Program)</h1>
     </section>
 
     <section class="content">
@@ -23,7 +23,7 @@
 
                     <div class="col-md-11">
                         {!! __form::select_static2(
-                          '8 year', 'year', 'Year: *', '', \App\Swep\Helpers\Helper::year(), '', '', '', 'required'
+                          '8 year', 'year', 'Year: *', '', \App\Swep\Helpers\Helper::yearBlockFarm(), '', '', '', 'required'
                         ) !!}
 
                         {!! __form::textbox(
@@ -80,7 +80,7 @@
             let formData = new FormData(this);
             loading_btn(form);
             $.ajax({
-                url: "{{route('dashboard.infrastructureProg.store')}}",
+                url: "{{route('dashboard.sidaInfrasBridge.store')}}",
                 type: 'POST',
                 data: new FormData(this),
                 processData: false,

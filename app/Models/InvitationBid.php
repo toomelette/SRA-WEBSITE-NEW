@@ -42,8 +42,8 @@ class InvitationBid extends Model{
     protected $attributes = [
         'slug' => '',
         'date' => null,
-        'crop_year_slug' => '',
-        'crop_year' => '',
+        'year_slug' => '',
+        'year' => '',
         'file_title' => '',
         'title' => '',
         'path' => '',

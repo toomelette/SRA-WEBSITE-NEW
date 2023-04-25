@@ -24,7 +24,7 @@
                     <div class="col-md-11">
 
                         {!! __form::select_static2(
-                        '8 crop_year', 'crop_year', 'Crop Year: *', '', \App\Swep\Helpers\Helper::cropYear(), '', '', '', 'required'
+                        '8 year', 'year', 'Year: *', '', \App\Swep\Helpers\Helper::year(), '', '', '', 'required'
                         ) !!}
                         {!! __form::textbox(
                           '4', 'date', 'date', 'Date *', '', old('date'), $errors->has('date'), $errors->first('date'), 'required'
@@ -79,7 +79,7 @@
                     $('#btnInvitationBidSubmit').removeAttr("disabled");
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Invitation To Bid successfully added!',
+                        text: 'Invitation To BID successfully added!',
                         icon: 'success',
                         confirmButtonText: 'Done'
                     })

@@ -2,7 +2,7 @@
 <p>
 @php
     $bf_estab_v = \App\Models\BlockFarmEstablishedVisayas::query()->get()->sortByDesc('id');
-    $Year = \App\Models\Year::query()->get()->sortByDesc('id');
+    $Year = \App\Models\YearBlockFarm::query()->get()->sortByDesc('id');
     $clYearList = array();
     foreach($bf_estab_v as $cl){
     array_push($clYearList, $cl->year);

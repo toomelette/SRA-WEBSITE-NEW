@@ -253,6 +253,15 @@ class SubNavController extends Controller
         return view('landingPage.sida.scholarshipProg');
     }
 
+    //////////Online Payment////////
+    ///
+    public function landbankLinkBliz(){
+        return view('landingPage.onlinePayment.landbankLinkBiz');
+    }
+
+
+
+
 
 
 

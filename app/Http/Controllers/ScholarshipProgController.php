@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ScholarshipProg\ScholarshipProgFormRequest;
 use App\Http\Requests\ScholarshipProg\ScholarshipProgFilterRequest;
+use App\Models\OptionScholarship;
 use App\Models\ScholarshipProg;
 use App\Models\Year;
+use App\Models\YearBlockFarm;
 use App\Swep\ViewHelpers\__html;
 use Illuminate\Support\Str;
 use Yajra\DataTables\DataTables;
@@ -61,7 +63,7 @@ class ScholarshipProgController extends Controller{
     {
         $scholarshipProgram = new ScholarshipProg();
         $scholarshipProgram->slug = Str::random(15);
-        $year = Year::query()->where('slug','=',$request->year)->first();
+        $year = OptionScholarship::query()->where('slug','=',$request->year)->first();
         $scholarshipProgram->year_slug = $year->slug;
         $scholarshipProgram->year = $year->name;
         $scholarshipProgram->date = $request->date;

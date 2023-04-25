@@ -47,33 +47,47 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-{{--                    <p>--}}
-{{--                    @php--}}
-{{--                        $block_farm = \App\Models\BlockFarm::query()->get()->sortByDesc('id');--}}
-{{--                        $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');--}}
-{{--                        $clYearList = array();--}}
-{{--                        foreach($block_farm as $cl){--}}
-{{--                          array_push($clYearList, $cl->crop_year);--}}
-{{--                        }--}}
-{{--                        $clYearList = array_unique($clYearList);--}}
-{{--                    @endphp--}}
-{{--                    @if(count($block_farm) > 0)--}}
-{{--                        @foreach($crop_year as $cropYear)--}}
-{{--                            @if(in_array($cropYear->name, $clYearList))--}}
-{{--                                <h4>Series of {!!$cropYear->name!!}</h4>--}}
-{{--                            @endif--}}
-{{--                            @foreach ($block_farm as $blockFarmEstablishedVisayas)--}}
-{{--                                @if($cropYear->slug == $blockFarmEstablishedVisayas->crop_year_slug)--}}
-{{--                                    <ul>--}}
-{{--                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$blockFarmEstablishedVisayas->path!!}" target="_blank">{!!$blockFarmEstablishedVisayas->file_title!!}, </a>{!!$blockFarmEstablishedVisayas->title!!}</li>--}}
-{{--                                    </ul>--}}
-{{--                                    @endif--}}
-{{--                                    @endforeach--}}
-{{--                                    @endforeach--}}
-{{--                                    @endif--}}
-{{--                                    </p>--}}
-                </div><!-- Col end -->
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" role="presentation" data-toggle="tab" href="#home">SIDA INFRASTRUCTURE (FMR PROJECT)</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" role="presentation" data-toggle="tab" href="#menu1">SIDA INFRASTRUCTURE (BRIDGE PROJECT)</a>
+                        </li>
+
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div id="home" class="container tab-pane active"><br>
+                            <h3>SIDA INFRASTRUCTURE (FMR PROJECT)</h3>
+                            <style>
+                                table1 {
+                                    border-top: 5px solid green;
+
+                                }
+
+                            </style>
+                            @include('landingPage.sida.SidaInfrasTrastructure.infrasFMR')
+                        </div><!-- Col end -->
+
+                        <div id="menu1" class="container tab-pane fade"><br>
+                            <h3>SIDA INFRASTRUCTURE (BRIDGE PROJECT)</h3>
+                            <div>
+                                @include('landingPage.sida.SidaInfrasTrastructure.infrasBridge')
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+
             </div><!-- Content row end -->
+
+
 
         </div><!-- Container end -->
     </section><!-- Main container end -->

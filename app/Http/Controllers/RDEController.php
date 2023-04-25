@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RDEProg\RDEProgFormRequest;
 use App\Http\Requests\RDEProg\RDEProgFilterRequest;
+use App\Models\OptionRDE;
 use App\Models\RDEProg;
 use App\Models\Year;
+use App\Models\YearBlockFarm;
 use App\Swep\ViewHelpers\__html;
 use Illuminate\Support\Str;
 use Yajra\DataTables\DataTables;
@@ -61,7 +63,7 @@ class RDEController extends Controller{
     {
         $rdeProg = new RDEProg();
         $rdeProg->slug = Str::random(15);
-        $year = Year::query()->where('slug','=',$request->year)->first();
+        $year = OptionRDE::query()->where('slug','=',$request->year)->first();
         $rdeProg->year_slug = $year->slug;
         $rdeProg->year = $year->name;
         $rdeProg->date = $request->date;

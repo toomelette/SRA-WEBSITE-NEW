@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SocializedCreditProg\SocializedCreditProgFormRequest;
 use App\Http\Requests\SocializedCreditProg\SocializedCreditProgFilterRequest;
+use App\Models\OptionSocialized;
 use App\Models\SocializedCreditProg;
 use App\Models\Year;
 use App\Swep\ViewHelpers\__html;
@@ -61,7 +62,7 @@ class SocializedCreditProgController extends Controller{
     {
         $socializedCreditProgram = new SocializedCreditProg();
         $socializedCreditProgram->slug = Str::random(15);
-        $year = Year::query()->where('slug','=',$request->year)->first();
+        $year = OptionSocialized::query()->where('slug','=',$request->year)->first();
         $socializedCreditProgram->year_slug = $year->slug;
         $socializedCreditProgram->year = $year->name;
         $socializedCreditProgram->date = $request->date;

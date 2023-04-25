@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\BlockFarmMechSuppVis\BlockFarmHYVNurseriesVisFilterRequest;
-use App\Http\Requests\BlockFarmMechSuppVis\BlockFarmHYVNurseriesVisFormRequest;
+use App\Http\Requests\BlockFarmMechSuppVis\BlockFarmMechSuppVisFilterRequest;
+use App\Http\Requests\BlockFarmMechSuppVis\BlockFarmMechSuppVisFormRequest;
 use App\Models\BlockFarmEstablishedVisayas;
 use App\Models\BlockFarmMechSuppVis;
 use App\Models\Year;
+use App\Models\YearBlockFarm;
 use App\Swep\ViewHelpers\__html;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
@@ -60,11 +61,11 @@ class BlockFarmMechSuppVisController extends Controller{
 
 
 
-    public function store(BlockFarmHYVNurseriesVisFormRequest $request)
+    public function store(BlockFarmMechSuppVisFormRequest $request)
     {
         $blockFarm = new BlockFarmMechSuppVis();
         $blockFarm->slug = Str::random(15);
-        $year = Year::query()->where('slug','=',$request->year)->first();
+        $year = YearBlockFarm::query()->where('slug','=',$request->year)->first();
         $blockFarm->year_slug = $year->slug;
         $blockFarm->year = $year->name;
         $blockFarm->date = $request->date;
@@ -74,7 +75,7 @@ class BlockFarmMechSuppVisController extends Controller{
         if (!empty($request->img_url)) {
             foreach ($request->file('img_url') as $file) {
                 $client_original_filename = $file->getClientOriginalName();
-                $path = 'block_farm_visayas/'. $blockFarm->year;
+                $path = 'block_farm_mechanizatoin_supp_vis/'. $blockFarm->year;
                 $blockFarm->path = $path . '/' . $file->getClientOriginalName();
 
                 $original_ext = $file->getClientOriginalExtension();
@@ -100,7 +101,7 @@ class BlockFarmMechSuppVisController extends Controller{
     }
 
 
-    public function update(BlockFarmHYVNurseriesVisFormRequest $request, $slug){
+    public function update(BlockFarmMechSuppVisFormRequest $request, $slug){
         $news = News::query()->where('slug',$slug)->first();
         $news->title = $request->title;
         $news->description = $request->description;

@@ -47,31 +47,58 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    {{--                    <p>--}}
-                    {{--                    @php--}}
-                    {{--                        $block_farm = \App\Models\BlockFarm::query()->get()->sortByDesc('id');--}}
-                    {{--                        $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');--}}
-                    {{--                        $clYearList = array();--}}
-                    {{--                        foreach($block_farm as $cl){--}}
-                    {{--                          array_push($clYearList, $cl->crop_year);--}}
-                    {{--                        }--}}
-                    {{--                        $clYearList = array_unique($clYearList);--}}
-                    {{--                    @endphp--}}
-                    {{--                    @if(count($block_farm) > 0)--}}
-                    {{--                        @foreach($crop_year as $cropYear)--}}
-                    {{--                            @if(in_array($cropYear->name, $clYearList))--}}
-                    {{--                                <h4>Series of {!!$cropYear->name!!}</h4>--}}
-                    {{--                            @endif--}}
-                    {{--                            @foreach ($block_farm as $blockFarmEstablishedVisayas)--}}
-                    {{--                                @if($cropYear->slug == $blockFarmEstablishedVisayas->crop_year_slug)--}}
-                    {{--                                    <ul>--}}
-                    {{--                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$blockFarmEstablishedVisayas->path!!}" target="_blank">{!!$blockFarmEstablishedVisayas->file_title!!}, </a>{!!$blockFarmEstablishedVisayas->title!!}</li>--}}
-                    {{--                                    </ul>--}}
-                    {{--                                    @endif--}}
-                    {{--                                    @endforeach--}}
-                    {{--                                    @endforeach--}}
-                    {{--                                    @endif--}}
-                    {{--                                    </p>--}}
+                    <h3>RESEARCH, DEVELOPMENT & EXTENSION PROGRAM</h3>
+                    <h4>RDE Programs</h4>
+                    <p>
+                    @php
+                        $rde_prog = \App\Models\RDEProg::query()->get()->sortByDesc('id');
+                        $Year = \App\Models\OprionRDE::query()->get()->sortByDesc('id');
+                        $clYearList = array();
+                        foreach($rde_prog as $cl){
+                        array_push($clYearList, $cl->year);
+                        }
+                        $clYearList = array_unique($clYearList);
+                    @endphp
+                    @if(count($rde_prog) > 0)
+                        @foreach($Year as $year)
+                            @if(in_array($year->name, $clYearList))
+
+                                <div class="accordion accordion-group text-justify" id="our-values-accordion">
+                                    <div class="card">
+                                        <div class="card-header p-0 bg-transparent" id="heading1">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-block text-left {{($loop->iteration != 1) ? 'collapsed'  : ''}}" type="button" data-toggle="collapse" data-target="#collapse_{{$year->slug}}" aria-expanded="{{($loop->iteration == 1) ? 'true'  : 'false'}}" aria-controls="collapse1">
+                                                    {!!$year->name!!}
+                                                </button>
+
+                                            </h2>
+                                        </div>
+                                        <div id="collapse_{{$year->slug}}" class="collapse {{($loop->iteration == 1) ? 'show'  : ''}}" aria-labelledby="heading1" data-parent="#our-values-accordion" style="">
+                                            <div class="card-body">
+                                                <ul>
+                                                    @foreach ($rde_prog as $rdeProg)
+                                                        @if($year->name == $rdeProg->year)
+                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/home/sra_website/{!!$rdeProg->path!!}" >{!!$rdeProg->file_title!!},</a>{!!$rdeProg->title!!}</a></li>
+                                                        @endif
+                                                    @endforeach
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                @endif
+                                @foreach ($rde_prog as $rdeProg)
+                                @if($year->slug == $rdeProg->year)
+
+                                @endif
+                                @endforeach
+                                @endforeach
+                                @endif
+                                </p><br>
+
                 </div><!-- Col end -->
             </div><!-- Content row end -->
 

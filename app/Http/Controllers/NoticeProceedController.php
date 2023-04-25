@@ -6,6 +6,7 @@ use App\Http\Requests\NoticeProceed\NoticeProceedFormRequest;
 use App\Http\Requests\NoticeProceed\NoticeProceedFilterRequest;
 use App\Models\NoticeProceed;
 use App\Models\CropYear;
+use App\Models\Year;
 use App\Swep\ViewHelpers\__html;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
@@ -63,7 +64,7 @@ class NoticeProceedController extends Controller{
     {
         $noticeProceed = new NoticeProceed();
         $noticeProceed->slug = Str::random(15);
-        $cropYear = CropYear::query()->where('slug','=',$request->crop_year)->first();
+        $cropYear = Year::query()->where('slug','=',$request->crop_year)->first();
         $noticeProceed->crop_year_slug = $cropYear->slug;
         $noticeProceed->crop_year = $cropYear->name;
         $noticeProceed->date = $request->date;

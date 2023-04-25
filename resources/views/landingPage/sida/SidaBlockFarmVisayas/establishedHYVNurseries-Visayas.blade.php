@@ -2,7 +2,7 @@
 <p>
 @php
     $estab_HYV_Nur = \App\Models\BlockFarmHYVNurseriesVis::query()->get()->sortByDesc('id');
-    $Year = \App\Models\Year::query()->get()->sortByDesc('id');
+    $Year = \App\Models\YearBlockFarm::query()->get()->sortByDesc('id');
     $clYearList = array();
     foreach($estab_HYV_Nur as $cl){
     array_push($clYearList, $cl->year);

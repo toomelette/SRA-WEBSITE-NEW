@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\BlockFarmEstablishedVisayas\BlockFarmEstablishedLozunMindanaoFilterRequest;
-use App\Http\Requests\BlockFarmEstablishedVisayas\BlockFarmMechSuppVisFormRequest;
+use App\Http\Requests\BlockFarmEstablishedVisayas\BlockFarmEstablishedVisayasFilterRequest;
+use App\Http\Requests\BlockFarmEstablishedVisayas\BlockFarmEstablishedVisayasFormRequest;
 use App\Models\BlockFarmEstablishedVisayas;
 use App\Models\Year;
+use App\Models\YearBlockFarm;
 use App\Swep\ViewHelpers\__html;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
@@ -59,11 +60,11 @@ class BlockFarmEstablishedVisayasController extends Controller{
 
 
 
-    public function store(BlockFarmMechSuppVisFormRequest $request)
+    public function store(BlockFarmEstablishedVisayasFormRequest $request)
     {
         $blockFarm = new BlockFarmEstablishedVisayas();
         $blockFarm->slug = Str::random(15);
-        $year = Year::query()->where('slug','=',$request->year)->first();
+        $year = YearBlockFarm::query()->where('slug','=',$request->year)->first();
         $blockFarm->year_slug = $year->slug;
         $blockFarm->year = $year->name;
         $blockFarm->date = $request->date;
@@ -73,7 +74,7 @@ class BlockFarmEstablishedVisayasController extends Controller{
         if (!empty($request->img_url)) {
             foreach ($request->file('img_url') as $file) {
                 $client_original_filename = $file->getClientOriginalName();
-                $path = 'block_farm_visayas/'. $blockFarm->year;
+                $path = 'block_farm_established_visayas/'. $blockFarm->year;
                 $blockFarm->path = $path . '/' . $file->getClientOriginalName();
 
                 $original_ext = $file->getClientOriginalExtension();
@@ -99,7 +100,7 @@ class BlockFarmEstablishedVisayasController extends Controller{
     }
 
 
-    public function update(BlockFarmMechSuppVisFormRequest $request, $slug){
+    public function update(BlockFarmEstablishedVisayasFormRequest $request, $slug){
         $news = News::query()->where('slug',$slug)->first();
         $news->title = $request->title;
         $news->description = $request->description;

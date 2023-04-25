@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="content-header">
-        <h1>Infrastructure Program</h1>
+        <h1>SIDA Infrastructure (Bridge Program)</h1>
     </section>
 
     <section class="content">
@@ -105,11 +105,11 @@
             //Initialize DataTable
             modal_loader = $("#modal_loader").parent('div').html();
             active = '';
-            sida_infrastructure_prog = $("#table_table").DataTable({
+            sida_infas_bridge_tbl = $("#table_table").DataTable({
                 'dom' : 'lBfrtip',
                 "processing": true,
                 "serverSide": true,
-                "ajax" : '{{ route("dashboard.infrastructureProg.index") }}',
+                "ajax" : '{{ route("dashboard.sidaInfrasBridge.index") }}',
                 "columns": [
                     { "data": "year" },
                     { "data": "date" },
@@ -155,7 +155,7 @@
             $('#table_filter input').unbind();
             $('#table_filter input').bind('keyup', function (e) {
                 if (e.keyCode == 13) {
-                    sida_infrastructure_prog.search(this.value).draw();
+                    sida_infas_bridge_tbl.search(this.value).draw();
                 }
             });
         });

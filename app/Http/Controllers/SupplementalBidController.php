@@ -6,6 +6,7 @@ use App\Http\Requests\SupplementalBid\SupplementalBidFormRequest;
 use App\Http\Requests\SupplementalBid\SupplementalBidFilterRequest;
 use App\Models\SupplementalBid;
 use App\Models\CropYear;
+use App\Models\Year;
 use App\Swep\ViewHelpers\__html;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
@@ -63,7 +64,7 @@ class SupplementalBidController extends Controller{
     {
         $supplementalBid = new SupplementalBid();
         $supplementalBid->slug = Str::random(15);
-        $cropYear = CropYear::query()->where('slug','=',$request->crop_year)->first();
+        $cropYear = Year::query()->where('slug','=',$request->crop_year)->first();
         $supplementalBid->crop_year_slug = $cropYear->slug;
         $supplementalBid->crop_year = $cropYear->name;
         $supplementalBid->date = $request->date;

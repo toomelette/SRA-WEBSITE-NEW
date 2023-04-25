@@ -4,6 +4,9 @@
 namespace App\Swep\Helpers;
 use App\Models\CropYear;
 use App\Models\MisRequestsNature;
+use App\Models\OprionRDE;
+use App\Models\OptionScholarship;
+use App\Models\OptionSocialized;
 use App\Models\Year;
 use App\Models\YearBlockFarm;
 use Carbon;
@@ -258,6 +261,42 @@ class Helper
 
             foreach ($yearBlackFarm as $yBF){
                 $array[$yBF->name]  = $yBF->slug;
+            }
+        }
+        return $array;
+    }
+
+    public static function option_rde() {
+        $option_rde = OprionRDE::query()->get()->sortByDesc('name');
+        $array = [];
+        if(!empty($option_rde)){
+
+            foreach ($option_rde as $rde){
+                $array[$rde->name]  = $rde->slug;
+            }
+        }
+        return $array;
+    }
+
+    public static function option_scholarship() {
+        $option_scholarship = OptionScholarship::query()->get()->sortByDesc('name');
+        $array = [];
+        if(!empty($option_scholarship)){
+
+            foreach ($option_scholarship as $optionSch){
+                $array[$optionSch->name]  = $optionSch->slug;
+            }
+        }
+        return $array;
+    }
+
+    public static function option_socialized() {
+        $option_socialized = OptionSocialized::query()->get()->sortByDesc('name');
+        $array = [];
+        if(!empty($option_socialized)){
+
+            foreach ($option_socialized as $optionSoc){
+                $array[$optionSoc->name]  = $optionSoc->slug;
             }
         }
         return $array;

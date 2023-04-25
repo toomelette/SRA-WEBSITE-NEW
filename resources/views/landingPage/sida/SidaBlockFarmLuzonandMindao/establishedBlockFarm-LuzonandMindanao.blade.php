@@ -1,15 +1,15 @@
 <h4>Established Block Farm</h4>
 <p>
 @php
-    $bf_estab_lm = \App\Models\BlockFarmEstablishedLozunMindanao::query()->get()->sortByDesc('id');
-    $Year = \App\Models\Year::query()->get()->sortByDesc('id');
+    $establihed = \App\Models\BlockFarmEstablishedLozunMindanao::query()->get()->sortByDesc('id');
+    $Year = \App\Models\YearBlockFarm::query()->get()->sortByDesc('id');
     $clYearList = array();
-    foreach($bf_estab_lm as $cl){
+    foreach($establihed as $cl){
     array_push($clYearList, $cl->year);
     }
     $clYearList = array_unique($clYearList);
 @endphp
-@if(count($bf_estab_lm) > 0)
+@if(count($establihed) > 0)
     @foreach($Year as $year)
         @if(in_array($year->name, $clYearList))
 
@@ -26,9 +26,9 @@
                     <div id="collapse_{{$year->slug}}" class="collapse {{($loop->iteration == 1) ? 'show'  : ''}}" aria-labelledby="heading1" data-parent="#our-values-accordion" style="">
                         <div class="card-body">
                             <ul>
-                                @foreach ($bf_estab_lm as $bfEstabLm)
-                                    @if($year->name == $bfEstabLm->year)
-                                        <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/home/sra_website/{!!$bfEstabLm->path!!}" >{!!$bfEstabLm->file_title!!},</a>{!!$bfEstabLm->title!!}</a></li>
+                                @foreach ($establihed as $Stablished)
+                                    @if($year->name == $Stablished->year)
+                                        <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/home/sra_website/{!!$Stablished->path!!}" >{!!$Stablished->file_title!!},</a>{!!$Stablished->title!!}</a></li>
                                     @endif
                                 @endforeach
 
@@ -40,8 +40,8 @@
 
 
             @endif
-            @foreach ($bf_estab_lm as $bfEstabLm)
-            @if($year->slug == $bfEstabLm->year)
+            @foreach ($establihed as $Stablished)
+            @if($year->slug == $Stablished->year)
 
             @endif
             @endforeach

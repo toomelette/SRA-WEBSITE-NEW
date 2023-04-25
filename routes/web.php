@@ -112,6 +112,9 @@ Route::get('sida/infrastructureProg', 'SubNavController@infrastructureProg')->na
 Route::get('sida/RDEProg', 'SubNavController@RDEProg')->name('sida.RDEProg');
 Route::get('sida/scholarshipProg', 'SubNavController@scholarshipProg')->name('sida.scholarshipProg');
 
+/**OnlinePayment**/
+Route::get('onlinePayment/landbankLinkBliz', 'SubNavController@landbankLinkBliz')->name('onlinePayment.landbankLinkBliz');
+
 
 
 
@@ -440,7 +443,6 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
     Route::resource('sidaLaws', 'SidaLawsController');
     Route::resource('fundUtilization', 'fundUtilizationController');
     Route::resource('socializedCreditProg', 'socializedCreditProgController');
-    Route::resource('infrastructureProg', 'infrastructureProgController');
     Route::resource('farmMechanization', 'FarmMechanizationController');
     Route::resource('scholarshipProg', 'ScholarshipProgController');
     Route::resource('rdeProg', 'RDEController');
@@ -448,6 +450,8 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
     Route::resource('blockFarmEstablishedVisayas', 'BlockFarmEstablishedVisayasController');
     Route::resource('blockFarmMechSuppVis', 'BlockFarmMechSuppVisController');
     Route::resource('blockFarmHYVNurseriesVis', 'BlockFarmHYVNurseriesVisController');
+    Route::resource('SidaInfrasFMR', 'SidaInfrasFMRController');
+    Route::resource('sidaInfrasBridge', 'SidaInfrasBridgeController');
 
 });
 

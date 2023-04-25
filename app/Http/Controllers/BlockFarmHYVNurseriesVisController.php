@@ -6,6 +6,7 @@ use App\Http\Requests\BlockFarmHYVNurseriesVis\BlockFarmHYVNurseriesVisFilterReq
 use App\Http\Requests\BlockFarmHYVNurseriesVis\BlockFarmHYVNurseriesVisFormRequest;
 use App\Models\BlockFarmHYVNurseriesVis;
 use App\Models\Year;
+use App\Models\YearBlockFarm;
 use App\Swep\ViewHelpers\__html;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
@@ -63,7 +64,7 @@ class BlockFarmHYVNurseriesVisController extends Controller{
     {
         $blockFarm = new BlockFarmHYVNurseriesVis();
         $blockFarm->slug = Str::random(15);
-        $year = Year::query()->where('slug','=',$request->year)->first();
+        $year = YearBlockFarm::query()->where('slug','=',$request->year)->first();
         $blockFarm->year_slug = $year->slug;
         $blockFarm->year = $year->name;
         $blockFarm->date = $request->date;

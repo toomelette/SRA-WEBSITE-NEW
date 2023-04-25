@@ -6,6 +6,7 @@ use App\Http\Requests\BlockFarmEstablishedLozunMindanao\BlockFarmEstablishedLozu
 use App\Http\Requests\BlockFarmEstablishedLozunMindanao\BlockFarmEstablishedLozunMindanaoFormRequest;
 use App\Models\BlockFarmEstablishedLozunMindanao;
 use App\Models\Year;
+use App\Models\YearBlockFarm;
 use App\Swep\ViewHelpers\__html;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
@@ -63,7 +64,7 @@ class BlockFarmEstablishedLozunMindanaoController extends Controller{
     {
         $blockFarm = new BlockFarmEstablishedLozunMindanao();
         $blockFarm->slug = Str::random(15);
-        $year = Year::query()->where('slug','=',$request->year)->first();
+        $year = YearBlockFarm::query()->where('slug','=',$request->year)->first();
         $blockFarm->year_slug = $year->slug;
         $blockFarm->year = $year->name;
         $blockFarm->date = $request->date;

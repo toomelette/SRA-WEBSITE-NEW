@@ -8,32 +8,32 @@ use Kyslik\ColumnSortable\Sortable;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 
-class InfrastractureProg extends Model{
+class SidaInfrasBridge extends Model{
 
 
     public static function boot()
     {
-        static::creating(function ($memorandumOrder){
-            $memorandumOrder->user_created = Auth::user()->user_id;
-            $memorandumOrder->ip_created = request()->ip();
+        static::creating(function ($SidaInfrasBridge){
+            $SidaInfrasBridge->user_created = Auth::user()->user_id;
+            $SidaInfrasBridge->ip_created = request()->ip();
         });
 
-        static::updating(function ($memorandumOrder){
-            $memorandumOrder->user_updated = Auth::user()->user_id;
-            $memorandumOrder->ip_updated = request()->ip();
+        static::updating(function ($SidaInfrasBridge){
+            $SidaInfrasBridge->user_updated = Auth::user()->user_id;
+            $SidaInfrasBridge->ip_updated = request()->ip();
         });
     }
 
 
     use Sortable, LogsActivity;
 
-    protected $table = 'sida_infrastructure_prog';
+    protected $table = 'sida_infas_bridge';
 
     protected $dates = ['created_at', 'updated_at'];
 
     public $timestamps = true;
 
-    protected static $logName = 'sida_infrastructure_prog';
+    protected static $logName = 'sida_infas_bridge';
     protected static $logAttributes = ['*'];
     protected static $ignoreChangedAttributes = ['updated_at','ip_updated','user_updated'];
     protected static $logOnlyDirty = true;

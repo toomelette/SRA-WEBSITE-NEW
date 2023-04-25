@@ -3,7 +3,7 @@
 <p>
 @php
     $mech_supp = \App\Models\BlockFarmMechSuppVis::query()->get()->sortByDesc('id');
-    $Year = \App\Models\Year::query()->get()->sortByDesc('id');
+    $Year = \App\Models\YearBlockFarm::query()->get()->sortByDesc('id');
     $clYearList = array();
     foreach($mech_supp as $cl){
     array_push($clYearList, $cl->year);

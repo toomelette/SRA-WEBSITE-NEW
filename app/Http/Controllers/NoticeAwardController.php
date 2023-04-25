@@ -6,6 +6,7 @@ use App\Http\Requests\NoticeAward\NoticeAwardFormRequest;
 use App\Http\Requests\NoticeAward\NoticeAwardFilterRequest;
 use App\Models\NoticeAward;
 use App\Models\CropYear;
+use App\Models\Year;
 use App\Swep\ViewHelpers\__html;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
@@ -63,7 +64,7 @@ class NoticeAwardController extends Controller{
     {
         $noticeAward = new NoticeAward();
         $noticeAward->slug = Str::random(15);
-        $cropYear = CropYear::query()->where('slug','=',$request->crop_year)->first();
+        $cropYear = Year::query()->where('slug','=',$request->crop_year)->first();
         $noticeAward->crop_year_slug = $cropYear->slug;
         $noticeAward->crop_year = $cropYear->name;
         $noticeAward->date = $request->date;

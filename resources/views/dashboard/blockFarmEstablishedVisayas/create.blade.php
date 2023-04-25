@@ -24,7 +24,7 @@
                     <div class="col-md-11">
 
                         {!! __form::select_static2(
-                       '8 year', 'year', 'Year: *', '', \App\Swep\Helpers\Helper::year(), '', '', '', 'required'
+                       '8 year', 'year', 'Year: *', '', \App\Swep\Helpers\Helper::yearBlockFarm(), '', '', '', 'required'
                        ) !!}
                         {!! __form::textbox(
                           '4', 'date', 'date', 'Date *', '', old('date'), $errors->has('date'), $errors->first('date'), 'required'

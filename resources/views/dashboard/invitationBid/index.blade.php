@@ -110,7 +110,7 @@
                 "serverSide": true,
                 "ajax" : '{{ route("dashboard.invitationBid.index") }}',
                 "columns": [
-                    { "data": "crop_year" },
+                    { "data": "year" },
                     { "data": "file_title" },
                     { "data": "title" },
                     { "data": "path" },
