@@ -103,39 +103,49 @@
         <div class="col-lg-6 col-md-6 footer-widget footer-about">
           <div class="row">
             <div class="col-sm-6">
-              <img loading="lazy" width="200px" class="footer-logo" src="//gwhs.i.gov.ph/gwt-footer/govph-seal-mono-footer.jpg" alt="GOVPH SEAL">
+              <img loading="lazy" width="200" class="footer-logo" src="//gwhs.i.gov.ph/gwt-footer/govph-seal-mono-footer.jpg" alt="GOVPH SEAL">
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-3">
               <h4>Republic of the Philippines</h4>
               <p>All content is in the public domain unless otherwise stated.</p>
             </div>
           </div>
         </div><!-- Col end -->
 
-        <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
+        <div class="col-lg-3 col-md-3 mt-3 mt-lg-0 footer-widget">
           <h3>About GOVPH</h3>
           <p>Learn more about the Philippine government, its structure, how government works and the people behind it.</p>
           <ul class="">
             <ul>
-              <li><a href="https://www.gov.ph/">GOV.PH</a></li>
-              <li><a href="https://www.gov.ph/data">Open Data Portal</a></li>
-              <li><a href="https://www.officialgazette.gov.ph">Official Gazette</a></li>
+              <li><a href="https://www.gov.ph/" target="_blank">GOV.PH</a></li>
+              <li><a href="https://www.gov.ph/data" target="_blank">Open Data Portal</a></li>
+              <li><a href="https://www.officialgazette.gov.ph" target="_blank">Official Gazette</a></li>
+              <li><a href="https://www.dole.gov.ph" target="_blank">Department of Labor and Employment</a></li>
+              <li><a href="https://www.doe.gov.ph" target="_blank">Department of Energy</a></li>
+              <li><a href="https://dost.gov.ph/" target="_blank">Department of Science and Technology</a></li>
+              <li><a href="https://dti.gov.ph" target="_blank">Department of Trade and Industry</a></li>
             </ul>
           </ul>
         </div><!-- Col end -->
 
-        <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
+        <div class="col-lg-3 col-md-3 mt-3 mt-lg-0 footer-widget">
           <h3 class="widget-title">GOVERNMENT LINKS</h3>
           <ul class="">
-            <li><a href="https://op-proper.gov.ph/">Office of the President</a></li>
+            <li><a href="https://op-proper.gov.ph/" target="_blank">Office of the President</a></li>
             <li><a href="https://ovp.gov.ph/">Office of the Vice President</a></li>
-            <li><a href="https://www.senate.gov.ph/">Senate of the Philippines</a></li>
-            <li><a href="https://www.congress.gov.ph/">House of Representatives</a></li>
-            <li><a href="https://sc.judiciary.gov.ph/">Supreme Court</a></li>
-            <li><a href="https://ca.judiciary.gov.ph/">Court of Appeals</a></li>
-            <li><a href="https://sb.judiciary.gov.ph/">Sandiganbayan</a></li>
+            <li><a href="https://www.senate.gov.ph/" target="_blank">Senate of the Philippines</a></li>
+            <li><a href="https://www.congress.gov.ph/ "target="_blank">House of Representatives</a></li>
+            <li><a href="https://sc.judiciary.gov.ph/" target="_blank">Supreme Court</a></li>
+            <li><a href="https://ca.judiciary.gov.ph/" target="_blank">Court of Appeals</a></li>
+            <li><a href="https://sb.judiciary.gov.ph/" target="_blank">Sandiganbayan</a></li>
+            <li><a href="https://nsw.gov.ph" target="_blank">hilippine National Single Window</a></li>
+            <li><a href="https://www.psma.com.ph" target="_blank">Philippine Sugar Millers Association</a></li>
+            <li><a href="https://www.usda.gov " target="_blank">United States Department of Agriculture</a></li>
+            <li><a href="https://www.sugaronline.com/" target="_blank">Sugar On line</a></li>
+          </ul>
           </ul>
         </div><!-- Col end -->
+
       </div><!-- Row end -->
     </div><!-- Container end -->
   </div><!-- Footer main end -->

@@ -155,53 +155,53 @@
 
                   @if(! empty($latest_sugarSupplyDemand))
 
-                    <td style="color: green"><a target="_blank" href="/home/sra_website/{!!$latest_sugarSupplyDemand->path!!}">{{Carbon::parse($latest_sugarSupplyDemand->date)->format('F j, Y')}}</a></td>
+                    <td style="color: green"><a target="_blank" href="/home/sra_website/{!!$latest_sugarSupplyDemand->path!!}"><u>{{Carbon::parse($latest_sugarSupplyDemand->date)->format('F j, Y')}}</u></a></td>
                   @endif
                 </tr>
                 <tr>
                     <td>Weekly Comparative Production</td>
                   @foreach($weekly_comparative_production as $WCP)
-                    <td style="color: green"><a target="_blank" href="/home/sra_website/{!! $WCP->path !!}">{{carbon::parse($WCP->date)->format('F j, Y')}}</a></td>
+                    <td style="color: green"><a target="_blank" href="/home/sra_website/{!! $WCP->path !!}"><u>{{carbon::parse($WCP->date)->format('F j, Y')}}</u></a></td>
                     @endforeach
                 </tr>
                 <tr>
                     <td>Sugar Statistics</td>
 
                 @foreach($sugarStatistics as $latest_SS)
-                  <td style="color: green"><a target="_blank" href="/home/sra_website/{!!$latest_SS->path!!}">{{Carbon::parse($latest_SS->date)->format('F j, Y')}}</a></td>
+                  <td style="color: green"><a target="_blank" href="/home/sra_website/{!!$latest_SS->path!!}"><u>{{Carbon::parse($latest_SS->date)->format('F j, Y')}}</u></a></td>
                 @endforeach
                 </tr>
                 <tr>
                     <td>Sugar Prices in Metro Manila</td>
                   @foreach($metroManilaPrices as $latest_MMP)
-                  <td style="color: green"><a target="_blank" href="/home/sra_website/{!!$latest_MMP->path!!}">{{Carbon::parse($latest_MMP->date)->format('F j, Y')}}</a></td>
+                  <td style="color: green"><a target="_blank" href="/home/sra_website/{!!$latest_MMP->path!!}"><u>{{Carbon::parse($latest_MMP->date)->format('F j, Y')}}</u></a></td>
                   @endforeach
 
                 </tr>
                 <tr>
                     <td>Weekly Millsite Prices of Sugar and Molasses</td>
                   @foreach($millsitePrices as $latest_MSP)
-                  <td style="color: green"><a target="_blank" href="/home/sra_website/{!!$latest_MSP->path!!}">{{Carbon::parse($latest_MSP->date)->format('F j, Y')}}</a></td>
+                  <td style="color: green"><a target="_blank" href="/home/sra_website/{!!$latest_MSP->path!!}"><u>{{Carbon::parse($latest_MSP->date)->format('F j, Y')}}</u></a></td>
                   @endforeach
 
                 </tr>
                 <tr>
                     <td>Bioethanol Reference Price</td>
                   @foreach($bioethanolRF as $latest_BRP)
-                    <td style="color: green"><a target="_blank" href="/home/sra_website/{!!$latest_BRP->path!!}">{{Carbon::parse($latest_BRP->date)->format('F j, Y')}}</a></td>
+                    <td style="color: green"><a target="_blank" href="/home/sra_website/{!!$latest_BRP->path!!}"><u>{{Carbon::parse($latest_BRP->date)->format('F j, Y')}}</u></a></td>
                   @endforeach
 
                 </tr>
                 <tr>
-                    <td>List of Accredited Customs Bonded Warehouse (CBW) Operators/Food Processors/Exporters/Importers with Approved SRA Clearances of Imported Sugar for the month of January 2023</td>
+                    <td>List of Accredited Customs Bonded Warehouse (CBW) Operators/ Food Processors/ Exporters/ Importers with Approved SRA Clearances of Imported Sugar for the month of January 2023</td>
                   @foreach($circularletter as $latest_circular)
-                    <td style="color: green"><a target="_blank" href="/home/sra_website/{!!$latest_circular->path!!}">{{$latest_circular->file_title}}</a></td>
+                    <td style="color: green"><a target="_blank" href="/home/sra_website/{!!$latest_circular->path!!}"><u style="">{{$latest_circular->file_title}}</u></a></td>
                     @endforeach
                 </tr>
                 <tr>
                     <td>Schedule of Acceptance of Applications and Requirements by the SRA RD in QC and Bacolod under SO 6 s. 2022-23.</td>
                     @foreach($memorandomCercular as $latest_MC)
-                    <td style="color: green"><a target="_blank" href="/home/sra_website/{!!$latest_MC->path!!}">{{$latest_MC->file_title}}</a></td>
+                    <td style="color: green"><a target="_blank" href="/home/sra_website/{!!$latest_MC->path!!}"><u>{{$latest_MC->file_title}}</u></a></td>
                       @endforeach
                 </tr>
               </table>
@@ -320,7 +320,7 @@
     <!--/ Container end -->
   </section><!-- Facts end -->
 
-  {{--  NEWS--}}
+{{--    Bulletin Board--}}
   <section id="news" class="news">
     <div class="container">
       <div class="row">
@@ -334,25 +334,24 @@
 
 
             <table class="table table-condensed text-justify" >
-              <tr>
-                <td class="">
-                  <a href="{{asset("constra/files/BullitenBoard/NoticetoPublic.pdf")}}" target="_blank"><img loading="lazy" class="testimonial-thumb" src="{{asset('constra/images/pin.png')}}" alt=""></a>
-                  <b style="font-size: 20px; ">Notice To The Public.  &nbsp;<a  class="text-success" target="_blank" href="{{asset("constra/files/BullitenBoard/NoticetoPublic.pdf")}}" aria-label="read-more"><i class="fa fa-caret-right"></i> Read more</a></b>
-                </td>
-              </tr>
+              @php
+                $bulletin_board = \App\Models\BulletinBoard::query()->orderBy('created_at')->limit(5)->get();
+              @endphp
 
-
-
+              @foreach($bulletin_board as $bb)
+                @if($bb->Post >0)
               <tr>
                 <td>
-                  <a href="{{asset("constra/files/BullitenBoard/Notice-of-invitation-for-SPRO-II-Vis.pdf")}}" target="_blank"><img loading="lazy" class="testimonial-thumb" src="{{asset('constra/images/pin.png')}}" alt=""></a>
-                  <b style="font-size: 20px;">Notice of Invitation for Additional SPRO II Applicants in Regulation Department-Visayas. &nbsp; &nbsp;<a class="text-success" target="_blank" href="{{asset("constra/files/BullitenBoard/Notice-of-invitation-for-SPRO-II-Vis.pdf")}}" ><i class="fa fa-caret-right"></i> Read more</a></b>
+                  <img loading="lazy" class="testimonial-thumb" src="{{asset('constra/images/pin.png')}}" alt="">
                 </td>
+                <td>
+                  <b class="d-inline-block" style="font-size: 16px" >{{$bb->title}} <a href="/home/sra_website/{!!$bb->path!!}" target="_blank" style="color: green">Read more..</a> </b>
+                </td>
+
               </tr>
-
-
-
-              <tr><td></td></tr>
+                @endif
+              @endforeach
+              <tr><td></td><td></td></tr>
 
             </table>
 
@@ -397,7 +396,6 @@
 {{--              @endforeach--}}
 {{--            @endif--}}
             <div class="general-btn text-center mt-4">
-{{--              <a class="btn btn-primary" href="">See All News</a>--}}
             </div>
           </div>
         </div>
@@ -409,6 +407,12 @@
             </div>
           </div>
           <div class="row">
+            @php
+            $vacant_position = \App\Models\VacantPosition::query()->orderByDesc('date')->limit(3)->get();
+            @endphp
+
+            @foreach($vacant_position as $vacantPosition)
+
             <div class="col-4">
               <div class="latest-post">
                 <div class="latest-post-media">
@@ -416,56 +420,19 @@
                     <img loading="lazy" class="img-fluid" src="{{ url('constra/images/SRA/SRA_DA logo.png') }}" alt="img">
                   </a>
                 </div>
-                <div class="post-body">
+                <div class="post-body" style="">
                   <h4 class="post-title">
-                    <a class="d-inline-block">List of Vacant Position as of July ...</a>
+                    <a class="d-inline-block" href="/home/sra_website/{!!$vacantPosition->path!!}">{{$vacantPosition->title}}</a>
                   </h4>
                   <div class="latest-post-meta">
                       <span class="post-item-date">
-                        <i class="fa fa-clock-o"></i> 7 | 19 | 2022
+                        <i class="fa fa-clock-o"></i> {{Carbon::parse($vacantPosition->date)->format('F j, Y')}}
                       </span>
                   </div>
                 </div>
               </div><!-- Latest post end -->
             </div><!-- 1st post col end -->
-            <div class="col-4">
-              <div class="latest-post">
-                <div class="latest-post-media">
-                  <a  class="latest-post-img">
-                    <img loading="lazy" class="img-fluid" src="{{ url('constra/images/SRA/SRA_DA logo.png') }}" alt="img">
-                  </a>
-                </div>
-                <div class="post-body">
-                  <h4 class="post-title">
-                    <a  class="d-inline-block">List of Vacant Position as of April ...</a>
-                  </h4>
-                  <div class="latest-post-meta">
-                      <span class="post-item-date">
-                        <i class="fa fa-clock-o"></i> 5 | 4 | 2022
-                      </span>
-                  </div>
-                </div>
-              </div><!-- Latest post end -->
-            </div><!-- 1st post col end -->
-            <div class="col-4">
-              <div class="latest-post">
-                <div class="latest-post-media">
-                  <a  class="latest-post-img">
-                    <img loading="lazy" class="img-fluid" src="{{ url('constra/images/SRA/SRA_DA logo.png') }}" alt="img">
-                  </a>
-                </div>
-                <div class="post-body">
-                  <h4 class="post-title">
-                    <a  class="d-inline-block">List of Vacant Position as of Feb 2...</a>
-                  </h4>
-                  <div class="latest-post-meta">
-                      <span class="post-item-date">
-                        <i class="fa fa-clock-o"></i> 3 | 4 | 2022
-                      </span>
-                  </div>
-                </div>
-              </div><!-- Latest post end -->
-            </div><!-- 1st post col end -->
+            @endforeach
             <div class="general-btn text-center mt-4 ml-3">
               <a class="btn btn-primary" href="/industryUpdate/vacantPosition">See All Vacant Positions</a>
             </div>

@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="content-header">
-        <h1>Invitation to Bid</h1>
+        <h1>Manage Bulletin Board</h1>
     </section>
 
     <section class="content">
@@ -18,6 +18,9 @@
                             <i class="fa fa-filter"></i>  Advanced Filters <i class=" fa  fa-angle-down"></i>
                         </a>
                     </h4>
+                    <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModal">
+                        Launch Modal
+                    </button>
                 </div>
                 <div id="advanced_filters" class="panel-collapse collapse" aria-expanded="true" style="">
                     <div class="box-body">
@@ -37,21 +40,22 @@
                                     <option value="active">Active</option>
                                     <option value="inactive">Inactive</option>
                                 </select>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="box-body">
-                <div id="invitationBid_table_container" style="">
-                    <table class="table table-bordered table-striped table-hover" id="invitationBid_table" style="width: 100% !important">
+                <div id="block_farm_table_container" style="">
+                    <table class="table table-bordered table-striped table-hover" id="block_farm_table" style="width: 100% !important">
                         <thead>
                         <tr class="">
-                            <th width="10%" class="">Crop Year</th>
-                            <th width="15">Date</th>
+                            <th width="10%" class="">Year</th>
+                            <th width="10%" class="">Date</th>
                             <th width="20%" class="">File Title</th>
                             <th width="35%" class="">Title</th>
-                            <th width="20%" class="">Path</th>
+                            <th width="25%" class="">Path</th>
                             <th width="10%" class="action">Action</th>
                         </tr>
                         </thead>
@@ -64,11 +68,31 @@
                         <img style="width: 100px" src="{{asset('images/loader.gif')}}">
                     </center>
                 </div>
+{{--Modal sample--}}
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Modal body text goes here.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{{--End of Modal sample--}}
 
             </div>
         </div>
     </section>
-
 
 @endsection
 
@@ -105,14 +129,14 @@
             //Initialize DataTable
             modal_loader = $("#modal_loader").parent('div').html();
             active = '';
-            invitation_bid_tbl = $("#invitationBid_table").DataTable({
+            bulletin_boards_tbl = $("#block_farm_table").DataTable({
                 'dom' : 'lBfrtip',
                 "processing": true,
                 "serverSide": true,
-                "ajax" : '{{ route("dashboard.invitationBid.index") }}',
+                "ajax" : '{{ route("dashboard.bulletinBoard.index") }}',
                 "columns": [
                     { "data": "year" },
-                    {"data": "date"},
+                    { "data": "date"},
                     { "data": "file_title" },
                     { "data": "title" },
                     { "data": "path" },
@@ -133,7 +157,7 @@
                 "responsive": false,
                 "initComplete": function( settings, json ) {
                     $('#tbl_loader').fadeOut(function(){
-                        $("#invitationBid_table_container").fadeIn();
+                        $("#block_farm_table_container").fadeIn();
                     });
                 },
                 "language":
@@ -144,18 +168,18 @@
                     $('[data-toggle="tooltip"]').tooltip();
                     $('[data-toggle="modal"]').tooltip();
                     if(active != ''){
-                        $("#invitation_bid_table #"+active).addClass('success');
+                        $("#block_block_table #"+active).addClass('success');
                     }
                 }
             })
 
-            style_datatable("#invitation_bid_table");
+            style_datatable("#block_farm_table");
 
             //Need to press enter to search
-            $('#invitationBid_table_filter input').unbind();
-            $('#invitationBid_table_filter input').bind('keyup', function (e) {
+            $('#block_farm_table_filter input').unbind();
+            $('#block_farm_table_filter input').bind('keyup', function (e) {
                 if (e.keyCode == 13) {
-                    invitation_bid_tbl.search(this.value).draw();
+                    bulletin_board_tbl.search(this.value).draw();
                 }
             });
         });

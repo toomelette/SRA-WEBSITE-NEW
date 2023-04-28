@@ -2,17 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\BioEnergy\BulletinBoardFilterRequest;
-use App\Http\Requests\BioEnergy\BioEnergyFormRequest;
-use App\Models\CropYear;
-use App\Models\BioEnergy;
-use App\Models\SugarOrder;
+use App\Http\Requests\BulletinBoard\BulletinBoardFilterRequest;
+use App\Http\Requests\BulletinBoard\BulletinBoardFormRequest;
+use App\Models\BulletinBoard;
+use App\Models\User;
+use App\Models\Year;
+use App\Models\YearBlockFarm;
 use App\Swep\ViewHelpers\__html;
+use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Yajra\DataTables\DataTables;
+use Illuminate\Support\Facades\Auth;
 
 
-class BioEnergyController extends Controller{
+class BulletinBoardController extends Controller{
 
     protected $news;
 
@@ -25,10 +28,10 @@ class BioEnergyController extends Controller{
 
     public function index(){
         if(request()->ajax()){
-            $bio_energy = BioEnergy::query()->orderByDesc('crop_year');
-            return DataTables::of($bio_energy)
+            $block_farm = BulletinBoard::query()->orderByDesc('year');
+            return DataTables::of($block_farm)
                 ->addColumn('action',function ($data){
-                    $destroy_route = "'".route("dashboard.bioEnergy.destroy","slug")."'";
+                    $destroy_route = "'".route("dashboard.bulletinBoard.destroy","slug")."'";
                     $slug = "'".$data->slug."'";
                     return '<div class="btn-group">
 
@@ -45,35 +48,35 @@ class BioEnergyController extends Controller{
                 ->escapeColumns([])
                 ->toJson();
         }
-        return view('dashboard.bioEnergy.index');
+        return view('dashboard.bulletinBoard.index');
     }
 
 
 
     public function create(){
 
-        return view('dashboard.bioEnergy.create');
+        return view('dashboard.bulletinBoard.create');
 
     }
 
 
 
-    public function store(BioEnergyFormRequest $request)
+    public function store(BulletinBoardFormRequest $request)
     {
-        $bioEnergy = new BioEnergy();
-        $bioEnergy->slug = Str::random(15);
-        $cropYear = CropYear::query()->where('slug','=',$request->crop_year)->first();
-        $bioEnergy->crop_year_slug = $cropYear->slug;
-        $bioEnergy->crop_year = $cropYear->name;
-        $bioEnergy->date = $request->date;
-        $bioEnergy->file_title = $request->file_title;
-        $bioEnergy->title = $request->title;
+        $blockFarm = new BulletinBoard();
+        $blockFarm->slug = Str::random(15);
+        $year = YearBlockFarm::query()->where('slug','=',$request->year)->first();
+        $blockFarm->year_slug = $year->slug;
+        $blockFarm->year = $year->name;
+        $blockFarm->date = $request->date;
+        $blockFarm->file_title = $request->file_title;
+        $blockFarm->title = $request->title;
 
         if (!empty($request->img_url)) {
             foreach ($request->file('img_url') as $file) {
                 $client_original_filename = $file->getClientOriginalName();
-                $path = 'bio_energy/'. $bioEnergy->crop_year;
-                $bioEnergy->path = $path . '/' . $file->getClientOriginalName();
+                $path = 'bulletin_board/'. $blockFarm->year;
+                $blockFarm->path = $path . '/' . $file->getClientOriginalName();
 
                 $original_ext = $file->getClientOriginalExtension();
                 $original_file_name_only = str_replace('.' . $original_ext, '', $file->getClientOriginalName());
@@ -83,9 +86,8 @@ class BioEnergyController extends Controller{
                 $file->storeAs($path, $client_original_filename);
             }
         }
-
-        $bioEnergy->save();
-        return redirect('dashboard/bioEnergy/create');
+        $blockFarm->save();
+        return redirect('dashboard/bulletinBoard/create');
     }
 
 
@@ -99,7 +101,7 @@ class BioEnergyController extends Controller{
     }
 
 
-    public function update(BioEnergyFormRequest $request, $slug){
+    public function update(BulletinBoardFormRequest $request, $slug){
         $news = News::query()->where('slug',$slug)->first();
         $news->title = $request->title;
         $news->description = $request->description;
@@ -112,24 +114,36 @@ class BioEnergyController extends Controller{
 
     }
 
-
     public function destroy($slug){
-        $bioEnergy = BioEnergy::query()->where('slug','=',$slug)->first();
-        if(!empty($bioEnergy)){
-            $bioEnergy->delete();
+        $blockFarm = BulletinBoard::query()->where('slug','=',$slug)->first();
+        if(!empty($blockFarm)){
+            $blockFarm->delete();
             return 1;
         }
-        abort(503,'Error deleting Bioenergy. [BioEnergyController::destroy]');
+        abort(503,'Error deleting Bulletin Board. [BulletinBoardController::destroy]');
         return 1;
 
-        $bioEnergy = BioEnergy::query()->find($slug);
-        if ($bioEnergy->delete()){
+        $blockFarm = BulletinBoard::query()->find($slug);
+        if ($blockFarm->delete()){
             return 1;
         }
-        abort(503, 'Error deleting of Bioenergy!');
+        abort(503, 'Error deleting of Bulletin Board !');
 
-        return $bioEnergy;
+        return $blockFarm;
     }
+
+    public function post($slug){
+
+        $blockFarm = BulletinBoard::query()->where('slug','=',$slug)->first();
+        if(!empty($blockFarm)){
+            $blockFarm->update();
+            return 1;
+        }else{
+            abort(500,'Error Posting!');
+        }
+
+    }
+
 
 
 

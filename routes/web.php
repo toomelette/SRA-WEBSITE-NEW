@@ -119,6 +119,7 @@ Route::get('onlinePayment/landbankLinkBliz', 'SubNavController@landbankLinkBliz'
 
 
 
+
 Route::get('businessOpportunities/sugarTrader', 'SubNavController@sugarTrader')->name('sugarTrader');
 Route::get('businessOpportunities/bioethanolProducer', 'SubNavController@bioethanolProducer')->name('bioethanolProducer');
 Route::get('businessOpportunities/powerCogeneration', 'SubNavController@powerCogeneration')->name('powerCogeneration');
@@ -452,6 +453,9 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
     Route::resource('blockFarmHYVNurseriesVis', 'BlockFarmHYVNurseriesVisController');
     Route::resource('SidaInfrasFMR', 'SidaInfrasFMRController');
     Route::resource('sidaInfrasBridge', 'SidaInfrasBridgeController');
+
+    /**BulletinBoard**/
+    Route::resource('bulletinBoard', 'BulletinBoardController');
 
 });
 
