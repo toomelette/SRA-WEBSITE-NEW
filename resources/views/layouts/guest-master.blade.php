@@ -345,7 +345,7 @@
                   <img loading="lazy" class="testimonial-thumb" src="{{asset('constra/images/pin.png')}}" alt="">
                 </td>
                 <td>
-                  <b class="d-inline-block" style="font-size: 16px" >{{$bb->title}} <a href="/home/sra_website/{!!$bb->path!!}" target="_blank" style="color: green">Read more..</a> </b>
+                  <b class="d-inline-block" style="font-size: 16px" >{{$bb->title}} <a target="_blank" href="/home/sra_website/{!!$bb->path!!}" style="color: green">Read more..</a> </b>
                 </td>
 
               </tr>
@@ -422,7 +422,7 @@
                 </div>
                 <div class="post-body" style="">
                   <h4 class="post-title">
-                    <a class="d-inline-block" href="/home/sra_website/{!!$vacantPosition->path!!}">{{$vacantPosition->title}}</a>
+                    <a class="d-inline-block" target="_blank" href="/home/sra_website/{!!$vacantPosition->path!!}">{{$vacantPosition->title}}</a>
                   </h4>
                   <div class="latest-post-meta">
                       <span class="post-item-date">

@@ -304,4 +304,18 @@ class SubNavController extends Controller
     public function ph_tp_seal(){
         return view('landingPage.ph_tp_seal.index');
     }
+
+    /*Stations*/
+    public function stationBacolod(){
+        return view('landingPage.stations.Bacolod.stationBacolod');
+    }
+
+    public function stationLaGranja(){
+        return view('landingPage.stations.LaGranja.stationLaGranja');
+    }
+    public function stationPampanga(){
+        return view('landingPage.stations.Pampanga.stationPampanga');
+    }
+
+
 }

@@ -60,8 +60,14 @@ class UserSubmenuRepository extends BaseRepository implements UserSubmenuInterfa
         if($route_name == 'dashboard.home'){
             return 1;
         }else{
-            $submenu_id = Submenu::where('route',$route_name)->first()->submenu_id;
+            $submenu = Submenu::where('route',$route_name)->first();
 
+            if (! empty($submenu)){
+                $submenu_id = $submenu->submenu_id;
+            }
+            else {
+                abort(503, 'Submenu not Found!');
+            }
             $usm = $this->user_submenu->where('submenu_id', $submenu_id)
                 ->where('user_id', $user_id)
                 ->exists();

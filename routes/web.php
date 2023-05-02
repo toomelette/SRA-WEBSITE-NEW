@@ -115,6 +115,14 @@ Route::get('sida/scholarshipProg', 'SubNavController@scholarshipProg')->name('si
 /**OnlinePayment**/
 Route::get('onlinePayment/landbankLinkBliz', 'SubNavController@landbankLinkBliz')->name('onlinePayment.landbankLinkBliz');
 
+/**Stations**/
+Route::get('stations/index', 'NavigationController@stations')->name('stations.index');
+Route::get('stations/Bacolod/stationBacolod', 'SubNavController@stationBacolod')->name('stations.Bacolod.stationBacolod');
+Route::get('stations/LaGranja/stationLaGranja', 'SubNavController@stationLaGranja')->name('stations.LaGranja.stationLaGranja');
+Route::get('stations/Pampanga/stationPampanga', 'SubNavController@stationPampanga')->name('stations.Pampanga.stationPampanga');
+
+
+
 
 
 
@@ -456,6 +464,18 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
 
     /**BulletinBoard**/
     Route::resource('bulletinBoard', 'BulletinBoardController');
+
+    /**Stations**/
+    Route::resource('stationBcdAnn', 'StationBcdAnnController');
+    Route::resource('stationBcdEvent', 'StationBcdEventController');
+    Route::resource('stationBcdExtserv', 'StationBcdExtservController');
+    Route::resource('stationLaGranjaAnn', 'StationLaGranjaAnnController');
+    Route::resource('stationLaGranjaEvent', 'StationLaGranjaEventController');
+    Route::resource('stationLaGranjaExtserv', 'StationLaGranjaExtservController');
+    Route::resource('stationPampangaAnn', 'StationPampangaAnnController');
+    Route::resource('stationPampangaEvent', 'StationPampangaEventController');
+    Route::resource('stationPampangaExtserv', 'StationPampangaExtservController');
+
 
 });
 

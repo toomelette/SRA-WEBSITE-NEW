@@ -196,6 +196,10 @@ class NavigationController extends Controller{
         return view('landingPage.service.serviceFeeCharges');
     }
 
+    public function stations(){
+        return view('landingPage.stations.index');
+    }
+
     public function navRoute(){
         return 1;
     }

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\BulletinBoard\StationBcdAnnFilterRequest;
-use App\Http\Requests\BulletinBoard\BulletinBoardFormRequest;
-use App\Models\BulletinBoard;
+use App\Http\Requests\StationLaGranjaEvent\StationLaGranjaEventFilterRequest;
+use App\Http\Requests\StationLaGranjaEvent\StationLaGranjaEventFormRequest;
+use App\Models\StationLaGranjaEvent;
 use App\Models\User;
 use App\Models\Year;
 use App\Models\YearBlockFarm;
@@ -15,7 +15,7 @@ use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Auth;
 
 
-class BulletinBoardController extends Controller{
+class StationLaGranjaEventController extends Controller{
 
     protected $news;
 
@@ -28,10 +28,10 @@ class BulletinBoardController extends Controller{
 
     public function index(){
         if(request()->ajax()){
-            $block_farm = BulletinBoard::query()->orderByDesc('year');
+            $block_farm = StationLaGranjaEvent::query()->orderByDesc('year');
             return DataTables::of($block_farm)
                 ->addColumn('action',function ($data){
-                    $destroy_route = "'".route("dashboard.bulletinBoard.destroy","slug")."'";
+                    $destroy_route = "'".route("dashboard.stationLaGranjaEvent.destroy","slug")."'";
                     $slug = "'".$data->slug."'";
                     return '<div class="btn-group">
 
@@ -48,35 +48,35 @@ class BulletinBoardController extends Controller{
                 ->escapeColumns([])
                 ->toJson();
         }
-        return view('dashboard.bulletinBoard.index');
+        return view('dashboard.stationLaGranjaEvent.index');
     }
 
 
 
     public function create(){
 
-        return view('dashboard.bulletinBoard.create');
+        return view('dashboard.stationLaGranjaEvent.create');
 
     }
 
 
 
-    public function store(BulletinBoardFormRequest $request)
+    public function store(StationLaGranjaEventFormRequest $request)
     {
-        $blockFarm = new BulletinBoard();
-        $blockFarm->slug = Str::random(15);
-        $year = YearBlockFarm::query()->where('slug','=',$request->year)->first();
-        $blockFarm->year_slug = $year->slug;
-        $blockFarm->year = $year->name;
-        $blockFarm->date = $request->date;
-        $blockFarm->file_title = $request->file_title;
-        $blockFarm->title = $request->title;
+        $station = new StationLaGranjaEvent();
+        $station->slug = Str::random(15);
+        $year = Year::query()->where('slug','=',$request->year)->first();
+        $station->year_slug = $year->slug;
+        $station->year = $year->name;
+        $station->date = $request->date;
+        $station->file_title = $request->file_title;
+        $station->title = $request->title;
 
         if (!empty($request->img_url)) {
             foreach ($request->file('img_url') as $file) {
                 $client_original_filename = $file->getClientOriginalName();
-                $path = 'bulletin_board/'. $blockFarm->year;
-                $blockFarm->path = $path . '/' . $file->getClientOriginalName();
+                $path = 'station_lagranja_event/'. $station->year;
+                $station->path = $path . '/' . $file->getClientOriginalName();
 
                 $original_ext = $file->getClientOriginalExtension();
                 $original_file_name_only = str_replace('.' . $original_ext, '', $file->getClientOriginalName());
@@ -86,8 +86,8 @@ class BulletinBoardController extends Controller{
                 $file->storeAs($path, $client_original_filename);
             }
         }
-        $blockFarm->save();
-        return redirect('dashboard/bulletinBoard/create');
+        $station->save();
+        return redirect('dashboard/stationLaGranjaEvent/create');
     }
 
 
@@ -101,7 +101,7 @@ class BulletinBoardController extends Controller{
     }
 
 
-    public function update(BulletinBoardFormRequest $request, $slug){
+    public function update(StationLaGranjaEventFormRequest $request, $slug){
         $news = News::query()->where('slug',$slug)->first();
         $news->title = $request->title;
         $news->description = $request->description;
@@ -115,28 +115,28 @@ class BulletinBoardController extends Controller{
     }
 
     public function destroy($slug){
-        $blockFarm = BulletinBoard::query()->where('slug','=',$slug)->first();
-        if(!empty($blockFarm)){
-            $blockFarm->delete();
+        $station = StationLaGranjaEvent::query()->where('slug','=',$slug)->first();
+        if(!empty($station)){
+            $station->delete();
             return 1;
         }
-        abort(503,'Error deleting Bulletin Board. [BulletinBoardController::destroy]');
+        abort(503,'Error deleting Station. [StationLaGranjaEventController::destroy]');
         return 1;
 
-        $blockFarm = BulletinBoard::query()->find($slug);
-        if ($blockFarm->delete()){
+        $station = StationLaGranjaEvent::query()->find($slug);
+        if ($station->delete()){
             return 1;
         }
-        abort(503, 'Error deleting of Bulletin Board !');
+        abort(503, 'Error deleting of Station!');
 
-        return $blockFarm;
+        return $station;
     }
 
     public function post($slug){
 
-        $blockFarm = BulletinBoard::query()->where('slug','=',$slug)->first();
-        if(!empty($blockFarm)){
-            $blockFarm->update();
+        $station = StationLaGranjaEvent::query()->where('slug','=',$slug)->first();
+        if(!empty($station)){
+            $station->update();
             return 1;
         }else{
             abort(500,'Error Posting!');
