@@ -7,7 +7,7 @@ use Rats\Zkteco\Lib\ZKTeco;
 
 
 Route::group(['as' => 'auth.'], function () {
-	
+
 	Route::get('/', 'Auth\LoginController@showLoginForm')->name('showLogin');
 	Route::post('/', 'Auth\LoginController@login')->name('login');
 	Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
@@ -121,6 +121,18 @@ Route::get('stations/Bacolod/stationBacolod', 'SubNavController@stationBacolod')
 Route::get('stations/LaGranja/stationLaGranja', 'SubNavController@stationLaGranja')->name('stations.LaGranja.stationLaGranja');
 Route::get('stations/Pampanga/stationPampanga', 'SubNavController@stationPampanga')->name('stations.Pampanga.stationPampanga');
 
+/**Stakeholders**/
+Route::get('stakeholders/sugarTradersInter', 'SubNavController@sugarTradersInter')->name('stakeholders.sugarTradersInter');
+Route::get('stakeholders/sugarTradersDom', 'SubNavController@sugarTradersDom')->name('stakeholders.sugarTradersDom');
+Route::get('stakeholders/sugarTradersInterFructose', 'SubNavController@sugarTradersInterFructose')->name('stakeholders.sugarTradersInterFructose');
+Route::get('stakeholders/molassesTradersInterDom', 'SubNavController@molassesTradersInterDom')->name('stakeholders.molassesTradersInterDom');
+Route::get('stakeholders/muscovadoTraders', 'SubNavController@muscovadoTraders')->name('stakeholders.muscovadoTraders');
+Route::get('stakeholders/directoryMDDC_MDOS', 'SubNavController@directoryMDDC_MDOS')->name('stakeholders.directoryMDDC_MDOS');
+Route::get('stakeholders/directorySugarMills', 'SubNavController@directorySugarMills')->name('stakeholders.directorySugarMills');
+Route::get('stakeholders/directorySugarRefineries', 'SubNavController@directorySugarRefineries')->name('stakeholders.directorySugarRefineries');
+Route::get('stakeholders/directoryBioethanolProd', 'SubNavController@directoryBioethanolProd')->name('stakeholders.directoryBioethanolProd');
+Route::get('stakeholders/directoryMillsAssoPlantersFed', 'SubNavController@directoryMillsAssoPlantersFed')->name('stakeholders.directoryMillsAssoPlantersFed');
+Route::get('stakeholders/rawSugarProdbyProducerAffiliation', 'SubNavController@rawSugarProdbyProducerAffiliation')->name('stakeholders.rawSugarProdbyProducerAffiliation');
 
 
 
@@ -251,7 +263,7 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
     Route::get('/employee/edit_bm_uid','EmployeeController@edit_bm_uid')->name('employee.edit_bm_uid');
     Route::post('/employee/update_bm_uid','EmployeeController@update_bm_uid')->name('employee.update_bm_uid');
 	Route::get('/employee/print_pds/{slug}/{page}', 'EmployeeController@printPds')->name('employee.print_pds');
-	
+
 	Route::get('/employee/service_record/{slug}', 'EmployeeController@serviceRecord')->name('employee.service_record');
 	Route::post('/employee/service_record/store/{slug}', 'EmployeeController@serviceRecordStore')->name('employee.service_record_store');
 	Route::put('/employee/service_record/update/{slug}', 'EmployeeController@serviceRecordUpdate')->name('employee.service_record_update');
@@ -463,7 +475,9 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
     Route::resource('sidaInfrasBridge', 'SidaInfrasBridgeController');
 
     /**BulletinBoard**/
+    Route::post('bulletinBoard/{slug}/changeStatus','BulletinBoardController@changeStatus')->name('bulletinBoard.changeStatus');
     Route::resource('bulletinBoard', 'BulletinBoardController');
+
 
     /**Stations**/
     Route::resource('stationBcdAnn', 'StationBcdAnnController');
@@ -475,6 +489,9 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
     Route::resource('stationPampangaAnn', 'StationPampangaAnnController');
     Route::resource('stationPampangaEvent', 'StationPampangaEventController');
     Route::resource('stationPampangaExtserv', 'StationPampangaExtservController');
+
+    /**Stakeholders**/
+    Route::resource('stkSugarTradersInter', 'StkSugarTraderInterController');
 
 
 });

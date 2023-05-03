@@ -49,9 +49,8 @@
           <ul>
             <li>GAD Laws and Policies <a style="color: #ffb600" href="https://www.sra.gov.ph/wp-content/uploads/2022/03/Laws-and-Policies-on-GAD.pdf" target="_blank"> Read more… </a></li>
           </ul>
-
-          <iframe src="https://www.sra.gov.ph/wp-content/uploads/2022/03/Laws-and-Policies-on-GAD.pdf" width="100%" height="700px">
-          </iframe>
+          <embed style="border: 10px solid green; " src="{{asset('constra/files/GAD/Laws-and-Policies-on-GAD.pdf#toolbar=0')}}"  width="100%" height="800px"/>
+                              <a href="{{asset('constra/files/GAD/Laws-and-Policies-on-GAD.pdf')}}" download class="btn btn-primary"> <i class="fa fa-download"></i>Download File</a>
 
 
         </div>

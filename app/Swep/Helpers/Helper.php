@@ -3,6 +3,7 @@
 
 namespace App\Swep\Helpers;
 use App\Models\CropYear;
+use App\Models\CropYearStakeholders;
 use App\Models\MisRequestsNature;
 use App\Models\OprionRDE;
 use App\Models\OptionScholarship;
@@ -297,6 +298,18 @@ class Helper
 
             foreach ($option_socialized as $optionSoc){
                 $array[$optionSoc->name]  = $optionSoc->slug;
+            }
+        }
+        return $array;
+    }
+
+    public static function crop_year_stakeholders() {
+        $stakeholders = CropYearStakeholders::query()->get()->sortByDesc('id');
+        $array = [];
+        if(!empty($stakeholders)){
+
+            foreach ($stakeholders as $stkh){
+                $array[$stkh->name]  = $stkh->slug;
             }
         }
         return $array;

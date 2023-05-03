@@ -48,7 +48,7 @@
         <div class="col-lg-12 text-justify">
           <p>Memorandum Order No. 2,&nbsp;Series of 2022, Observance of 18th Women with Disabilities Day and 2022 Girl Child Week <a style="color: #ffb600" href="https://www.sra.gov.ph/wp-content/uploads/2022/03/2022-MO-2.pdf" target="_blank">Read more… </a></p>
           <p>Memorandum Order No. 1,&nbsp;Series of 2022, Observance of 2022 National Women’s Month Celebration (NWMC) <a style="color: #ffb600" href="https://www.sra.gov.ph/wp-content/uploads/2022/03/2022-MO-1.pdf" target="_blank">Read more… </a></p>
-          <p>Kick-off Activity for the National Women’s Month Celebration&nbsp;(Memorandum dated: March 4, 20222) <a style="color: #ffb600" href="https://www.sra.gov.ph/wp-content/uploads/2022/03/MEMO-Kick-off-Activity-for-the-NWMC.pdf" target="_blank"> Read more… </a></p>
+          <p>Kick-off Activity for the National Women’s Month Celebration&nbsp;(Memorandum dated: March 4, 2022) <a style="color: #ffb600" href="https://www.sra.gov.ph/wp-content/uploads/2022/03/MEMO-Kick-off-Activity-for-the-NWMC.pdf" target="_blank"> Read more… </a></p>
           <p>Observance of 2021 18-day campaign to end Violence Against Women (VAW) (Memorandum dated: November 5, 2021) <a style="color: #ffb600" href="https://www.sra.gov.ph/wp-content/uploads/2022/03/MEMO-Observance-of-2021-18-Day-Campaign-to-End-VAW.pdf" target="_blank"> Read more… </a></p>
           <p>Reconstitution of the SRA Executive Committee and Gender and Development (GAD) Focal Point System (GFPS) <a style="color: #ffb600" href="https://www.sra.gov.ph/wp-content/uploads/2022/03/MEMO-SO-137-Reconstitution-of-the-SRA-Executive-Committee-and-GAD.pdf" target="_blank"> Read more… </a></p>
         </div>

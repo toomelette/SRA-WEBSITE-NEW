@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StationBcdAnn\StkSugarTradersInterFilterRequest;
-use App\Http\Requests\StationBcdAnn\StationBcdAnnFormRequest;
-use App\Models\StationBcdAnn;
+use App\Http\Requests\StkSugarTradersInter\StkSugarTradersInterFilterRequest;
+use App\Http\Requests\StkSugarTradersInter\StkSugarTradersInterFormRequest;
+use App\Models\CropYearStakeholders;
+use App\Models\StkSugarTradersInter;
 use App\Models\User;
 use App\Models\Year;
 use App\Models\YearBlockFarm;
@@ -15,7 +16,7 @@ use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Auth;
 
 
-class StationBcdAnnController extends Controller{
+class StkSugarTraderInterController extends Controller{
 
     protected $news;
 
@@ -28,10 +29,10 @@ class StationBcdAnnController extends Controller{
 
     public function index(){
         if(request()->ajax()){
-            $block_farm = StationBcdAnn::query()->orderByDesc('year');
-            return DataTables::of($block_farm)
+            $template = StkSugarTradersInter::query()->orderByDesc('year');
+            return DataTables::of($template)
                 ->addColumn('action',function ($data){
-                    $destroy_route = "'".route("dashboard.stationBcdAnn.destroy","slug")."'";
+                    $destroy_route = "'".route("dashboard.stkSugarTradersInter.destroy","slug")."'";
                     $slug = "'".$data->slug."'";
                     return '<div class="btn-group">
 
@@ -48,35 +49,35 @@ class StationBcdAnnController extends Controller{
                 ->escapeColumns([])
                 ->toJson();
         }
-        return view('dashboard.stationBcdAnn.index');
+        return view('dashboard.stkSugarTradersInter.index');
     }
 
 
 
     public function create(){
 
-        return view('dashboard.stationBcdAnn.create');
+        return view('dashboard.stkSugarTradersInter.create');
 
     }
 
 
 
-    public function store(StationBcdAnnFormRequest $request)
+    public function store(StkSugarTradersInterFormRequest $request)
     {
-        $station = new StationBcdAnn();
-        $station->slug = Str::random(15);
-        $year = Year::query()->where('slug','=',$request->year)->first();
-        $station->year_slug = $year->slug;
-        $station->year = $year->name;
-        $station->date = $request->date;
-        $station->file_title = $request->file_title;
-        $station->title = $request->title;
+        $template = new StkSugarTradersInter();
+        $template->slug = Str::random(15);
+        $year = CropYearStakeholders::query()->where('slug','=',$request->year)->first();
+        $template->year_slug = $year->slug;
+        $template->year = $year->name;
+        $template->date = $request->date;
+        $template->file_title = $request->file_title;
+        $template->title = $request->title;
 
         if (!empty($request->img_url)) {
             foreach ($request->file('img_url') as $file) {
                 $client_original_filename = $file->getClientOriginalName();
-                $path = 'station_bcd_ann/'. $station->year;
-                $station->path = $path . '/' . $file->getClientOriginalName();
+                $path = 'stk_sugar_traders_inter/'. $template->year;
+                $template->path = $path . '/' . $file->getClientOriginalName();
 
                 $original_ext = $file->getClientOriginalExtension();
                 $original_file_name_only = str_replace('.' . $original_ext, '', $file->getClientOriginalName());
@@ -86,8 +87,8 @@ class StationBcdAnnController extends Controller{
                 $file->storeAs($path, $client_original_filename);
             }
         }
-        $station->save();
-        return redirect('dashboard/stationBcdAnn/create');
+        $template->save();
+        return redirect('dashboard/stkSugarTradersInter/create');
     }
 
 
@@ -101,7 +102,7 @@ class StationBcdAnnController extends Controller{
     }
 
 
-    public function update(StationBcdAnnFormRequest $request, $slug){
+    public function update(StkSugarTradersInterFormRequest $request, $slug){
         $news = News::query()->where('slug',$slug)->first();
         $news->title = $request->title;
         $news->description = $request->description;
@@ -115,28 +116,28 @@ class StationBcdAnnController extends Controller{
     }
 
     public function destroy($slug){
-        $station = StationBcdAnn::query()->where('slug','=',$slug)->first();
-        if(!empty($station)){
-            $station->delete();
+        $template = StkSugarTradersInter::query()->where('slug','=',$slug)->first();
+        if(!empty($template)){
+            $template->delete();
             return 1;
         }
-        abort(503,'Error deleting Station. [StationBcdAnnController::destroy]');
+        abort(503,'Error deleting Stakeholder. [StkSugarTraderInterController::destroy]');
         return 1;
 
-        $station = StationBcdAnn::query()->find($slug);
-        if ($station->delete()){
+        $template = StkSugarTradersInter::query()->find($slug);
+        if ($template->delete()){
             return 1;
         }
         abort(503, 'Error deleting of Station!');
 
-        return $station;
+        return $template;
     }
 
     public function post($slug){
 
-        $station = StationBcdAnn::query()->where('slug','=',$slug)->first();
-        if(!empty($station)){
-            $station->update();
+        $template = StkSugarTradersInter::query()->where('slug','=',$slug)->first();
+        if(!empty($template)){
+            $template->update();
             return 1;
         }else{
             abort(500,'Error Posting!');

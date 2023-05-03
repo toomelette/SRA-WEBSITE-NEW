@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="content-header">
-        <h1>Manage Bulletin Board</h1>
+        <h1>Manage Sugar Traders (International)</h1>
     </section>
 
     <section class="content">
@@ -18,9 +18,9 @@
                             <i class="fa fa-filter"></i>  Advanced Filters <i class=" fa  fa-angle-down"></i>
                         </a>
                     </h4>
-{{--                    <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModal">--}}
-{{--                        Launch Modal--}}
-{{--                    </button>--}}
+                    <button type="button" class="btn btn-primary pull-right fa fa-plus-circle" data-toggle="modal" data-target="#myModal">
+                        Add Sugar Trader
+                    </button>
                 </div>
                 <div id="advanced_filters" class="panel-collapse collapse" aria-expanded="true" style="">
                     <div class="box-body">
@@ -51,13 +51,12 @@
                     <table class="table table-bordered table-striped table-hover" id="block_farm_table" style="width: 100% !important">
                         <thead>
                         <tr class="">
-                            <th width="10%" class="">Year</th>
+                            <th width="10%" class="">Crop Year</th>
                             <th width="10%" class="">Date</th>
                             <th width="20%" class="">File Title</th>
                             <th width="35%" class="">Title</th>
                             <th width="25%" class="">Path</th>
                             <th width="10%" class="action">Action</th>
-                            <th width="10%" class="action">Active</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -69,37 +68,71 @@
                         <img style="width: 100px" src="{{asset('images/loader.gif')}}">
                     </center>
                 </div>
-{{--Modal sample--}}
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                Modal body text goes here.
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-{{--End of Modal sample--}}
 
             </div>
         </div>
+
     </section>
 
 @endsection
 
 
 @section('modals')
+    {{--Modal sample--}}
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Add Sugar Trader (International)</h4>
+                </div>
+                <div class="modal-body">
 
+                    <div class="box">
+
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Form</h3>
+                            <div class="pull-right">
+                                <code>Fields with asterisks(*) are required</code>
+                            </div>
+                        </div>
+                        @csrf
+                        <form id="roadMapForm" method="POST" autocomplete="off" enctype="multipart/form-data">
+
+                            <div class="box-body">
+
+                                <div class="col-md-12">
+
+                                    {!! __form::select_static2(
+                                    '8 year', 'year', 'Crop Year: *', '', \App\Swep\Helpers\Helper::crop_year_stakeholders(), '', '', '', 'required'
+                                    ) !!}
+                                    {!! __form::textbox(
+                                      '4', 'date', 'date', 'Date *', '', old('date'), $errors->has('date'), $errors->first('date'), 'required'
+                                    ) !!}
+
+                                    {!! __form::file(
+                                     '8', 'img_url[]', 'Upload PDF *', $errors->has('img_url'), $errors->first('img_url'), 'required'
+                                    ) !!}
+
+                                    {!! __form::textbox(
+                                      '12', 'file_title', 'text', 'File Title *', '', old('file_title'), $errors->has('file_title'), $errors->first('file_title'), 'required'
+                                    ) !!}
+
+                                    {!! __form::textbox(
+                                      '12', 'title', 'text', 'Title *', '', old('title'), $errors->has('title'), $errors->first('title'), 'required'
+                                    ) !!}
+
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" id="btnroadMapSubmit" class="btn btn-primary">Save changes</button></form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{--End of Modal--}}
 @endsection
 
 @section('scripts')
@@ -130,19 +163,18 @@
             //Initialize DataTable
             modal_loader = $("#modal_loader").parent('div').html();
             active = '';
-            bulletin_boards_tbl = $("#block_farm_table").DataTable({
+            stk_sugar_traders_inter_tbl = $("#block_farm_table").DataTable({
                 'dom' : 'lBfrtip',
                 "processing": true,
                 "serverSide": true,
-                "ajax" : '{{ route("dashboard.bulletinBoard.index") }}',
+                "ajax" : '{{ route("dashboard.stkSugarTradersInter.index") }}',
                 "columns": [
                     { "data": "year" },
                     { "data": "date"},
                     { "data": "file_title" },
                     { "data": "title" },
                     { "data": "path" },
-                    { "data": "action" },
-                    { "data": "Post" },
+                    { "data": "action" }
                 ],
                 "buttons": [
                     {!! __js::dt_buttons() !!}
@@ -181,35 +213,53 @@
             $('#block_farm_table_filter input').unbind();
             $('#block_farm_table_filter input').bind('keyup', function (e) {
                 if (e.keyCode == 13) {
-                    bulletin_board_tbl.search(this.value).draw();
+                    stk_sugar_traders_inter_tbl.search(this.value).draw();
                 }
             });
         });
 
-                /*PostBtn Porposes*/
-        $('body').on('click','.ActiveButton', function () {
-            let checkBox = $(this);
-            let url = '{{route('dashboard.bulletinBoard.changeStatus', 'slug')}}';
-            url = url.replace('slug',checkBox.attr('data'));
+        $("#roadMapForm").submit(function (e) {
+            e.preventDefault();
+            let form = $(this);
+            let formData = new FormData(this);
+            loading_btn(form);
             $.ajax({
-                url: url,
-                data : {
-                    active : checkBox.prop('checked'),
-                },
-                type:'POST',
+                url: "{{route('dashboard.stkSugarTradersInter.store')}}",
+                type: 'POST',
+                data: new FormData(this),
+                processData: false,
+                contentType: false,
                 headers: {
                     {!! __html::token_header() !!}
                 },
-                success: function (response) {
-                    console.log(response);
-
+                success: function (res) {
+                    $('form').trigger("reset");
+                    $('#btnroadMapSubmit').removeAttr("disabled");
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Your New Sugar Trader successfully added to Sugar Traders International!',
+                        icon: 'success',
+                        confirmButtonText: 'Done'
+                    })
                 },
-                error: function (response) {
-                    console.log(response);
+                error: function (res) {
+                    errored(form,res)
                 }
-
             })
         })
+
+
+        $("#img_url").fileinput({
+            theme: "fa",
+            allowedFileExtensions: ["pdf", "jpeg", "jpg", "png", "txt"],
+            maxFileCount: 1,
+            showUpload: false,
+            showCaption: false,
+            overwriteInitial: true,
+            fileType: "pdf",
+            browseClass: "btn btn-primary btn-md",
+        });
+        $(".kv-file-remove").hide();
 
     </script>
 

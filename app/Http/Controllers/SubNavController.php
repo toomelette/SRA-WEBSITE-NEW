@@ -317,5 +317,51 @@ class SubNavController extends Controller
         return view('landingPage.stations.Pampanga.stationPampanga');
     }
 
+    /*Stakeholders*/
+    public function sugarTradersInter(){
+        return view('landingPage.stakeholders.sugarTradersInter');
+    }
+
+    public function sugarTradersDom(){
+        return view('landingPage.stakeholders.sugarTradersDom');
+    }
+
+    public function sugarTradersInterFructose(){
+        return view('landingPage.stakeholders.sugarTradersInterFructose');
+    }
+
+    public function molassesTradersInterDom(){
+        return view('landingPage.stakeholders.molassesTradersInterDom');
+    }
+
+    public function muscovadoTraders(){
+        return view('landingPage.stakeholders.muscovadoTraders');
+    }
+
+    public function directoryMDDC_MDOS(){
+        return view('landingPage.stakeholders.directoryMDDC_MDOS');
+    }
+
+    public function directorySugarMills(){
+        return view('landingPage.stakeholders.directorySugarMills');
+    }
+
+    public function directorySugarRefineries(){
+        return view('landingPage.stakeholders.directorySugarRefineries');
+    }
+
+    public function directoryBioethanolProd(){
+        return view('landingPage.stakeholders.directoryBioethanolProd');
+    }
+
+    public function directoryMillsAssoPlantersFed(){
+        return view('landingPage.stakeholders.directoryMillsAssoPlantersFed');
+    }
+
+    public function rawSugarProdbyProducerAffiliation(){
+        return view('landingPage.stakeholders.rawSugarProdbyProducerAffiliation');
+    }
+
+
 
 }

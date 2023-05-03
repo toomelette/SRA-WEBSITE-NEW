@@ -10,6 +10,7 @@ use App\Models\Year;
 use App\Models\YearBlockFarm;
 use App\Swep\ViewHelpers\__html;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Auth;
@@ -34,16 +35,23 @@ class BulletinBoardController extends Controller{
                     $destroy_route = "'".route("dashboard.bulletinBoard.destroy","slug")."'";
                     $slug = "'".$data->slug."'";
                     return '<div class="btn-group">
-
                                 <button type="button" onclick="delete_data('.$slug.','.$destroy_route.')" data="'.$data->slug.'" class="btn btn-sm btn-danger" data-toggle="tooltip" title="" data-placement="top" data-original-title="Delete">
                                     <i class="fa fa-trash"></i>
                                 </button>
                             </div>';
-                    return '<div class="btn-group">
-                                
-                               
-                            </div>';
+
                 })
+
+                /*PostBtn*/
+                ->editColumn('Post', function ($data){
+                    $checked = ($data->Post == 1) ? "checked": null;
+                    return '<div class="TriSea-technologies-Switch pull-right">
+                            <input data="'.$data->slug.'" id="TriSeaSuccess_'.$data->slug.'" name="sdad" class="ActiveButton" '.$checked.'  type="checkbox"  />
+                            <label for="TriSeaSuccess_'.$data->slug.'" class="label-success"></label>
+                        </div>';
+                })
+                /*EndPostBtn*/
+
                 ->setRowId('slug')
                 ->escapeColumns([])
                 ->toJson();
@@ -132,21 +140,19 @@ class BulletinBoardController extends Controller{
         return $blockFarm;
     }
 
-    public function post($slug){
 
-        $blockFarm = BulletinBoard::query()->where('slug','=',$slug)->first();
-        if(!empty($blockFarm)){
-            $blockFarm->update();
-            return 1;
+
+                /*PostBtn function*/
+    public function changeStatus($slug, Request $request){
+        $bulletinBoard = BulletinBoard::query()->where('slug','=',$slug)->first();
+        if(!empty($bulletinBoard)){
+            $bulletinBoard->Post = ($request->active == 'true') ? 1 : 0 ;
+            $bulletinBoard->update();
+            return $bulletinBoard->only('slug');
         }else{
             abort(500,'Error Posting!');
         }
-
     }
-
-
-
-
 
 
 }
