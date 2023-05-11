@@ -213,11 +213,24 @@
         <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
           <div class="ts-team-wrapper">
             <div class="team-img-wrapper">
-              <a href="{{asset("constra/images/administrators/Admin-Alba.png")}}"><img width="50%" loading="lazy" src="{{asset("constra/images/administrators/Admin-Alba.png")}}" class="img-fluid" title="David John Thaddeus P. Alba July 1, 2022" alt="team-img"></a>
+              <a href="{{asset("constra/images/administrators/DAVID JOHN THADDEUS P. ALBA-August 19, 2022 – April 15, 2023.png")}}"><img width="50%" loading="lazy" src="{{asset("constra/images/administrators/DAVID JOHN THADDEUS P. ALBA-August 19, 2022 – April 15, 2023.png")}}" class="img-fluid" title="David John Thaddeus P. Alba July 1, 2022" alt="team-img"></a>
             </div>
             <div class="ts-team-content-classic">
               <h3 class="ts-name">David John Thaddeus P. Alba</h3>
-              <p class="ts-designation">September 2, 2022 - Present</p>
+              <p class="ts-designation">September 2, 2022 - April 15, 2023</p>
+            </div>
+          </div>
+          <!--/ Team wrapper 3 end -->
+        </div><!-- Col end -->
+
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
+          <div class="ts-team-wrapper">
+            <div class="team-img-wrapper">
+              <a href="{{asset("constra/images/administrators/PABLO LUIS S. AZCONA.png")}}"><img width="50%" loading="lazy" src="{{asset("constra/images/administrators/PABLO LUIS S. AZCONA.png")}}" class="img-fluid" title="PABLO LUIS S. AZCONA" alt="team-img"></a>
+            </div>
+            <div class="ts-team-content-classic">
+              <h3 class="ts-name">PABLO LUIS S. AZCONA</h3>
+              <p class="ts-designation">April 20, 2023 – to present</p>
             </div>
           </div>
           <!--/ Team wrapper 3 end -->

@@ -492,7 +492,9 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
 
     /**Stakeholders**/
     Route::resource('stkSugarTradersInter', 'StkSugarTraderInterController');
-
+    Route::resource('stkSugarTradersDom', 'StkSugarTraderDomController');
+    Route::resource('stkSugarTradersInterFructose', 'StkSugarTradersInterFructoseController');
+    Route::resource('stkMolassesTradersInterDom', 'StkMolassesTradersInterDomController');
 
 });
 

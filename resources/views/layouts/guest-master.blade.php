@@ -150,7 +150,8 @@
                     $millsitePrices = \App\Models\MillsitePrices::query()->orderBy('date', 'desc')->limit(1)->get();
                     $bioethanolRF = \App\Models\BioethanolReferencePrice::query()->orderBy('date', 'desc')->limit(1)->get();
                     $circularletter = \App\Models\CircularLetter::query()->orderByDesc('date')->limit(1)->get();
-                    $memorandomCercular = \App\Models\MemorandumCircular::query()->orderBy('date', 'desc')->limit(1)->get()
+                    $memorandomCercular = \App\Models\MemorandumCircular::query()->orderBy('date', 'desc')->limit(1)->get();
+                    $sugar_order = \App\Models\SugarOrder::query()->orderBy('date', 'desc')->limit(1)->get();
                   @endphp
 
                   @if(! empty($latest_sugarSupplyDemand))
@@ -193,14 +194,24 @@
 
                 </tr>
                 <tr>
-                    <td>List of Accredited Customs Bonded Warehouse (CBW) Operators/ Food Processors/ Exporters/ Importers with Approved SRA Clearances of Imported Sugar for the month of January 2023</td>
+{{--                  List of Accredited Customs Bonded Warehouse (CBW) Operators/ Food Processors/ Exporters/ Importers with Approved SRA Clearances of Imported Sugar for the month of January 2023--}}
                   @foreach($circularletter as $latest_circular)
+                    <td>{{$latest_circular->title}}</td>
                     <td style="color: green"><a target="_blank" href="/home/sra_website/{!!$latest_circular->path!!}"><u style="">{{$latest_circular->file_title}}</u></a></td>
                     @endforeach
                 </tr>
                 <tr>
-                    <td>Schedule of Acceptance of Applications and Requirements by the SRA RD in QC and Bacolod under SO 6 s. 2022-23.</td>
+                  @foreach($sugar_order as $so)
+                    <td>{{$so->title}}</td>
+                    <td style="color: green"><a target="_blank" href="/home/sra_website/{!!$so->path!!}"><u style="">{{$so->file_title}}</u></a></td>
+                    @endforeach
+                </tr>
+
+                <tr>
+{{--                  Schedule of Acceptance of Applications and Requirements by the SRA RD in QC and Bacolod under SO 6 s. 2022-23.--}}
+
                     @foreach($memorandomCercular as $latest_MC)
+                    <td>{{$latest_MC->title}}</td>
                     <td style="color: green"><a target="_blank" href="/home/sra_website/{!!$latest_MC->path!!}"><u>{{$latest_MC->file_title}}</u></a></td>
                       @endforeach
                 </tr>
@@ -465,9 +476,9 @@
           <div class="row text-center">
             <div class="col-12">
               <h5 class="service-box-title"><a href="#">The Administrator's Portal</a></h5>
-              <h3 class="section-sub-title">SRA ADMINISTRATOR</h3>
-              <img width="" style="margin-top: -10%" loading="lazy" class="img-fluid" src="{{asset('constra/images/SRA/admin-alba.jpg')}}" alt="admin-image">
-              <h5 class="mb-5 mt-3" style="margin-top: -10%">HON. DAVID JOHN THADDEUS P. ALBA</h5>
+              <h3 class="section-sub-title">Acting Administrator and CEO</h3>
+              <img width="450px" height="600px" style="margin-top: -10%" loading="lazy" class="img-fluid" src="{{asset('constra/images/SRA/PABLO LUIS S. AZCONA.jpg')}}" alt="admin-image">
+              <h5 class="mb-5 mt-3 text-uppercase" style="margin-top: -10%">HON. Pablo Luis S. Azcona</h5>
             </div>
           </div>
         </div>
