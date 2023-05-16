@@ -500,7 +500,7 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
     Route::resource('stkDirectorySugarMills', 'StkDirectorySugarMillsController');
     Route::resource('stkDirectorySugarRefineries', 'StkDirectorySugarRefineriesController');
     Route::resource('stkDirectoryBioethanolProducers', 'StkDirectoryBioethanolProducersController');
-    Route::resource('stkDirectoryMillsAssociationPlantersFed', 'StkDirectoryMillsAssociationPlantersFedController');
+    Route::resource('stkDirectoryMillsAssociation', 'StkDirectoryMillsAssociationController');
 
 
 

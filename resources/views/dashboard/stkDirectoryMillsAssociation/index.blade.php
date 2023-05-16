@@ -167,7 +167,7 @@
                 'dom' : 'lBfrtip',
                 "processing": true,
                 "serverSide": true,
-                "ajax" : '{{ route("dashboard.stkDirectoryMillsAssociationPlantersFed.index") }}',
+                "ajax" : '{{ route("dashboard.stkDirectoryMillsAssociation.index") }}',
                 "columns": [
                     { "data": "year" },
                     { "data": "date"},
@@ -224,7 +224,7 @@
             let formData = new FormData(this);
             loading_btn(form);
             $.ajax({
-                url: "{{route('dashboard.stkDirectoryMillsAssociationPlantersFed.store')}}",
+                url: "{{route('dashboard.stkDirectoryMillsAssociation.store')}}",
                 type: 'POST',
                 data: new FormData(this),
                 processData: false,

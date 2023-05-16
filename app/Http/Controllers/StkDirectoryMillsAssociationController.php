@@ -16,7 +16,7 @@ use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Auth;
 
 
-class StkDirectoryMillsAssociationPlantersFedController extends Controller{
+class StkDirectoryMillsAssociationController extends Controller{
 
     protected $news;
 
@@ -32,7 +32,7 @@ class StkDirectoryMillsAssociationPlantersFedController extends Controller{
             $template = StkDirectoryMillsAssociationPlantersFed::query()->orderByDesc('year');
             return DataTables::of($template)
                 ->addColumn('action',function ($data){
-                    $destroy_route = "'".route("dashboard.stkDirectoryMillsAssociationPlantersFed.destroy","slug")."'";
+                    $destroy_route = "'".route("dashboard.stkDirectoryMillsAssociation.destroy","slug")."'";
                     $slug = "'".$data->slug."'";
                     return '<div class="btn-group">
 
@@ -49,14 +49,14 @@ class StkDirectoryMillsAssociationPlantersFedController extends Controller{
                 ->escapeColumns([])
                 ->toJson();
         }
-        return view('dashboard.stkDirectoryMillsAssociationPlantersFed.index');
+        return view('dashboard.stkDirectoryMillsAssociation.index');
     }
 
 
 
     public function create(){
 
-        return view('dashboard.stkDirectoryMillsAssociationPlantersFed.create');
+        return view('dashboard.stkDirectoryMillsAssociation.create');
 
     }
 
@@ -88,7 +88,7 @@ class StkDirectoryMillsAssociationPlantersFedController extends Controller{
             }
         }
         $template->save();
-        return redirect('dashboard/stkDirectoryMillsAssociationPlantersFed/create');
+        return redirect('dashboard/stkDirectoryMillsAssociation/create');
     }
 
 
@@ -121,7 +121,7 @@ class StkDirectoryMillsAssociationPlantersFedController extends Controller{
             $template->delete();
             return 1;
         }
-        abort(503,'Error deleting Stakeholder. [StkDirectoryMillsAssociationPlantersFedController::destroy]');
+        abort(503,'Error deleting Stakeholder. [StkDirectoryMillsAssociationController::destroy]');
         return 1;
 
         $template = StkDirectoryMillsAssociationPlantersFed::query()->find($slug);
