@@ -495,6 +495,14 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
     Route::resource('stkSugarTradersDom', 'StkSugarTraderDomController');
     Route::resource('stkSugarTradersInterFructose', 'StkSugarTradersInterFructoseController');
     Route::resource('stkMolassesTradersInterDom', 'StkMolassesTradersInterDomController');
+    Route::resource('stkMuscovadoTraders', 'StkMuscovadoTradersController');
+    Route::resource('stkDirectoryMDDC_MDOS', 'StkDirectoryMDDC_MDOSController');
+    Route::resource('stkDirectorySugarMills', 'StkDirectorySugarMillsController');
+    Route::resource('stkDirectorySugarRefineries', 'StkDirectorySugarRefineriesController');
+    Route::resource('stkDirectoryBioethanolProducers', 'StkDirectoryBioethanolProducersController');
+    Route::resource('stkDirectoryMillsAssociationPlantersFed', 'StkDirectoryMillsAssociationPlantersFedController');
+
+
 
 });
 
