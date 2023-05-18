@@ -126,7 +126,7 @@ class RoadMapController extends Controller{
             $roadMap->delete();
             return 1;
         }
-        abort(503,'Error deleting Roadmap. [SugarLawController::destroy]');
+        abort(503,'Error deleting Roadmap. [RoadMapController::destroy]');
         return 1;
 
         $roadMap = RoadMap::query()->find($slug);

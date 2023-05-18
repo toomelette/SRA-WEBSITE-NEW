@@ -401,7 +401,7 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
 
     Route::resource('sugarStatistics', 'SugarStatisticsController');
 
-    Route::resource('roadMap', 'roadMapController');
+    Route::resource('roadMap', 'RoadMapController');
 
     Route::resource('expiredImportClearance', 'ExpiredImportClearanceController');
 
