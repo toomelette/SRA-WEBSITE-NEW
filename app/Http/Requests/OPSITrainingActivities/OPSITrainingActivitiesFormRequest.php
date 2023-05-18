@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\StkDirectoryRawSugar_Production;
+namespace App\Http\Requests\OPSITrainingActivities;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StkDirectoryRawSugar_ProductionFormRequest extends FormRequest{
+class OPSITrainingActivitiesFormRequest extends FormRequest{
 
 
     public function authorize(){

@@ -47,10 +47,30 @@
             <div class="row">
                 <div class="col-lg-12">
 
+                    <h2>Sugar Traders (International)</h2>
+<br><br>
                     <p>
+
+                    @php
+                        $application_form = \App\Models\StkSugarTradersInter::query()->get()->sortBy('id');
+                    @endphp
+                    @if(count($application_form) > 0)
+                        <ul>
+                            <div class="row">
+                                @foreach ($application_form as $applicationForm)
+                                    <div class="col-4">
+                                        <img loading="lazy" class="testimonial-thumb" src="{{asset('constra/images/SRA/pdfDefault.gif')}}" alt="PDF LOGO">
+                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$applicationForm->path!!}" target="_blank"> {!!$applicationForm->year!!}</a><br>{!!$applicationForm->title!!}</li><br><br>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </ul>
+                        @endif
+
+
 {{--                    @php--}}
-{{--                        $vacant_position = \App\Models\VacantPosition::query()->get()->sortByDesc('id');--}}
-{{--                        $Year = \App\Models\Year::query()->get()->sortByDesc('id');--}}
+{{--                        $vacant_position = \App\Models\StkSugarTradersInter::query()->get()->sortByDesc('id');--}}
+{{--                        $Year = \App\Models\CropYearStakeholders::query()->get()->sortByDesc('id');--}}
 {{--                        $clYearList = array();--}}
 {{--                        foreach($vacant_position as $cl){--}}
 {{--                          array_push($clYearList, $cl->year);--}}
@@ -77,8 +97,13 @@
 {{--                                                    @foreach ($vacant_position as $vacantPosition)--}}
 {{--                                                        @if($year->name == $vacantPosition->year)--}}
 {{--                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/home/sra_website/{!!$vacantPosition->path!!}" >--}}
-{{--                                                                    <img loading="lazy" width="50px" height="50px" class="testimonial-thumb" src="{{ url('constra/images/SRA/SRA_DA logo.png') }}" alt="">--}}
+{{--                                                                    <img loading="lazy" width="50px" height="50px" class="testimonial-thumb" src="{{ url('constra/images/SRA/pdfDefault.gif') }}" alt="">--}}
 {{--                                                                    <a>{!!$vacantPosition->title!!}</a></li>--}}
+
+{{--                                                            <div class="col-4">--}}
+{{--                                                                <img loading="lazy" class="testimonial-thumb" src="{{asset('constra/images/SRA/pdfDefault.gif')}}" alt="PDF LOGO">--}}
+{{--                                                                <li><a style="color: #ffb600" href="/home/sra_website/{!!$vacantPosition->path!!}" target="_blank">{!!$vacantPosition->file_title!!}</a><br>{!!$vacantPosition->title!!}</li>--}}
+{{--                                                            </div>--}}
 {{--                                                        @endif--}}
 {{--                                                    @endforeach--}}
 
@@ -102,11 +127,11 @@
 
 {{--                    <p>--}}
 {{--                    @php--}}
-{{--                        $vacant_position = \App\Models\VacantPosition::query()->get()->sortByDesc('id');--}}
-{{--                        $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');--}}
+{{--                        $vacant_position = \App\Models\StkSugarTradersInter::query()->get()->sortByDesc('id');--}}
+{{--                        $crop_year = \App\Models\CropYearStakeholders::query()->get()->sortByDesc('id');--}}
 {{--                        $clYearList = array();--}}
 {{--                        foreach($vacant_position as $cl){--}}
-{{--                          array_push($clYearList, $cl->crop_year);--}}
+{{--                          array_push($clYearList, $cl->year);--}}
 {{--                        }--}}
 {{--                        $clYearList = array_unique($clYearList);--}}
 {{--                    @endphp--}}
@@ -116,7 +141,7 @@
 {{--                                <h4>Series of {!!$cropYear->name!!}</h4>--}}
 {{--                            @endif--}}
 {{--                            @foreach ($vacant_position as $vacantPosition)--}}
-{{--                                @if($cropYear->slug == $vacantPosition->crop_year_slug)--}}
+{{--                                @if($cropYear->slug == $vacantPosition->year_slug)--}}
 {{--                                    <ul>--}}
 {{--                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$vacantPosition->path!!}" target="_blank">{!!$vacantPosition->file_title!!}, </a>{!!$vacantPosition->title!!}</li>--}}
 {{--                                    </ul>--}}

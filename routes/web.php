@@ -164,6 +164,10 @@ Route::get('japan_npga/index', 'SubNavController@japan_npga')->name('japan_npga'
 Route::get('citizensCharter/citizensCharter', 'SubNavController@citizensCharter')->name('citizensCharter');
 Route::get('ph_tp_seal/index', 'SubNavController@ph_tp_seal')->name('ph_tp_seal');
 
+/*OPSI Training*/
+Route::get('OPSITraining/activities', 'FooterSubNavigationController@activities')->name('activities');
+Route::get('OPSITraining/schedule', 'FooterSubNavigationController@schedule')->name('schedule');
+
 
 
 
@@ -501,7 +505,10 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
     Route::resource('stkDirectorySugarRefineries', 'StkDirectorySugarRefineriesController');
     Route::resource('stkDirectoryBioethanolProducers', 'StkDirectoryBioethanolProducersController');
     Route::resource('stkDirectoryMillsAssociation', 'StkDirectoryMillsAssociationController');
+    Route::resource('stkRawSugarProduction', 'StkRawSugarProductionController');
 
+    /**OPSITraining**/
+    Route::resource('OPSITrainingActivities', 'OPSITrainingActivitiesController');
 
 
 });

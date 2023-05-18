@@ -8,7 +8,7 @@ use Kyslik\ColumnSortable\Sortable;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 
-class StkDirectoryRawSugar_Production extends Model{
+class OPSITrainingActivities extends Model{
 
 
     public static function boot()
@@ -27,13 +27,13 @@ class StkDirectoryRawSugar_Production extends Model{
 
     use Sortable, LogsActivity;
 
-    protected $table = 'stk_directory_raw_sugar_producer';
+    protected $table = 'opsi_training_activities';
 
     protected $dates = ['created_at', 'updated_at'];
 
     public $timestamps = true;
 
-    protected static $logName = 'stk_directory_raw_sugar_producer';
+    protected static $logName = 'opsi_training_activities';
     protected static $logAttributes = ['*'];
     protected static $ignoreChangedAttributes = ['updated_at','ip_updated','user_updated'];
     protected static $logOnlyDirty = true;
@@ -46,6 +46,7 @@ class StkDirectoryRawSugar_Production extends Model{
         'date' => null,
         'file_title' => '',
         'title' => '',
+        'description' => '',
         'path' => '',
         'created_at' => null,
         'updated_at' => null,

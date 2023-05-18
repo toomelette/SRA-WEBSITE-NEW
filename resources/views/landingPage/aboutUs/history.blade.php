@@ -206,13 +206,13 @@
 
               <tr>
                 <td width="30%" align="center" height="111"><a href="{{asset('constra/images/officials/BM-Mangwag.png')}}" class="fbx-link fbx-instance"><img class="aligncenter wp-image-9750" alt="MA. MITZI V. MANGWAG" src="{{asset('constra/images/officials/BM-Mangwag.png')}}" width="105" height="103"></a></td>
-                <td width="30%" align="center" height="111">&nbsp; &nbsp; <a href="{{asset('constra/images/administrators/Admin-Alba.png')}}" class="fbx-link fbx-instance"><img class="aligncenter wp-image-9743 " alt="DAVID JOHN THADDEUS P. ALBA  " src="{{asset('constra/images/administrators/Admin-Alba.png')}}" width="105" height="103"></a></td>
-                <td width="30%" align="center" height="111"><a href="{{asset('constra/images/officials/BM-Azcona.png')}}" class="fbx-link fbx-instance"><img class="aligncenter wp-image-12880" alt="PABLO LUIS S. AZCONA" src="{{asset('constra/images/officials/BM-Azcona.png')}}" width="105" height="103"></a></td>
+                <td width="30%" align="center" height="111">&nbsp; &nbsp; <a href="{{asset('constra/images/administrators/PABLO LUIS S. AZCONA.png')}}" class="fbx-link fbx-instance"><img class="aligncenter wp-image-9743 " alt="DAVID JOHN THADDEUS P. ALBA  " src="{{asset('constra/images/administrators/PABLO LUIS S. AZCONA.png')}}" width="105" height="103"></a></td>
+{{--                <td width="30%" align="center" height="111"><a href="{{asset('constra/images/officials/BM-Azcona.png')}}" class="fbx-link fbx-instance"><img class="aligncenter wp-image-12880" alt="PABLO LUIS S. AZCONA" src="{{asset('constra/images/officials/BM-Azcona.png')}}" width="105" height="103"></a></td>--}}
               </tr>
               <tr>
                 <td width="33%"><center>Board Member</center><center><strong>MA. MITZI V. MANGWAG &nbsp</strong></center><center>(Miller’s Sector)</center></td>
-                <td width="33%"><center>Administrator</center><center><strong>DAVID JOHN THADDEUS P. ALBA &nbsp;</strong></center></td>
-                <td width="50%"><center>Board Member</center><center><strong>PABLO LUIS S. AZCONA </strong></center><center>(Planter’s Sector)</center></td>
+                <td width="33%"><center>Administrator</center><center><strong>PABLO LUIS S. AZCONA  &nbsp;</strong></center></td>
+                <td width="50%"><center>Board Member</center><center><strong> </strong></center><center>(Planter’s Sector)</center></td>
               </tr>
               </tbody>
             </table>

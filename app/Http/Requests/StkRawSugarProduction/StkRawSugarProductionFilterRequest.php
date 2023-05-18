@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\StkDirectoryRawSugar_Production;
+namespace App\Http\Requests\StkRawSugarProduction;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StkDirectoryRawSugar_ProductionFilterRequest extends FormRequest{
+class StkRawSugarProductionFilterRequest extends FormRequest{
 
 
 

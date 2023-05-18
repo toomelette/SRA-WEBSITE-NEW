@@ -46,6 +46,25 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
+                    <h2>DIRECTORY OF MILL DISTRICT DEVELOPMENT COUNCIL (MDDC) & MDO'S</h2><br><br>
+                    <p>
+                    @php
+                        $application_form = \App\Models\StkDirectoryMDDC_MDOS::query()->get()->sortBy('id');
+                    @endphp
+                    @if(count($application_form) > 0)
+                        <ul>
+                            <div class="row">
+                                @foreach ($application_form as $applicationForm)
+                                    <div class="col-4">
+                                        <img loading="lazy" class="testimonial-thumb" src="{{asset('constra/images/SRA/pdfDefault.gif')}}" alt="PDF LOGO">
+                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$applicationForm->path!!}" target="_blank"> {!!$applicationForm->year!!}</a><br>{!!$applicationForm->title!!}</li><br><br>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </ul>
+                        @endif
+                        </p>
+
 
                     <p>
 {{--                    @php--}}

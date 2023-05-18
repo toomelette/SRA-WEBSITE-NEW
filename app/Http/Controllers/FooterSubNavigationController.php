@@ -108,4 +108,13 @@ class FooterSubNavigationController extends Controller{
         return view('landingPage.pagasaClimateOutlook.pagasaCOL');
     }
 
+    /*OPSI Training*/
+    public function activities(){
+        return view('landingPage.OPSITraining.activities');
+    }
+
+    public function schedule(){
+        return view('landingPage.OPSITraining.schedule');
+    }
+
 }

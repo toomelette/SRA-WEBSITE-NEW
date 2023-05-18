@@ -261,12 +261,6 @@ class SubNavController extends Controller
 
 
 
-
-
-
-
-
-
     //////BID CORNER/////////
     public function invitationBid(){
         return view('landingPage.bidCorner.invitationBid');
@@ -361,6 +355,8 @@ class SubNavController extends Controller
     public function rawSugarProdbyProducerAffiliation(){
         return view('landingPage.stakeholders.rawSugarProdbyProducerAffiliation');
     }
+
+
 
 
 

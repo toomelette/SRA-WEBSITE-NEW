@@ -71,12 +71,12 @@
               <tbody>
               <tr>
                 <td valign="top">&nbsp;
-                  <a href="{{asset("constra/images/officials/Admin-Alba.png")}}"><img src="{{asset('constra/images/officials/Admin-Alba.png')}}" alt="" width="150" height="166"></td>
+                  <a href="{{asset("constra/images/administrators/PABLO LUIS S. AZCONA.png")}}"><img src="{{asset('constra/images/administrators/PABLO LUIS S. AZCONA.png')}}" alt="" width="150" height="166"></td>
               </tr>
               <tr>
                 <td style="text-align: center;" width="198" valign="top">
-                  <p align="center"><strong style="color: black">DAVID JOHN THADDEUS P. ALBA </strong><br>
-                    Acting Administrator</p>
+                  <p align="center"><strong style="color: black">PABLO LUIS S. AZCONA</strong><br>
+                    Acting Administrator and CEO</p>
                   <p><u><a href="mailto:srahead@sra.gov.ph">srahead@sra.gov.ph</a><br></u>
                     (632) 8926-2928 / (632) 8929-3633</p>
                 </td>
@@ -91,10 +91,10 @@
                   <div class="col-lg-6 col-md-4 col-sm-6 mb-5">
                     <div class="ts-team-wrapper">
                       <div class="team-img-wrapper">
-                        <a href="{{asset("constra/images/officials/BM-Azcona.png")}}"><img width="150" loading="lazy" src="{{asset("constra/images/officials/BM-Azcona.png")}}" class="img-fluid" alt="team-img"></a>
+{{--                        <a href="{{asset("constra/images/officials/BM-Azcona.png")}}"><img width="150" loading="lazy" src="{{asset("constra/images/officials/BM-Azcona.png")}}" class="img-fluid" alt="team-img"></a>--}}
                       </div>
                       <div class="ts-team-content-classic" style="text-align: center;" width=" 198" >
-                        <p align="center"><strong class="ts-name">PABLO LUIS S. AZCONA</strong><br>
+{{--                        <p align="center"><strong class="ts-name">PABLO LUIS S. AZCONA</strong><br>--}}
                         Board Member-Planter's Representative</p>
                         <p><u><a href="mailto:board.planter@sra.gov.ph">board.planter@sra.gov.ph</a></u><br></p>
                       </div>
