@@ -1,5 +1,5 @@
 <section class="subscribe" style="background-color: green;">
-  <nav class="navbar navbar-expand-lg navbar-dark p-0" style="margin-left: 10%;">
+  <nav class="navbar navbar-expand-lg navbar-dark p-0" style="margin-left: 20%;">
 
     <div id="navbar-collapse" class="collapse navbar-collapse" style="justify-content: center">
       <ul class="nav navbar-nav mr-auto">
@@ -35,49 +35,49 @@
 </section>
 <!--/ subscribe end -->
 
-<footer id="footer" class="footer bg-overlay">
-  <div class="footer-main">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 footer-widget footer-about">
-          <h3 class="widget-title">About Us</h3>
-          <img loading="lazy" width="100px" class="footer-logo" src="{{asset('constra/images/SRA/SRA_DA logo.png')}}" alt="SRA" style="background-color: white;">
-          <p>Sugar Center | Sugar Regulatory Administration</p>
-          <div class="footer-social">
-            <ul>
-              <li>
-                <a title="Facebook" href="https://www.facebook.com/sugarregulatoryadmin" target="_blank" rel="noopener">
-                  <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
-                </a>
-              </li>
-              <li>
-                <a title="Twitter" href="https://twitter.com/Sugar_phils" target="_blank" rel="noopener">
-                  <span class="social-icon"><i class="fab fa-twitter"></i></span>
-                </a>
-              </li>
-              <li>
-              <a title="Sugar Center Bldg., North Avenue, Diliman, Quezon City" href="https://goo.gl/maps/s1Nw9SvtgoqFrA818"><i class="fas fa-map-marker-alt"></i></a>
-              </li>
+{{--<footer id="footer" class="footer bg-overlay">--}}
+{{--  <div class="footer-main">--}}
+{{--    <div class="container">--}}
+{{--      <div class="row">--}}
+{{--        <div class="col-md-4 footer-widget footer-about">--}}
+{{--          <h3 class="widget-title">About Us</h3>--}}
+{{--          <img loading="lazy" width="100px" class="footer-logo" src="{{asset('constra/images/SRA/SRA_DA logo.png')}}" alt="SRA" style="background-color: white;">--}}
+{{--          <p>Sugar Center | Sugar Regulatory Administration</p>--}}
+{{--          <div class="footer-social">--}}
+{{--            <ul>--}}
+{{--              <li>--}}
+{{--                <a title="Facebook" href="https://www.facebook.com/sugarregulatoryadmin" target="_blank" rel="noopener">--}}
+{{--                  <span class="social-icon"><i class="fab fa-facebook-f"></i></span>--}}
+{{--                </a>--}}
+{{--              </li>--}}
+{{--              <li>--}}
+{{--                <a title="Twitter" href="https://twitter.com/Sugar_phils" target="_blank" rel="noopener">--}}
+{{--                  <span class="social-icon"><i class="fab fa-twitter"></i></span>--}}
+{{--                </a>--}}
+{{--              </li>--}}
+{{--              <li>--}}
+{{--              <a title="Sugar Center Bldg., North Avenue, Diliman, Quezon City" href="https://goo.gl/maps/s1Nw9SvtgoqFrA818"><i class="fas fa-map-marker-alt"></i></a>--}}
+{{--              </li>--}}
 
-            </ul>
-          </div><!-- Footer social end -->
-        </div><!-- Col end -->
+{{--            </ul>--}}
+{{--          </div><!-- Footer social end -->--}}
+{{--        </div><!-- Col end -->--}}
 
-        <div class="col-md-4 footer-widget mt-5 mt-md-0">
-          <h3 class="widget-title">Working Hours</h3>
-          <div class="working-hours">
-            We work 5 days a week, excluding major holidays. Contact us if you have any concern, with our
-            Hotline and Contact form.
-            <br><br> Monday - Friday: <span class="text-right">08:00 AM - 05:00 PM </span>
-          </div>
-        </div><!-- Col end -->
+{{--        <div class="col-md-4 footer-widget mt-5 mt-md-0">--}}
+{{--          <h3 class="widget-title">Working Hours</h3>--}}
+{{--          <div class="working-hours">--}}
+{{--            We work 5 days a week, excluding major holidays. Contact us if you have any concern, with our--}}
+{{--            Hotline and Contact form.--}}
+{{--            <br><br> Monday - Friday: <span class="text-right">08:00 AM - 05:00 PM </span>--}}
+{{--          </div>--}}
+{{--        </div><!-- Col end -->--}}
 
-      </div><!-- Row end -->
-    </div><!-- Container end -->
-  </div><!-- Footer main end -->
+{{--      </div><!-- Row end -->--}}
+{{--    </div><!-- Container end -->--}}
+{{--  </div><!-- Footer main end -->--}}
 
 
-</footer><!-- Footer end -->
+{{--</footer><!-- Footer end -->--}}
 
 <footer id="standard-footer" style="background-color: #efefef; margin-top: -3%">
   <style type="text/css" scoped="" style="display:none;">
@@ -113,18 +113,29 @@
         </div><!-- Col end -->
 
         <div class="col-lg-3 col-md-3 mt-3 mt-lg-0 footer-widget">
-          <h3>About GOVPH</h3>
-          <p>Learn more about the Philippine government, its structure, how government works and the people behind it.</p>
+          <h3>REGIONAL FIELD OFFICES</h3>
+{{--          <p>Learn more about the Philippine government, its structure, how government works and the people behind it.</p>--}}
           <ul class="">
             <ul>
-              <li><a href="https://www.gov.ph/" target="_blank">GOV.PH</a></li>
-              <li><a href="https://www.gov.ph/data" target="_blank">Open Data Portal</a></li>
-              <li><a href="https://www.officialgazette.gov.ph" target="_blank">Official Gazette</a></li>
-              <li><a href="https://www.dole.gov.ph" target="_blank">Department of Labor and Employment</a></li>
-              <li><a href="https://www.doe.gov.ph" target="_blank">Department of Energy</a></li>
-              <li><a href="https://dost.gov.ph/" target="_blank">Department of Science and Technology</a></li>
-              <li><a href="https://dti.gov.ph" target="_blank">Department of Trade and Industry</a></li>
-            </ul>
+              <li><a href="/stations/Bacolod/stationBacolod" target="_blank">SRA Bacolod</a></li>
+              <li><a href="/stations/LaGranja/stationLaGranja" target="_blank">SRA LGAREC (La Granja)</a></li>
+              <li><a href="/stations/Pampanga/stationPampanga" target="_blank">SRA LAREC (Pampanga)</a></li>
+              <li>
+                              <a title="Facebook" href="https://www.facebook.com/sugarregulatoryadmin" target="_blank" rel="noopener">
+                                <img loading="lazy" width="30px" src="{{asset('constra/images/icons/facebook.png')}}" alt="facts-img">
+                              </a>&nbsp;&nbsp;
+
+                                <a title="Twitter" href="https://twitter.com/Sugar_phils" target="_blank" rel="noopener">
+                                  <img loading="lazy" width="30px" src="{{asset('constra/images/icons/twiiter.png')}}" alt="facts-img">
+                                </a>&nbsp;
+                                <a title="Sugar Center Bldg., North Avenue, Diliman, Quezon City" target="_blank" href="https://goo.gl/maps/s1Nw9SvtgoqFrA818">
+                                  <img loading="lazy" width="30px" src="{{asset('constra/images/icons/location.png')}}" alt="facts-img">
+                                </a>
+
+              </li>
+              <li>
+
+              </li>
           </ul>
         </div><!-- Col end -->
 
@@ -132,16 +143,13 @@
           <h3 class="widget-title">GOVERNMENT LINKS</h3>
           <ul class="">
             <li><a href="https://op-proper.gov.ph/" target="_blank">Office of the President</a></li>
-            <li><a href="https://ovp.gov.ph/">Office of the Vice President</a></li>
-            <li><a href="https://www.senate.gov.ph/" target="_blank">Senate of the Philippines</a></li>
-            <li><a href="https://www.congress.gov.ph/ "target="_blank">House of Representatives</a></li>
-            <li><a href="https://sc.judiciary.gov.ph/" target="_blank">Supreme Court</a></li>
-            <li><a href="https://ca.judiciary.gov.ph/" target="_blank">Court of Appeals</a></li>
-            <li><a href="https://sb.judiciary.gov.ph/" target="_blank">Sandiganbayan</a></li>
-            <li><a href="https://nsw.gov.ph" target="_blank">hilippine National Single Window</a></li>
+            <li><a href="https://nsw.gov.ph" target="_blank">Philippine National Single Window</a></li>
             <li><a href="https://www.psma.com.ph" target="_blank">Philippine Sugar Millers Association</a></li>
             <li><a href="https://www.usda.gov " target="_blank">United States Department of Agriculture</a></li>
             <li><a href="https://www.sugaronline.com/" target="_blank">Sugar On line</a></li>
+            <li><a href="https://www.doe.gov.ph" target="_blank">Department of Energy</a></li>
+            <li><a href="https://dost.gov.ph/" target="_blank">Department of Science and Technology</a></li>
+            <li><a href="https://dti.gov.ph" target="_blank">Department of Trade and Industry</a></li>
           </ul>
           </ul>
         </div><!-- Col end -->

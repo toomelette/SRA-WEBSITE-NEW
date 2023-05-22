@@ -14,10 +14,10 @@
         <ul class="list-unstyled">
           <li>
             <a title="Facebook" href="https://www.facebook.com/sugarregulatoryadmin" target="_blank" rel="noopener">
-              <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
+              <img loading="lazy" width="30px" src="{{asset('constra/images/icons/facebook.png')}}" alt="facts-img">
             </a>
             <a title="Twitter" href="https://twitter.com/Sugar_phils" target="_blank" rel="noopener">
-              <span class="social-icon"><i class="fab fa-twitter"></i></span>
+              <img loading="lazy" width="30px" src="{{asset('constra/images/icons/twiiter.png')}}" alt="facts-img">
             </a>
 
           </li>

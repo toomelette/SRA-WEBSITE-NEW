@@ -32,7 +32,7 @@
           <div class="row align-items-center h-100">
             <div class="col-md-12 text-center">
               <h2 class="slide-title" data-animation-in="slideInLeft" style="text-shadow: -2px -2px 0 #ffb600, 2px -2px 0 #ffb600, -2px 2px 0 #ffb600, 2px 2px 0 #ffb600;">For the Filipino People</h2>
-              <h3 class="slide-sub-title" data-animation-in="slideInRight" style="text-shadow: -2px -2px 0 #ffb600, 2px -2px 0 #ffb600, -2px 2px 0 #ffb600, 2px 2px 0 #ffb600;">Sugar Center</h3>
+              <h3 class="slide-sub-title " data-animation-in="slideInRight" style="text-shadow: -2px -2px 0 #ffb600, 2px -2px 0 #ffb600, -2px 2px 0 #ffb600, 2px 2px 0 #ffb600; ">Sugar Center</h3>
             </div>
           </div>
         </div>
@@ -80,21 +80,21 @@
 
           </div><!-- Col end -->
 
-          <div class="col-md-2 col-sm-6 ts-facts mt-5 mt-sm-0 ml-4">
+          <div class="col-md-2 col-sm-6 ts-facts mt-5 mt-sm-0 ml-3">
             <div class="ts-facts-img">
               <a href="/ph_tp_seal/index"><img loading="lazy" width="80%" src="{{asset('constra/images/SRA/Translogo.png')}}" alt="facts-img"></a>
             </div>
 
           </div><!-- Col end -->
 
-          <div class="col-md-2 col-sm-6 ts-facts mt-5 mt-md-0 ml-4">
+          <div class="col-md-2 col-sm-6 ts-facts mt-5 mt-md-0 ml-3">
             <div class="ts-facts-img">
               <img loading="lazy" width="80%" src="{{asset('constra/images/SRA/GCG-logo.png')}}" alt="facts-img">
             </div>
 
           </div><!-- Col end -->
 
-          <div class="col-md-2 col-sm-6 ts-facts mt-5 mt-md-0 ml-4">
+          <div class="col-md-2 col-sm-6 ts-facts mt-5 mt-md-0 ml-3">
             <div class="ts-facts-img">
               <a href="https://www.foi.gov.ph/" target="_blank"><img loading="lazy" width="85%" src="{{asset('constra/images/SRA/foi_logo-300x300.png')}}" alt="facts-img"></a>
             </div>
@@ -109,11 +109,11 @@
 {{--            </div>--}}
 {{--          </div>--}}
 
-          <div class="col-md-2 col-sm-6 ts-facts mt-5 mt-md-0 ml-4">
+          <div class="col-md-2 col-sm-6 ts-facts mt-4 mt-md-0 ml-3">
             <div class="ts-facts-img">
 {{--              <img loading="lazy" width="80%" src="{{asset('constra/images/SRA/japan-npga-300x112.png')}}" alt="facts-img">--}}
 
-              <img   loading="lazy" width="120%" src="{{asset('constra/images/SRA/SRA-ISO2-300x109.jpg')}}" alt="facts-img">
+              <img   loading="lazy" width="150%" height="120%" src="{{asset('constra/images/SRA/TUV.jpg')}}" alt="facts-img">
             </div>
 
           </div>
@@ -433,11 +433,11 @@
                 </div>
                 <div class="post-body" style="">
                   <h4 class="post-title">
-                    <a class="d-inline-block" target="_blank" href="/home/sra_website/{!!$vacantPosition->path!!}">{{$vacantPosition->title}}</a>
+                    <a class="d-inline-block" target="_blank" href="/home/sra_website/{!!$vacantPosition->path!!}"> AS OF {{Carbon::parse($vacantPosition->date)->format('F j, Y')}}</a>
                   </h4>
                   <div class="latest-post-meta">
                       <span class="post-item-date">
-                        <i class="fa fa-clock-o"></i> {{Carbon::parse($vacantPosition->date)->format('F j, Y')}}
+{{--                        <i class="fa fa-clock-o"></i> {{Carbon::parse($vacantPosition->date)->format('F j, Y')}}--}}
                       </span>
                   </div>
                 </div>
@@ -477,7 +477,7 @@
             <div class="col-12">
               <h5 class="service-box-title"><a href="#">The Administrator's Portal</a></h5>
               <h3 class="section-sub-title">Acting Administrator and CEO</h3>
-              <img width="450px" height="600px" style="margin-top: -10%" loading="lazy" class="img-fluid" src="{{asset('constra/images/SRA/PABLO LUIS S. AZCONA.jpg')}}" alt="admin-image">
+              <img width="450px" height="600px" style="margin-top: -10%; border: 5px solid green" loading="lazy" class="img-fluid" src="{{asset('constra/images/SRA/PABLO LUIS S. AZCONA.jpg')}}" alt="admin-image">
               <h5 class="mb-5 mt-3 text-uppercase" style="margin-top: -10%">HON. Pablo Luis S. Azcona</h5>
             </div>
           </div>
