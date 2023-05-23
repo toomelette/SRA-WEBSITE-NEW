@@ -14,7 +14,7 @@ class SugarTraderController extends Controller
 
     public function index(){
         if(request()->ajax()){
-            $sugar_trader = SugarTrader::get();
+            $sugar_trader = SugarTrader::query()->orderByDesc('created_at');
             return DataTables::of($sugar_trader)
                 ->addColumn('action',function ($data){
                     $destroy_route = "'".route("dashboard.sugarTrader.destroy","slug")."'";

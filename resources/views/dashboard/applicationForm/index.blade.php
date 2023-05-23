@@ -3,7 +3,7 @@
 @section('content')
 
   <section class="content-header">
-    <h1>Manage Office Circular</h1>
+    <h1>Manage Application Form</h1>
   </section>
 
   <section class="content">
@@ -18,6 +18,9 @@
               <i class="fa fa-filter"></i>  Advanced Filters <i class=" fa  fa-angle-down"></i>
             </a>
           </h4>
+          <button type="button" class="btn btn-primary pull-right fa fa-plus-circle" data-toggle="modal" data-target="#myModal">
+            Add Sugar Trader
+          </button>
         </div>
         <div id="advanced_filters" class="panel-collapse collapse" aria-expanded="true" style="">
           <div class="box-body">
@@ -37,17 +40,17 @@
                   <option value="active">Active</option>
                   <option value="inactive">Inactive</option>
                 </select>
+
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="box-body">
-        <div id="office_circular_table_container" style="">
-          <table class="table table-bordered table-striped table-hover" id="office_circular_table" style="width: 100% !important">
+        <div id="block_farm_table_container" style="">
+          <table class="table table-bordered table-striped table-hover" id="block_farm_table" style="width: 100% !important">
             <thead>
             <tr class="">
-              <th width="10%" class="">Year</th>
               <th width="20%" class="">File Title</th>
               <th width="35%" class="">Title</th>
               <th width="25%" class="">Path</th>
@@ -66,8 +69,8 @@
 
       </div>
     </div>
-  </section>
 
+  </section>
 
 @endsection
 
@@ -104,13 +107,12 @@
       //Initialize DataTable
       modal_loader = $("#modal_loader").parent('div').html();
       active = '';
-      office_circular_tbl = $("#office_circular_table").DataTable({
+      application_form_tbl = $("#block_farm_table").DataTable({
         'dom' : 'lBfrtip',
         "processing": true,
         "serverSide": true,
-        "ajax" : '{{ route("dashboard.officeCircular.index") }}',
+        "ajax" : '{{ route("dashboard.applicationForm.index") }}',
         "columns": [
-          { "data": "year" },
           { "data": "file_title" },
           { "data": "title" },
           { "data": "path" },
@@ -131,7 +133,7 @@
         "responsive": false,
         "initComplete": function( settings, json ) {
           $('#tbl_loader').fadeOut(function(){
-            $("#office_circular_table_container").fadeIn();
+            $("#block_farm_table_container").fadeIn();
           });
         },
         "language":
@@ -142,21 +144,64 @@
           $('[data-toggle="tooltip"]').tooltip();
           $('[data-toggle="modal"]').tooltip();
           if(active != ''){
-            $("#office_circular_table #"+active).addClass('success');
+            $("#block_block_table #"+active).addClass('success');
           }
         }
       })
 
-      style_datatable("#office_circular_table");
+      style_datatable("#block_farm_table");
 
       //Need to press enter to search
-      $('#office_circular_table_filter input').unbind();
-      $('#office_circular_table_filter input').bind('keyup', function (e) {
+      $('#block_farm_table_filter input').unbind();
+      $('#block_farm_table_filter input').bind('keyup', function (e) {
         if (e.keyCode == 13) {
-          office_circular_tbl.search(this.value).draw();
+          application_form_tbl.search(this.value).draw();
         }
       });
     });
+
+    $("#roadMapForm").submit(function (e) {
+      e.preventDefault();
+      let form = $(this);
+      let formData = new FormData(this);
+      loading_btn(form);
+      $.ajax({
+        url: "{{route('dashboard.applicationForm.store')}}",
+        type: 'POST',
+        data: new FormData(this),
+        processData: false,
+        contentType: false,
+        headers: {
+          {!! __html::token_header() !!}
+        },
+        success: function (res) {
+          $('form').trigger("reset");
+          $('#btnroadMapSubmit').removeAttr("disabled");
+          Swal.fire({
+            title: 'Success!',
+            text: 'Your New Form successfully added to Application Form!',
+            icon: 'success',
+            confirmButtonText: 'Done'
+          })
+        },
+        error: function (res) {
+          errored(form,res)
+        }
+      })
+    })
+
+
+    $("#img_url").fileinput({
+      theme: "fa",
+      allowedFileExtensions: ["pdf", "jpeg", "jpg", "png", "txt"],
+      maxFileCount: 1,
+      showUpload: false,
+      showCaption: false,
+      overwriteInitial: true,
+      fileType: "pdf",
+      browseClass: "btn btn-primary btn-md",
+    });
+    $(".kv-file-remove").hide();
 
   </script>
 

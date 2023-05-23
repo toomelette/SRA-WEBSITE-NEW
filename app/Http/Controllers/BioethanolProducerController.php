@@ -14,17 +14,17 @@ class BioethanolProducerController extends Controller
 
     public function index(){
         if(request()->ajax()){
-            $bioethanol_producer = BioethanolProducer::get();
+            $bioethanol_producer = BioethanolProducer::query()->orderByDesc('created_at');
             return DataTables::of($bioethanol_producer)
                 ->addColumn('action',function ($data){
                     $destroy_route = "'".route("dashboard.bioethanolProducer.destroy","slug")."'";
                     $slug = "'".$data->slug."'";
-//                    return '<div class="btn-group">
-//
-//                                <button type="button" onclick="delete_data('.$slug.','.$destroy_route.')" data="'.$data->slug.'" class="btn btn-sm btn-danger" data-toggle="tooltip" title="" data-placement="top" data-original-title="Delete">
-//                                    <i class="fa fa-trash"></i>
-//                                </button>
-//                            </div>';
+                    return '<div class="btn-group">
+
+                                <button type="button" onclick="delete_data('.$slug.','.$destroy_route.')" data="'.$data->slug.'" class="btn btn-sm btn-danger" data-toggle="tooltip" title="" data-placement="top" data-original-title="Delete">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>';
                     return '<div class="btn-group">
                             </div>';
                 })
@@ -61,6 +61,24 @@ class BioethanolProducerController extends Controller
         $bioethanolProducer->created_at = Carbon::now();
         $bioethanolProducer->updated_at = Carbon::now();
         $bioethanolProducer->save();
+    }
+
+    public function destroy($slug){
+        $bioethanolProducer = BioethanolProducer::query()->where('slug','=',$slug)->first();
+        if(!empty($bioethanolProducer)){
+            $bioethanolProducer->delete();
+            return 1;
+        }
+        abort(503,'Error deleting Bioethanol Producer. [BioethanolProducerController::destroy]');
+        return 1;
+
+        $bioethanolProducer = BioethanolProducer::query()->find($slug);
+        if ($bioethanolProducer->delete()){
+            return 1;
+        }
+        abort(503, 'Error deleting of Sugar order!');
+
+        return $bioethanolProducer;
     }
 
 }

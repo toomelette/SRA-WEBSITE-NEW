@@ -44,7 +44,7 @@
 
     <section id="main-container" class="main-container">
         <div class="container mt-3">
-            <h2>Pampanga</h2>
+            <h2>Pampanga &nbsp; <a title="SRA LAREC-Pampanga" target="_blank" href="https://goo.gl/maps/u6zgQVVxoMQnRmBS9"><i class="fas fa-map-marker-alt"></i></a></h2>
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
                 <li class="nav-item">

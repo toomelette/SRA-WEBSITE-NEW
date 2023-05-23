@@ -475,8 +475,8 @@
         <div class="col-6">
           <div class="row text-center">
             <div class="col-12">
-              <h5 class="service-box-title"><a href="#">The Administrator's Portal</a></h5>
-              <h3 class="section-sub-title">Acting Administrator and CEO</h3>
+{{--              <h5 class="service-box-title"><a href="#">The Administrator's Portal</a></h5>--}}
+              <h4 class="section-sub-title">Acting Administrator and CEO</h4>
               <img width="450px" height="600px" style="margin-top: -10%; border: 5px solid green" loading="lazy" class="img-fluid" src="{{asset('constra/images/SRA/PABLO LUIS S. AZCONA.jpg')}}" alt="admin-image">
               <h5 class="mb-5 mt-3 text-uppercase" style="margin-top: -10%">HON. Pablo Luis S. Azcona</h5>
             </div>

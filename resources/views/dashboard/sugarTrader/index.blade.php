@@ -49,6 +49,7 @@
                     <table class="table table-bordered table-striped table-hover" id="sugar_trader_table" style="width: 100% !important">
                         <thead>
                         <tr class="">
+                            <th class="th-20">Date</th>
                             <th class="th-20">Business Name</th>
                             <th class="th-20">Address</th>
                             <th class="th-20">Contact Person</th>
@@ -113,6 +114,7 @@
               "serverSide": true,
               "ajax" : '{{ route("dashboard.sugarTrader.index") }}',
               "columns": [
+                { "data": "created_at" },
                 { "data": "business_name" },
                   { "data": "business_address" },
                   { "data": "contact_person" },

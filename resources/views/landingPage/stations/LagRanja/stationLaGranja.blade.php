@@ -44,7 +44,7 @@
 
     <section id="main-container" class="main-container">
         <div class="container mt-3">
-            <h2>La Granja</h2>
+            <h2>La Granja &nbsp; <a title="SRA La Granja" target="_blank" href="https://goo.gl/maps/MAuebhUcUeVLza5y9"><i class="fas fa-map-marker-alt"></i></a></h2>
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
                 <li class="nav-item">

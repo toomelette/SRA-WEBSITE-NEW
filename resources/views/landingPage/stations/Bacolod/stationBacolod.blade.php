@@ -44,7 +44,8 @@
 
     <section id="main-container" class="main-container">
         <div class="container mt-3">
-            <h2>Bacolod</h2>
+            <h2>Bacolod &nbsp;<a title="SRA Bacolod" target="_blank" href="https://goo.gl/maps/KQq1fJbGLT4Lghix7"><i class="fas fa-map-marker-alt"></i></a></h2>
+
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
                 <li class="nav-item">
