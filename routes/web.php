@@ -447,7 +447,6 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
 
     /** Bioenegy**/
     Route::resource('bioEnergy', 'BioEnergyController');
-    Route::get('bioEnergy','BioEnergyController@index')->name('bioEnergy.index');
 
 
 
