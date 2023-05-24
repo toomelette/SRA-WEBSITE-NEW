@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\BioEnergy\BulletinBoardFilterRequest;
+use App\Http\Requests\BioEnergy\BioEnergyFilterRequest;
 use App\Http\Requests\BioEnergy\BioEnergyFormRequest;
 use App\Models\CropYear;
 use App\Models\BioEnergy;

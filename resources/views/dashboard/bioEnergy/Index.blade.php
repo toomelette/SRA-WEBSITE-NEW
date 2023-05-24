@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="content-header">
-        <h1>Bioenergy</h1>
+        <h1>Manage Bioenergy</h1>
     </section>
 
     <section class="content">
@@ -105,7 +105,7 @@
             //Initialize DataTable
             modal_loader = $("#modal_loader").parent('div').html();
             active = '';
-            sugar_law_tbl = $("#bioEnergy_table").DataTable({
+            bio_energy_tbl = $("#bioEnergy_table").DataTable({
                 'dom' : 'lBfrtip',
                 "processing": true,
                 "serverSide": true,
@@ -155,7 +155,7 @@
             $('#bioEnergy_table_filter input').unbind();
             $('#bioEnergy_table_filter input').bind('keyup', function (e) {
                 if (e.keyCode == 13) {
-                    sugar_law_tbl.search(this.value).draw();
+                    bio_energy_tbl.search(this.value).draw();
                 }
             });
         });

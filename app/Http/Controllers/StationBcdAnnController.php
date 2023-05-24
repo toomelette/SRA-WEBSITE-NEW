@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StationBcdAnn\StkSugarTradersInterFilterRequest;
+use App\Http\Requests\StationBcdAnn\StationBcdAnnFilterRequest;
 use App\Http\Requests\StationBcdAnn\StationBcdAnnFormRequest;
 use App\Models\StationBcdAnn;
 use App\Models\User;
