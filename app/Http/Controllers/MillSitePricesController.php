@@ -120,7 +120,7 @@ class MillSitePricesController extends Controller{
             $millsitePrices->delete();
             return 1;
         }
-        abort(503,'Error deleting Millsite Prices. [MillSitePricesController::destroy]');
+        abort(503,'Error deleting Millsite Price. [MillSitePricesController::destroy]');
         return 1;
 
         $millsitePrices = MillSitePrices::query()->find($slug);

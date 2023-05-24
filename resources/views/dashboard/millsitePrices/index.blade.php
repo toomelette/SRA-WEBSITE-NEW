@@ -104,7 +104,7 @@
             //Initialize DataTable
             modal_loader = $("#modal_loader").parent('div').html();
             active = '';
-            sugar_supply_demand_tbl = $("#millSitePrices_table").DataTable({
+            millsite_prices_tbl = $("#millSitePrices_table").DataTable({
                 'dom' : 'lBfrtip',
                 "processing": true,
                 "serverSide": true,
