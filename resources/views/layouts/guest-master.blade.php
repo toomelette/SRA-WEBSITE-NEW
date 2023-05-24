@@ -162,7 +162,7 @@
                 <tr>
                     <td>Weekly Comparative Production</td>
                   @foreach($weekly_comparative_production as $WCP)
-                    <td style="color: green"><a target="_blank" href="/home/sra_website/{!! $WCP->path !!}"><u>{{carbon::parse($WCP->date)->format('F j, Y')}}</u></a></td>
+                    <td style="color: green"><a target="_blank" href="/home/sra_website/{!! $WCP->path !!}"><u>{{Carbon::parse($WCP->date)->format('F j, Y')}}</u></a></td>
                     @endforeach
                 </tr>
                 <tr>
