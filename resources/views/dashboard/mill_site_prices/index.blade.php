@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="content-header">
-        <h1>Millsite Prices</h1>
+        <h1>Manage Millsite Prices</h1>
     </section>
 
     <section class="content">
@@ -43,8 +43,8 @@
                 </div>
             </div>
             <div class="box-body">
-                <div id="millSitePrices_table_container" style="">
-                    <table class="table table-bordered table-striped table-hover" id="millSitePrices_table" style="width: 100% !important">
+                <div id="sugar_supply_demand_table_container" style="">
+                    <table class="table table-bordered table-striped table-hover" id="sugar_supply_demand_table" style="width: 100% !important">
                         <thead>
                         <tr class="">
                             <th width="10%" class="">Crop Year</th>
@@ -104,7 +104,7 @@
             //Initialize DataTable
             modal_loader = $("#modal_loader").parent('div').html();
             active = '';
-            millsite_prices_tbl = $("#millSitePrices_table").DataTable({
+            millsite_prices_tbl = $("#sugar_supply_demand_table").DataTable({
                 'dom' : 'lBfrtip',
                 "processing": true,
                 "serverSide": true,
@@ -132,7 +132,7 @@
                 "responsive": false,
                 "initComplete": function( settings, json ) {
                     $('#tbl_loader').fadeOut(function(){
-                        $("#millSitePrices_table_container").fadeIn();
+                        $("#sugar_supply_demand_table_container").fadeIn();
                     });
                 },
                 "language":
@@ -143,16 +143,16 @@
                     $('[data-toggle="tooltip"]').tooltip();
                     $('[data-toggle="modal"]').tooltip();
                     if(active != ''){
-                        $("#millsite_prices_table #"+active).addClass('success');
+                        $("#sugar_supply_demand_table #"+active).addClass('success');
                     }
                 }
             })
 
-            style_datatable("#millsite_prices_table");
+            style_datatable("#sugar_supply_demand_table");
 
             //Need to press enter to search
-            $('#millSitePrices_table_filter input').unbind();
-            $('#millSitePrices_table_filter input').bind('keyup', function (e) {
+            $('#sugar_supply_demand_table_filter input').unbind();
+            $('#sugar_supply_demand_table_filter input').bind('keyup', function (e) {
                 if (e.keyCode == 13) {
                     millsite_prices_tbl.search(this.value).draw();
                 }
