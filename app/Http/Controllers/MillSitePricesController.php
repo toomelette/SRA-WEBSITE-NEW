@@ -31,7 +31,7 @@ class MillSitePricesController extends Controller{
             $millsite_prices = MillSitePrices::query()->orderByDesc('crop_year');
             return DataTables::of($millsite_prices)
                 ->addColumn('action',function ($data){
-                    $destroy_route = "'".route("dashboard.millSitePrices.destroy","slug")."'";
+                    $destroy_route = "'".route("dashboard.mill_site_prices.destroy","slug")."'";
                     $slug = "'".$data->slug."'";
                     return '<div class="btn-group">
 
@@ -48,14 +48,14 @@ class MillSitePricesController extends Controller{
                 ->escapeColumns([])
                 ->toJson();
         }
-        return view('dashboard.millSitePrices.index');
+        return view('dashboard.mill_site_prices.index');
     }
 
 
 
     public function create(){
 
-        return view('dashboard.millSitePrices.create');
+        return view('dashboard.mill_site_prices.create');
 
     }
 
@@ -87,7 +87,7 @@ class MillSitePricesController extends Controller{
             }
         }
         $millsitePrices->save();
-        return redirect('dashboard/millSitePrices/create');
+        return redirect('dashboard/mill_site_prices/create');
     }
 
 

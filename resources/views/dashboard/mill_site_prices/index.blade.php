@@ -108,7 +108,7 @@
                 'dom' : 'lBfrtip',
                 "processing": true,
                 "serverSide": true,
-                "ajax" : '{{ route("dashboard.millSitePrices.index") }}',
+                "ajax" : '{{ route("dashboard.mill_site_prices.index") }}',
                 "columns": [
                     { "data": "crop_year" },
                     { "data": "date"},
