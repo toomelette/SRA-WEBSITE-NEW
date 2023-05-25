@@ -73,7 +73,7 @@
             let formData = new FormData(this);
             loading_btn(form);
             $.ajax({
-                url: "{{route('dashboard.bioEnergy.store')}}",
+                url: "{{route('dashboard.bio_energy.create')}}",
                 type: 'POST',
                 data: new FormData(this),
                 processData: false,

@@ -446,7 +446,7 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
     Route::resource('sugarLaw', 'SugarLawController');
 
     /** Bioenegy**/
-    Route::resource('bioEnergy', 'BioEnergyController');
+    Route::resource('bio_energy', 'Bio_EnergyController');
 
 
 

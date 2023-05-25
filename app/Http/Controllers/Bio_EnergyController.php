@@ -12,7 +12,7 @@ use Illuminate\Support\Str;
 use Yajra\DataTables\DataTables;
 
 
-class BioEnergyController extends Controller{
+class Bio_EnergyController extends Controller{
 
     protected $news;
 
@@ -28,7 +28,7 @@ class BioEnergyController extends Controller{
             $bio_energy = BioEnergy::query()->orderByDesc('crop_year');
             return DataTables::of($bio_energy)
                 ->addColumn('action',function ($data){
-                    $destroy_route = "'".route("dashboard.bioEnergy.destroy","slug")."'";
+                    $destroy_route = "'".route("dashboard.bio_energy.destroy","slug")."'";
                     $slug = "'".$data->slug."'";
                     return '<div class="btn-group">
 
@@ -45,14 +45,14 @@ class BioEnergyController extends Controller{
                 ->escapeColumns([])
                 ->toJson();
         }
-        return view('dashboard.bioEnergy.index');
+        return view('dashboard.bio_energy.index');
     }
 
 
 
     public function create(){
 
-        return view('dashboard.bioEnergy.create');
+        return view('dashboard.bio_energy.create');
 
     }
 
@@ -85,7 +85,7 @@ class BioEnergyController extends Controller{
         }
 
         $bioEnergy->save();
-        return redirect('dashboard/bioEnergy/create');
+        return redirect('dashboard/bio_energy/create');
     }
 
 
@@ -119,7 +119,7 @@ class BioEnergyController extends Controller{
             $bioEnergy->delete();
             return 1;
         }
-        abort(503,'Error deleting Bioenergy. [BioEnergyController::destroy]');
+        abort(503,'Error deleting Bioenergy. [Bio_EnergyController::destroy]');
         return 1;
 
         $bioEnergy = BioEnergy::query()->find($slug);

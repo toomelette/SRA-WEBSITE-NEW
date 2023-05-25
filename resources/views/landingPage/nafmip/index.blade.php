@@ -57,9 +57,9 @@
 {{--                          $moYearList = array_unique($moYearList);*/--}}
 {{--                    @endphp--}}
 {{--                    @if(count($bio_energy) > 0)--}}
-{{--                        @foreach ($bio_energy as $bioEnergy)--}}
+{{--                        @foreach ($bio_energy as $bio_energy)--}}
 {{--                            <ul>--}}
-{{--                                <li><a style="color: #ffb600" href="/home/sra_website/{!!$bioEnergy->path!!}" target="_blank">{!!$bioEnergy->file_title!!}, </a>{!!$bioEnergy->title!!}</li>--}}
+{{--                                <li><a style="color: #ffb600" href="/home/sra_website/{!!$bio_energy->path!!}" target="_blank">{!!$bio_energy->file_title!!}, </a>{!!$bio_energy->title!!}</li>--}}
 {{--                            </ul>--}}
 {{--                            @endforeach--}}
 

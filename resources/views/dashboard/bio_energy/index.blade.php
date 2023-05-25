@@ -109,7 +109,7 @@
                 'dom' : 'lBfrtip',
                 "processing": true,
                 "serverSide": true,
-                "ajax" : '{{ route("dashboard.bioEnergy.index") }}',
+                "ajax" : '{{ route("dashboard.bio_energy.index") }}',
                 "columns": [
                     { "data": "crop_year" },
                     { "data": "date"},
