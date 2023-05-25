@@ -393,7 +393,7 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
     /** INDUSTRY UPDATE**/
     Route::resource('sugarSupplyDemand', 'SugarSupplyDemandController');
 
-    Route::resource('mill_site_prices', 'Mill_Site_PricesController');
+    Route::resource('millSite_Prices', 'MillSite_PricesController');
 
     Route::resource('bioethanolReferencePrice', 'bioethanolRPController');
 

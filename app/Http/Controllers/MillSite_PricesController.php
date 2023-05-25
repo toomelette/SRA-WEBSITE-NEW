@@ -15,7 +15,7 @@ use Yajra\DataTables\DataTables;
 
 
 
-class Mill_Site_PricesController extends Controller{
+class MillSite_PricesController extends Controller{
 
     protected $news;
 
@@ -31,7 +31,7 @@ class Mill_Site_PricesController extends Controller{
             $millsite_prices = MillSitePrices::query()->orderByDesc('crop_year');
             return DataTables::of($millsite_prices)
                 ->addColumn('action',function ($data){
-                    $destroy_route = "'".route("dashboard.mill_site_prices.destroy","slug")."'";
+                    $destroy_route = "'".route("dashboard.millSite_Prices.destroy","slug")."'";
                     $slug = "'".$data->slug."'";
                     return '<div class="btn-group">
 
@@ -48,14 +48,14 @@ class Mill_Site_PricesController extends Controller{
                 ->escapeColumns([])
                 ->toJson();
         }
-        return view('dashboard.mill_site_prices.index');
+        return view('dashboard.millSite_Prices.index');
     }
 
 
 
     public function create(){
 
-        return view('dashboard.mill_site_prices.create');
+        return view('dashboard.millSite_Prices.create');
 
     }
 
@@ -87,7 +87,7 @@ class Mill_Site_PricesController extends Controller{
             }
         }
         $millsitePrices->save();
-        return redirect('dashboard/mill_site_prices/create');
+        return redirect('dashboard/millSite_Prices/create');
     }
 
 
@@ -120,7 +120,7 @@ class Mill_Site_PricesController extends Controller{
             $millsitePrices->delete();
             return 1;
         }
-        abort(503,'Error deleting Millsite Price. [Mill_Site_PricesController::destroy]');
+        abort(503,'Error deleting Millsite Price. [MillSite_PricesController::destroy]');
         return 1;
 
         $millsitePrices = MillSitePrices::query()->find($slug);

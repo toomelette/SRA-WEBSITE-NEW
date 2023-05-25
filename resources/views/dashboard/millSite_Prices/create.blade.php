@@ -66,7 +66,7 @@
             let formData = new FormData(this);
             loading_btn(form);
             $.ajax({
-                url: "{{route('dashboard.mill_site_prices.index')}}",
+                url: "{{route('dashboard.millSite_Prices.create')}}",
                 type: 'POST',
                 data: new FormData(this),
                 processData: false,
