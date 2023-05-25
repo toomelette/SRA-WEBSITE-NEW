@@ -15,7 +15,7 @@ use Yajra\DataTables\DataTables;
 
 
 
-class MillSitePricesController extends Controller{
+class Mill_Site_PricesController extends Controller{
 
     protected $news;
 
@@ -120,7 +120,7 @@ class MillSitePricesController extends Controller{
             $millsitePrices->delete();
             return 1;
         }
-        abort(503,'Error deleting Millsite Price. [MillSitePricesController::destroy]');
+        abort(503,'Error deleting Millsite Price. [Mill_Site_PricesController::destroy]');
         return 1;
 
         $millsitePrices = MillSitePrices::query()->find($slug);
