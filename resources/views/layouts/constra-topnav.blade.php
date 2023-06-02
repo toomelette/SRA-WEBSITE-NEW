@@ -4,7 +4,7 @@
       <div class="col-lg-8 col-md-8">
         <ul class="top-info text-center text-md-left">
           <li >
-            <a href="https://goo.gl/maps/s1Nw9SvtgoqFrA818"><i class="fas fa-map-marker-alt"></i></a> <p class="info-text">Sugar Center Bldg., North Avenue, Diliman, Quezon City</p>
+            <a href="https://goo.gl/maps/s1Nw9SvtgoqFrA818" style="width: 30px; color: green" ><i class="fas fa-map-marker-alt"></i></a> <p class="info-text">Sugar Center Bldg., North Avenue, Diliman, Quezon City</p>
           </li>
         </ul>
       </div>

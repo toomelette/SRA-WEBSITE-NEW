@@ -303,6 +303,8 @@
         <div class="row">
           <!-- Col end -->
 
+
+
 {{--            <div class="container p-3 my-3 border">--}}
 {{--                <h1 style="text-align: center; color: whitesmoke; opacity: 0.712417;">Bulletin Board</h1>--}}
 {{--                <table class="table table-condensed text-justify" >--}}

@@ -8,7 +8,8 @@ use Rats\Zkteco\Lib\ZKTeco;
 
 Route::group(['as' => 'auth.'], function () {
 
-	Route::get('/', 'Auth\LoginController@showLoginForm')->name('showLogin');
+//	Route::get('/', 'Auth\LoginController@showLoginForm')->name('showLogin');
+    Route::get('/', 'Guest\HomeController@index')->name('showLogin');
 	Route::post('/', 'Auth\LoginController@login')->name('login');
 	Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 	Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
@@ -19,7 +20,7 @@ Route::group(['as' => 'auth.'], function () {
 });
 
 /** HOME **/
-Route::get('dashboard/home', 'HomeController@index')->name('dashboard.home')->middleware('check.user_status');
+Route::get('/dashboard/home', 'HomeController@index')->name('dashboard.home')->middleware('check.user_status');
 
 Route::post('/contactUsStore', 'ContactUsController@store')->name('contactUsStore');
 Route::post('/sugarTraderStore', 'SugarTraderController@store')->name('sugarTraderStore');
@@ -62,6 +63,8 @@ Route::get('gad/annualReport', 'FooterSubNavigationController@annualReport')->na
 Route::get('gad/mandate', 'FooterSubNavigationController@mandate')->name('gad.mandate');
 Route::get('gad/memorandum', 'FooterSubNavigationController@memorandum')->name('gad.memorandum');
 Route::get('gad/lawsAndPolicies', 'FooterSubNavigationController@lawsAndPolicies')->name('gad.lawsAndPolicies');
+Route::get('GAD/activities_gad','FooterSubNavigationController@activities_gad')->name('GAD.activities_gad');
+Route::get('GAD/videos_gad','FooterSubNavigationController@videos_gad')->name('GAD.videos_gad');
 
 Route::get('eriaAseanNtm/index', 'FooterNavigationController@eriaAseanNtm')->name('eriaAseanNtm.index');
 
@@ -510,6 +513,12 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
     /**OPSITraining**/
     Route::resource('OPSITrainingActivities', 'OPSITrainingActivitiesController');
 
+    /**GAD**/
+    Route::resource('GAD_annualReport', 'GAD_annualReportController');
+    Route::resource('GAD_memorandum', 'GAD_memorandumController');
+    Route::resource('GAD_videos', 'GAD_videosController');
+    Route::resource('GAD_activities', 'GAD_activitiesController');
+
 
 });
 
@@ -546,3 +555,12 @@ Route::resource("testpage", "TestController" );
 
 
 Route::resource('simplepage', 'SimpleController' );
+
+Route:: get('/getIp', function (){
+    $ip = '::1';
+    $data = \Stevebauman\Location\Facades\Location::get($ip)->countryName;
+    dd($data);
+});
+Route:: get('/getCookie', 'HomeController@getCookie');
+
+

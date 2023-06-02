@@ -36,9 +36,7 @@ class SugarLawController extends Controller{
                                     <i class="fa fa-trash"></i>
                                 </button>
                             </div>';
-                    return '<div class="btn-group">
-                                
-                               
+                    return '<div class="btn-group">                               
                             </div>';
                 })
                 ->setRowId('slug')
@@ -110,6 +108,16 @@ class SugarLawController extends Controller{
         $news->update();
         return redirect('dashboard/news/edit');
 
+    }
+
+
+    public function viewFileData($slug)
+    {
+        $sugarLaw = SugarLaw::query()->where('slug', '=', $slug)->first();
+        if (!empty($sugarLaw)) {
+            $sugarLaw->view();
+            return 1;
+        }
     }
 
 

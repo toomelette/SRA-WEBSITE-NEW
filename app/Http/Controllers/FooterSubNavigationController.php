@@ -95,6 +95,16 @@ class FooterSubNavigationController extends Controller{
     public function lawsAndPolicies(){
         return view('landingPage.GAD.lawsAndPolicies');
     }
+    public function activities_gad()
+    {
+        return view('landingPage.GAD.activities_gad');
+    }
+
+    public function videos_gad()
+
+    {
+    return view('landingPage.GAD.videos_gad');
+    }
 
     public function navRoute(){
         return 1;

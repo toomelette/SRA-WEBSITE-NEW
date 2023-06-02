@@ -34,7 +34,17 @@
     <style>
 
     </style>
-    <ul class="sidebar-menu" data-widget="tree">
+    <ul class="sidebar-menu" data-widget="tree" id="myMenu">
+
+{{--        <div class="sidebar-form">--}}
+{{--            <div class="input-group">--}}
+{{--                <input id="mySearch" type="text" onkeyup="searchSidenav()" class="form-control" placeholder="Search menu...">--}}
+{{--                <span class="input-group-btn">--}}
+{{--                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>--}}
+{{--                    </button>--}}
+{{--                </span>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
 
 

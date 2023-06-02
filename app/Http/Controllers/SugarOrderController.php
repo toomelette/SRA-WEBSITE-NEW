@@ -67,6 +67,7 @@ class SugarOrderController extends Controller{
 
         if (!empty($request->img_url)) {
             foreach ($request->file('img_url') as $file) {
+
                 $client_original_filename = $file->getClientOriginalName();
                 $path = 'sugar_order/'. $sugarOrder->crop_year;
                 $sugarOrder->path = $path . '/' . $file->getClientOriginalName();

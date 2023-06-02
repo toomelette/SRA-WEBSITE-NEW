@@ -46,10 +46,34 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <ul>
-            <li>Annual Report 2021 <a style="color: #ffb600" href="file:///C:\home\GAD\GAD-Annual-Report-2021.pdf" target="_blank"> Read more… </a></li>
-          </ul>
-        </div>
+
+{{--          <ul>--}}
+{{--            <li>Annual Report 2021 <a style="color: #ffb600" href="file:///C:\home\GAD\GAD-Annual-Report-2021.pdf" target="_blank"> Read more… </a></li>--}}
+{{--          </ul>--}}
+{{--        </div>--}}
+
+          <h2>Gender and Development (GAD)</h2><br><br>
+          <p>
+          @php
+            $AnnualReport = \App\Models\GAD_annualReport::query()->get()->sortBy('id');
+          @endphp
+          @if(count($AnnualReport) > 0)
+            <ul>
+              <div class="row">
+                @foreach ($AnnualReport as $annualReport)
+                  <div class="col-4">
+                    <li>
+                    <a style="color: #ffb600" href="/home/sra_website/{!!$annualReport->path!!}" target="_blank"><img loading="lazy" class="testimonial-thumb" src="{{asset('constra/images/SRA/pdfDefault.gif')}}" alt="PDF LOGO"> {!!$annualReport->year!!}</a><br>{!!$annualReport->title!!}</li><br><br>
+                  </div>
+                @endforeach
+              </div>
+            </ul>
+            @endif
+            </p>
+
+
+            <p>
+
       </div><!-- Content row end -->
     </div><!-- Container end -->
   </section><!-- Main container end -->

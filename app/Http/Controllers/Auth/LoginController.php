@@ -10,7 +10,7 @@ use Auth;
 use Session;
 use Illuminate\Http\Request;
 use App\Swep\Helpers\__cache;
-
+use Illuminate\Routing\Redirector;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -27,7 +27,7 @@ class LoginController extends Controller{
     protected $session;
     protected $__cache;
     protected $event;
-    protected $redirectTo = 'dashboard/home';
+    protected $redirectTo = '/dashboard/home';
     protected $maxAttempts = 4;
     protected $decayMinutes = 2;
 
@@ -52,6 +52,7 @@ class LoginController extends Controller{
 
     public function showLoginForm()
     {
+
         session(['link' => url()->previous()]);
 
         return view('auth.login');
@@ -94,7 +95,7 @@ class LoginController extends Controller{
 //                $this->__cache->deletePattern(''. config('app.name') .'_cache:users:getByIsOnline:'. $user->is_online .'');
 
                 $this->clearLoginAttempts($request);
-                return redirect(session('link'));
+                return redirect('/dashboard/home');
 
             }
         
@@ -123,7 +124,7 @@ class LoginController extends Controller{
 //            $this->__cache->deletePattern(''. config('app.name') .'_cache:users:findBySlug:'. $user->slug .'');
 //            $this->__cache->deletePattern(''. config('app.name') .'_cache:users:getByIsOnline:'. $user->is_online .'');
 
-            return redirect('/login');
+            return redirect('/');
 
         }
         
