@@ -77,7 +77,7 @@
                         <ul>
                           @foreach ($sugar_order as $sugarOrderArray)
                             @if($cropYear->slug == $sugarOrderArray->crop_year_slug)
-                              <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/home/sra_website/{!!$sugarOrderArray->path!!}" >{!!$sugarOrderArray->file_title!!},</a>{!!$sugarOrderArray->title!!}</a></li>
+                              <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/sugar_order/{!!$sugarOrderArray->slug!!}" >{!!$sugarOrderArray->file_title!!},</a>{!!$sugarOrderArray->title!!}</a></li>
                             @endif
                           @endforeach
 

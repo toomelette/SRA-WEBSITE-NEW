@@ -38,7 +38,7 @@
         <div class="box-body">
             @csrf
                 {!! __form::file(
-              '8', 'img_url[]', 'Upload Image *', $errors->has('img_url'), $errors->first('img_url'), 'required'
+              '8', 'img_url', 'Upload Image *', $errors->has('img_url'), $errors->first('img_url'), 'required'
               ) !!}
                 {!! __form::textbox(
                 '6', 'name', 'text', 'Name *', 'Name', old('name'), $errors->has('name'), $errors->first('name'), 'required'

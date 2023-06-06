@@ -76,7 +76,7 @@
                                                 <ul>
                                                     @foreach ($metro_manila_prices as $metroManilaPrices)
                                                         @if($cropYear->slug == $metroManilaPrices->crop_year_slug)
-                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/home/sra_website/{!!$metroManilaPrices->path!!}" >{!!$metroManilaPrices->file_title!!},</a>{!!$metroManilaPrices->title!!}</a></li>
+                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/metro_manila_prices/{!!$metroManilaPrices->slug!!}" >{!!$metroManilaPrices->file_title!!},</a>{!!$metroManilaPrices->title!!}</a></li>
                                                         @endif
                                                     @endforeach
 

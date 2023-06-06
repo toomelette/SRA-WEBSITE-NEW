@@ -76,8 +76,11 @@
                                                                         <ul>
                                                                             @foreach ($vacant_position as $vacantPosition)
                                                                                 @if($year->name == $vacantPosition->year)
-                                                                                    <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/home/sra_website/{!!$vacantPosition->path!!}" >{!! $vacantPosition->file_title !!}
-                                                                                            </a>{!!$vacantPosition->title!!}</li><br>
+                                                                                    <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/gad_activities/{!!$vacantPosition->slug!!}" >{!! $vacantPosition->file_title !!}
+                                                                                            </a></li>
+                                                                                        <ul style="list-style-type: none">
+                                                                                            <li>{!!$vacantPosition->title!!}</li><br>
+                                                                                        </ul>
 {{--                                                                                    <li><embed src="{{asset('constra/files/citizensCharter/exicutive-order/exicutive-order-no-631.pdf#toolbar=0')}}"></li>--}}
                                                                                 @endif
                                                                             @endforeach

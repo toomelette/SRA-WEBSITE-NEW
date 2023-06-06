@@ -65,7 +65,7 @@
 
                 @if($seriesYear->name == $memorandumCircular->year)
                   <ul>
-                    <li><a style="color: #ffb600" href="/home/sra_website/{!!$memorandumCircular->path!!}" target="_blank">{!!$memorandumCircular->file_title!!}, </a>{!!$memorandumCircular->title!!}</li>
+                    <li><a style="color: #ffb600" href="/view_file/memorandum_circular/{!!$memorandumCircular->slug!!}" target="_blank">{!!$memorandumCircular->file_title!!}, </a>{!!$memorandumCircular->title!!}</li>
                   </ul>
                 @endif
               @endforeach

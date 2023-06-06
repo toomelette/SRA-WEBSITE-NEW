@@ -65,7 +65,7 @@
                             @foreach ($guide_lines as $guideLines)
                                 @if($cropYear->slug == $guideLines->crop_year_slug)
                                     <ul>
-                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$guideLines->path!!}" target="_blank">{!!$guideLines->file_title!!}, </a>{!!$guideLines->title!!}</li>
+                                        <li><a style="color: #ffb600" href="/view_file/sida_guide_lines/{!!$guideLines->slug!!}" target="_blank">{!!$guideLines->file_title!!}, </a>{!!$guideLines->title!!}</li>
                                     </ul>
                                     @endif
                                     @endforeach

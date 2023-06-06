@@ -81,7 +81,7 @@
                                                                                     <ul>
                                                                                         @foreach ($vacant_position as $vacantPosition)
                                                                                             @if($year->name == $vacantPosition->year)
-                                                                                                <li> <a class="btn" style="color: #ffb600" target="_blank" href="/home/sra_website/{!!$vacantPosition->path!!}">
+                                                                                                <li> <a class="btn" style="color: #ffb600" target="_blank" href="/view_file/gad_memorandum/{!!$vacantPosition->slug!!}">
                                                                                                         {!!$vacantPosition->file_title !!},<a>{!!$vacantPosition->title!!}</li>
                                                                                             @endif
                                                                                         @endforeach

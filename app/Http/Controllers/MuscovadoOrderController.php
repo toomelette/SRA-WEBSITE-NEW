@@ -70,18 +70,11 @@ class MuscovadoOrderController extends Controller{
         $muscovadoOrder->title = $request->title;
 
         if (!empty($request->img_url)) {
-            foreach ($request->file('img_url') as $file) {
-                $client_original_filename = $file->getClientOriginalName();
-                $path = 'muscovado_order/'. $muscovadoOrder->crop_year;
-                $muscovadoOrder->path = $path . '/' . $file->getClientOriginalName();
-
-                $original_ext = $file->getClientOriginalExtension();
-                $original_file_name_only = str_replace('.' . $original_ext, '', $file->getClientOriginalName());
-                $new_file_name_full = $original_file_name_only . '-' . Str::random(10) . '.' . $original_ext;
-                $slug = Str::random();
-
-                $file->storeAs($path, $client_original_filename);
-            }
+            $file = $request->file('img_url');
+            $client_original_filename = $file->getClientOriginalName();
+            $path = 'muscovado_order/'. $muscovadoOrder->crop_year.'/'.$client_original_filename;
+            $muscovadoOrder->path = $path;
+            \Storage::disk('local')->put($path,$file->get());
         }
 
         $muscovadoOrder->save();

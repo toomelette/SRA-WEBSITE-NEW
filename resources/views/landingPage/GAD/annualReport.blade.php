@@ -63,7 +63,7 @@
                 @foreach ($AnnualReport as $annualReport)
                   <div class="col-4">
                     <li>
-                    <a style="color: #ffb600" href="/home/sra_website/{!!$annualReport->path!!}" target="_blank"><img loading="lazy" class="testimonial-thumb" src="{{asset('constra/images/SRA/pdfDefault.gif')}}" alt="PDF LOGO"> {!!$annualReport->year!!}</a><br>{!!$annualReport->title!!}</li><br><br>
+                    <a style="color: #ffb600" href="/view_file/gad_annual_report/{!!$annualReport->slug!!}" target="_blank"><img loading="lazy" class="testimonial-thumb" src="{{asset('constra/images/SRA/pdfDefault.gif')}}" alt="PDF LOGO"> {!!$annualReport->year!!}</a><br>{!!$annualReport->title!!}</li><br><br>
                   </div>
                 @endforeach
               </div>

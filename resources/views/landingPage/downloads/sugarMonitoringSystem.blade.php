@@ -56,7 +56,7 @@
                 @foreach ($sugar_monitoring_system as $sugarMonitoringSystem)
                   <div class="col-4">
                     <img loading="lazy" class="testimonial-thumb" src="{{asset('constra/images/SRA/pdfDefault.gif')}}" alt="PDF LOGO">
-                    <li><a style="color: #ffb600" href="/home/sra_website/{!!$sugarMonitoringSystem->path!!}" target="_blank">{!!$sugarMonitoringSystem->file_title!!}</a><br>{!!$sugarMonitoringSystem->title!!}</li>
+                    <li><a style="color: #ffb600" href="/view_file/sugar_monitoring_system/{!!$sugarMonitoringSystem->slug!!}" target="_blank">{!!$sugarMonitoringSystem->file_title!!}</a><br>{!!$sugarMonitoringSystem->title!!}</li>
                   </div>
                 @endforeach
               </div>

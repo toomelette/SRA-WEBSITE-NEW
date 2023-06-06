@@ -28,7 +28,7 @@
                             <ul>
                                 @foreach ($estab_HYV_Nur as $estabHYVNur)
                                     @if($year->name == $estabHYVNur->year)
-                                        <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/home/sra_website/{!!$estabHYVNur->path!!}" >{!!$estabHYVNur->file_title!!},</a>{!!$estabHYVNur->title!!}</a></li>
+                                        <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/block_farm_established_hyv_nurseries_visayas/{!!$estabHYVNur->slug!!}" >{!!$estabHYVNur->file_title!!},</a>{!!$estabHYVNur->title!!}</a></li>
                                     @endif
                                 @endforeach
 

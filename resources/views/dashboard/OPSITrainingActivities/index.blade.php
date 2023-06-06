@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="content-header">
-        <h1>Manage Sugar Traders (Domestic)</h1>
+        <h1>Manage OPSI Training Activities</h1>
     </section>
 
     <section class="content">
@@ -19,7 +19,7 @@
                         </a>
                     </h4>
                     <button type="button" class="btn btn-primary pull-right fa fa-plus-circle" data-toggle="modal" data-target="#myModal">
-                        Add Sugar Trader
+                        Add Training
                     </button>
                 </div>
                 <div id="advanced_filters" class="panel-collapse collapse" aria-expanded="true" style="">
@@ -83,7 +83,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Add Sugar Trader (Domestic)</h4>
+                    <h4 class="modal-title" id="myModalLabel">Add OPSI Training </h4>
                 </div>
                 <div class="modal-body">
 
@@ -103,7 +103,7 @@
                                 <div class="col-md-12">
 
                                     {!! __form::select_static2(
-                                    '8 year', 'year', 'Crop Year: *', '', \App\Swep\Helpers\Helper::year(), '', '', '', 'required'
+                                    '8 year', 'year', 'Year: *', '', \App\Swep\Helpers\Helper::year(), '', '', '', 'required'
                                     ) !!}
                                     {!! __form::textbox(
                                       '4', 'date', 'date', 'Date *', '', old('date'), $errors->has('date'), $errors->first('date'), 'required'

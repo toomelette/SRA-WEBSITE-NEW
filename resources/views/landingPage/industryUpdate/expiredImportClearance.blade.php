@@ -64,7 +64,7 @@
                             @foreach ($expired_import_clearance as $expiredImportClearance)
                                 @if($cropYear->slug == $expiredImportClearance->crop_year_slug)
                                     <ul>
-                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$expiredImportClearance->path!!}" target="_blank">{!!$expiredImportClearance->file_title!!}, </a>{!!$expiredImportClearance->title!!}</li>
+                                        <li><a style="color: #ffb600" href="/view_file/expired_import_clearance/{!!$expiredImportClearance->slug!!}" target="_blank">{!!$expiredImportClearance->file_title!!}, </a>{!!$expiredImportClearance->title!!}</li>
                                     </ul>
                                     @endif
                                     @endforeach

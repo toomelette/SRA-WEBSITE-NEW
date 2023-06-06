@@ -110,7 +110,7 @@
                                     ) !!}
 
                                     {!! __form::file(
-                                     '8', 'img_url[]', 'Upload PDF *', $errors->has('img_url'), $errors->first('img_url'), 'required'
+                                     '8', 'img_url', 'Upload PDF *', $errors->has('img_url'), $errors->first('img_url'), 'required'
                                     ) !!}
 
                                     {!! __form::textbox(

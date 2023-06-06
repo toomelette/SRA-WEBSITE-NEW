@@ -76,7 +76,7 @@
                                                 <ul>
                                                     @foreach ($millsite_prices as $milesitePrices)
                                                         @if($cropYear->slug == $milesitePrices->crop_year_slug)
-                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/home/sra_website/{!!$milesitePrices->path!!}" >{!!$milesitePrices->file_title!!},</a>{!!$milesitePrices->title!!}</a></li>
+                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/millsite_prices/{!!$milesitePrices->slug!!}" >{!!$milesitePrices->file_title!!},</a>{!!$milesitePrices->title!!}</a></li>
                                                         @endif
                                                     @endforeach
 

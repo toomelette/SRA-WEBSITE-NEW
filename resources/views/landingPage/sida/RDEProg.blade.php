@@ -78,7 +78,7 @@
                                                 <ul>
                                                     @foreach ($rde_prog as $rdeProg)
                                                         @if($year->name == $rdeProg->year)
-                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/home/sra_website/{!!$rdeProg->path!!}" >{!!$rdeProg->file_title!!},</a>{!!$rdeProg->title!!}</a></li>
+                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/sida_rde_prog/{!!$rdeProg->slug!!}" >{!!$rdeProg->file_title!!},</a>{!!$rdeProg->title!!}</a></li>
                                                         @endif
                                                     @endforeach
 

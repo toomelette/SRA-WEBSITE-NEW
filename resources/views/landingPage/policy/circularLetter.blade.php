@@ -76,7 +76,7 @@
                         <ul>
                           @foreach ($circular_letter as $circularLetter)
                             @if($cropYear->slug == $circularLetter->crop_year_slug)
-                              <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/home/sra_website/{!!$circularLetter->path!!}" >{!!$circularLetter->file_title!!},</a>{!!$circularLetter->title!!}</a></li>
+                              <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/circular_letter/{!!$circularLetter->slug!!}" >{!!$circularLetter->file_title!!},</a>{!!$circularLetter->title!!}</a></li>
                             @endif
                           @endforeach
 

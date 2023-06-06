@@ -75,24 +75,15 @@ class GAD_videosController extends Controller{
         $station->date = $request->date;
         $station->file_title = $request->file_title;
         $station->title = $request->title;
-//        $station->mime_type =$request->mime_type;
 
         if (!empty($request->img_url)) {
-            foreach ($request->file('video') as $file) {
-                $client_original_filename = $file->getClientOriginalName();
-                $path = 'gad_videos/'. $station->year;
-                $station->path = $path . '/' . $file->getClientOriginalName();
-//                $station->mime_type = $request->getClientMimeType();
-//                $station->size = $request->getSize();
-
-                $original_ext = $file->getClientOriginalExtension();
-                $original_file_name_only = str_replace('.' . $original_ext, '', $file->getClientOriginalName());
-                $new_file_name_full = $original_file_name_only . '-' . Str::random(10) . '.' . $original_ext;
-                $slug = Str::random();
-
-                $file->storeAs($path, $client_original_filename);
-            }
+            $file = $request->file('img_url');
+            $client_original_filename = $file->getClientOriginalName();
+            $path = 'gad_videos/'. $station->crop_year.'/'.$client_original_filename;
+            $station->path = $path;
+            \Storage::disk('local')->put($path,$file->get());
         }
+
         $station->save();
         return redirect('dashboard/GAD_videos/create');
     }

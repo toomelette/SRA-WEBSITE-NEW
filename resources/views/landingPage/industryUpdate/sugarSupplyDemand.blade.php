@@ -75,7 +75,7 @@
                                                 <ul>
                                                     @foreach ($sugar_supply_demand as $sugarSupplyDemand)
                                                         @if($cropYear->slug == $sugarSupplyDemand->crop_year_slug)
-                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/home/sra_website/{!!$sugarSupplyDemand->path!!}" >{!!$sugarSupplyDemand->file_title!!},</a>{!!$sugarSupplyDemand->title!!}</a></li>
+                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/sugar_supply_demand/{!!$sugarSupplyDemand->slug!!}" >{!!$sugarSupplyDemand->file_title!!},</a>{!!$sugarSupplyDemand->title!!}</a></li>
                                                         @endif
                                                     @endforeach
 

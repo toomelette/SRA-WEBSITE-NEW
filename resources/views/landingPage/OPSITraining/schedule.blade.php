@@ -46,7 +46,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-
+                    <h2>Outreach Program for the Sugar Industry (OPSI)</h2>
+                    <br>
                     <p>
                         {{--                    @php--}}
                         {{--                        $vacant_position = \App\Models\VacantPosition::query()->get()->sortByDesc('id');--}}

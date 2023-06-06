@@ -60,7 +60,7 @@
                                 @foreach ($application_form as $applicationForm)
                                     <div class="col-4">
                                         <img loading="lazy" class="testimonial-thumb" src="{{asset('constra/images/SRA/pdfDefault.gif')}}" alt="PDF LOGO">
-                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$applicationForm->path!!}" target="_blank"> {!!$applicationForm->year!!}</a><br>{!!$applicationForm->title!!}</li><br><br>
+                                        <li><a style="color: #ffb600" href="/view_file/stk_sugar_traders_inter/{!!$applicationForm->slug!!}" target="_blank"> {!!$applicationForm->year!!}</a><br>{!!$applicationForm->title!!}</li><br><br>
                                     </div>
                                 @endforeach
                             </div>

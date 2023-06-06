@@ -76,7 +76,7 @@
                                                 <ul>
                                                     @foreach ($bioethanol_reference_price as $bioethanolReferencePrice)
                                                         @if($cropYear->slug == $bioethanolReferencePrice->crop_year_slug)
-                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/home/sra_website/{!!$bioethanolReferencePrice->path!!}" >{!!$bioethanolReferencePrice->file_title!!},</a>{!!$bioethanolReferencePrice->title!!}</a></li>
+                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/bioethanol_reference_price/{!!$bioethanolReferencePrice->slug!!}" >{!!$bioethanolReferencePrice->file_title!!},</a>{!!$bioethanolReferencePrice->title!!}</a></li>
                                                         @endif
                                                     @endforeach
 

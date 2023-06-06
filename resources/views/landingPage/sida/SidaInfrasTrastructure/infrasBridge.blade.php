@@ -28,7 +28,7 @@
                             <ul>
                                 @foreach ($infras_bridge as $infrasBridge)
                                     @if($year->name == $infrasBridge->year)
-                                        <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/home/sra_website/{!!$infrasBridge->path!!}" >{!!$infrasBridge->file_title!!},</a>{!!$infrasBridge->title!!}</a></li>
+                                        <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/sida_infas_bridge/{!!$infrasBridge->slug!!}" >{!!$infrasBridge->file_title!!},</a>{!!$infrasBridge->title!!}</a></li>
                                     @endif
                                 @endforeach
 

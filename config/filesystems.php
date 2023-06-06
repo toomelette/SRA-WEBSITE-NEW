@@ -45,8 +45,9 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => 'home/sra_website/',
+            'root' => '/home/sra_website/',
         ],
+
         
         'public' => [
             'driver' => 'local',

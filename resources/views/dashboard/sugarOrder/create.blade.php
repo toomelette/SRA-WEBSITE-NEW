@@ -30,10 +30,10 @@
 
             {!! __form::textbox(
                          '4', 'date', 'date', 'Date *', '', old('date'), $errors->has('date'), $errors->first('date'), 'required'
-                       ) !!}
+             ) !!}
 
             {!! __form::file(
-             '4', 'img_url[]', 'Upload PDF *', $errors->has('img_url'), $errors->first('img_url'), 'required'
+             '4', 'img_url', 'Upload PDF *', $errors->has('img_url'), $errors->first('img_url'), 'required'
             ) !!}
 
             {!! __form::textbox(

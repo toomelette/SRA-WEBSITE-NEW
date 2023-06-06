@@ -65,7 +65,7 @@
 
                 @if($seriesYear->name == $generalAdministrativeOrder->year)
                   <ul>
-                    <li><a style="color: #ffb600" href="/home/sra_website/{!!$generalAdministrativeOrder->path!!}" target="_blank">{!!$generalAdministrativeOrder->file_title!!}, </a>{!!$generalAdministrativeOrder->title!!}</li>
+                    <li><a style="color: #ffb600" href="/view_file/general_administrative_order/{!!$generalAdministrativeOrder->slug!!}" target="_blank">{!!$generalAdministrativeOrder->file_title!!}, </a>{!!$generalAdministrativeOrder->title!!}</li>
                   </ul>
                 @endif
               @endforeach

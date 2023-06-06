@@ -65,7 +65,7 @@
                             @foreach ($bidAnnouncement as $bid_announcement)
                                 @if($cropYear->slug == $bid_announcement->crop_year_slug)
                                     <ul>
-                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$bid_announcement->path!!}" target="_blank">{!!$bid_announcement->file_title!!}, </a>{!!$bid_announcement->title!!}</li>
+                                        <li><a style="color: #ffb600" href="/view_file/bid_announcement/{!!$bid_announcement->slug!!}" target="_blank">{!!$bid_announcement->file_title!!}, </a>{!!$bid_announcement->title!!}</li>
                                     </ul>
                                     @endif
                                     @endforeach

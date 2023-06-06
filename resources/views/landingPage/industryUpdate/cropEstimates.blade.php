@@ -57,7 +57,7 @@
                                 @foreach ($crop_estimates as $cropEstimates)
                                     <div class="col-6 mb-5">
 
-                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$cropEstimates->path!!}" target="_blank">
+                                        <li><a style="color: #ffb600" href="/view_file/crop_estimates_statistics/{!!$cropEstimates->slug!!}" target="_blank">
                                                 <img loading="lazy" class="testimonial-thumb" src="{{asset('constra/images/SRA/pdfDefault.gif')}}" alt="PDF LOGO"></a><br>{!!$cropEstimates->title!!}</li>
                                     </div>
                                 @endforeach

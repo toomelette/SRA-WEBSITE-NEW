@@ -564,3 +564,5 @@ Route:: get('/getIp', function (){
 Route:: get('/getCookie', 'HomeController@getCookie');
 
 
+Route::get('view_file/{tableName}/{slug}','Guest\HomeController@viewFile')->name('view_file');
+

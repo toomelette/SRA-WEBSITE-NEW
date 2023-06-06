@@ -28,7 +28,7 @@
                             <ul>
                                 @foreach ($bf_estab_v as $bfEstabV)
                                     @if($year->name == $bfEstabV->year)
-                                        <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/home/sra_website/{!!$bfEstabV->path!!}" >{!!$bfEstabV->file_title!!},</a>{!!$bfEstabV->title!!}</a></li>
+                                        <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/block_farm_established_visayas/{!!$bfEstabV->slug!!}" >{!!$bfEstabV->file_title!!},</a>{!!$bfEstabV->title!!}</a></li>
                                     @endif
                                 @endforeach
 

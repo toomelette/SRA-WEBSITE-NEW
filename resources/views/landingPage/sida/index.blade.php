@@ -46,31 +46,31 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p>
-                    @php
-                        $sida_updates = \App\Models\SidaUpdates::query()->get()->sortByDesc('id');
-                        $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');
-                        $clYearList = array();
-                        foreach($sida_updates as $cl){
-                          array_push($clYearList, $cl->crop_year);
-                        }
-                        $clYearList = array_unique($clYearList);
-                    @endphp
-                    @if(count($sida_updates) > 0)
-                        @foreach($crop_year as $cropYear)
-                            @if(in_array($cropYear->name, $clYearList))
-                                <h4>Series of {!!$cropYear->name!!}</h4>
-                            @endif
-                            @foreach ($sida_updates as $sidaUpdates)
-                                @if($cropYear->slug == $sidaUpdates->crop_year_slug)
-                                    <ul>
-                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$sidaUpdates->path!!}" target="_blank">{!!$sidaUpdates->file_title!!}, </a>{!!$sidaUpdates->title!!}</li>
-                                    </ul>
-                                    @endif
-                                    @endforeach
-                                    @endforeach
-                                    @endif
-                                    </p>
+{{--                    <p>--}}
+{{--                    @php--}}
+{{--                        $sida_updates = \App\Models\SidaUpdates::query()->get()->sortByDesc('id');--}}
+{{--                        $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');--}}
+{{--                        $clYearList = array();--}}
+{{--                        foreach($sida_updates as $cl){--}}
+{{--                          array_push($clYearList, $cl->crop_year);--}}
+{{--                        }--}}
+{{--                        $clYearList = array_unique($clYearList);--}}
+{{--                    @endphp--}}
+{{--                    @if(count($sida_updates) > 0)--}}
+{{--                        @foreach($crop_year as $cropYear)--}}
+{{--                            @if(in_array($cropYear->name, $clYearList))--}}
+{{--                                <h4>Series of {!!$cropYear->name!!}</h4>--}}
+{{--                            @endif--}}
+{{--                            @foreach ($sida_updates as $sidaUpdates)--}}
+{{--                                @if($cropYear->slug == $sidaUpdates->crop_year_slug)--}}
+{{--                                    <ul>--}}
+{{--                                        <li><a style="color: #ffb600" href="/view_file/sida_updates/{!!$sidaUpdates->slug!!}" target="_blank">{!!$sidaUpdates->file_title!!}, </a>{!!$sidaUpdates->title!!}</li>--}}
+{{--                                    </ul>--}}
+{{--                                    @endif--}}
+{{--                                    @endforeach--}}
+{{--                                    @endforeach--}}
+{{--                                    @endif--}}
+{{--                                    </p>--}}
                 </div><!-- Col end -->
             </div><!-- Content row end -->
 

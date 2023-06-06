@@ -14,7 +14,7 @@ class ContactUsController extends Controller
 
     public function index(){
         if(request()->ajax()){
-            $contact_us = ContactUs::get();
+            $contact_us = ContactUs::query()->orderByDesc('created_at');
             return DataTables::of($contact_us)
                 ->addColumn('action',function ($data){
                     $destroy_route = "'".route("dashboard.contactUs.destroy","slug")."'";

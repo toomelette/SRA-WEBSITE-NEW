@@ -57,7 +57,7 @@
                                 @foreach ($road_map as $roadMap)
                                     <div class="col-6 mb-5">
 
-                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$roadMap->path!!}" target="_blank">
+                                        <li><a style="color: #ffb600" href="/view_file/roadmap/{!!$roadMap->slug!!}" target="_blank">
                                                 <img loading="lazy" class="testimonial-thumb" src="{{asset('constra/images/SRA/pdfDefault.gif')}}" alt="PDF LOGO"></a><br>{!!$roadMap->title!!}</li>
                                     </div>
                                 @endforeach

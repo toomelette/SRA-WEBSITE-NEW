@@ -59,7 +59,7 @@
           @if(count($muscovado_order) > 0)
             @foreach ($muscovado_order as $muscovadoOrder)
                 <ul>
-                  <li><a style="color: #ffb600" href="/home/sra_website/{!!$muscovadoOrder->path!!}" target="_blank">{!!$muscovadoOrder->file_title!!}, </a>{!!$muscovadoOrder->title!!}</li>
+                  <li><a style="color: #ffb600" href="/view_file/muscovado_order/{!!$muscovadoOrder->slug!!}" target="_blank">{!!$muscovadoOrder->file_title!!}, </a>{!!$muscovadoOrder->title!!}</li>
                 </ul>
             @endforeach
 

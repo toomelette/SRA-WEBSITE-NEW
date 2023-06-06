@@ -56,7 +56,7 @@
                                     @foreach ($milling_schedule as $millingSchedule)
                                         <div class="col-6 mb-5">
 
-                                            <li><a style="color: #ffb600" href="/home/sra_website/{!!$millingSchedule->path!!}" target="_blank">
+                                            <li><a style="color: #ffb600" href="/view_file/milling_schedule/{!!$millingSchedule->slug!!}" target="_blank">
                                                     <img loading="lazy" class="testimonial-thumb" src="{{asset('constra/images/SRA/pdfDefault.gif')}}" alt="PDF LOGO"></a><br>{!!$millingSchedule->title!!}</li>
                                         </div>
                                     @endforeach

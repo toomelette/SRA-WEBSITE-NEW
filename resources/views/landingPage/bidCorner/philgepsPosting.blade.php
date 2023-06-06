@@ -65,7 +65,7 @@
                             @foreach ($philgepsPosting as $philgeps_posting)
                                 @if($cropYear->slug == $philgeps_posting->crop_year_slug)
                                     <ul>
-                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$philgeps_posting->path!!}" target="_blank">{!!$philgeps_posting->file_title!!}, </a>{!!$philgeps_posting->title!!}</li>
+                                        <li><a style="color: #ffb600" href="/view_file/philgeps_posting/{!!$philgeps_posting->slug!!}" target="_blank">{!!$philgeps_posting->file_title!!}, </a>{!!$philgeps_posting->title!!}</li>
                                     </ul>
                                     @endif
                                     @endforeach

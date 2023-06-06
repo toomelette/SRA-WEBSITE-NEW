@@ -33,7 +33,7 @@ class BidAnnouncement extends Model{
 
     public $timestamps = true;
 
-    protected static $logName = 'bidAnnouncement';
+    protected static $logName = 'bid_announcement';
     protected static $logAttributes = ['*'];
     protected static $ignoreChangedAttributes = ['updated_at','ip_updated','user_updated'];
     protected static $logOnlyDirty = true;

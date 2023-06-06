@@ -7,6 +7,8 @@ namespace App\Http\Controllers\Guest;
 use App\Http\Controllers\Controller;
 use App\Models\Visitors;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class HomeController extends Controller
@@ -40,11 +42,15 @@ class HomeController extends Controller
             }
 
 
-            $minutes = 1;
+            $minutes = 60;
             \Cookie::queue(\Cookie::make('visitorCounter',Str::random(10),$minutes));
         }
 
         return view('layouts.guest-master');
     }
 
+    public function viewFile($tableName, $slug){
+        $data = DB::table($tableName)->where('slug','=',$slug)->first();
+        return Storage::disk('local')->response($data->path);
+    }
 }

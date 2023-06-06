@@ -76,7 +76,7 @@
                         <ul>
                           @foreach ($memorandum_order as $memorandumOrder)
                             @if($year->name == $memorandumOrder->year)
-                              <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/home/sra_website/{!!$memorandumOrder->path!!}" >{!!$memorandumOrder->file_title!!},</a>{!!$memorandumOrder->title!!}</a></li>
+                              <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/memorandum_order/{!!$memorandumOrder->slug!!}" >{!!$memorandumOrder->file_title!!},</a>{!!$memorandumOrder->title!!}</a></li>
                             @endif
                           @endforeach
 

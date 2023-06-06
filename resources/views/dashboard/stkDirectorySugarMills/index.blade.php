@@ -19,7 +19,7 @@
                         </a>
                     </h4>
                     <button type="button" class="btn btn-primary pull-right fa fa-plus-circle" data-toggle="modal" data-target="#myModal">
-                        Add Sugar Trader
+                        Add
                     </button>
                 </div>
                 <div id="advanced_filters" class="panel-collapse collapse" aria-expanded="true" style="">
@@ -110,7 +110,7 @@
                                     ) !!}
 
                                     {!! __form::file(
-                                     '8', 'img_url[]', 'Upload PDF *', $errors->has('img_url'), $errors->first('img_url'), 'required'
+                                     '8', 'img_url', 'Upload PDF *', $errors->has('img_url'), $errors->first('img_url'), 'required'
                                     ) !!}
 
                                     {!! __form::textbox(

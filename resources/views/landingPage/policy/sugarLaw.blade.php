@@ -59,7 +59,7 @@
                     @if(count($sugar_law) > 0)
                         @foreach ($sugar_law as $sugarLaw)
                             <ul>
-                                <li><a style="color: #ffb600" href="/home/sra_website/{!!$sugarLaw->path!!}" target="_blank">{!!$sugarLaw->file_title!!}, </a>{!!$sugarLaw->title!!}</li>
+                                <li><a style="color: #ffb600" href="/view_file/sugar_law/{!!$sugarLaw->slug!!}" target="_blank">{!!$sugarLaw->file_title!!}, </a>{!!$sugarLaw->title!!}</li>
                             </ul>
                             @endforeach
 

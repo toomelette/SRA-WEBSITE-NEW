@@ -65,7 +65,7 @@
                             @foreach ($laws as $Laws)
                                 @if($cropYear->slug == $Laws->crop_year_slug)
                                     <ul>
-                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$Laws->path!!}" target="_blank">{!!$Laws->file_title!!}, </a>{!!$Laws->title!!}</li>
+                                        <li><a style="color: #ffb600" href="/view_file/sida_laws/{!!$Laws->slug!!}" target="_blank">{!!$Laws->file_title!!}, </a>{!!$Laws->title!!}</li>
                                     </ul>
                                     @endif
                                     @endforeach

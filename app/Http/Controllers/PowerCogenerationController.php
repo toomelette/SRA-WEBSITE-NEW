@@ -14,7 +14,7 @@ class PowerCogenerationController extends Controller
 
     public function index(){
         if(request()->ajax()){
-            $power_cogeneration = PowerCogeneration::get();
+            $power_cogeneration = PowerCogeneration::query()->orderByDesc('created_at');
             return DataTables::of($power_cogeneration)
                 ->addColumn('action',function ($data){
                     $destroy_route = "'".route("dashboard.powerCogeneration.destroy","slug")."'";

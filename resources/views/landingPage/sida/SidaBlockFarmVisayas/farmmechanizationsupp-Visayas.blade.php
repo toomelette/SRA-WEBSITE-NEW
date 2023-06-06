@@ -29,7 +29,7 @@
                             <ul>
                                 @foreach ($mech_supp as $mechSupp)
                                     @if($year->name == $mechSupp->year)
-                                        <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/home/sra_website/{!!$mechSupp->path!!}" >{!!$mechSupp->file_title!!},</a>{!!$mechSupp->title!!}</a></li>
+                                        <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/block_farm_mechanizatoin_supp_vis/{!!$mechSupp->slug!!}" >{!!$mechSupp->file_title!!},</a>{!!$mechSupp->title!!}</a></li>
                                     @endif
                                 @endforeach
 
