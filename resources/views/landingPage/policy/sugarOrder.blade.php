@@ -46,84 +46,38 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-
-
-          <p>
           @php
             $sugar_order = \App\Models\SugarOrder::query()->get()->sortByDesc('id');
-            $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');
-            $clYearList = array();
-            foreach($sugar_order as $cl){
-              array_push($clYearList, $cl->crop_year);
+            $clYearList = [];
+            foreach($sugar_order as $order){
+              $clYearList[$order->crop_year][$order->slug] =  $order;
             }
-            $clYearList = array_unique($clYearList);
+            krsort($clYearList);;
           @endphp
-          @if(count($sugar_order) > 0)
-            @foreach($crop_year as $cropYear)
-              @if(in_array($cropYear->name, $clYearList))
+          @foreach($clYearList as $slug => $year)
+            <div class="accordion accordion-group text-justify" id="our-values-accordion">
+              <div class="card">
+                <div class="card-header p-0 bg-transparent" id="heading1">
+                  <h2 class="mb-0">
+                    <button class="btn btn-block text-left {{($loop->iteration != 1) ? 'collapsed'  : ''}}" type="button" data-toggle="collapse" data-target="#collapse_{{$slug}}" aria-expanded="{{($loop->iteration == 1) ? 'true'  : 'false'}}" aria-controls="collapse1">
+                      SUGAR ORDER {!!$slug!!}
+                    </button>
 
-                <div class="accordion accordion-group text-justify" id="our-values-accordion">
-                  <div class="card">
-                    <div class="card-header p-0 bg-transparent" id="heading1">
-                      <h2 class="mb-0">
-                        <button class="btn btn-block text-left {{($loop->iteration != 1) ? 'collapsed'  : ''}}" type="button" data-toggle="collapse" data-target="#collapse_{{$cropYear->slug}}" aria-expanded="{{($loop->iteration == 1) ? 'true'  : 'false'}}" aria-controls="collapse1">
-                          SUGAR ORDER {!!$cropYear->name!!}
-                        </button>
+                  </h2>
+                </div>
+                <div id="collapse_{{$slug}}" class="collapse {{($loop->iteration == 1) ? 'show'  : ''}}" aria-labelledby="heading1" data-parent="#our-values-accordion" style="">
+                  <div class="card-body">
+                    <ul>
+                      @foreach ($year as $sugarOrder)
+                        <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/sugar_order/{!!$sugarOrder->slug!!}" >{!!$sugarOrder->file_title!!},</a>{!!$sugarOrder->title!!}</a></li>
+                      @endforeach
 
-                      </h2>
-                    </div>
-                    <div id="collapse_{{$cropYear->slug}}" class="collapse {{($loop->iteration == 1) ? 'show'  : ''}}" aria-labelledby="heading1" data-parent="#our-values-accordion" style="">
-                      <div class="card-body">
-                        <ul>
-                          @foreach ($sugar_order as $sugarOrderArray)
-                            @if($cropYear->slug == $sugarOrderArray->crop_year_slug)
-                              <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/sugar_order/{!!$sugarOrderArray->slug!!}" >{!!$sugarOrderArray->file_title!!},</a>{!!$sugarOrderArray->title!!}</a></li>
-                            @endif
-                          @endforeach
-
-                        </ul>
-                      </div>
-                    </div>
+                    </ul>
                   </div>
                 </div>
-
-
-                @endif
-                @foreach ($sugar_order as $sugarOrderArray)
-                @if($cropYear->slug == $sugarOrderArray->crop_year_slug)
-
-                @endif
-                @endforeach
-                @endforeach
-                @endif
-                </p>
-
-
-                {{--          <p>--}}
-{{--          @php--}}
-{{--            $sugar_order = \App\Models\SugarOrder::query()->get()->sortByDesc('id');--}}
-{{--            $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');--}}
-{{--            $soYearList = array();--}}
-{{--              foreach($sugar_order as $so){--}}
-{{--                array_push($soYearList, $so->crop_year);--}}
-{{--              }--}}
-{{--              $soYearList = array_unique($soYearList);--}}
-{{--          @endphp--}}
-{{--          @if(count($sugar_order) > 0)--}}
-{{--            @foreach($crop_year as $cropYear)--}}
-{{--              @if(in_array($cropYear->name, $soYearList))--}}
-{{--                <h4>Series of {!!$cropYear->name!!}</h4>--}}
-{{--              @endif--}}
-{{--              @foreach ($sugar_order as $sugarOrderArray)--}}
-{{--                @if($cropYear->slug == $sugarOrderArray->crop_year_slug)--}}
-{{--                  <ul>--}}
-{{--                    <li><a style="color: #ffb600" href="/home/sra_website/{!!$sugarOrderArray->path!!}" target="_blank">{!!$sugarOrderArray->file_title!!}, </a>{!!$sugarOrderArray->title!!}</li>--}}
-{{--                  </ul>--}}
-{{--                @endif--}}
-{{--              @endforeach--}}
-{{--            @endforeach--}}
-{{--          @endif--}}
-{{--          </p>--}}
+              </div>
+            </div>
+          @endforeach
         </div><!-- Col end -->
       </div><!-- Content row end -->
 

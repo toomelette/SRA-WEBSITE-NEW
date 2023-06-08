@@ -52,7 +52,7 @@ class HomeController extends Controller
     public function viewFile($tableName, $slug){
         $data = DB::table($tableName)->where('slug','=',$slug)->first();
         if(!Storage::disk('local')->exists($data->path)) {
-            abort(406,'Hello');
+            abort(404,'Hello');
         }
         return Storage::disk('local')->response($data->path);
     }

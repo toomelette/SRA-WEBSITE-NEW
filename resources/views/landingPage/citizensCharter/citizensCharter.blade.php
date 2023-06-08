@@ -78,11 +78,16 @@
                 <div id="menu1" class="container tab-pane fade"><br>
                     <h3>CERTIFICATE OF COMPLIANCE</h3>
                     <h4>March 2022</h4>
-                    <embed style="border: 10px solid green; " src="{{asset('constra/files/citizensCharter/cetrificateofCompliance2022/SRA-Cert-Compliance-2022.pdf#toolbar=0')}}"  width="100%" height="800px"/>
+                    <iframe style="border: 10px solid green" class="responsive-iframe" src="{{asset('constra/files/citizensCharter/cetrificateofCompliance2022/SRA-Cert-Compliance-2022.pdf#toolbar=0')}}" width="100%" height="600px"></iframe>
+
+{{--                    <embed style="border: 10px solid green; " src="{{asset('constra/files/citizensCharter/cetrificateofCompliance2022/SRA-Cert-Compliance-2022.pdf#toolbar=0')}}"  width="100%" height="800px"/>--}}
+
 {{--                    <a href="{{asset('constra/files/citizensCharter/cetrificateofCompliance2022/SRA-Cert-Compliance-2022.pdf')}}" download class="btn btn-primary"> <i class="fa fa-download"></i>Download File</a>--}}
                 </div>
                 <div id="menu2" class="container tab-pane fade"><br>
                     <h3>EXECUTIVE ORDER NO. 631</h3>
+                    <iframe style="border: 10px solid green" class="responsive-iframe" src="{{asset('constra/files/citizensCharter/exicutive-order/exicutive-order-no-631.pdf#toolbar=0')}}" width="100%" height="600px"></iframe>
+
                     <embed style="border: 10px solid green;" src="{{asset('constra/files/citizensCharter/exicutive-order/exicutive-order-no-631.pdf#toolbar=0')}}" width="100%" height="800px"/>
 {{--                    <a href="{{asset('constra/files/citizensCharter/exicutive-order/exicutive-order-no-631.pdf')}}" download class="btn btn-primary"> <i class="fa fa-download"></i>Download File</a>--}}
                 </div>
