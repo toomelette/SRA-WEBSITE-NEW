@@ -78,7 +78,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">Add Established Block Farm</h4>
+                <h4 class="modal-title" id="myModalLabel">Add Established HYV Nurseries</h4>
             </div>
             <div class="modal-body">
 

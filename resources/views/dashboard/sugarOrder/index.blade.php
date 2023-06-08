@@ -71,7 +71,68 @@
 
 
 @endsection
+{{--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">--}}
+{{--    <div class="modal-dialog" role="document">--}}
+{{--        <div class="modal-content">--}}
+{{--            <div class="modal-header">--}}
+{{--                <h4 class="modal-title" id="myModalLabel">Add Sugar Trader International for Fructose</h4>--}}
+{{--            </div>--}}
+{{--            <div class="modal-body">--}}
 
+{{--                <div class="box">--}}
+
+{{--                    <div class="box-header with-border">--}}
+{{--                        <h3 class="box-title">Form</h3>--}}
+{{--                        <div class="pull-right">--}}
+{{--                            <code>Fields with asterisks(*) are required</code>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    @csrf--}}
+{{--                    <form id="roadMapForm" method="POST" autocomplete="off" enctype="multipart/form-data">--}}
+
+{{--                        <div class="box-body">--}}
+
+{{--                            <div class="col-md-12">--}}
+{{--    {!! __form::textbox(--}}
+{{--      '12 name', 'name', 'text', 'Name: *', 'Name',$menu->name, '', '', ''--}}
+{{--    ) !!}--}}
+
+
+{{--    {!! __form::textbox(--}}
+{{--      '12 route', 'route', 'text', 'Route: *', 'Route',$menu->route, '', '', ''--}}
+{{--    ) !!}--}}
+
+{{--    {!! __form::textbox(--}}
+{{--      '12 category', 'category', 'text', 'Category: *', 'Category',$menu->category, '', '', ''--}}
+{{--    ) !!}--}}
+
+{{--    {!! __form::textbox_icon(--}}
+{{--      '12 icon', 'icon', 'text', 'Icon: *', 'Icon',$menu->icon, '', '', ''--}}
+{{--    ) !!}--}}
+
+{{--    {!! __form::select_static(--}}
+{{--      '6 is_menu', 'is_menu', 'Is menu: *', $menu->is_menu, [--}}
+{{--        'No' => '0',--}}
+{{--        'Yes' => '1',--}}
+{{--      ], '', '', '', ''--}}
+{{--    ) !!}--}}
+
+{{--    {!! __form::select_static(--}}
+{{--      '6 is_dropdown', 'is_dropdown', 'Is dropdown: *',$menu->is_dropdown, [--}}
+{{--        'No' => '0',--}}
+{{--        'Yes' => '1',--}}
+{{--      ], '', '', '', ''--}}
+{{--    ) !!}--}}
+
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="modal-footer">--}}
+{{--                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--}}
+{{--                <button type="submit" id="btnroadMapSubmit" class="btn btn-primary">Save changes</button></form>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 
 @section('modals')
 

@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Illuminate\Cache\ArrayStore;
 use Spatie\Activitylog\Models\Activity;
 use Yajra\DataTables\DataTables;
 use function foo\func;
@@ -258,7 +259,9 @@ class UserController extends Controller{
                 $user->employee_no = $employee->employee_no;
                 $user->password = Hash::make(Carbon::parse($employee->birthday)->format('mdy'));
                 if($user->save()){
+                    return redirect('/dashboard/user');
                     return $user->only('slug');
+
                 }
                 abort(503,'Error creating account');
             }

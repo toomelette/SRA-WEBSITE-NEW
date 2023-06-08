@@ -28,8 +28,7 @@ class SugarOrderController extends Controller{
                 ->addColumn('action',function ($data){
                     $destroy_route = "'".route("dashboard.sugarOrder.destroy","slug")."'";
                     $slug = "'".$data->slug."'";
-                    return '<div class="btn-group">
-
+                    return '<div class="btn-group">                                
                                 <button type="button" onclick="delete_data('.$slug.','.$destroy_route.')" data="'.$data->slug.'" class="btn btn-sm btn-danger" data-toggle="tooltip" title="" data-placement="top" data-original-title="Delete">
                                     <i class="fa fa-trash"></i>
                                 </button>
