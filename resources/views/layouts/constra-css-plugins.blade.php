@@ -17,4 +17,4 @@
 <!-- Template styles-->
 <link rel="stylesheet" href="{{asset('constra/css/style.css')}}">
 
-<link rel="stylesheet" href="{{asset('css/app.css')}}">
+<link rel="stylesheet" href="{{asset('css/app.css')}}?s={{\Illuminate\Support\Str::random(10)}}">

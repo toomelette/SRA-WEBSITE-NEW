@@ -388,3 +388,29 @@ ol.example li.placeholder:before {
 .no-margin{
     margin: 0px;
 }
+
+.xsmall{
+    display: none;
+}
+
+@media (min-width: 992px){
+    .large{
+        display: block;
+    }
+    
+    .hide-large{
+        display: none;
+    }
+}
+
+@media (min-width: 768px){
+    .medium{
+
+    }
+}
+
+@media (min-width: 576px){
+    .small{
+
+    }
+}

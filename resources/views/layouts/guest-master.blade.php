@@ -141,7 +141,7 @@
               <h4 style="font-size: 32px;" class="section-sub-title">Latest Industry Updates</h4>
               <table class="table table-condensed text-justify" style="width: 100%">
                 <tr>
-                    <td style="width: 70%" >Sugar Supply and Demand Situation</td>
+
                   @php
                     $latest_sugarSupplyDemand = \App\Models\SugarSupplyDemand::query()->orderby('date','desc')->first();
                     $weekly_comparative_production = \App\Models\WeeklyComparativeProduction::query()->orderByDesc('date')->limit(1)->get();
@@ -156,38 +156,39 @@
 
                   @if(! empty($latest_sugarSupplyDemand))
 
+                    <td style="width: 70%" ><strong>Sugar Supply and Demand Situation</strong></td>
                     <td style="color: green"><a target="_blank" href="/view_file/sugar_supply_demand/{!!$latest_sugarSupplyDemand->slug!!}"><u>{{Carbon::parse($latest_sugarSupplyDemand->date)->format('F j, Y')}}</u></a></td>
                   @endif
                 </tr>
                 <tr>
-                    <td>Weekly Comparative Production</td>
+                  <td><strong>Weekly Comparative Production</strong></td>
                   @foreach($weekly_comparative_production as $WCP)
                     <td style="color: green"><a target="_blank" href="/view_file/weekly_comparative_production/{!! $WCP->slug !!}"><u>{{Carbon::parse($WCP->date)->format('F j, Y')}}</u></a></td>
                     @endforeach
                 </tr>
                 <tr>
-                    <td>Sugar Statistics</td>
+                    <td><strong>Sugar Statistics<strong></td>
 
                 @foreach($sugarStatistics as $latest_SS)
                   <td style="color: green"><a target="_blank" href="/view_file/sugar_statistics/{!!$latest_SS->slug!!}"><u>{{Carbon::parse($latest_SS->date)->format('F j, Y')}}</u></a></td>
                 @endforeach
                 </tr>
                 <tr>
-                    <td>Sugar Prices in Metro Manila</td>
+                  <td><strong>Sugar Prices in Metro Manila</strong></td>
                   @foreach($metroManilaPrices as $latest_MMP)
                   <td style="color: green"><a target="_blank" href="/view_file/metro_manila_prices/{!!$latest_MMP->slug!!}"><u>{{Carbon::parse($latest_MMP->date)->format('F j, Y')}}</u></a></td>
                   @endforeach
 
                 </tr>
                 <tr>
-                    <td>Weekly Millsite Prices of Sugar and Molasses</td>
+                  <td><strong>Weekly Millsite Prices of Sugar and Molasses</strong></td>
                   @foreach($millsitePrices as $latest_MSP)
                   <td style="color: green"><a target="_blank" href="/view_file/millsite_prices/{!!$latest_MSP->slug!!}"><u>{{Carbon::parse($latest_MSP->date)->format('F j, Y')}}</u></a></td>
                   @endforeach
 
                 </tr>
                 <tr>
-                    <td>Bioethanol Reference Price</td>
+                  <td><strong>Bioethanol Reference Price</strong></td>
                   @foreach($bioethanolRF as $latest_BRP)
                     <td style="color: green"><a target="_blank" href="/view_file/bioethanol_reference_price/{!!$latest_BRP->slug!!}"><u>{{Carbon::parse($latest_BRP->date)->format('F j, Y')}}</u></a></td>
                   @endforeach
@@ -196,13 +197,13 @@
                 <tr>
 {{--                  List of Accredited Customs Bonded Warehouse (CBW) Operators/ Food Processors/ Exporters/ Importers with Approved SRA Clearances of Imported Sugar for the month of January 2023--}}
                   @foreach($circularletter as $latest_circular)
-                    <td>{{$latest_circular->title}}</td>
+                    <td><strong>{{$latest_circular->title}}</strong></td>
                     <td style="color: green"><a target="_blank" href="/view_file/circular_letter/{!!$latest_circular->slug!!}"><u style="">{{$latest_circular->file_title}}</u></a></td>
                     @endforeach
                 </tr>
                 <tr>
                   @foreach($sugar_order as $so)
-                    <td>{{$so->title}}</td>
+                    <td><strong>{{$so->title}}</strong></td>
                     <td style="color: green"><a target="_blank" href="/view_file/sugar_order/{!!$so->slug!!}"><u style="">{{$so->file_title}}</u></a></td>
                     @endforeach
                 </tr>
@@ -211,7 +212,7 @@
 {{--                  Schedule of Acceptance of Applications and Requirements by the SRA RD in QC and Bacolod under SO 6 s. 2022-23.--}}
 
                     @foreach($memorandomCercular as $latest_MC)
-                    <td>{{$latest_MC->title}}</td>
+                    <td><strong>{{$latest_MC->title}}</strong></td>
                     <td style="color: green"><a target="_blank" href="/view_file/memorandum_circular/{!!$latest_MC->slug!!}"><u>{{$latest_MC->file_title}}</u></a></td>
                       @endforeach
                 </tr>
@@ -435,7 +436,7 @@
                 </div>
                 <div class="post-body" style="">
                   <h4 class="post-title">
-                    <a class="d-inline-block" target="_blank" href="/view_file/vacant_position/{!!$vacantPosition->slug!!}"> AS OF {{Carbon::parse($vacantPosition->date)->format('F j, Y')}}</a>
+                    <a class="d-inline-block" target="_blank" href="/view_file/vacant_position/{!!$vacantPosition->slug!!}"> AS OF {{Carbon::parse($vacantPosition->date)->format('M d, Y')}}</a>
                   </h4>
                   <div class="latest-post-meta">
                       <span class="post-item-date">

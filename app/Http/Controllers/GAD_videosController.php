@@ -63,9 +63,9 @@ class GAD_videosController extends Controller{
 
     public function store(GAD_videosFormRequest $request)
     {
-        $request->validate([
-            'video' => 'required|mimetypes:video/mp4,video/avi|max:50000' // adjust the mimetypes and max file size as needed
-        ]);
+//        $request->validate([
+//            'video' => 'required|mimetypes:video/mp4,video/avi|max:50000' // adjust the mimetypes and max file size as needed
+//        ]);
 
         $station = new GAD_videos();
         $station->slug = Str::random(15);

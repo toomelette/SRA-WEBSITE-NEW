@@ -37,7 +37,79 @@
       <div class="logo-area">
         <div class="row align-items-center">
           <div class="col-lg-12" >
-               <a href="/"><img loading="lazy" class="background-image" src="{{asset('constra/images/SRA/sra_head_logo_new.png')}}" alt="Logo"></a>
+
+            {{--LARGE DEVICES--}}
+              <table class="xsmall large">
+              <tr>
+                <td>
+                  <img src="{{asset('constra/images/SRA/ph_seal_sra_logo.png')}}" style="width: 250px">
+                </td>
+                <td style="vertical-align: top">
+                  <table style="border-spacing: 0px !important;">
+                    <tr>
+                      <td>
+                        <p class="text-strong no-margin" style="font-size: 16px;">REPUBLIC OF THE PHILIPPINES</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="text-strong no-margin" style="font-size: 14px;">Department of Agriculture</p>
+                      </td>
+                    </tr>
+                    <td>
+                      <p class="text-strong no-margin" style="font-size: 40px; color: green">SUGAR REGULATORY ADMINISTRATION</p>
+                    </td>
+                  </table>
+
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+
+              </tr>
+              <tr>
+                <td></td>
+
+              </tr>
+            </table>
+
+            {{--SMALL DEVICES--}}
+            <table class="hide-large">
+              <tr>
+                <td>
+                  <img src="{{asset('constra/images/SRA/ph_seal_sra_logo.png')}}" style="width: 150px">
+                </td>
+                <td style="vertical-align: top">
+                  <table style="border-spacing: 0px !important;">
+                    <tr>
+                      <td>
+                        <p class="text-strong no-margin" style="font-size: 12px">REPUBLIC OF THE PHILIPPINES</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="text-strong no-margin" style="font-size: 10px">Department of Agriculture</p>
+                      </td>
+                    </tr>
+                    <td>
+                      <p class="text-strong no-margin" style="font-size: 40px">SRA  </p>
+                      <p class="no-margin" style="font-size: 10px">SUGAR REGULATORY ADMINISTRATION</p>
+                    </td>
+                  </table>
+
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+
+              </tr>
+              <tr>
+                <td></td>
+
+              </tr>
+            </table>
+
+
 {{--            <h3 align="text-center"> REPUBLIC OF THE PHILIPPINES</h3>--}}
 {{--            <h3>Department of Agriculture</h3>--}}
 {{--            <h1>SUGAR REGULATORY ADMINISTRATION</h1>--}}

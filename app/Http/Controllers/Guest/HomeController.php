@@ -50,9 +50,10 @@ class HomeController extends Controller
     }
 
     public function viewFile($tableName, $slug){
+
         $data = DB::table($tableName)->where('slug','=',$slug)->first();
         if(!Storage::disk('local')->exists($data->path)) {
-            abort(404,'Hello');
+            abort(502,'File not found');
         }
         return Storage::disk('local')->response($data->path);
     }
