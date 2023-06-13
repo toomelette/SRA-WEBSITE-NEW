@@ -149,7 +149,7 @@
                 }
             })
 
-            style_datatable("#sugar_law_table");
+            style_datatable("#bioEnergy_table");
 
             //Need to press enter to search
             $('#bioEnergy_table_filter input').unbind();

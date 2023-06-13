@@ -46,63 +46,126 @@
         <div class="container">
             <div class="card">
                 <div class="col-lg-12" style="margin-top: 15px">
+                    <style>
+                        html {
+                            box-sizing: border-box;
+                        }
 
-                    <!-- Gallery -->
-                    <div class="row">
-                        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-                            <a href="/sida/blockFarm">
-                            <img
-                                    src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-blockfarm.jpg')}}"
-                                    class="w-100 shadow-1-strong rounded mb-4"
-                                    alt="BLOCK FARM PROGRAM"
-                                    height="250px;"
-                            /></a>
+                        *, *:before, *:after {
+                            box-sizing: inherit;
+                        }
 
-                            <a href="/sida/socializedCreditProg">
-                                <img
-                                        src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-socialized.jpg')}}"
-                                        class="w-100 shadow-1-strong rounded mb-4"
-                                        alt="SOCIALIZED CREDIT PROGRAM"
-                                        height="250px;"
-                                /></a>
+                        .column {
+                            float: left;
+                            width: 33.3%;
+                            margin-bottom: 16px;
+                            padding: 0 8px;
+                        }
+
+                        @media screen and (max-width: 650px) {
+                            .column {
+                                width: 100%;
+                                display: block;
+                            }
+                        }
+
+                        .card {
+                            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                        }
+
+                        .container {
+                            padding: 0 16px;
+                        }
+
+                        .container::after, .row::after {
+                            content: "";
+                            clear: both;
+                            display: table;
+                        }
+
+                        .title {
+                            color: grey;
+                        }
+
+                        .button {
+                            border: none;
+                            outline: 0;
+                            display: inline-block;
+                            padding: 8px;
+                            color: white;
+                            background-color: #000;
+                            text-align: center;
+                            cursor: pointer;
+                            width: 100%;
+                        }
+
+                        .button:hover {
+                            background-color: #555;
+                        }
+                    </style>
+
+
+                    <div class="column">
+                        <a href="/sida/blockFarm" target="_blank">
+                        <div class="card">
+                            <img src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-blockfarm.jpg')}}" alt="Mike" style="width: 100%; height: 230px; object-fit: cover ;"">
+                            <div class="container">
+                                <h2>Block Farm Program</h2>
+                            </div>
                         </div>
-
-                        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-                            <a href="/sida/farmMechanization">
-                                <img
-                                        src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-farm-mech.jpg')}}"
-                                        class="w-100  shadow-1-strong rounded mb-4"
-                                        alt="FARM MECHANIZATION"
-                                        height="250px;"
-                                /></a>
-
-                            <a href="/sida/infrastructureProg">
-                                <img
-                                        src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-Infra.jpg')}}"
-                                        class="w-100 shadow-1-strong rounded mb-4"
-                                        alt="INFRASTRUCTURE PROGRAM"
-                                        height="250px;"
-                                /></a>
-                        </div>
-
-                        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-                            <a href="/sida/RDEProg">
-                                <img
-                                        src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-RDE.jpg')}}"
-                                        class="w-100 shadow-1-strong rounded mb-4"
-                                        alt="RESEARCH DEVELOPMENT & EXTENSION PROGRAM "
-                                        height="250px;"
-                                /></a>
-
-                            <a href="/sida/scholarshipProg">
-                                <img
-                                        src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-scholarship.jpg')}}"
-                                        class="w-100 shadow-1-strong rounded mb-4"
-                                        alt="SCHOLARSHIP PROGRAM"
-                                        height="250px;"
-                                /></a>
-                        </div>
+                        </a>
                     </div>
+
+                    <div class="column">
+                        <a href="/sida/socializedCreditProg" target="_blank">
+                        <div class="card">
+                            <img src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-socialized.jpg')}}" alt="Mike" style="width: 100%; height: 230px; object-fit: cover ;">
+                            <div class="container">
+                                <h2>Socialized Credit Program</h2>
+                            </div>
+                        </div></a>
+                    </div>
+
+                    <div class="column">
+                        <a href="/sida/farmMechanization" target="_blank">
+                        <div class="card">
+                            <img src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-farm-mech.jpg')}}" alt="Mike" style="width: 100%; height: 230px; object-fit: cover ;">
+                            <div class="container">
+                                <h2>Farm Mechanization</h2>
+                            </div>
+                        </div></a>
+                    </div>
+
+                    <div class="column">
+                        <a href="/sida/infrastructureProg" target="_blank">
+                        <div class="card">
+                            <img src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-Infra.jpg')}}" alt="Mike" style="width: 100%; height: 230px; object-fit: cover ;">
+                            <div class="container">
+                                <h2>Infrastructure Program</h2>
+                            </div>
+                        </div></a>
+                    </div>
+
+                    <div class="column">
+                        <a href="/sida/RDEProg" target="_blank">
+                        <div class="card">
+                            <img src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-RDE.jpg')}}" alt="Mike" style="width: 100%; height: 236px; object-fit: cover ;">
+                            <div class="container">
+                                <h3 style="font-size: 22px;">Research, Development & Extension Program</h3>
+                            </div>
+                        </div></a>
+                    </div>
+
+                    <div class="column">
+                        <a href="/sida/scholarshipProg" target="_blank">
+                        <div class="card">
+                            <img src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-scholarship.jpg')}}" alt="Mike" style="width: 100%; height: 230px; object-fit: cover ;">
+                            <div class="container">
+                                <h2>Scholarship Program</h2>
+                            </div>
+                        </div></a>
+                    </div>
+
 
                 </div><!-- Col end -->
             </div><!-- Content row end -->

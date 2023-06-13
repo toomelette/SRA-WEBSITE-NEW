@@ -398,7 +398,7 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
 
     Route::resource('millSite_Prices', 'MillSite_PricesController');
 
-    Route::resource('bioethanolReferencePrice', 'bioethanolRPController');
+    Route::resource('bioethanolReferencePrice', 'BioethanolRPController');
 
     Route::resource('metroManilaPrices', 'MetroManilaPricesController');
 
