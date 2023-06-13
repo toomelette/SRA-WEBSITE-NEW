@@ -45,53 +45,39 @@
     <section id="main-container" class="main-container">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
-                    <h3>MILLING SCHEDULE</h3>
-                    <ul style="list-style-type: disc;">
-                        @php
-                            $milling_schedule = \App\Models\MillingShedule::query()->get()->sortByDesc('date');
-                        @endphp
-                        @if(count($milling_schedule) > 0)
+                <div class="col-lg-12">
+                    @php
+                        $sugar_order = \App\Models\MillingShedule::query()->get()->sortByDesc('id');
+                        $clYearList = [];
+                        foreach($sugar_order as $order){
+                          $clYearList[$order->crop_year][$order->slug] =  $order;
+                        }
+                        krsort($clYearList);;
+                    @endphp
+                    @foreach($clYearList as $slug => $year)
+                        <div class="accordion accordion-group text-justify" id="our-values-accordion">
+                            <div class="card">
+                                <div class="card-header p-0 bg-transparent" id="heading1">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-block text-left {{($loop->iteration != 1) ? 'collapsed'  : ''}}" type="button" data-toggle="collapse" data-target="#collapse_{{$slug}}" aria-expanded="{{($loop->iteration == 1) ? 'true'  : 'false'}}" aria-controls="collapse1">
+                                            Milling Schedule {!!$slug!!}
+                                        </button>
 
-                                    @foreach ($milling_schedule as $millingSchedule)
-                                        <div class="col-6 mb-5">
+                                    </h2>
+                                </div>
+                                <div id="collapse_{{$slug}}" class="collapse {{($loop->iteration == 1) ? 'show'  : ''}}" aria-labelledby="heading1" data-parent="#our-values-accordion" style="">
+                                    <div class="card-body">
+                                        <ul>
+                                            @foreach ($year as $sugarOrder)
+                                                <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/milling_schedule/{!!$sugarOrder->slug!!}" >{!!$sugarOrder->title!!}</a></li>
+                                            @endforeach
 
-                                            <li><a style="color: #ffb600" href="/view_file/milling_schedule/{!!$millingSchedule->slug!!}" target="_blank">
-                                                    <img loading="lazy" class="testimonial-thumb" src="{{asset('constra/images/SRA/pdfDefault.gif')}}" alt="PDF LOGO"></a><br>{!!$millingSchedule->title!!}</li>
-                                        </div>
-                                    @endforeach
-
-                        @endif
-
-                    </ul>
-
-
-
-{{--                    <p>--}}
-{{--                    @php--}}
-{{--                        $milling_schedule = \App\Models\MillingShedule::query()->get()->sortByDesc('id');--}}
-{{--                        $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');--}}
-{{--                        $clYearList = array();--}}
-{{--                        foreach($milling_schedule as $cl){--}}
-{{--                          array_push($clYearList, $cl->crop_year);--}}
-{{--                        }--}}
-{{--                        $clYearList = array_unique($clYearList);--}}
-{{--                    @endphp--}}
-{{--                    @if(count($milling_schedule) > 0)--}}
-{{--                        @foreach($crop_year as $cropYear)--}}
-{{--                            @if(in_array($cropYear->name, $clYearList))--}}
-{{--                                <h4>Series of {!!$cropYear->name!!}</h4>--}}
-{{--                            @endif--}}
-{{--                            @foreach ($milling_schedule as $millingSchedule)--}}
-{{--                                @if($cropYear->slug == $millingSchedule->crop_year_slug)--}}
-{{--                                    <ul>--}}
-{{--                                        <li><a style="color: #ffb600" href="/home/sra_website/{!!$millingSchedule->path!!}" target="_blank">{!!$millingSchedule->file_title!!}, </a>{!!$millingSchedule->title!!}</li>--}}
-{{--                                    </ul>--}}
-{{--                                    @endif--}}
-{{--                                    @endforeach--}}
-{{--                                    @endforeach--}}
-{{--                                    @endif--}}
-{{--                                    </p>--}}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
                 </div><!-- Col end -->
             </div><!-- Content row end -->
 

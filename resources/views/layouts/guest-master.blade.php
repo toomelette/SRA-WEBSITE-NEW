@@ -26,13 +26,17 @@
 
 {{--    <div class="banner-carousel-item" style="background-image:url({{asset('constra/images/slider-main/2023-NWMC.jpg')}})"></div>--}}
 
-    <div class="banner-carousel-item" style="background-image:url({{asset('constra/images/slider-main/Tubo-LGAREC3.jpg')}})">
+    <div class="banner-carousel-item" style="background-image:url({{asset('constra/images/slider-main/Tubo-LGAREC3.jpg')}});">
       <div class="slider-content">
         <div class="container h-100">
           <div class="row align-items-center h-100">
-            <div class="col-md-12 text-center">
-              <h2 class="slide-title" data-animation-in="slideInLeft" style="text-shadow: -2px -2px 0 #ffb600, 2px -2px 0 #ffb600, -2px 2px 0 #ffb600, 2px 2px 0 #ffb600;">For the Filipino People</h2>
-              <h3 class="slide-sub-title " data-animation-in="slideInRight" style="text-shadow: -2px -2px 0 #ffb600, 2px -2px 0 #ffb600, -2px 2px 0 #ffb600, 2px 2px 0 #ffb600; ">Sugar Center</h3>
+            <div class="col-md-12 text-center" >
+              <div style="background-color:rgba(8, 12, 3, 0.7 ); padding-top: 10px; padding-bottom: 10px; " data-animation-in="fadeIn">
+              <h2 class="slide-title" data-animation-in="slideInLeft" style="text-shadow: -2px -2px 0 #ffb600, 2px -2px 0 #ffb600, -2px 2px 0 #ffb600, 2px 2px 0 #ffb600; ">For the Filipino People</h2>
+{{--              <h2 class="slide-title" data-animation-in="slideInLeft" style=" box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">For the Filipino People</h2>--}}
+
+              <h3 class="slide-sub-title " data-animation-in="slideInRight" style="">Sugar Center</h3>
+              </div>
             </div>
           </div>
         </div>
@@ -43,10 +47,10 @@
       <div class="slider-content text-left">
         <div class="container h-100">
           <div class="row align-items-center h-100">
-            <div class="col-md-12">
+            <div class="col-md-12" style="background-color:rgba(8, 12, 3, 0.7 ); padding-top: 10px; padding-bottom: 10px;" data-animation-in="fadeIn">
               <h2 class="slide-title-box" data-animation-in="slideInDown" >World Class Service</h2>
-              <h3 class="slide-sub-title" data-animation-in="slideInRight" style="text-shadow: -2px -2px 0 #ffb600, 2px -2px 0 #ffb600, -2px 2px 0 #ffb600, 2px 2px 0 #ffb600;">Republic of the Philippines</h3>
-              <h3 class="slide-sub-title" data-animation-in="slideInRight" style="text-shadow: -2px -2px 0 #ffb600, 2px -2px 0 #ffb600, -2px 2px 0 #ffb600, 2px 2px 0 #ffb600;">Sugar Regulatory Administration</h3>
+              <h3 class="slide-sub-title" data-animation-in="slideInRight" style="">Republic of the Philippines</h3>
+              <h3 class="slide-sub-title" data-animation-in="slideInRight" style="">Sugar Regulatory Administration</h3>
             </div>
           </div>
         </div>
@@ -57,9 +61,9 @@
       <div class="slider-content text-right">
         <div class="container h-100">
           <div class="row align-items-center h-100">
-            <div class="col-md-12">
+            <div class="col-md-12" style="background-color:rgba(8, 12, 3, 0.7 ); padding-top: 10px; padding-bottom: 10px;" data-animation-in="fadeIn">
               <h2 class="slide-title" data-animation-in="slideInDown" style="text-shadow: -2px -2px 0 #ffb600, 2px -2px 0 #ffb600, -2px 2px 0 #ffb600, 2px 2px 0 #ffb600;">World Class</h2>
-              <h3 class="slide-sub-title" data-animation-in="slideInRight" style="text-shadow: -2px -2px 0 #ffb600, 2px -2px 0 #ffb600, -2px 2px 0 #ffb600, 2px 2px 0 #ffb600;">Sugar Quality</h3>
+              <h3 class="slide-sub-title" data-animation-in="slideInRight" style="">Sugar Quality</h3>
               <p class="slider-description lead" data-animation-in="slideInRight">We will deal with your failure that determines how you achieve success.</p>
             </div>
           </div>
@@ -69,7 +73,8 @@
   </div>
 
   <section class="call-to-action-box no-padding">
-    <div class="container">
+    {{--LARGE DEVICES--}}
+    <div class="container xsmall large">
       <div class="action-style-box">
         <div class="row align-items-center">
 
@@ -130,6 +135,64 @@
         </div><!-- row end -->
       </div><!-- Action style box -->
     </div><!-- Container end -->
+
+    {{--SMALL DEVICES--}}
+    <div class="container  hide-large">
+      <div class="action-style-box">
+        <div class="row align-items-center">
+
+          <div class="col-2">
+            <div class="ts-facts-img">
+              <a href="/citizensCharter/citizensCharter"><img loading="lazy" width="250%" src="{{asset('constra/images/SRA/sra_citizens_charter_logo.png')}}" alt="facts-img"></a>
+            </div>
+          </div><!-- Col end -->&nbsp; &nbsp;
+
+          <div class="col-2">
+            <div class="ts-facts-img">
+              <a href="/ph_tp_seal/index"><img loading="lazy" width="180%" src="{{asset('constra/images/SRA/Translogo.png')}}" alt="facts-img"></a>
+            </div>
+          </div><!-- Col end -->&nbsp;
+
+          <div class="col-2">
+            <div class="ts-facts-img">
+              <img loading="lazy" width="180%" src="{{asset('constra/images/SRA/GCG-logo.png')}}" alt="facts-img">
+            </div>
+          </div><!-- Col end -->&nbsp;
+
+          <div class="col-2 ">
+            <div class="ts-facts-img">
+              <a href="https://www.foi.gov.ph/" target="_blank"><img loading="lazy" width="180%" src="{{asset('constra/images/SRA/foi_logo-300x300.png')}}" alt="facts-img"></a>
+            </div>
+          </div><!-- Col end -->&nbsp;
+
+          {{--          <div class="col-md-2 col-sm-6 ts-facts mt-5 mt-md-0">--}}
+          {{--            <div class="ts-facts-img">--}}
+          {{--                <a target="_blank" href="https://www.lbp-eservices.com/egps/portal/index.jsp"><img loading="lazy" width="100%" src="{{asset('constra/images/SRA/linkbizbtn_wbg-300x135.png')}}" alt="facts-img"></a>--}}
+
+          {{--              <img class="mt-3" loading="lazy" width="80%" src="{{asset('constra/images/SRA/NAFMIP1.jpg')}}" alt="facts-img">--}}
+          {{--            </div>--}}
+          {{--          </div>--}}
+
+          <div class="col-2">
+            <div class="ts-facts-img">
+              {{--              <img loading="lazy" width="80%" src="{{asset('constra/images/SRA/japan-npga-300x112.png')}}" alt="facts-img">--}}
+              <img   loading="lazy" width="270%" height="300%" src="{{asset('constra/images/SRA/TUV.jpg')}}" alt="facts-img">
+            </div>
+          </div><!-- Col end -->&nbsp;
+
+          <!-- <div class="col-md-8 text-center text-md-left">
+              <div class="call-to-action-text">
+                <h3 class="action-title">We understand your needs on construction</h3>
+              </div>
+          </div>
+          <div class="col-md-12 text-center mt-3 mt-md-0">
+              <div class="call-to-action-btn">
+                <a class="btn btn-dark" href="#">Industry Update</a>
+              </div>
+          </div>col end -->
+        </div><!-- row end -->
+      </div><!-- Action style box -->
+    </div><!-- Container end -->
   </section><!-- Action end -->
 
   <section id="ts-features" class="ts-features">
@@ -139,7 +202,7 @@
           <div class="ts-intro">
             <div class="container">
               <h4 style="font-size: 32px;" class="section-sub-title">Latest Industry Updates</h4>
-              <table class="table table-condensed text-justify" style="width: 100%">
+              <table class="table table-condensed" style="width: 100%">
                 <tr>
 
                   @php
@@ -156,39 +219,39 @@
 
                   @if(! empty($latest_sugarSupplyDemand))
 
-                    <td style="width: 70%" ><strong>Sugar Supply and Demand Situation</strong></td>
+                    <td style="width: 70%" class="text-justify"><strong>Sugar Supply and Demand Situation</strong></td>
                     <td style="color: green"><a target="_blank" href="/view_file/sugar_supply_demand/{!!$latest_sugarSupplyDemand->slug!!}"><u>{{Carbon::parse($latest_sugarSupplyDemand->date)->format('F j, Y')}}</u></a></td>
                   @endif
                 </tr>
                 <tr>
-                  <td><strong>Weekly Comparative Production</strong></td>
+                  <td class="text-justify"><strong>Weekly Comparative Production</strong></td>
                   @foreach($weekly_comparative_production as $WCP)
                     <td style="color: green"><a target="_blank" href="/view_file/weekly_comparative_production/{!! $WCP->slug !!}"><u>{{Carbon::parse($WCP->date)->format('F j, Y')}}</u></a></td>
                     @endforeach
                 </tr>
                 <tr>
-                    <td><strong>Sugar Statistics<strong></td>
+                    <td class="text-justify"><strong>Sugar Statistics<strong></td>
 
                 @foreach($sugarStatistics as $latest_SS)
                   <td style="color: green"><a target="_blank" href="/view_file/sugar_statistics/{!!$latest_SS->slug!!}"><u>{{Carbon::parse($latest_SS->date)->format('F j, Y')}}</u></a></td>
                 @endforeach
                 </tr>
                 <tr>
-                  <td><strong>Sugar Prices in Metro Manila</strong></td>
+                  <td class="text-justify"><strong>Sugar Prices in Metro Manila</strong></td>
                   @foreach($metroManilaPrices as $latest_MMP)
                   <td style="color: green"><a target="_blank" href="/view_file/metro_manila_prices/{!!$latest_MMP->slug!!}"><u>{{Carbon::parse($latest_MMP->date)->format('F j, Y')}}</u></a></td>
                   @endforeach
 
                 </tr>
                 <tr>
-                  <td><strong>Weekly Millsite Prices of Sugar and Molasses</strong></td>
+                  <td class="text-justify"><strong>Weekly Millsite Prices of Sugar and Molasses</strong></td>
                   @foreach($millsitePrices as $latest_MSP)
                   <td style="color: green"><a target="_blank" href="/view_file/millsite_prices/{!!$latest_MSP->slug!!}"><u>{{Carbon::parse($latest_MSP->date)->format('F j, Y')}}</u></a></td>
                   @endforeach
 
                 </tr>
                 <tr>
-                  <td><strong>Bioethanol Reference Price</strong></td>
+                  <td class="text-justify"><strong>Bioethanol Reference Price</strong></td>
                   @foreach($bioethanolRF as $latest_BRP)
                     <td style="color: green"><a target="_blank" href="/view_file/bioethanol_reference_price/{!!$latest_BRP->slug!!}"><u>{{Carbon::parse($latest_BRP->date)->format('F j, Y')}}</u></a></td>
                   @endforeach
@@ -197,13 +260,13 @@
                 <tr>
 {{--                  List of Accredited Customs Bonded Warehouse (CBW) Operators/ Food Processors/ Exporters/ Importers with Approved SRA Clearances of Imported Sugar for the month of January 2023--}}
                   @foreach($circularletter as $latest_circular)
-                    <td><strong>{{$latest_circular->title}}</strong></td>
+                    <td class="text-justify"><strong>{{$latest_circular->title}}</strong></td>
                     <td style="color: green"><a target="_blank" href="/view_file/circular_letter/{!!$latest_circular->slug!!}"><u style="">{{$latest_circular->file_title}}</u></a></td>
                     @endforeach
                 </tr>
                 <tr>
                   @foreach($sugar_order as $so)
-                    <td><strong>{{$so->title}}</strong></td>
+                    <td class="text-justify"><strong>{{$so->title}}</strong></td>
                     <td style="color: green"><a target="_blank" href="/view_file/sugar_order/{!!$so->slug!!}"><u style="">{{$so->file_title}}</u></a></td>
                     @endforeach
                 </tr>
@@ -212,7 +275,7 @@
 {{--                  Schedule of Acceptance of Applications and Requirements by the SRA RD in QC and Bacolod under SO 6 s. 2022-23.--}}
 
                     @foreach($memorandomCercular as $latest_MC)
-                    <td><strong>{{$latest_MC->title}}</strong></td>
+                    <td class="text-justify"><strong>{{$latest_MC->title}}</strong></td>
                     <td style="color: green"><a target="_blank" href="/view_file/memorandum_circular/{!!$latest_MC->slug!!}"><u>{{$latest_MC->file_title}}</u></a></td>
                       @endforeach
                 </tr>
@@ -340,14 +403,14 @@
       <div class="row">
         <div class="col-6">
           <div class="row text-center">
+
+          </div>
+          {{-- Large Device--}}
+          <div class="row facts-wrapper xsmall large" style="border-right-style: dotted;" >
             <div class="col-12">
               <h3 class="section-sub-title">Bulletin Board</h3>
             </div>
-          </div>
-          <div class="row facts-wrapper" style="border-right-style: dotted;" >
-
-
-            <table class="table table-condensed text-justify" >
+            <table class="table table-condensed text-justify">
               @php
                 $bulletin_board = \App\Models\BulletinBoard::query()->orderBy('created_at')->limit(5)->get();
               @endphp
@@ -356,62 +419,52 @@
                 @if($bb->Post >0)
               <tr>
                 <td>
-                  <img loading="lazy" class="testimonial-thumb" src="{{asset('constra/images/pin.png')}}" alt="">
+                  <img loading="lazy" width="80px" class="testimonial-thumb" src="{{asset('constra/images/pin.png')}}" alt="">
                 </td>
                 <td>
                   <b class="d-inline-block" style="font-size: 16px" >{{$bb->title}} <a target="_blank" href="/view_file/bulletin_board/{!!$bb->slug!!}" style="color: green">Read more..</a> </b>
                 </td>
-
               </tr>
                 @endif
               @endforeach
               <tr><td></td><td></td></tr>
 
             </table>
-
-
-
-{{--            @php--}}
-{{--              $newsList = \App\Models\News::query()->get();--}}
-{{--              $newsImageList = [];--}}
-{{--            @endphp--}}
-{{--            @if(count($newsList) >0)--}}
-{{--              @foreach($newsList as $news)--}}
-{{--                @php--}}
-{{--                  $ldate = date('Y-m-d');--}}
-
-{{--                  if(Carbon::parse($news->date_start)->format('Y-m-d') <= $ldate && Carbon::parse($news->date_end)->format('Y-m-d') >= $ldate) {--}}
-{{--                       $newsImageList = \App\Models\NewsImage::query()->where('news_id','=',$news->slug)->orderByDesc('id')->limit(3)->get();--}}
-{{--                    }--}}
-{{--                @endphp--}}
-{{--                @foreach($newsImageList as $newsImage)--}}
-{{--                  @if($newsImageList->count()<2)--}}
-{{--                    <div class="col-lg-4 col-md-6 mb-4">--}}
-{{--                      <div class="latest-post">--}}
-{{--                        <div class="latest-post-media">--}}
-{{--                          <a href="" class="latest-post-img">--}}
-{{--                            <img loading="lazy" class="img-fluid" src="{{ url('view_file/sra_website/'.$newsImage->slug) }}" alt="img">--}}
-{{--                          </a>--}}
-{{--                        </div>--}}
-{{--                        <div class="post-body">--}}
-{{--                          <h4 class="post-title">--}}
-{{--                            <a class="btn" onclick="viewNews('{!!$news->id!!}')" class="d-inline-block">{!!$news->title!!}</a>--}}
-{{--                          </h4>--}}
-{{--                          <div class="latest-post-meta">--}}
-{{--                      <span class="post-item-date">--}}
-{{--                        <i class="fa fa-clock-o"></i> {{Carbon::parse($news->date)->format('M|j|Y')}}--}}
-{{--                      </span>--}}
-{{--                          </div>--}}
-{{--                        </div>--}}
-{{--                      </div><!-- Latest post end -->--}}
-{{--                    </div><!-- 1st post col end -->--}}
-{{--                  @endif--}}
-{{--                @endforeach--}}
-{{--              @endforeach--}}
-{{--            @endif--}}
             <div class="general-btn text-center mt-4">
             </div>
           </div>
+
+
+{{-- Small Device--}}
+          <div class="row facts-wrapper hide-large" style="border-right-style: dotted; " >
+            <div class="col-12">
+              <h3 class="section-sub-title">Bulletin Board</h3>
+            </div>
+
+            <table class="table table-condensed text-justify" >
+              @php
+                $bulletin_board = \App\Models\BulletinBoard::query()->orderBy('created_at')->limit(5)->get();
+              @endphp
+
+              @foreach($bulletin_board as $bb)
+                @if($bb->Post >0)
+                  <tr>
+
+                    <td>
+                      <b class="d-inline-block" style="font-size: 16px" >{{$bb->title}} <a target="_blank" href="/view_file/bulletin_board/{!!$bb->slug!!}" style="color: green">Read more..</a> </b>
+                    </td>
+
+                  </tr>
+                @endif
+              @endforeach
+              <tr><td></td><td></td></tr>
+
+            </table>
+            <div class="general-btn text-center mt-4">
+            </div>
+          </div>
+
+
         </div>
 
         <div class="col-6">
@@ -479,7 +532,9 @@
           <div class="row text-center">
             <div class="col-12">
 {{--              <h5 class="service-box-title"><a href="#">The Administrator's Portal</a></h5>--}}
-              <h4 class="section-sub-title">Acting Administrator and CEO</h4>
+              <h4 class="section-sub-title xsmall large">Acting Administrator and CEO</h4>
+              <h4 class="section-sub-title hide-large" style="font-size: 23px;">Acting Administrator and CEO</h4>
+
               <img width="450px" height="600px" style="margin-top: -10%; border: 5px solid green" loading="lazy" class="img-fluid" src="{{asset('constra/images/SRA/PABLO LUIS S. AZCONA.jpg')}}" alt="admin-image">
               <h5 class="mb-5 mt-3 text-uppercase" style="margin-top: -10%">HON. Pablo Luis S. Azcona</h5>
             </div>
@@ -487,7 +542,8 @@
         </div>
 
         <div class="col-6">
-          <h3 class="column-title">We love to hear from you</h3>
+          <h3 class="column-title xsmall large">We love to hear from you</h3>
+          <h3 class="column-title hide-large" style="font-size: 20px;">We love to hear from you</h3>
           <!-- contact form works with formspree.io  -->
           <!-- contact form activation doc: https://docs.themefisher.com/constra/contact-form/ -->
           <form id="contact-us-form" name="contact-us-form" method="post" role="form">

@@ -8,10 +8,7 @@
                 @php
                     $Visitors = \App\Models\Visitors::query()->get()->sum('visitors');
                     $Visitor =\App\Models\Visitors::query()->orderBy('countryName')->get();
-
-
                 @endphp
-
 
                 <div style="margin-top: 1px;">
                         <tr >

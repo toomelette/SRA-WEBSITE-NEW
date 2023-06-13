@@ -76,7 +76,7 @@
                                                 <ul>
                                                     @foreach ($weekly_CP as $weeklyCP)
                                                         @if($cropYear->slug == $weeklyCP->crop_year_slug)
-                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/weekly_comparative_production/{!!$weeklyCP->slug!!}" >{!!$weeklyCP->file_title!!},</a>{!!$weeklyCP->title!!}</a></li>
+                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/weekly_comparative_production/{!!$weeklyCP->slug!!}" >{!!$weeklyCP->title!!}</a></li>
                                                         @endif
                                                     @endforeach
 

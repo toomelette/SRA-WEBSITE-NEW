@@ -50,7 +50,7 @@
 
                     <p>
                     @php
-                        $sugar_statistics = \App\Models\SugarStatistics::query()->get()->sortByDesc('id');
+                        $sugar_statistics = \App\Models\SugarStatistics::query()->get()->sortByDesc('date');
                         $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');
                         $clYearList = array();
                         foreach($sugar_statistics as $cl){
@@ -77,7 +77,7 @@
                                                 <ul>
                                                     @foreach ($sugar_statistics as $sugarStatistics)
                                                         @if($cropYear->slug == $sugarStatistics->crop_year_slug)
-                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/sugar_statistics/{{$sugarStatistics->slug}}" >{!!$sugarStatistics->file_title!!},</a>{!!$sugarStatistics->title!!}</a></li>
+                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/sugar_statistics/{{$sugarStatistics->slug}}" >{!!$sugarStatistics->title!!}</a></li>
                                                         @endif
                                                     @endforeach
 

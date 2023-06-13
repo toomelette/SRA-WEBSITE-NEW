@@ -48,7 +48,7 @@
                 <div class="col-lg-12">
                     <p>
                     @php
-                        $sugar_supply_demand = \App\Models\SugarSupplyDemand::query()->get()->sortByDesc('id');
+                        $sugar_supply_demand = \App\Models\SugarSupplyDemand::query()->get()->sortByDesc('date');
                         $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');
                         $clYearList = array();
                         foreach($sugar_supply_demand as $cl){
@@ -75,7 +75,7 @@
                                                 <ul>
                                                     @foreach ($sugar_supply_demand as $sugarSupplyDemand)
                                                         @if($cropYear->slug == $sugarSupplyDemand->crop_year_slug)
-                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/sugar_supply_demand/{!!$sugarSupplyDemand->slug!!}" >{!!$sugarSupplyDemand->file_title!!},</a>{!!$sugarSupplyDemand->title!!}</a></li>
+                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/sugar_supply_demand/{!!$sugarSupplyDemand->slug!!}" >{!!$sugarSupplyDemand->title!!}</a></li>
                                                         @endif
                                                     @endforeach
 
