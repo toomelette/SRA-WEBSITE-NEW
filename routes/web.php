@@ -519,6 +519,10 @@ Route::group(['prefix'=>'dashboard', 'as' => 'dashboard.',
     Route::resource('GAD_videos', 'GAD_videosController');
     Route::resource('GAD_activities', 'GAD_activitiesController');
 
+    /**Visitors**/
+    Route::resource('visitors', 'VisitorsController');
+
+
 
 });
 
