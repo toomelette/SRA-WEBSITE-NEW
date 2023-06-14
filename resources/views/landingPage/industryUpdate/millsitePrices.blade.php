@@ -49,7 +49,7 @@
 
                     <p>
                     @php
-                        $millsite_prices = \App\Models\MillsitePrices::query()->get()->sortByDesc('id');
+                        $millsite_prices = \App\Models\MillsitePrices::query()->get()->sortByDesc('date');
                         $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');
                         $clYearList = array();
                         foreach($millsite_prices as $cl){

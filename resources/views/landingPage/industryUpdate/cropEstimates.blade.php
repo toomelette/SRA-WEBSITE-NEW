@@ -49,7 +49,7 @@
 
                     <p>
                     @php
-                        $crop_estimates = \App\Models\CropEstimates::query()->get()->sortByDesc('id');
+                        $crop_estimates = \App\Models\CropEstimates::query()->get()->sortByDesc('date');
                     @endphp
                     @if(count($crop_estimates) > 0)
                         <ul>

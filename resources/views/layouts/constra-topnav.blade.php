@@ -4,7 +4,7 @@
       <div class="col-lg-8 col-md-8">
         <ul class="top-info text-center text-md-left">
           <li >
-            <a href="https://goo.gl/maps/s1Nw9SvtgoqFrA818" style="width: 30px; color: green" ><i class="fas fa-map-marker-alt"></i></a> <p class="info-text">Sugar Center Bldg., North Avenue, Diliman, Quezon City</p>
+            <a href="https://goo.gl/maps/s1Nw9SvtgoqFrA818" style="width: 30px; color: green" ><i class="fas fa-map-marker-alt"></i></a> <p class="info-text">Sugar Center Bldg., North Avenue, Diliman, Quezon City &nbsp;  (02) 455-3524 / (02) 455-2135 / (02) 455-1589</p>
           </li>
         </ul>
       </div>
@@ -177,10 +177,15 @@
 
       <div class="search-block" style="display: none;">
         <label for="search-field" class="w-100 mb-0">
-          <input type="text" name="search" class="form-control" id="search-field" placeholder="Type what you want and enter">
+          <form action="{{ route('search') }}"  method="GET">
+          <input type="text" name="query" class="form-control" id="searchInput" placeholder="Type what you want and enter">
+          <button type="submit">Search</button>
+          </form>
         </label>
-        <span class="search-close">&times;</span>
+        <span class="search-close">x</span>
       </div><!-- Site search end -->
+
+      <ul id="searchResults"></ul>
 
 
     </div>
@@ -188,3 +193,4 @@
   </div>
   <!--/ Navigation end -->
 </header>
+

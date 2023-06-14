@@ -45,12 +45,12 @@
     <section id="main-container" class="main-container">
         <div class="container mt-3">
             <!-- Nav tabs -->
-            <ul class="nav nav-tabs">
+            <ul class="nav nav-pills">
                 <li class="nav-item">
                     <a class="nav-link active" data-toggle="tab" href="#home">CITIZEN'S CHARTER UPDATES</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#menu1">CERTIFICATE OF COMPLIANCE</a>
+                    <a class="nav-link " data-toggle="tab" href="#menu1">CERTIFICATE OF COMPLIANCE</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="tab" href="#menu2">EXECUTIVE ORDER</a>

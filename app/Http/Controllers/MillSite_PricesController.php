@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\MillsitePrices\MillSitePricesFormRequest;
-use App\Http\Requests\MillsitePrices\MillSitePricesFilterRequest;
+use App\Http\Requests\MillSitePrices\MillSitePricesFormRequest;
+use App\Http\Requests\MillSitePrices\MillSitePricesFilterRequest;
 use App\Http\Requests\SugarSupplyDemand\SugarSupplyDemandFormRequest;
 use App\Models\MillsitePrices;
 use App\Models\CropYear;

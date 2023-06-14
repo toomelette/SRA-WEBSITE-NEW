@@ -48,7 +48,7 @@
         <div class="col-lg-12">
           <p>
           @php
-            $general_administrative_order = \App\Models\GeneralAdministrativeOrder::query()->get()->sortByDesc('id');
+            $general_administrative_order = \App\Models\GeneralAdministrativeOrder::query()->get()->sortByDesc('date');
             $year = \App\Models\Year::query()->get()->sortByDesc('id');
             $gaoYearList = array();
             foreach($general_administrative_order as $gao){

@@ -48,7 +48,7 @@
                 <div class="col-lg-12">
                     <p>
                     @php
-                        $expired_import_clearance = \App\Models\ExpiredImportClearance::query()->get()->sortByDesc('id');
+                        $expired_import_clearance = \App\Models\ExpiredImportClearance::query()->get()->sortByDesc('date');
                         $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');
                         $clYearList = array();
                         foreach($expired_import_clearance as $cl){

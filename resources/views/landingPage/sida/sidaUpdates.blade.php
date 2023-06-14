@@ -108,7 +108,7 @@
                     <div class="column">
                         <a href="/sida/blockFarm" target="_blank">
                         <div class="card">
-                            <img src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-blockfarm.jpg')}}" alt="Mike" style="width: 100%; height: 230px; object-fit: cover ;"">
+                            <img src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-blockfarm.jpg')}}" alt="" style="width: 100%; height: 230px; object-fit: cover ;">
                             <div class="container">
                                 <h2>Block Farm Program</h2>
                             </div>
@@ -119,7 +119,7 @@
                     <div class="column">
                         <a href="/sida/socializedCreditProg" target="_blank">
                         <div class="card">
-                            <img src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-socialized.jpg')}}" alt="Mike" style="width: 100%; height: 230px; object-fit: cover ;">
+                            <img src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-socialized.jpg')}}" alt="" style="width: 100%; height: 230px; object-fit: cover ;">
                             <div class="container">
                                 <h2>Socialized Credit Program</h2>
                             </div>
@@ -129,7 +129,7 @@
                     <div class="column">
                         <a href="/sida/farmMechanization" target="_blank">
                         <div class="card">
-                            <img src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-farm-mech.jpg')}}" alt="Mike" style="width: 100%; height: 230px; object-fit: cover ;">
+                            <img src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-farm-mech.jpg')}}" alt="" style="width: 100%; height: 230px; object-fit: cover ;">
                             <div class="container">
                                 <h2>Farm Mechanization</h2>
                             </div>
@@ -139,7 +139,7 @@
                     <div class="column">
                         <a href="/sida/infrastructureProg" target="_blank">
                         <div class="card">
-                            <img src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-Infra.jpg')}}" alt="Mike" style="width: 100%; height: 230px; object-fit: cover ;">
+                            <img src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-Infra.jpg')}}" alt="" style="width: 100%; height: 230px; object-fit: cover ;">
                             <div class="container">
                                 <h2>Infrastructure Program</h2>
                             </div>
@@ -149,7 +149,7 @@
                     <div class="column">
                         <a href="/sida/RDEProg" target="_blank">
                         <div class="card">
-                            <img src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-RDE.jpg')}}" alt="Mike" style="width: 100%; height: 236px; object-fit: cover ;">
+                            <img src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-RDE.jpg')}}" alt="" style="width: 100%; height: 236px; object-fit: cover ;">
                             <div class="container">
                                 <h3 style="font-size: 22px;">Research, Development & Extension Program</h3>
                             </div>
@@ -159,7 +159,7 @@
                     <div class="column">
                         <a href="/sida/scholarshipProg" target="_blank">
                         <div class="card">
-                            <img src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-scholarship.jpg')}}" alt="Mike" style="width: 100%; height: 230px; object-fit: cover ;">
+                            <img src="{{asset('constra/images/SIDA/SidaUpdates/SIDA-scholarship.jpg')}}" alt="" style="width: 100%; height: 230px; object-fit: cover ;">
                             <div class="container">
                                 <h2>Scholarship Program</h2>
                             </div>

@@ -49,7 +49,7 @@
 
                     <p>
                     @php
-                        $weekly_CP = \App\Models\WeeklyComparativeProduction::query()->get()->sortByDesc('id');
+                        $weekly_CP = \App\Models\WeeklyComparativeProduction::query()->get()->sortByDesc('date');
                         $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');
                         $clYearList = array();
                         foreach($weekly_CP as $cl){

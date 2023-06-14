@@ -358,6 +358,16 @@
     </div><!-- Container end -->
   </section><!-- Feature are end -->
 
+  <aside>
+    <div class="container">
+      <div class="facts-wrapper">
+        <div class="row">
+
+        </div>
+      </div>
+    </div>
+  </aside>
+
 
 
 
@@ -625,6 +635,38 @@
     function viewNews(id){
       window.open("{{route('newsRoute', 'ID')}}".replace('ID', id),'_blank').focus();
     }
+
+ /*Search*/
+    $(document).ready(function() {
+      $('form').on('submit', function(e) {
+        e.preventDefault();
+
+        var query = $('#searchInput').val();
+
+        $.ajax({
+          type: 'GET',
+          url: '{{ route('search') }}',
+          data: { query: query },
+          success: function(response) {
+            var results = response.results;
+            var list = $('#searchResults');
+
+            list.empty(); // Clear previous search results
+
+            if (results.length > 0) {
+              $.each(results, function(index, result) {
+                list.append('<li>' + result + '</li>');
+              });
+            } else {
+              list.append('<li>No results found.</li>');
+            }
+          }
+        });
+      });
+    });
+
+
+
   </script>
 </div><!-- Body inner end -->
 </body>

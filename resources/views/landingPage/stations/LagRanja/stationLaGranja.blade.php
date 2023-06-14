@@ -46,7 +46,7 @@
         <div class="container mt-3">
             <h2>La Granja &nbsp; <a title="SRA La Granja" target="_blank" href="https://goo.gl/maps/MAuebhUcUeVLza5y9"><i class="fas fa-map-marker-alt"></i></a></h2>
             <!-- Nav tabs -->
-            <ul class="nav nav-tabs">
+            <ul class="nav nav-pills">
                 <li class="nav-item">
                     <a class="nav-link active" data-toggle="tab" href="#home">ANNOUNCEMENT</a>
                 </li>

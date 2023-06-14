@@ -45,7 +45,7 @@
     <section id="main-container" class="main-container">
         <div class="container mt-3">
             <!-- Nav tabs -->
-            <ul class="nav nav-tabs">
+            <ul class="nav nav-pills">
                 <li class="nav-item">
                     <a class="nav-link active" data-toggle="tab" href="#home">BACOLOD</a>
                 </li>
@@ -69,9 +69,9 @@
 
                     </style>
 {{--SubTabStart--}}
-                    <ul class="nav nav-tabs">
+                    <ul class="nav nav-pills">
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#home1">ANNOUNCEMENT</a>
+                            <a class="nav-link active" data-toggle="tab" href="#home1">ANNOUNCEMENT</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#menu11">EVENT</a>
@@ -111,9 +111,9 @@
                 <div id="menu1" class="container tab-pane fade"><br>
                     <h3>LAGRANJA STATION</h3>
                     {{--SubTabStart--}}
-                    <ul class="nav nav-tabs">
+                    <ul class="nav nav-pills">
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#home11">ANNOUNCEMENT</a>
+                            <a class="nav-link active" data-toggle="tab" href="#home11">ANNOUNCEMENT</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#menu111">EVENT</a>
@@ -152,9 +152,9 @@
                 <div id="menu2" class="container tab-pane fade"><br>
                     <h3>PAMPANGA STATION</h3>
                     {{--SubTabStart--}}
-                    <ul class="nav nav-tabs">
+                    <ul class="nav nav-pills">
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#home111">ANNOUNCEMENT</a>
+                            <a class="nav-link active" data-toggle="tab" href="#home111">ANNOUNCEMENT</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#menu1111">EVENT</a>

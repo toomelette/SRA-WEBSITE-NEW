@@ -48,7 +48,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <!-- Nav tabs -->
-                    <ul class="nav nav-tabs">
+                    <ul class="nav nav-pills">
                         <li class="nav-item">
                             <a class="nav-link active" role="presentation" data-toggle="tab" href="#home">SIDA BLOCK FARM (LUZON AND MINDANAO)</a>
                         </li>

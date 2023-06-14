@@ -49,7 +49,7 @@
 
                     <p>
                     @php
-                        $bioethanol_reference_price = \App\Models\BioethanolReferencePrice::query()->get()->sortByDesc('id');
+                        $bioethanol_reference_price = \App\Models\BioethanolReferencePrice::query()->get()->sortByDesc('date');
                         $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');
                         $clYearList = array();
                         foreach($bioethanol_reference_price as $cl){

@@ -49,7 +49,7 @@
 
           <p>
           @php
-            $memorandum_order = \App\Models\MemorandumOrder::query()->get()->sortByDesc('id');
+            $memorandum_order = \App\Models\MemorandumOrder::query()->get()->sortByDesc('date');
             $Year = \App\Models\Year::query()->get()->sortByDesc('id');
             $clYearList = array();
             foreach($memorandum_order as $cl){

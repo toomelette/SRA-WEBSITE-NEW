@@ -49,7 +49,7 @@
 
                     <p>
                     @php
-                        $metro_manila_prices = \App\Models\MetroManilaPrices::query()->get()->sortByDesc('id');
+                        $metro_manila_prices = \App\Models\MetroManilaPrices::query()->get()->sortByDesc('date');
                         $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');
                         $clYearList = array();
                         foreach($metro_manila_prices as $cl){

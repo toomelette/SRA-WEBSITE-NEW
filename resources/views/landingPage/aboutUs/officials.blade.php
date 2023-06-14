@@ -156,7 +156,7 @@
                   <table width="100%">
                     <tbody>
                     <tr>
-                      <td width="198" valign="top">&nbsp;<img src="{{asset('constra/images/officials/Atty.-Bran.png')}}" alt="" width="160" height="166">
+                      <td width="198" valign="top">&nbsp;<img src="{{asset('constra/images/officials/Atty.-Bran.png')}}" alt="" style="width: 100%; height: 190px; object-fit: cover; ">
                         <p align="center"><strong>ATTY. BRANDO D. NOROÑA</strong></p>
                         <p align="center">Deputy Administrator for Administration and Finance</p>
                         <pre>Email: <a href="mailto:dep.adm.afd@sra.gov.ph"> dep.adm.afd@sra.gov.ph</a></pre>

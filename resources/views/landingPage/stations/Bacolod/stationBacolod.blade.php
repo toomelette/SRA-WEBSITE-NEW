@@ -47,7 +47,7 @@
             <h2>Bacolod &nbsp;<a title="SRA Bacolod" target="_blank" href="https://goo.gl/maps/KQq1fJbGLT4Lghix7"><i class="fas fa-map-marker-alt"></i></a></h2>
 
             <!-- Nav tabs -->
-            <ul class="nav nav-tabs">
+            <ul class="nav nav-pills">
                 <li class="nav-item">
                     <a class="nav-link active" data-toggle="tab" href="#home">ANNOUNCEMENT</a>
                 </li>

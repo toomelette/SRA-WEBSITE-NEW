@@ -47,7 +47,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     @php
-                        $sugar_order = \App\Models\MillingShedule::query()->get()->sortByDesc('id');
+                        $sugar_order = \App\Models\MillingShedule::query()->get()->sortByDesc('date');
                         $clYearList = [];
                         foreach($sugar_order as $order){
                           $clYearList[$order->crop_year][$order->slug] =  $order;

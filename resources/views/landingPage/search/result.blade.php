@@ -5,7 +5,7 @@
     <!-- Basic Page Needs
   ================================================== -->
     <meta charset="utf-8">
-    <title>Infrastructure Program | SRA</title>
+    <title>Search | SRA</title>
 
     <!-- Mobile Specific Metas
   ================================================== -->
@@ -28,12 +28,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="banner-heading">
-                            <h1 class="banner-title">Infrastructure Program</h1>
+                            <h1 class="banner-title">Search</h1>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb justify-content-center">
-                                    <li class="breadcrumb-item active" aria-current="page">SIDA</li>
-                                    <li class="breadcrumb-item active" aria-current="page">Industry Update</li>
-                                    <li class="breadcrumb-item active" aria-current="page">Infrastructure Program</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Search</li>
+                                    <li class="breadcrumb-item active" aria-current="page">SRA</li>
                                 </ol>
                             </nav>
                         </div>
@@ -47,47 +46,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <!-- Nav tabs -->
-                    <ul class="nav nav-pills">
-                        <li class="nav-item">
-                            <a class="nav-link active" role="presentation" data-toggle="tab" href="#home">SIDA INFRASTRUCTURE (FMR PROJECT)</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" role="presentation" data-toggle="tab" href="#menu1">SIDA INFRASTRUCTURE (BRIDGE PROJECT)</a>
-                        </li>
-
-                    </ul>
-
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                        <div id="home" class="container tab-pane active"><br>
-                            <h3>SIDA INFRASTRUCTURE (FMR PROJECT)</h3>
-                            <style>
-                                table1 {
-                                    border-top: 5px solid green;
-
-                                }
-
-                            </style>
-                            @include('landingPage.sida.SidaInfrasTrastructure.infrasFMR')
-                        </div><!-- Col end -->
-
-                        <div id="menu1" class="container tab-pane fade"><br>
-                            <h3>SIDA INFRASTRUCTURE (BRIDGE PROJECT)</h3>
-                            <div>
-                                @include('landingPage.sida.SidaInfrasTrastructure.infrasBridge')
-                            </div>
+                    <h2>Search Result</h2><br>
 
 
 
-                        </div>
-
-                    </div>
-                </div>
-
+                </div><!-- Col end -->
             </div><!-- Content row end -->
-
-
 
         </div><!-- Container end -->
     </section><!-- Main container end -->

@@ -49,7 +49,7 @@
 
                     <p>
                     @php
-                        $road_map = \App\Models\RoadMap::query()->get()->sortByDesc('id');
+                        $road_map = \App\Models\RoadMap::query()->get()->sortByDesc('date');
                     @endphp
                     @if(count($road_map) > 0)
                         <ul>

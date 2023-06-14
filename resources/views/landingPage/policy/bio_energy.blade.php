@@ -48,7 +48,7 @@
                 <div class="col-lg-12">
                     <p>
                     @php
-                        $bio_energy= \App\Models\BioEnergy::query()->get()->sortByDesc('id');
+                        $bio_energy= \App\Models\BioEnergy::query()->get()->sortByDesc('date');
                         /*$crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');
                         $moYearList = array();
                           foreach($molasses_order as $mo){

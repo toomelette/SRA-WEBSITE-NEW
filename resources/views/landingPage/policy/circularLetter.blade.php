@@ -49,7 +49,7 @@
 
           <p>
           @php
-            $circular_letter = \App\Models\CircularLetter::query()->get()->sortByDesc('id');
+            $circular_letter = \App\Models\CircularLetter::query()->get()->sortByDesc('date');
             $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');
             $clYearList = array();
             foreach($circular_letter as $cl){

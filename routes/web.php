@@ -19,6 +19,9 @@ Route::group(['as' => 'auth.'], function () {
     Route::get('/reset_password_via_email','Auth\AccountRecoveryController@reset_password_via_email')->name('reset_password_via_email');
 });
 
+Route::get('search/result', 'SearchController@search')->name('search');
+
+
 /** HOME **/
 Route::get('/dashboard/home', 'HomeController@index')->name('dashboard.home')->middleware('check.user_status');
 

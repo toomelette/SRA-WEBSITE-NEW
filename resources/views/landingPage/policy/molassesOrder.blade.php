@@ -48,7 +48,7 @@
         <div class="col-lg-12">
           <p>
           @php
-            $molasses_order = \App\Models\MolassesOrder::query()->get()->sortByDesc('id');
+            $molasses_order = \App\Models\MolassesOrder::query()->get()->sortByDesc('date');
             /*$crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');
             $moYearList = array();
               foreach($molasses_order as $mo){

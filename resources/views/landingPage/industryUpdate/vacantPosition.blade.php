@@ -49,7 +49,7 @@
 
                     <p>
                     @php
-                        $vacant_position = \App\Models\VacantPosition::query()->get()->sortByDesc('id');
+                        $vacant_position = \App\Models\VacantPosition::query()->get()->sortByDesc('date');
                         $Year = \App\Models\Year::query()->get()->sortByDesc('id');
                         $clYearList = array();
                         foreach($vacant_position as $cl){

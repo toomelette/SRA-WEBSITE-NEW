@@ -48,7 +48,7 @@
         <div class="col-lg-12">
           <p>
           @php
-            $memorandum_circular = \App\Models\MemorandumCircular::query()->get()->sortByDesc('id');
+            $memorandum_circular = \App\Models\MemorandumCircular::query()->get()->sortByDesc('date');
             $year = \App\Models\Year::query()->get()->sortByDesc('id');
             $mcYearList = array();
             foreach($memorandum_circular as $mC){
