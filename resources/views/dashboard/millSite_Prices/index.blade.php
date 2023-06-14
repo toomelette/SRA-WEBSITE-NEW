@@ -43,8 +43,8 @@
                 </div>
             </div>
             <div class="box-body">
-                <div id="bioEnergy_table_container" style="">
-                    <table class="table table-bordered table-striped table-hover" id="bioEnergy_table" style="width: 100% !important">
+                <div id="sugar_order_table_container" style="">
+                    <table class="table table-bordered table-striped table-hover" id="sugar_order_table" style="width: 100% !important">
                         <thead>
                         <tr class="">
                             <th width="10%" class="">Crop Year</th>
@@ -105,14 +105,14 @@
             //Initialize DataTable
             modal_loader = $("#modal_loader").parent('div').html();
             active = '';
-            millsite_prices_tbl = $("#bioEnergy_table").DataTable({
+            millsite_prices_tbl = $("#sugar_order_table").DataTable({
                 'dom' : 'lBfrtip',
                 "processing": true,
                 "serverSide": true,
                 "ajax" : '{{ route("dashboard.millSite_Prices.index") }}',
                 "columns": [
                     { "data": "crop_year" },
-                    { "data": "date"},
+                    { "data": "date" },
                     { "data": "file_title" },
                     { "data": "title" },
                     { "data": "path" },
@@ -133,7 +133,7 @@
                 "responsive": false,
                 "initComplete": function( settings, json ) {
                     $('#tbl_loader').fadeOut(function(){
-                        $("#bioEnergy_table_container").fadeIn();
+                        $("#sugar_order_table_container").fadeIn();
                     });
                 },
                 "language":
@@ -144,16 +144,16 @@
                     $('[data-toggle="tooltip"]').tooltip();
                     $('[data-toggle="modal"]').tooltip();
                     if(active != ''){
-                        $("#bioEnergy_table #"+active).addClass('success');
+                        $("#sugar_order_table #"+active).addClass('success');
                     }
                 }
             })
 
-            style_datatable("#bioEnergy_table");
+            style_datatable("#sugar_order_table");
 
             //Need to press enter to search
-            $('#bioEnergy_table_filter input').unbind();
-            $('#bioEnergy_table_filter input').bind('keyup', function (e) {
+            $('#sugar_order_table_filter input').unbind();
+            $('#sugar_order_table_filter input').bind('keyup', function (e) {
                 if (e.keyCode == 13) {
                     millsite_prices_tbl.search(this.value).draw();
                 }
