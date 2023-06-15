@@ -177,16 +177,13 @@
 
       <div class="search-block" style="display: none;">
         <label for="search-field" class="w-100 mb-0">
-          <form action="{{ route('search') }}"  method="GET">
-          <input type="text" name="query" class="form-control" id="searchInput" placeholder="Type what you want and enter">
-          <button type="submit">Search</button>
+          <form action="{{ route('search') }}"  method="GET" >
+          <input type="text" name="query"  class="form-control" id="searchInput" placeholder="Type what you want and enter">
+{{--          <button type="submit" style="float: none; display: block;"><i class="fa fa-search"></i></button>--}}
           </form>
         </label>
         <span class="search-close">x</span>
       </div><!-- Site search end -->
-
-      <ul id="searchResults"></ul>
-
 
     </div>
     <!--/ Container end -->

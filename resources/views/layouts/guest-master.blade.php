@@ -428,8 +428,8 @@
               @foreach($bulletin_board as $bb)
                 @if($bb->Post >0)
               <tr>
-                <td>
-                  <img loading="lazy" width="80px" class="testimonial-thumb" src="{{asset('constra/images/pin.png')}}" alt="">
+                <td width="5px">
+                  <img loading="lazy" width=25px" class="testimonial-thumb" src="{{asset('constra/images/icons/pin.png')}}" alt="">
                 </td>
                 <td>
                   <b class="d-inline-block" style="font-size: 16px" >{{$bb->title}} <a target="_blank" href="/view_file/bulletin_board/{!!$bb->slug!!}" style="color: green">Read more..</a> </b>
@@ -636,34 +636,7 @@
       window.open("{{route('newsRoute', 'ID')}}".replace('ID', id),'_blank').focus();
     }
 
- /*Search*/
-    $(document).ready(function() {
-      $('form').on('submit', function(e) {
-        e.preventDefault();
 
-        var query = $('#searchInput').val();
-
-        $.ajax({
-          type: 'GET',
-          url: '{{ route('search') }}',
-          data: { query: query },
-          success: function(response) {
-            var results = response.results;
-            var list = $('#searchResults');
-
-            list.empty(); // Clear previous search results
-
-            if (results.length > 0) {
-              $.each(results, function(index, result) {
-                list.append('<li>' + result + '</li>');
-              });
-            } else {
-              list.append('<li>No results found.</li>');
-            }
-          }
-        });
-      });
-    });
 
 
 

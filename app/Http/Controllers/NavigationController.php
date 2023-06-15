@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Navigation;
 use App\Models\SubNav;
+use App\Models\SugarOrder;
 use App\Swep\Services\NavigationService;
 use App\Http\Requests\Navigation\NavigationFormRequest;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Yajra\DataTables\DataTables;
 
@@ -203,6 +206,8 @@ class NavigationController extends Controller{
     public function navRoute(){
         return 1;
     }
+
+
 
 
 
