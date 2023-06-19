@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-use Illuminate\Cache\ArrayStore;
+use Illuminate\Support\Facades\Cache;
 use Spatie\Activitylog\Models\Activity;
 use Yajra\DataTables\DataTables;
 use function foo\func;
@@ -303,7 +303,7 @@ class UserController extends Controller{
 
 
     public function edit($slug){
-        $all_menus = Menu::get();
+        $all_menus = Menu::query()->orderBy('category')->get();
         $user = User::where('slug',$slug)->first();
         $user_submenus_arr = [];
         foreach ($user->userSubmenu as $submenu){

@@ -281,14 +281,13 @@
                 </tr>
               </table>
             </div>
-
-
-
           </div><!-- Intro box end -->
 
           <div class="gap-20"></div>
 
         </div><!-- Col end -->
+
+
 
 
 {{--                      <div class="col-lg-6">--}}

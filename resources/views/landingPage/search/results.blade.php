@@ -34,22 +34,29 @@
                     <h2>Search Result for: "{{$query}}"</h2><br>
 
                     @if ($results->isEmpty())
-                        <div class="col-lg-offset-12">
-                            <form class="search-form" role="search" action="{{'results'}}" method="GET">
-                                <input type="text" class="col-lg-5" name="query" placeholder="Search">
-                                <button type="submit"><span class="fa fa-search"></span></button>
-                            </form>
+                        <div class="col-lg-offset-8">
+                            <table class="table table-bordered" style="border-color: black;">
+                                <tr style="">
+                                    <form class="search-form " role="search" action="{{'results'}}" method="GET" >
+                                        <input type="text" class="col-lg-6 rounded-left" name="query" placeholder="Search" style="background-color: whitesmoke; border-radius: 1px;">
+                                        <button type="submit" style="color: green; background-color: darkseagreen; width: 50px;" class="rounded-right"><span class="fa fa-search"></span></button>
+                                    </form>
+                                </tr>
+                                <tr>
+                                    <p><span class="fa fa-search" style="width: 20px;"></span>No results found for <strong> "{{ $query }}"</strong>.</p>
+                                </tr>
+                                <tr>
+                                    @else
 
-                        </div>
-                        <p><span class="fa fa-search" style="width: 20px;"></span>No results found for <strong> "{{ $query }}"</strong>.</p>
-                    @else
+                                        <ul style="font-size: larger; solid-color: black;">
+                                            @foreach($results as $result)
+                                                <li><a href="{{URL::to('/')}}/{!! $result->route!!}" >{{ $result->name }}</a></li><br>
+                                            @endforeach
+                                            @endif
+                                        </ul>
+                                </tr>
 
-                    <ul style="font-size: larger; solid-color: black;">
-                                                @foreach($results as $result)
-                                                    <li><a href="{{URL::to('/')}}/{!! $result->route!!}" >{{ $result->name }}</a></li>
-                                                @endforeach
-                        @endif
-                    </ul>
+                        </table>
 
                 </div><!-- Col end -->
 
@@ -61,9 +68,11 @@
                         <p><span class="fa fa-search" style="width: 20px;"></span>No files found related to <strong> "{{ $query }}"</strong>.</p>
                     @else
                         <ul style="font-size: larger; solid-color: black;">
+{{--                            <iframe src="http://localhost:8003/search/results?query=#result" width="600px" height="1000px"></iframe>--}}
                             @foreach($fileResults as $result)
 
-                                    <table style="height: auto;">
+
+                                    <table style="height: auto;" id="result">
                                         <tr>
                                             <td>
                                                 <img loading="lazy" class="testimonial-thumb" src="{{asset('constra/images/SRA/pdfDefault.gif')}}" alt="PDF LOGO">

@@ -4,13 +4,13 @@
 
 <section class="content-header">
     <h1>Website Management System</h1>
-        <div class="col-lg-2 bg-success pull-right text-center" style="border: 1px solid green">
+        <div class="col-lg-2 bg-success pull-right text-center" style="border: 0px solid green">
                 @php
                     $Visitors = \App\Models\Visitors::query()->get()->sum('visitors');
                     $Visitor =\App\Models\Visitors::query()->orderBy('countryName')->get();
                 @endphp
 
-                <div style="margin-top: 1px;">
+                <div style="margin-top: 0px;">
                         <tr >
                             <th><h3>Visitors Counter</h3></th>
                         </tr>
@@ -18,15 +18,15 @@
                         <tr>
                             <td><strong style="font-size: 30px;">{{str_pad($Visitors, 6, '0', STR_PAD_LEFT)}}</strong></td>
                         </tr><br>
-                    <table class="table table-bordered">
-                        @foreach($Visitor as $visitors)
+{{--                    <table class="table table-bordered">--}}
+{{--                        @foreach($Visitor as $visitors)--}}
 
-                        <tr>
-                        <td width="30px;">{{$visitors->countryName}}</td>
-                            <td width="20px;"> {{$visitors->visitors}}</td>
-                        </tr>
-                        @endforeach
-                    </table>
+{{--                        <tr>--}}
+{{--                        <td width="30px;">{{$visitors->countryName}}</td>--}}
+{{--                            <td width="20px;"> {{$visitors->visitors}}</td>--}}
+{{--                        </tr>--}}
+{{--                        @endforeach--}}
+{{--                    </table>--}}
 
                 </div>
 

@@ -1,10 +1,11 @@
+
 <div id="top-bar" class="top-bar">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-8">
         <ul class="top-info text-center text-md-left">
           <li >
-            <a href="https://goo.gl/maps/s1Nw9SvtgoqFrA818" style="width: 30px; color: green" ><i class="fas fa-map-marker-alt"></i></a> <p class="info-text">Sugar Center Bldg., North Avenue, Diliman, Quezon City &nbsp;  (02) 455-3524 / (02) 455-2135 / (02) 455-1589</p>
+            <a href="https://goo.gl/maps/s1Nw9SvtgoqFrA818" style="width: 30px; color: green" ><i class="fas fa-map-marker-alt"></i></a> <p class="info-text">Sugar Center Bldg., North Avenue, Diliman, Quezon City &nbsp  </p>
           </li>
         </ul>
       </div>
@@ -57,20 +58,19 @@
                       </td>
                     </tr>
                     <td>
-                      <p class="text-strong no-margin" style="font-size: 40px; color: green">SUGAR REGULATORY ADMINISTRATION</p>
+                      <p class="text-strong no-margin" style="font-size: 40px; color: green">SUGAR REGULATORY ADMINISTRATION</p><br>
+                      @php
+                        $date = Carbon::now()->format('l, F j, Y');
+                      @endphp
+                      <p  class="float-md-right">
+                        <strong>Today:</strong> {{$date}}
+                      </p>
                     </td>
                   </table>
 
                 </td>
               </tr>
-              <tr>
-                <td></td>
 
-              </tr>
-              <tr>
-                <td></td>
-
-              </tr>
             </table>
 
             {{--SMALL DEVICES--}}
@@ -95,6 +95,17 @@
                       <p class="text-strong no-margin" style="font-size: 40px">SRA  </p>
                       <p class="no-margin" style="font-size: 10px">SUGAR REGULATORY ADMINISTRATION</p>
                     </td>
+                    <tr>
+                      <td>
+                        @php
+                          $date = Carbon::now()->format('l, F j, Y');
+                        @endphp
+
+                        <p style="font-size: 10px;">
+                          <strong>Today:</strong> {{$date}}
+                        </p>
+                      </td>
+                    </tr>
                   </table>
 
                 </td>
@@ -104,7 +115,9 @@
 
               </tr>
               <tr>
-                <td></td>
+                <td>
+
+                </td>
 
               </tr>
             </table>

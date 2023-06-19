@@ -57,7 +57,7 @@ Edit
                         </div>
                     </div>
                 @else
-                    <div class="panel panel-default">
+                    <div class="panel panel-default" style="height: 250px;">
                         <div class="panel-heading">
                             <i class="fa {{$menu->icon}}"></i>
                             {{$menu->name}}
@@ -68,7 +68,7 @@ Edit
                         <div class="panel-body" style="min-height: 180px">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <select multiple="" name="submenus[{{$menu->menu_id}}][]" class="form-control select_multiple" size="6">
+                                    <select multiple="" name="submenus[{{$menu->menu_id}}][]" class="form-control select_multiple" size="6" >
                                         @if($menu->submenu->count() > 0)
                                             @foreach($menu->submenu as $submenu)
                                                 <option value="{{$submenu->submenu_id}}" @if(isset($user_submenus_arr[$submenu->submenu_id])) selected @endif>
