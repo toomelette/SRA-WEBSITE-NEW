@@ -34,13 +34,23 @@
                     <h2>Search Result for: "{{$query}}"</h2><br>
 
                     @if ($results->isEmpty())
-                        <div class="col-lg-offset-8">
+                        <div class="col-lg-offset-8 no-margin">
                             <table class="table table-bordered" style="border-color: black;">
                                 <tr style="">
+                                    <div class="input-group col-sm-6">
                                     <form class="search-form " role="search" action="{{'results'}}" method="GET" >
-                                        <input type="text" class="col-lg-6 rounded-left" name="query" placeholder="Search" style="background-color: whitesmoke; border-radius: 1px;">
-                                        <button type="submit" style="color: green; background-color: darkseagreen; width: 50px;" class="rounded-right"><span class="fa fa-search"></span></button>
+{{--                                        <input type="text" class="col-lg-6 rounded-left" name="query" placeholder="Search" style="background-color: whitesmoke; border-radius: 1px;">--}}
+{{--                                        <button type="submit" style="color: green; background-color: darkseagreen; width: 50px;" class="rounded-right"><span class="fa fa-search"></span></button>--}}
+
+
+                                            <input type="text" name="query" class="form-control  no-padding" placeholder="Search" style="padding-bottom: 1px;">
+                                            <div class="input-group-btn">
+                                                <button type="submit" name="submit" class="btn btn-warning rounded-0 rounded-right" style="padding-bottom: 12px; color: white;"><i class="fa fa-search"></i>
+                                                </button>
+                                            </div>
+
                                     </form>
+                                    </div>
                                 </tr>
                                 <tr>
                                     <p><span class="fa fa-search" style="width: 20px;"></span>No results found for <strong> "{{ $query }}"</strong>.</p>

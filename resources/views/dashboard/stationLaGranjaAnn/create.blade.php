@@ -35,11 +35,11 @@
                         ) !!}
 
                         {!! __form::textbox(
-                          '8', 'file_title', 'text', 'Announcement File Title *', '', old('file_title'), $errors->has('file_title'), $errors->first('file_title'), 'required'
+                          '8', 'file_title', 'text', 'File Title *', '', old('file_title'), $errors->has('file_title'), $errors->first('file_title'), 'required'
                         ) !!}
 
                         {!! __form::textbox(
-                          '8', 'title', 'text', 'Announcement Title *', '', old('title'), $errors->has('title'), $errors->first('title'), 'required'
+                          '8', 'title', 'text', 'Title *', '', old('title'), $errors->has('title'), $errors->first('title'), 'required'
                         ) !!}
 
                     </div>
