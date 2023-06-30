@@ -45,7 +45,7 @@
 
                                             <input type="text" name="query" class="form-control  no-padding" placeholder="Search" style="padding-bottom: 1px;">
                                             <div class="input-group-btn">
-                                                <button type="submit" name="submit" class="btn btn-warning rounded-0 rounded-right" style="padding-bottom: 12px; color: white;"><i class="fa fa-search"></i>
+                                                <button type="submit" name="submit" class="btn btn-warning rounded-0 rounded-right" style="padding-bottom: 12px; padding-left: 15px; color: white;"><i class="fa fa-search"></i>
                                                 </button>
                                             </div>
 
