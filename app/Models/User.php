@@ -7,11 +7,17 @@ use Illuminate\Support\Facades\DB;
 use Kyslik\ColumnSortable\Sortable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\HasActivity;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 
 class User extends Authenticatable{
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults();
+    }
 
     public static function boot()
     {
@@ -28,6 +34,7 @@ class User extends Authenticatable{
             $user->ip_updated = request()->ip();
         });
     }
+
 
 
     use Notifiable, Sortable, LogsActivity;
