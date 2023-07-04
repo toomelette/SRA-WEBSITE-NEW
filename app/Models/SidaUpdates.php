@@ -13,6 +13,7 @@ class SidaUpdates extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($sidaupdates){
             $sidaupdates->user_created = Auth::user()->user_id;
             $sidaupdates->ip_created = request()->ip();

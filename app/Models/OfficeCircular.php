@@ -13,6 +13,7 @@ class OfficeCircular extends Model {
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($officeCircular){
             $officeCircular->user_created = Auth::user()->user_id;
             $officeCircular->ip_created = request()->ip();

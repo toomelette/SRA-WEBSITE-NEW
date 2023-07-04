@@ -13,6 +13,7 @@ class NoticeProceed extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($noticeProceed){
             $noticeProceed->user_created = Auth::user()->user_id;
             $noticeProceed->ip_created = request()->ip();

@@ -13,6 +13,7 @@ class MetroManilaPrices extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($metroManilaPrices){
             $metroManilaPrices->user_created = Auth::user()->user_id;
             $metroManilaPrices->ip_created = request()->ip();

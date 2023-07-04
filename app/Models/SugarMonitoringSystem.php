@@ -13,6 +13,7 @@ class SugarMonitoringSystem extends Model {
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($sugarMonitoringSystem){
             $sugarMonitoringSystem->user_created = Auth::user()->user_id;
             $sugarMonitoringSystem->ip_created = request()->ip();

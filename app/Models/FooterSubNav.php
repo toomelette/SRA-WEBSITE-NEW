@@ -14,6 +14,7 @@ class FooterSubNav extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::updating(function($footerSubNav){
             $footerSubNav->user_updated = Auth::user()->user_id;
             $footerSubNav->ip_updated = request()->ip();

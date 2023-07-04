@@ -13,6 +13,7 @@ class PhilgepsPosting extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($philgepsPosting){
             $philgepsPosting->user_created = Auth::user()->user_id;
             $philgepsPosting->ip_created = request()->ip();

@@ -13,6 +13,7 @@ class FundUtilization extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($funUtilization){
             $funUtilization->user_created = Auth::user()->user_id;
             $funUtilization->ip_created = request()->ip();

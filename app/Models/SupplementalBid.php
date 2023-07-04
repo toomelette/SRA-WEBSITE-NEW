@@ -13,6 +13,7 @@ class SupplementalBid extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($supplementalBid){
             $supplementalBid->user_created = Auth::user()->user_id;
             $supplementalBid->ip_created = request()->ip();

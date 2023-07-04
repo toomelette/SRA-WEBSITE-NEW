@@ -13,6 +13,7 @@ class MillingShedule extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($millingSchedule){
             $millingSchedule->user_created = Auth::user()->user_id;
             $millingSchedule->ip_created = request()->ip();

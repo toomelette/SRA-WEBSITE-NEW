@@ -13,6 +13,7 @@ class WeeklyComparativeProduction extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($weeklyCP){
             $weeklyCP->user_created = Auth::user()->user_id;
             $weeklyCP->ip_created = request()->ip();

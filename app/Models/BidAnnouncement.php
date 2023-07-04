@@ -13,6 +13,7 @@ class BidAnnouncement extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($bidAnnouncement){
             $bidAnnouncement->user_created = Auth::user()->user_id;
             $bidAnnouncement->ip_created = request()->ip();

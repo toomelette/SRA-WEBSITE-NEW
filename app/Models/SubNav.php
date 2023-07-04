@@ -14,6 +14,7 @@ class SubNav extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::updating(function($subnav){
             $subnav->user_updated = Auth::user()->user_id;
             $subnav->ip_updated = request()->ip();

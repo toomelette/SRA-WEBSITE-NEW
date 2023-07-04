@@ -13,6 +13,7 @@ class MillsitePrices extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($millsitePrices){
             $millsitePrices->user_created = Auth::user()->user_id;
             $millsitePrices->ip_created = request()->ip();

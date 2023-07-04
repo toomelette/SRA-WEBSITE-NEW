@@ -13,6 +13,7 @@ class SugarSupplyDemand extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($sugarSupplyDemand){
             $sugarSupplyDemand->user_created = Auth::user()->user_id;
             $sugarSupplyDemand->ip_created = request()->ip();

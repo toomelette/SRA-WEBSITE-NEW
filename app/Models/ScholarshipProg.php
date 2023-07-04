@@ -13,6 +13,7 @@ class ScholarshipProg extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($memorandumOrder){
             $memorandumOrder->user_created = Auth::user()->user_id;
             $memorandumOrder->ip_created = request()->ip();

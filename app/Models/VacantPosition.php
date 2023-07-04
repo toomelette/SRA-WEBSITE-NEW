@@ -13,6 +13,7 @@ class VacantPosition extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($vacantPosition){
             $vacantPosition->user_created = Auth::user()->user_id;
             $vacantPosition->ip_created = request()->ip();

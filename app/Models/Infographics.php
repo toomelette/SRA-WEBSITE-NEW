@@ -13,6 +13,7 @@ class Infographics extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($infographics){
             $infographics->user_created = Auth::user()->user_id;
             $infographics->ip_created = request()->ip();

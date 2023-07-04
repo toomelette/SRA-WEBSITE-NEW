@@ -13,6 +13,7 @@ class FooterNavigation extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($footerNavigation){
             $footerNavigation->user_created = Auth::user()->user_id;
             $footerNavigation->ip_created = request()->ip();

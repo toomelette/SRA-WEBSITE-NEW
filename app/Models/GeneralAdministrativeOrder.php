@@ -13,6 +13,7 @@ class GeneralAdministrativeOrder extends Model {
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($generalAdministrativeOrder){
             $generalAdministrativeOrder->user_created = Auth::user()->user_id;
             $generalAdministrativeOrder->ip_created = request()->ip();

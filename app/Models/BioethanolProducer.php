@@ -13,6 +13,7 @@ class BioethanolProducer extends Model{
 
     public static function boot()
     {
+        parent::boot();
 //        static::creating(function ($navigation){
 //            $navigation->user_created = Auth::user()->user_id;
 //            $navigation->ip_created = request()->ip();

@@ -13,6 +13,7 @@ class BlockFarmHYVNurseriesVis extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($blockfarm){
             $blockfarm->user_created = Auth::user()->user_id;
             $blockfarm->ip_created = request()->ip();

@@ -13,6 +13,7 @@ class StkMuscovadoTraders extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($station){
             $station->user_created = Auth::user()->user_id;
             $station->ip_created = request()->ip();

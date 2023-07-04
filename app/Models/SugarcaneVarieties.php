@@ -13,6 +13,7 @@ class SugarcaneVarieties extends Model {
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($sugarcaneVarieties){
             $sugarcaneVarieties->user_created = Auth::user()->user_id;
             $sugarcaneVarieties->ip_created = request()->ip();

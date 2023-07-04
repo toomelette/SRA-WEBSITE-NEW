@@ -13,6 +13,7 @@ class SidaInfrasBridge extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($SidaInfrasBridge){
             $SidaInfrasBridge->user_created = Auth::user()->user_id;
             $SidaInfrasBridge->ip_created = request()->ip();

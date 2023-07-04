@@ -13,6 +13,7 @@ class CircularLetter extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($circularLetter){
             $circularLetter->user_created = Auth::user()->user_id;
             $circularLetter->ip_created = request()->ip();

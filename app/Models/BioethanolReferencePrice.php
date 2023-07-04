@@ -13,6 +13,7 @@ class BioethanolReferencePrice extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($bioethanolReferencePrice){
             $bioethanolReferencePrice->user_created = Auth::user()->user_id;
             $bioethanolReferencePrice->ip_created = request()->ip();

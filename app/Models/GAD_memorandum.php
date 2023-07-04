@@ -13,6 +13,7 @@ class GAD_memorandum extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($gad){
             $gad->user_created = Auth::user()->user_id;
             $gad->ip_created = request()->ip();

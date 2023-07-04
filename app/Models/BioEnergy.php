@@ -13,6 +13,7 @@ class BioEnergy extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($bioEnergy){
             $bioEnergy->user_created = Auth::user()->user_id;
             $bioEnergy->ip_created = request()->ip();

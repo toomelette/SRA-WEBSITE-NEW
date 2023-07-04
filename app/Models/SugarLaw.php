@@ -13,6 +13,7 @@ class SugarLaw extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($sugarLaw){
             $sugarLaw->user_created = Auth::user()->user_id;
             $sugarLaw->ip_created = request()->ip();

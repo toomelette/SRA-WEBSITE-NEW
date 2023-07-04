@@ -13,6 +13,7 @@ class MuscovadoOrder extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($muscovadoOrder){
             $muscovadoOrder->user_created = Auth::user()->user_id;
             $muscovadoOrder->ip_created = request()->ip();

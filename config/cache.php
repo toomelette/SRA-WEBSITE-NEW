@@ -89,6 +89,8 @@ return [
     'prefix' => env(
         'CACHE_PREFIX',
         str_slug(env('APP_NAME', 'swep_afd'), '_').'_cache'
+//        Str::slug(env('APP_NAME', 'swep_afd'), '_').'_cache'
+
     ),
 
 ];

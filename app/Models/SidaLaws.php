@@ -13,6 +13,7 @@ class SidaLaws extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($laws){
             $laws->user_created = Auth::user()->user_id;
             $laws->ip_created = request()->ip();

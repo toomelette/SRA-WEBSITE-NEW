@@ -13,6 +13,7 @@ class MolassesOrder extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($molassesOrder){
             $molassesOrder->user_created = Auth::user()->user_id;
             $molassesOrder->ip_created = request()->ip();

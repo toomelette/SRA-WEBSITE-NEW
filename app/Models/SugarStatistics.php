@@ -13,6 +13,7 @@ class SugarStatistics extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($sugarStatistics){
             $sugarStatistics->user_created = Auth::user()->user_id;
             $sugarStatistics->ip_created = request()->ip();

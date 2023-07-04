@@ -13,6 +13,7 @@ class ApplicationForm extends Model {
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($applicationForm){
             $applicationForm->user_created = Auth::user()->user_id;
             $applicationForm->ip_created = request()->ip();

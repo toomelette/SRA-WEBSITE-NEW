@@ -13,6 +13,7 @@ class SugarOrder extends Model{
 
     public static function boot()
     {
+        parent::boot();
         static::creating(function ($sugarOrder){
             $sugarOrder->user_created = Auth::user()->user_id;
             $sugarOrder->ip_created = request()->ip();
