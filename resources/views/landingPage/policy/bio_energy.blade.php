@@ -59,7 +59,7 @@
                     @if(count($bio_energy) > 0)
                         @foreach ($bio_energy as $bioEnergy)
                             <ul>
-                                <li><a style="color: #ffb600" href="/view_file/bio_energy/{!!$bioEnergy->slug!!}" target="_blank">{!!$bioEnergy->file_title!!}, </a>{!!$bioEnergy->title!!}</li>
+                                <li><a style="color: #ffb600" href="/view_file/bio_energy/{!!$bioEnergy->slug!!}" target="_blank">{!!$bioEnergy->title!!}, </a>{!!$bioEnergy->description!!}</li>
                             </ul>
                             @endforeach
 

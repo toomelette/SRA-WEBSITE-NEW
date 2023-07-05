@@ -70,6 +70,7 @@ class CircularLetterController extends Controller{
         $circularLetter->date = $request->date;
         $circularLetter->file_title = $request->file_title;
         $circularLetter->title = $request->title;
+        $circularLetter->description = $request->description;
 
         if (!empty($request->img_url)) {
             $file = $request->file('img_url');

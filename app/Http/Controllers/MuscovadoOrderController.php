@@ -68,6 +68,7 @@ class MuscovadoOrderController extends Controller{
         $muscovadoOrder->date = $request->date;
         $muscovadoOrder->file_title = $request->file_title;
         $muscovadoOrder->title = $request->title;
+        $muscovadoOrder->description = $request->description;
 
         if (!empty($request->img_url)) {
             $file = $request->file('img_url');

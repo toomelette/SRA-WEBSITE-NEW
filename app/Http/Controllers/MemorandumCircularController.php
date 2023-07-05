@@ -67,6 +67,7 @@ class MemorandumCircularController extends Controller{
         $memorandumCircular->date = $request->date;
         $memorandumCircular->file_title = $request->file_title;
         $memorandumCircular->title = $request->title;
+        $memorandumCircular->description = $request->description;
 
         if (!empty($request->img_url)) {
             $file = $request->file('img_url');

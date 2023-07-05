@@ -70,6 +70,7 @@ class SupplementalBidController extends Controller{
         $supplementalBid->date = $request->date;
         $supplementalBid->file_title = $request->file_title;
         $supplementalBid->title = $request->title;
+        $supplementalBid->description = $request->description;
 
         if (!empty($request->img_url)) {
             $file = $request->file('img_url');

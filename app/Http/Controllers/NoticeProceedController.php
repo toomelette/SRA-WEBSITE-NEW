@@ -70,6 +70,7 @@ class NoticeProceedController extends Controller{
         $noticeProceed->date = $request->date;
         $noticeProceed->file_title = $request->file_title;
         $noticeProceed->title = $request->title;
+        $noticeProceed->description = $request->description;
 
         if (!empty($request->img_url)) {
             $file = $request->file('img_url');

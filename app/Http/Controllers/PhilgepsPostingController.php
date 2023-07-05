@@ -69,6 +69,7 @@ class PhilgepsPostingController extends Controller{
         $philgepsPosting->date = $request->date;
         $philgepsPosting->file_title = $request->file_title;
         $philgepsPosting->title = $request->title;
+        $philgepsPosting->description = $request->description;
 
         if (!empty($request->img_url)) {
             $file = $request->file('img_url');

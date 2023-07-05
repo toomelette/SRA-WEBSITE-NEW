@@ -28,7 +28,7 @@
                             <ul>
                                 @foreach ($Template as $template)
                                     @if($year->name == $template->year)
-                                        <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/home/sra_website/{!!$template->path!!}" >{!!$template->file_title!!},</a>{!!$template->title!!}</a></li>
+                              <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/general_administrative_order/{!!$template->slug!!}" >{!!$template->title!!},</a>{!!$template->description!!}</li>
                                     @endif
                                 @endforeach
 

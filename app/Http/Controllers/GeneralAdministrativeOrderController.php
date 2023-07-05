@@ -68,6 +68,7 @@ class GeneralAdministrativeOrderController extends Controller{
         $generalAdministrativeOrder->date = $request->date;
         $generalAdministrativeOrder->file_title = $request->file_title;
         $generalAdministrativeOrder->title = $request->title;
+        $generalAdministrativeOrder->description = $request->description;
 
         if (!empty($request->img_url)) {
             $file = $request->file('img_url');

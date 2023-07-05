@@ -77,7 +77,7 @@
                         <ul>
                           @foreach ($office_circular as $officeCircular)
                             @if($year->name == $officeCircular->year)
-                              <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/office_circular/{!!$officeCircular->slug!!}" >{!!$officeCircular->file_title!!},</a>{!!$officeCircular->title!!}</a></li>
+                              <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/office_circular/{!!$officeCircular->slug!!}" >{!!$officeCircular->title!!},</a>{!!$officeCircular->description!!}</li>
                             @endif
                           @endforeach
 

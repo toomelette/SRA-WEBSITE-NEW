@@ -28,7 +28,7 @@
 
 
             {!! __form::select_static2(
-            '8 crop_year', 'crop_year', 'Crop Year:', '', \App\Swep\Helpers\Helper::cropYear(), '', '', '', 'required'
+            '8 crop_year', 'crop_year', 'Crop Year: *', '', \App\Swep\Helpers\Helper::cropYear(), '', '', '', 'required'
             ) !!}
 
             {!! __form::textbox(
@@ -45,6 +45,9 @@
 
             {!! __form::textbox(
               '8', 'title', 'text', 'Circular Letter Title *', 'Circular Letter Title', old('title'), $errors->has('title'), $errors->first('title'), 'required'
+            ) !!}
+            {!! __form::textbox(
+              '8', 'description', 'text', 'Description *', 'Description', old('description'), $errors->has('description'), $errors->first('description'), 'required'
             ) !!}
 
           </div>

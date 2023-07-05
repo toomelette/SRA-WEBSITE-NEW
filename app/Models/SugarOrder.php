@@ -51,6 +51,7 @@ class SugarOrder extends Model{
         'crop_year' => '',
         'date' => null,
         'file_title' => '',
+        'description' => '',
         'title' => '',
         'path' => '',
         'created_at' => null,

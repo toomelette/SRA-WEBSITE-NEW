@@ -77,7 +77,7 @@
                                                 <ul>
                                                     @foreach ($Template as $template)
                                                         @if($cropYear->slug == $template->crop_year_slug)
-                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/supplemental_bid/{!!$template->slug!!}" >{!!$template->file_title!!},</a>{!!$template->title!!}</a></li>
+                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/supplemental_bid/{!!$template->slug!!}" >{!!$template->title!!},</a>{!!$template->description!!}</li>
                                                         @endif
                                                     @endforeach
 

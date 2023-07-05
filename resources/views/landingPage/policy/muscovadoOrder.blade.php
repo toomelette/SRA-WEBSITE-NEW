@@ -46,22 +46,76 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
+
           <p>
           @php
-            $muscovado_order = \App\Models\MuscovadoOrder::query()->get()->sortByDesc('id');
-            /*$crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');
-            $moYearList = array();
-              foreach($molasses_order as $mo){
-                array_push($moYearList, $mo->crop_year);
-              }
-              $moYearList = array_unique($moYearList);*/
+            $muscovado_order = \App\Models\MuscovadoOrder::query()->get()->sortByDesc('date');
+            $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');
+            $clYearList = array();
+            foreach($muscovado_order as $cl){
+              array_push($clYearList, $cl->crop_year);
+            }
+            $clYearList = array_unique($clYearList);
           @endphp
           @if(count($muscovado_order) > 0)
-            @foreach ($muscovado_order as $muscovadoOrder)
-                <ul>
-                  <li><a style="color: #ffb600" href="/view_file/muscovado_order/{!!$muscovadoOrder->slug!!}" target="_blank">{!!$muscovadoOrder->file_title!!}, </a>{!!$muscovadoOrder->title!!}</li>
-                </ul>
-            @endforeach
+            @foreach($crop_year as $cropYear)
+              @if(in_array($cropYear->name, $clYearList))
+
+                <div class="accordion accordion-group text-justify" id="our-values-accordion">
+                  <div class="card">
+                    <div class="card-header p-0 bg-transparent" id="heading1">
+                      <h2 class="mb-0">
+                        <button class="btn btn-block text-left {{($loop->iteration != 1) ? 'collapsed'  : ''}}" type="button" data-toggle="collapse" data-target="#collapse_{{$cropYear->slug}}" aria-expanded="{{($loop->iteration == 1) ? 'true'  : 'false'}}" aria-controls="collapse1">
+                          BIOETHANOL REFERENCE PRICE {!!$cropYear->name!!}
+                        </button>
+
+                      </h2>
+                    </div>
+                    <div id="collapse_{{$cropYear->slug}}" class="collapse {{($loop->iteration == 1) ? 'show'  : ''}}" aria-labelledby="heading1" data-parent="#our-values-accordion" style="">
+                      <div class="card-body">
+                        <ul>
+                          @foreach ($muscovado_order as $muscovadoOrder)
+                            @if($cropYear->slug == $muscovadoOrder->crop_year_slug)
+                              <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/muscovado_order/{!!$muscovadoOrder->slug!!}" >{!!$muscovadoOrder->title!!},</a>{!!$muscovadoOrder->description!!}</li>
+                            @endif
+                          @endforeach
+
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                @endif
+                @foreach ($muscovado_order as $muscovadoOrder)
+                @if($cropYear->slug == $muscovadoOrder->crop_year_slug)
+
+                @endif
+                @endforeach
+                @endforeach
+                @endif
+                </p>
+
+
+
+
+                {{--          <p>--}}
+{{--          @php--}}
+{{--            $muscovado_order = \App\Models\MuscovadoOrder::query()->get()->sortByDesc('id');--}}
+{{--            /*$crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');--}}
+{{--            $moYearList = array();--}}
+{{--              foreach($molasses_order as $mo){--}}
+{{--                array_push($moYearList, $mo->crop_year);--}}
+{{--              }--}}
+{{--              $moYearList = array_unique($moYearList);*/--}}
+{{--          @endphp--}}
+{{--          @if(count($muscovado_order) > 0)--}}
+{{--            @foreach ($muscovado_order as $muscovadoOrder)--}}
+{{--                <ul>--}}
+{{--                  <li><a style="color: #ffb600" href="/view_file/muscovado_order/{!!$muscovadoOrder->slug!!}" target="_blank">{!!$muscovadoOrder->title!!}, </a>{!!$muscovadoOrder->description!!}</li>--}}
+{{--                </ul>--}}
+{{--            @endforeach--}}
 
 
 {{--            @foreach($crop_year as $cropYear)--}}
@@ -76,8 +130,8 @@
 {{--                @endif--}}
 {{--              @endforeach--}}
 {{--            @endforeach--}}
-          @endif
-          </p>
+{{--          @endif--}}
+{{--          </p>--}}
         </div><!-- Col end -->
       </div><!-- Content row end -->
 

@@ -69,6 +69,7 @@ class BidAnnouncementController extends Controller{
         $bidAnnouncement->date = $request->date;
         $bidAnnouncement->file_title = $request->file_title;
         $bidAnnouncement->title = $request->title;
+        $bidAnnouncement->description = $request->description;
 
         if (!empty($request->img_url)) {
             $file = $request->file('img_url');

@@ -58,8 +58,8 @@
                     @endphp
                     @if(count($sugar_law) > 0)
                         @foreach ($sugar_law as $sugarLaw)
-                            <ul>
-                                <li><a style="color: #ffb600" href="/view_file/sugar_law/{!!$sugarLaw->slug!!}" target="_blank">{!!$sugarLaw->file_title!!}, </a>{!!$sugarLaw->title!!}</li>
+                            <ul class="">
+                                <li><a style="color: #ffb600" href="/view_file/sugar_law/{!!$sugarLaw->slug!!}" target="_blank">{!!$sugarLaw->title!!}, </a>{!!$sugarLaw->description!!}</li>
                             </ul>
                             @endforeach
 

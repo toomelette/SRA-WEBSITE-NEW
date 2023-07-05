@@ -69,7 +69,7 @@
                   <div class="card-body">
                     <ul>
                       @foreach ($year as $sugarOrder)
-                        <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/sugar_order/{!!$sugarOrder->slug!!}" >{!!$sugarOrder->file_title!!},</a>{!!$sugarOrder->title!!}</a></li>
+                        <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/sugar_order/{!!$sugarOrder->slug!!}" >{!!$sugarOrder->title!!},</a>{!!$sugarOrder->description!!}</li>
                       @endforeach
 
                     </ul>

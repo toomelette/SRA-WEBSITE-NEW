@@ -44,7 +44,7 @@ class HomeController extends Controller
             }
 
 
-            $minutes = 60;
+            $minutes = 10;
             \Cookie::queue(\Cookie::make('visitorCounter',Str::random(10),$minutes));
         }
 

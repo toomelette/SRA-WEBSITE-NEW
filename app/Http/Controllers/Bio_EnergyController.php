@@ -68,6 +68,7 @@ class Bio_EnergyController extends Controller{
         $bioEnergy->date = $request->date;
         $bioEnergy->file_title = $request->file_title;
         $bioEnergy->title = $request->title;
+        $bioEnergy->description = $request->description;
 
         if (!empty($request->img_url)) {
             $file = $request->file('img_url');

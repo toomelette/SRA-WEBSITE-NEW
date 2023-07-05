@@ -68,7 +68,6 @@
                                                 <button class="btn btn-block text-left {{($loop->iteration != 1) ? 'collapsed'  : ''}}" type="button" data-toggle="collapse" data-target="#collapse_{{$cropYear->slug}}" aria-expanded="{{($loop->iteration == 1) ? 'true'  : 'false'}}" aria-controls="collapse1">
                                                     {!!$cropYear->name!!}
                                                 </button>
-
                                             </h2>
                                         </div>
                                         <div id="collapse_{{$cropYear->slug}}" class="collapse {{($loop->iteration == 1) ? 'show'  : ''}}" aria-labelledby="heading1" data-parent="#our-values-accordion" style="">
@@ -76,7 +75,7 @@
                                                 <ul>
                                                     @foreach ($Template as $template)
                                                         @if($cropYear->slug == $template->crop_year_slug)
-                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/notice_award/{!!$template->slug!!}" >{!!$template->file_title!!},</a>{!!$template->title!!}</a></li>
+                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/notice_award/{!!$template->slug!!}" >{!!$template->title!!},</a>{!!$template->description!!}</li>
                                                         @endif
                                                     @endforeach
 

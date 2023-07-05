@@ -66,6 +66,7 @@ class SugarLawController extends Controller{
         $sugarLaw->date = $request->date;
         $sugarLaw->file_title = $request->file_title;
         $sugarLaw->title = $request->title;
+        $sugarLaw->description = $request->description;
 
         if (!empty($request->img_url)) {
             $file = $request->file('img_url');

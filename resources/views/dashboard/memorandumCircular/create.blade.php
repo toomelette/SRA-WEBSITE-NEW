@@ -23,7 +23,7 @@
 
           <div class="col-md-11">
             {!! __form::select_static2(
-              '8 year', 'year', 'Year:', '', \App\Swep\Helpers\Helper::year(), '', '', '', 'required'
+              '8 year', 'year', 'Year: *', '', \App\Swep\Helpers\Helper::year(), '', '', '', 'required'
             ) !!}
 
             {!! __form::textbox(
@@ -40,6 +40,10 @@
 
             {!! __form::textbox(
               '8', 'title', 'text', 'Memorandum Circular Title *', 'Memorandum Circular Title', old('title'), $errors->has('title'), $errors->first('title'), 'required'
+            ) !!}
+
+            {!! __form::textbox(
+              '8', 'description', 'text', 'Description *', 'Description', old('description'), $errors->has('description'), $errors->first('description'), 'required'
             ) !!}
 
           </div>

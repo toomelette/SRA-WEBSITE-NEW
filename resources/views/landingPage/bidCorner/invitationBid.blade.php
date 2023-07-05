@@ -76,7 +76,7 @@
                                                 <ul>
                                                     @foreach ($bf_estab_v as $bfEstabV)
                                                         @if($year->name == $bfEstabV->year)
-                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/invitation_bid/{!!$bfEstabV->slug!!}" >{!!$bfEstabV->file_title!!}</a>{!!$bfEstabV->title!!}</a></li>
+                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/invitation_bid/{!!$bfEstabV->slug!!}" >{!!$bfEstabV->title!!}</a>{!!$bfEstabV->description!!}</li>
                                                         @endif
                                                     @endforeach
 

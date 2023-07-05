@@ -42,6 +42,11 @@
                           '8', 'title', 'text', 'BioEnergy Order Title *', 'BioEnergy Order Title', old('title'), $errors->has('title'), $errors->first('title'), 'required'
                         ) !!}
 
+                        {!! __form::textbox(
+                          '8', 'description', 'text', 'Description *', 'Description', old('description'), $errors->has('description'), $errors->first('description'), 'required'
+                        ) !!}
+
+
                     </div>
                 </div>
 
@@ -73,7 +78,7 @@
             let formData = new FormData(this);
             loading_btn(form);
             $.ajax({
-                url: "{{route('dashboard.bio_energy.create')}}",
+                url: "{{route('dashboard.bio_energy.store')}}",
                 type: 'POST',
                 data: new FormData(this),
                 processData: false,

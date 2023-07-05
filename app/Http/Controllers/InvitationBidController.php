@@ -70,6 +70,7 @@ class InvitationBidController extends Controller{
         $invitationBid->date = $request->date;
         $invitationBid->file_title = $request->file_title;
         $invitationBid->title = $request->title;
+        $invitationBid->description = $request->description;
 
         if (!empty($request->img_url)) {
             $file = $request->file('img_url');

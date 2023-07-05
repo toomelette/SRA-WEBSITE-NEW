@@ -63,6 +63,7 @@ class SugarOrderController extends Controller{
         $sugarOrder->crop_year = $cropYear->name;
         $sugarOrder->file_title = $request->file_title;
         $sugarOrder->title = $request->title;
+        $sugarOrder->description = $request->description;
 
         if (!empty($request->img_url)) {
             $file = $request->file('img_url');

@@ -70,6 +70,7 @@ class NoticeAwardController extends Controller{
         $noticeAward->date = $request->date;
         $noticeAward->file_title = $request->file_title;
         $noticeAward->title = $request->title;
+        $noticeAward->description = $request->description;
 
         if (!empty($request->img_url)) {
             $file = $request->file('img_url');

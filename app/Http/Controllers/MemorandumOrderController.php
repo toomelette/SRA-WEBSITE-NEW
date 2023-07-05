@@ -67,6 +67,7 @@ class MemorandumOrderController extends Controller{
         $memorandumOrder->date = $request->date;
         $memorandumOrder->file_title = $request->file_title;
         $memorandumOrder->title = $request->title;
+        $memorandumOrder->description = $request->description;
 
         if (!empty($request->img_url)) {
             $file = $request->file('img_url');

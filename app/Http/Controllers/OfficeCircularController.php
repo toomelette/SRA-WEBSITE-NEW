@@ -66,6 +66,7 @@ class OfficeCircularController extends Controller{
         $officeCircular->date = $request->date;
         $officeCircular->file_title = $request->file_title;
         $officeCircular->title = $request->title;
+        $officeCircular->description = $request->description;
 
         if (!empty($request->img_url)) {
             $file = $request->file('img_url');

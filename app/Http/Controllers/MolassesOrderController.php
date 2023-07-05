@@ -68,6 +68,7 @@ class MolassesOrderController extends Controller{
         $molassesOrder->date = $request->date;
         $molassesOrder->file_title = $request->file_title;
         $molassesOrder->title = $request->title;
+        $molassesOrder->description = $request->description;
 
         if (!empty($request->img_url)) {
             $file = $request->file('img_url');

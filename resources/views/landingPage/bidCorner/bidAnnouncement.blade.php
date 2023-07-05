@@ -46,32 +46,81 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p>
+
                     @php
-                        $bidAnnouncement = \App\Models\BidAnnouncement::query()->get()->sortByDesc('id');
+                        $Template = \App\Models\BidAnnouncement::query()->get()->sortByDesc('id');
                         $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');
                         $clYearList = array();
-                        foreach($bidAnnouncement as $cl){
-                          array_push($clYearList, $cl->crop_year);
+                        foreach($Template as $cl){
                           array_push($clYearList, $cl->crop_year);
                         }
                         $clYearList = array_unique($clYearList);
                     @endphp
-                    @if(count($bidAnnouncement) > 0)
+                    @if(count($Template) > 0)
                         @foreach($crop_year as $cropYear)
                             @if(in_array($cropYear->name, $clYearList))
-                                <h4>Series of {!!$cropYear->name!!}</h4>
+
+                                <div class="accordion accordion-group" id="our-values-accordion">
+                                    <div class="card">
+                                        <div class="card-header p-0 bg-transparent" id="heading1">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-block text-left {{($loop->iteration != 1) ? 'collapsed'  : ''}}" type="button" data-toggle="collapse" data-target="#collapse_{{$cropYear->slug}}" aria-expanded="{{($loop->iteration == 1) ? 'true'  : 'false'}}" aria-controls="collapse1">
+                                                    {!!$cropYear->name!!}
+                                                </button>
+
+                                            </h2>
+                                        </div>
+                                        <div id="collapse_{{$cropYear->slug}}" class="collapse {{($loop->iteration == 1) ? 'show'  : ''}}" aria-labelledby="heading1" data-parent="#our-values-accordion" style="">
+                                            <div class="card-body">
+                                                <ul>
+                                                    @foreach ($Template as $template)
+                                                        @if($cropYear->slug == $template->crop_year_slug)
+                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/bid_announcement/{!!$template->slug!!}" >{!!$template->title!!},</a>{!!$template->description!!}</li>
+                                                        @endif
+                                                    @endforeach
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                             @endif
-                            @foreach ($bidAnnouncement as $bid_announcement)
-                                @if($cropYear->slug == $bid_announcement->crop_year_slug)
-                                    <ul>
-                                        <li><a style="color: #ffb600" href="/view_file/bid_announcement/{!!$bid_announcement->slug!!}" target="_blank">{!!$bid_announcement->file_title!!}, </a>{!!$bid_announcement->title!!}</li>
-                                    </ul>
-                                    @endif
-                                    @endforeach
-                                    @endforeach
-                                    @endif
-                                    </p>
+                            @foreach ($Template as $template)
+                                @if($cropYear->slug == $template->crop_year_slug)
+
+                                @endif
+                            @endforeach
+                        @endforeach
+                    @endif
+
+{{--                    <p>--}}
+{{--                    @php--}}
+{{--                        $bidAnnouncement = \App\Models\BidAnnouncement::query()->get()->sortByDesc('id');--}}
+{{--                        $crop_year = \App\Models\CropYear::query()->get()->sortByDesc('id');--}}
+{{--                        $clYearList = array();--}}
+{{--                        foreach($bidAnnouncement as $cl){--}}
+{{--                          array_push($clYearList, $cl->crop_year);--}}
+{{--                          array_push($clYearList, $cl->crop_year);--}}
+{{--                        }--}}
+{{--                        $clYearList = array_unique($clYearList);--}}
+{{--                    @endphp--}}
+{{--                    @if(count($bidAnnouncement) > 0)--}}
+{{--                        @foreach($crop_year as $cropYear)--}}
+{{--                            @if(in_array($cropYear->name, $clYearList))--}}
+{{--                                <h4>Series of {!!$cropYear->name!!}</h4>--}}
+{{--                            @endif--}}
+{{--                            @foreach ($bidAnnouncement as $bid_announcement)--}}
+{{--                                @if($cropYear->slug == $bid_announcement->crop_year_slug)--}}
+{{--                                    <ul>--}}
+{{--                                        <li><a style="color: #ffb600" href="/view_file/bid_announcement/{!!$bid_announcement->slug!!}" target="_blank">{!!$bid_announcement->file_title!!}, </a>{!!$bid_announcement->title!!}</li>--}}
+{{--                                    </ul>--}}
+{{--                                    @endif--}}
+{{--                                    @endforeach--}}
+{{--                                    @endforeach--}}
+{{--                                    @endif--}}
+{{--                                    </p>--}}
                 </div><!-- Col end -->
             </div><!-- Content row end -->
 
