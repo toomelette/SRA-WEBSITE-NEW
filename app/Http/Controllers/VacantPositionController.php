@@ -67,6 +67,7 @@ class VacantPositionController extends Controller{
         $vacantPosition->date = $request->date;
         $vacantPosition->file_title = $request->file_title;
         $vacantPosition->title = $request->title;
+        $vacantPosition->description = $request->description;
 
         if (!empty($request->img_url)) {
             $file = $request->file('img_url');

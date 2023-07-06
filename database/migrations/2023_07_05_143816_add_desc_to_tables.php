@@ -42,6 +42,7 @@ return new class extends Migration
 
     private function tables(){
         $tables = [
+            'vacant_position',
             'station_bcd_ann',
             'station_bcd_event',
             'station_lagranja_event',
@@ -107,6 +108,7 @@ return new class extends Migration
             'sugar_supply_demand',
             'supplemental_bid',
             'weekly_comparative_production',
+
 
         ];
         return $tables;

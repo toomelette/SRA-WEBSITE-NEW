@@ -78,7 +78,9 @@
                                                         @if($year->name == $vacantPosition->year)
                                                             <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/vacant_position/{!!$vacantPosition->slug!!}" >
                                                                     <img loading="lazy" width="50px" height="50px" class="testimonial-thumb" src="{{ url('constra/images/SRA/SRA_DA logo.png') }}" alt="">
-                                                                    <a target="_blank" href="/home/sra_website/{!!$vacantPosition->path!!}">AS OF {{Carbon::parse($vacantPosition->date)->format('F j, Y')}}</a></li>
+                                                                    <a target="_blank" href="/view_file/vacant_position/{!!$vacantPosition->slug!!}"></a>AS OF {{Carbon::parse($vacantPosition->date)->format('F j, Y')}},
+                                                                {!!$vacantPosition->title!!}, {!!$vacantPosition->description!!}
+                                                            </li>
                                                         @endif
                                                     @endforeach
 
