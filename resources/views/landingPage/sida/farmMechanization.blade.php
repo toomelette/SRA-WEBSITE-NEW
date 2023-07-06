@@ -77,7 +77,7 @@
                                                 <ul>
                                                     @foreach ($farm_mechanization as $farmMechanization)
                                                         @if($year->name == $farmMechanization->year)
-                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/sida_farm_mechanization/{!!$farmMechanization->slug!!}" >{!!$farmMechanization->file_title!!},</a>{!!$farmMechanization->title!!}</a></li>
+                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/sida_farm_mechanization/{!!$farmMechanization->slug!!}" >{!!$farmMechanization->title!!},</a>{!!$farmMechanization->description!!}</li>
                                                         @endif
                                                     @endforeach
 

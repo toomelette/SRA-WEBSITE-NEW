@@ -70,6 +70,7 @@ class BlockFarmEstablishedVisayasController extends Controller{
         $blockFarm->date = $request->date;
         $blockFarm->file_title = $request->file_title;
         $blockFarm->title = $request->title;
+        $blockFarm->description = $request->description;
 
         if (!empty($request->img_url)) {
             $file = $request->file('img_url');

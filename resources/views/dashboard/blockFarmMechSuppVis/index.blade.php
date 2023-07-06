@@ -54,7 +54,7 @@
                             <th width="10%" class="">Date</th>
                             <th width="20%" class="">File Title</th>
                             <th width="35%" class="">Title</th>
-                            <th width="25%" class="">Path</th>
+                            <th width="25%" class="">Description</th>
                             <th width="10%" class="action">Action</th>
                         </tr>
                         </thead>
@@ -119,6 +119,10 @@
                                       '12', 'title', 'text', 'Title *', '', old('title'), $errors->has('title'), $errors->first('title'), 'required'
                                     ) !!}
 
+                                    {!! __form::textbox(
+                                    '12', 'description', 'text', 'Description *', 'Description', old('description'), $errors->has('description'), $errors->first('description'), 'required'
+                                  ) !!}
+
                                 </div>
                             </div>
                     </div>
@@ -171,7 +175,7 @@
                     { "data": "date"},
                     { "data": "file_title" },
                     { "data": "title" },
-                    { "data": "path" },
+                    { "data": "description" },
                     { "data": "action" }
                 ],
                 "buttons": [

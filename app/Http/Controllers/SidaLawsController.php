@@ -69,6 +69,7 @@ class SidaLawsController extends Controller{
         $sidaLaws->date = $request->date;
         $sidaLaws->file_title = $request->file_title;
         $sidaLaws->title = $request->title;
+        $sidaLaws->description = $request->description;
 
         if (!empty($request->img_url)) {
             $file = $request->file('img_url');

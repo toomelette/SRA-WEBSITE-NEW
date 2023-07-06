@@ -67,6 +67,7 @@ class FarmMechanizationController extends Controller{
         $farmMechanization->date = $request->date;
         $farmMechanization->file_title = $request->file_title;
         $farmMechanization->title = $request->title;
+        $farmMechanization->description = $request->description;
 
         if (!empty($request->img_url)) {
             $file = $request->file('img_url');

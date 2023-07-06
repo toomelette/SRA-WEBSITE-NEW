@@ -51,7 +51,7 @@
                             <th width="10%" class="">Date</th>
                             <th width="20%" class="">File Title</th>
                             <th width="35%" class="">Title</th>
-                            <th width="25%" class="">Path</th>
+                            <th width="25%" class="">Description</th>
                             <th width="10%" class="action">Action</th>
                         </tr>
                         </thead>

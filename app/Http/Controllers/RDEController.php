@@ -69,6 +69,7 @@ class RDEController extends Controller{
         $rdeProg->date = $request->date;
         $rdeProg->file_title = $request->file_title;
         $rdeProg->title = $request->title;
+        $rdeProg->description = $request->description;
 
         if (!empty($request->img_url)) {
             $file = $request->file('img_url');

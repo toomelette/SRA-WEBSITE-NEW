@@ -69,6 +69,7 @@ class SidaGuideLinesController extends Controller{
         $sidaGuideLines->date = $request->date;
         $sidaGuideLines->file_title = $request->file_title;
         $sidaGuideLines->title = $request->title;
+        $sidaGuideLines->description = $request->description;
 
         if (!empty($request->img_url)) {
             $file = $request->file('img_url');

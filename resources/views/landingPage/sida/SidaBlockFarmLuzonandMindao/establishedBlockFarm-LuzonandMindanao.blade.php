@@ -28,7 +28,7 @@
                             <ul>
                                 @foreach ($establihed as $Stablished)
                                     @if($year->name == $Stablished->year)
-                                        <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/block_farm_established_lozun_mindanao/{!!$Stablished->slug!!}" >{!!$Stablished->file_title!!},</a>{!!$Stablished->title!!}</a></li>
+                                        <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/block_farm_established_lozun_mindanao/{!!$Stablished->slug!!}" >{!!$Stablished->title!!},</a>{!!$Stablished->description!!}</li>
                                     @endif
                                 @endforeach
 

@@ -28,7 +28,7 @@
                             <ul>
                                 @foreach ($infras_mfr as $InfrasMFR)
                                     @if($year->name == $InfrasMFR->year)
-                                        <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/sida_infas_fmr/{!!$InfrasMFR->slug!!}" >{!!$InfrasMFR->file_title!!},</a>{!!$InfrasMFR->title!!}</a></li>
+                                        <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/sida_infas_fmr/{!!$InfrasMFR->slug!!}" >{!!$InfrasMFR->title!!},</a>{!!$InfrasMFR->description!!}</li>
                                     @endif
                                 @endforeach
 

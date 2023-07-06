@@ -78,7 +78,7 @@
                                                 <ul>
                                                     @foreach ($socialized_credit as $socializedCredit)
                                                         @if($year->name == $socializedCredit->year)
-                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/sida_socialized_credit_prog/{!!$socializedCredit->slug!!}" >{!!$socializedCredit->file_title!!},</a>{!!$socializedCredit->title!!}</a></li>
+                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/sida_socialized_credit_prog/{!!$socializedCredit->slug!!}" >{!!$socializedCredit->title!!},</a>{!!$socializedCredit->description!!}</li>
                                                         @endif
                                                     @endforeach
 

@@ -68,6 +68,7 @@ class SidaInfrasBridgeController extends Controller{
         $infrastructureProg->date = $request->date;
         $infrastructureProg->file_title = $request->file_title;
         $infrastructureProg->title = $request->title;
+        $infrastructureProg->description = $request->description;
 
         if (!empty($request->img_url)) {
             $file = $request->file('img_url');

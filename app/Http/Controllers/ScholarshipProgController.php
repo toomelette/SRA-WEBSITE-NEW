@@ -69,6 +69,7 @@ class ScholarshipProgController extends Controller{
         $scholarshipProgram->date = $request->date;
         $scholarshipProgram->file_title = $request->file_title;
         $scholarshipProgram->title = $request->title;
+        $scholarshipProgram->description = $request->description;
 
         if (!empty($request->img_url)) {
             $file = $request->file('img_url');

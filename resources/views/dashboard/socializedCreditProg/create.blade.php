@@ -42,6 +42,10 @@
                           '8', 'title', 'text', 'Title *', '', old('title'), $errors->has('title'), $errors->first('title'), 'required'
                         ) !!}
 
+                        {!! __form::textbox(
+                        '8', 'description', 'text', 'Description *', 'Description', old('description'), $errors->has('description'), $errors->first('description'), 'required'
+                      ) !!}
+
                     </div>
                 </div>
 

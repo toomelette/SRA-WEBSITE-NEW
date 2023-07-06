@@ -78,7 +78,7 @@
                                                 <ul>
                                                     @foreach ($scholarship as $Scholarship)
                                                         @if($year->name == $Scholarship->year)
-                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/sida_scholarship_prog/{!!$Scholarship->slug!!}" >{!!$Scholarship->file_title!!},</a>{!!$Scholarship->title!!}</a></li>
+                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/sida_scholarship_prog/{!!$Scholarship->slug!!}" >{!!$Scholarship->title!!},</a>{!!$Scholarship->description!!}</li>
                                                         @endif
                                                     @endforeach
 

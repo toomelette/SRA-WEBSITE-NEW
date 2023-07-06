@@ -29,7 +29,7 @@
                         <div class="card-body">
                             <ul>
 
-                                        <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/block_farm_established_visayas/{!!$bfEstabV->slug!!}" >{!!$bfEstabV->file_title!!},</a>{!!$bfEstabV->title!!}</a></li>
+                                        <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/block_farm_established_visayas/{!!$bfEstabV->slug!!}" >{!!$bfEstabV->title!!},</a>{!!$bfEstabV->description!!}</li>
                                     @endif
                                 @endforeach
 

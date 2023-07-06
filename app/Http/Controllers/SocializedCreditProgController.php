@@ -68,6 +68,7 @@ class SocializedCreditProgController extends Controller{
         $socializedCreditProgram->date = $request->date;
         $socializedCreditProgram->file_title = $request->file_title;
         $socializedCreditProgram->title = $request->title;
+        $socializedCreditProgram->description = $request->description;
 
         if (!empty($request->img_url)) {
             $file = $request->file('img_url');
