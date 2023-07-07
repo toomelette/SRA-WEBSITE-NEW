@@ -71,6 +71,7 @@ class StationLaGranjaAnnController extends Controller{
         $station->date = $request->date;
         $station->file_title = $request->file_title;
         $station->title = $request->title;
+        $station->description = $request->description;
 
         if (!empty($request->img_url)) {
             $file = $request->file('img_url');

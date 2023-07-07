@@ -44,6 +44,13 @@ return new class extends Migration
         $tables = [
             'vacant_position',
             'station_bcd_extserv',
+            'station_lagranja_ann',
+            'station_lagranja_event',
+            'station_lagranja_eventstation_lagranja_extserv',
+            'station_pampanga_ann',
+            'station_pampanga_event',
+            'station_pampanga_eventstation_pampanga_extserv',
+
         ];
         return $tables;
     }
