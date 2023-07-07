@@ -44,58 +44,67 @@
     </div><!-- Banner area end -->
 
     <section id="main-container" class="main-container">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <!-- Nav tabs -->
+        <div class="container mt-3">
+            <!-- Nav tabs -->
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#home">SIDA BLOCK FARM (LUZON AND MINDANAO)</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#menu1">SIDA BLOCK FARM (VISAYAS)</a>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div id="home" class="container tab-pane active"><br>
+                    <style>
+                        table1 {
+                            border-top: 5px solid green;
+
+                        }
+
+                    </style>
+                    @include('landingPage.sida.SidaBlockFarmLuzonandMindao.establishedBlockFarm-LuzonandMindanao')
+                </div>
+                {{--SubTubEnd--}}
+
+
+
+                <div id="menu1" class="container tab-pane fade"><br>
+                    {{--SubTabStart--}}
                     <ul class="nav nav-pills">
                         <li class="nav-item">
-                            <a class="nav-link active" role="presentation" data-toggle="tab" href="#home">SIDA BLOCK FARM (LUZON AND MINDANAO)</a>
+                            <a class="nav-link active" data-toggle="tab" href="#home11">ESTABLISHED BLOCK FARM</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" role="presentation" data-toggle="tab" href="#menu1">SIDA BLOCK FARM (VISAYAS)</a>
+                            <a class="nav-link" data-toggle="tab" href="#menu111">FARM MECHANIZATION SUPPORT</a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#menu211">ESTABLISHED HYV NURSERIES</a>
+                        </li>
                     </ul>
-
                     <!-- Tab panes -->
                     <div class="tab-content">
-                        <div id="home" class="container tab-pane active"><br>
-                            <h3>SIDA BLOCK FARM (LUZON AND MINDANAO)</h3>
-                            <style>
-                                table1 {
-                                    border-top: 5px solid green;
-
-                                }
-
-                            </style>
-                            @include('landingPage.sida.SidaBlockFarmLuzonandMindao.establishedBlockFarm-LuzonandMindanao')
-                </div><!-- Col end -->
-
-                    <div id="menu1" class="container tab-pane fade"><br>
-
-                            <div>
-                                @include('landingPage.sida.SidaBlockFarmVisayas.establishedBlockFam-Visayas')
-                            </div>
-                                <div>
+                        <div id="home11" class="container tab-pane active">
+                            @include('landingPage.sida.SidaBlockFarmVisayas.establishedBlockFam-Visayas')
+                        </div><br>
+                        <div id="menu111" class="container tab-pane fade">
                             @include('landingPage.sida.SidaBlockFarmVisayas.farmmechanizationsupp-Visayas')
-                                </div>
-                                <div>
+                        </div>
+                        <div id="menu211" class="container tab-pane fade">
                             @include('landingPage.sida.SidaBlockFarmVisayas.establishedHYVNurseries-Visayas')
-                                </div>
-
-
+                        </div>
                     </div>
-
                 </div>
+                {{--SubTubEnd--}}
             </div>
-
-            </div><!-- Content row end -->
-
+        </div>
 
 
-        </div><!-- Container end -->
     </section><!-- Main container end -->
+
+
 
     @include('layouts.constra-footer')
 
