@@ -5,7 +5,7 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": "8.1.17",
+        "php": ">=8.1.17",
         "ext-json": "*",
         "awssat/laravel-visits": "*",
         "barryvdh/laravel-dompdf": "^1.0.0",

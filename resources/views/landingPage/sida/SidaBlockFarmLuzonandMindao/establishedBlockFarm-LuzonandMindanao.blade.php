@@ -31,7 +31,7 @@
                                         <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/block_farm_established_lozun_mindanao/{!!$Stablished->slug!!}" >{!!$Stablished->title!!},</a>{!!$Stablished->description!!}</li>
                                     @endif
                                 @endforeach
-
+php
                             </ul>
                         </div>
                     </div>

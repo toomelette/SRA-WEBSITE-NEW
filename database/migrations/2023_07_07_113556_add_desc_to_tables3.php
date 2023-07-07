@@ -46,10 +46,10 @@ return new class extends Migration
             'station_bcd_extserv',
             'station_lagranja_ann',
             'station_lagranja_event',
-            'station_lagranja_eventstation_lagranja_extserv',
+            'station_lagranja_extserv',
             'station_pampanga_ann',
             'station_pampanga_event',
-            'station_pampanga_eventstation_pampanga_extserv',
+            'station_pampanga_extserv',
 
         ];
         return $tables;
