@@ -69,6 +69,7 @@ class FundUtilizationController extends Controller{
         $fundUtilization->date = $request->date;
         $fundUtilization->file_title = $request->file_title;
         $fundUtilization->title = $request->title;
+        $fundUtilization->description = $request->description;
 
         if (!empty($request->img_url)) {
             $file = $request->file('img_url');

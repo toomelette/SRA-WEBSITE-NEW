@@ -77,7 +77,7 @@
                                                 <ul>
                                                     @foreach ($fund_utilization as $fundUtilization)
                                                         @if($cropYear->slug == $fundUtilization->crop_year_slug)
-                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/fund_utilization/{!!$fundUtilization->path!!}" >{!!$fundUtilization->file_title!!},</a>{!!$fundUtilization->title!!}</a></li>
+                                                            <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/fund_utilization/{!!$fundUtilization->slug!!}" >{!!$fundUtilization->title!!},</a>{!!$fundUtilization->description!!}</li>
                                                         @endif
                                                     @endforeach
 
