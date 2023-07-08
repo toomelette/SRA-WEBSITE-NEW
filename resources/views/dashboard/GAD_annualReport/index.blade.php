@@ -19,7 +19,7 @@
                         </a>
                     </h4>
                     <button type="button" class="btn btn-primary pull-right fa fa-plus-circle" data-toggle="modal" data-target="#myModal">
-                        Add Annual Report
+                        Add
                     </button>
                 </div>
                 <div id="advanced_filters" class="panel-collapse collapse" aria-expanded="true" style="">
@@ -54,8 +54,8 @@
                             <th width="10%" class="">Year</th>
                             <th width="10%" class="">Date</th>
                             <th width="20%" class="">File Title</th>
-                            <th width="35%" class="">Title of Annual Report</th>
-                            <th width="25%" class="">Path</th>
+                            <th width="35%" class="">Title</th>
+                            <th width="25%" class="">Description</th>
                             <th width="10%" class="action">Action</th>
                         </tr>
                         </thead>
@@ -110,7 +110,7 @@
                                     ) !!}
 
                                     {!! __form::file(
-                                     '8', 'img_url[]', 'Upload PDF *', $errors->has('img_url'), $errors->first('img_url'), 'required'
+                                     '8', 'img_url', 'Upload PDF *', $errors->has('img_url'), $errors->first('img_url'), 'required'
                                     ) !!}
 
                                     {!! __form::textbox(
@@ -119,6 +119,10 @@
 
                                     {!! __form::textbox(
                                       '12', 'title', 'text', 'Title *', '', old('title'), $errors->has('title'), $errors->first('title'), 'required'
+                                    ) !!}
+
+                                    {!! __form::textbox(
+                                      '12', 'description', 'text', 'Description *', '', old('description'), $errors->has('description'), $errors->first('description'), 'required'
                                     ) !!}
 
                                 </div>
@@ -173,7 +177,7 @@
                     { "data": "date"},
                     { "data": "file_title" },
                     { "data": "title" },
-                    { "data": "path" },
+                    { "data": "description" },
                     { "data": "action" }
                 ],
                 "buttons": [

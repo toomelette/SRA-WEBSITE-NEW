@@ -53,9 +53,9 @@
                         <tr class="">
                             <th width="10%" class="">Year</th>
                             <th width="10%" class="">Date</th>
+                            <th width="20%" class="">File Title</th>
                             <th width="20%" class="">Title</th>
                             <th width="35%" class="">Description</th>
-                            <th width="20%" class="">Path</th>
                             <th width="10%" class="action">Action</th>
                         </tr>
                         </thead>
@@ -110,7 +110,7 @@
                                     ) !!}
 
                                     {!! __form::file(
-                                     '8', 'img_url[]', 'Upload PDF *', $errors->has('img_url'), $errors->first('img_url'), 'required'
+                                     '8', 'img_url', 'Upload PDF *', $errors->has('img_url'), $errors->first('img_url'), 'required'
                                     ) !!}
 
                                     {!! __form::textbox(
@@ -174,9 +174,9 @@
                 "columns": [
                     { "data": "year" },
                     { "data": "date"},
+                    { "data": "file_title" },
                     { "data": "title" },
                     { "data": "description" },
-                    { "data": "path" },
                     { "data": "action" }
                 ],
                 "buttons": [

@@ -28,7 +28,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="banner-heading">
-                            <h1 class="banner-title">Activities</h1>
+                            <h1 class="banner-title">Gender and Development (GAD)</h1>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb justify-content-center">
                                     <li class="breadcrumb-item active" aria-current="page">Gender and Development</li>
@@ -46,18 +46,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>Gender and Development (GAD)</h2><br>
+                    <h2>Gender and Development Activities</h2><br>
                     <p>
                                             @php
-                                                $vacant_position = \App\Models\GAD_activities::query()->get()->sortByDesc('id');
+                                                $Act = \App\Models\GAD_activities::query()->get()->sortByDesc('id');
                                                 $Year = \App\Models\Year::query()->get()->sortByDesc('id');
                                                 $clYearList = array();
-                                                foreach($vacant_position as $cl){
+                                                foreach($Act as $cl){
                                                   array_push($clYearList, $cl->year);
                                                 }
                                                 $clYearList = array_unique($clYearList);
                                             @endphp
-                                            @if(count($vacant_position) > 0)
+                                            @if(count($Act) > 0)
                                                 @foreach($Year as $year)
                                                     @if(in_array($year->name, $clYearList))
 
@@ -74,12 +74,12 @@
                                                                 <div id="collapse_{{$year->slug}}" class="collapse {{($loop->iteration == 1) ? 'show'  : ''}}" aria-labelledby="heading1" data-parent="#our-values-accordion" style="">
                                                                     <div class="card-body">
                                                                         <ul>
-                                                                            @foreach ($vacant_position as $vacantPosition)
-                                                                                @if($year->name == $vacantPosition->year)
-                                                                                    <li class="text-justify"><a class="btn" style="color: #ffb600" target="_blank" href="/view_file/gad_activities/{!!$vacantPosition->slug!!}" >{!! $vacantPosition->file_title !!}
+                                                                            @foreach ($Act as $act)
+                                                                                @if($year->name == $act->year)
+                                                                                    <li class="text-justify"><a class="btn text-uppercase text-strong" style="color: #ffb600" target="_blank" href="/view_file/gad_activities/{!!$act->slug!!}" >{!! $act->title !!}
                                                                                             </a></li>
                                                                                         <ul style="list-style-type: none">
-                                                                                            <li>{!!$vacantPosition->title!!}</li><br>
+                                                                                            <li>{!!$act->description!!}</li><br>
                                                                                         </ul>
 {{--                                                                                    <li><embed src="{{asset('constra/files/citizensCharter/exicutive-order/exicutive-order-no-631.pdf#toolbar=0')}}"></li>--}}
                                                                                 @endif
@@ -93,8 +93,8 @@
 
 
                                                         @endif
-                                                        @foreach ($vacant_position as $vacantPosition)
-                                                        @if($year->slug == $vacantPosition->year)
+                                                        @foreach ($Act as $act)
+                                                        @if($year->slug == $act->year)
 
                                                         @endif
                                                         @endforeach
@@ -105,23 +105,23 @@
 
                                         <p>
 {{--                                        @php--}}
-{{--                                            $vacant_position = \App\Models\OPSITrainingActivities::query()->get()->sortByDesc('id');--}}
+{{--                                            $Act = \App\Models\OPSITrainingActivities::query()->get()->sortByDesc('id');--}}
 {{--                                            $crop_year = \App\Models\year::query()->get()->sortByDesc('id');--}}
 {{--                                            $clYearList = array();--}}
-{{--                                            foreach($vacant_position as $cl){--}}
+{{--                                            foreach($Act as $cl){--}}
 {{--                                              array_push($clYearList, $cl->crop_year);--}}
 {{--                                            }--}}
 {{--                                            $clYearList = array_unique($clYearList);--}}
 {{--                                        @endphp--}}
-{{--                                        @if(count($vacant_position) > 0)--}}
+{{--                                        @if(count($Act) > 0)--}}
 {{--                                            @foreach($crop_year as $cropYear)--}}
 {{--                                                @if(in_array($cropYear->name, $clYearList))--}}
 {{--                                                    <h4>Series of {!!$cropYear->name!!}</h4>--}}
 {{--                                                @endif--}}
-{{--                                                @foreach ($vacant_position as $vacantPosition)--}}
-{{--                                                    @if($cropYear->slug == $vacantPosition->crop_year_slug)--}}
+{{--                                                @foreach ($Act as $act)--}}
+{{--                                                    @if($cropYear->slug == $act->crop_year_slug)--}}
 {{--                                                        <ul>--}}
-{{--                                                            <li><a style="color: #ffb600" href="/home/sra_website/{!!$vacantPosition->path!!}" target="_blank">{!!$vacantPosition->file_title!!}, </a>{!!$vacantPosition->title!!}</li>--}}
+{{--                                                            <li><a style="color: #ffb600" href="/home/sra_website/{!!$act->path!!}" target="_blank">{!!$act->file_title!!}, </a>{!!$act->title!!}</li>--}}
 {{--                                                        </ul>--}}
 {{--                                                        @endif--}}
 {{--                                                        @endforeach--}}

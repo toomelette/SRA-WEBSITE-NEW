@@ -28,7 +28,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="banner-heading">
-              <h1 class="banner-title">GAD Laws and Policies</h1>
+              <h1 class="banner-title">Gender and Development (GAD)</h1>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center">
                   <li class="breadcrumb-item active" aria-current="page">Gender and Development</li>
@@ -46,9 +46,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <ul>
-            <li>GAD Laws and Policies <a style="color: #ffb600" href="https://www.sra.gov.ph/wp-content/uploads/2022/03/Laws-and-Policies-on-GAD.pdf" target="_blank"> Read more… </a></li>
-          </ul>
+            <h2>Gender and Development Laws and Policies</h2>
+          <br>
           <embed style="border: 10px solid green; " src="{{asset('constra/files/GAD/Laws-and-Policies-on-GAD.pdf#toolbar=0')}}"  width="100%" height="800px"/>
                               <a href="{{asset('constra/files/GAD/Laws-and-Policies-on-GAD.pdf')}}" download class="btn btn-primary"> <i class="fa fa-download"></i>Download File</a>
 

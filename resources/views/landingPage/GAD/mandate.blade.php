@@ -28,7 +28,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="banner-heading">
-              <h1 class="banner-title">GAD Mandate</h1>
+              <h1 class="banner-title">Gender and Development (GAD)</h1>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center">
                   <li class="breadcrumb-item active" aria-current="page">Gender and Development</li>
@@ -46,6 +46,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
+          <h2>Gender and Development Mandate</h2>
 
         </div>
       </div><!-- Content row end -->

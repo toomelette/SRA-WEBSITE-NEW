@@ -28,7 +28,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="banner-heading">
-                            <h1 class="banner-title">GAD Videos</h1>
+                            <h1 class="banner-title">Gender and Development (GAD) GAD Videos</h1>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb justify-content-center">
                                     <li class="breadcrumb-item active" aria-current="page">GENDER AND DEVELOPMENT
@@ -47,7 +47,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>Gender and Development (GAD)</h2><br><br>
+                    <h2>Gender and Development Videos</h2><br><br>
 {{--                    <div class="accordion accordion-group" id="our-values-accordion">--}}
 {{--                        <div class="card">--}}
 {{--                            <div class="card-header p-0 bg-transparent" id="headingOne">--}}
