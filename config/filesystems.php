@@ -45,7 +45,7 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => '/home/sra_website/',
+            'root' => env('STORAGE_LOCATION'),
         ],
 
         
