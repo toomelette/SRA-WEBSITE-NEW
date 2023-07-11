@@ -95,8 +95,8 @@ class UserService extends BaseService{
 
         }
 
-        $this->event->fire('user.store');
-        return redirect()->back();
+
+        return $user->only('slug');
 
     }
 

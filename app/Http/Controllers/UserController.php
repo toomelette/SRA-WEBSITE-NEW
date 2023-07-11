@@ -24,7 +24,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Cache;
 use Spatie\Activitylog\Models\Activity;
 use Yajra\DataTables\DataTables;
-use function foo\func;
+
 
 
 class UserController extends Controller{
@@ -259,7 +259,7 @@ class UserController extends Controller{
                 $user->employee_no = $employee->employee_no;
                 $user->password = Hash::make(Carbon::parse($employee->birthday)->format('mdy'));
                 if($user->save()){
-                    return redirect('/dashboard/user');
+
                     return $user->only('slug');
 
                 }

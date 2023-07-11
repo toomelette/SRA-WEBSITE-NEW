@@ -382,7 +382,19 @@
         },
         error: function (response) {
           errored(form,response);
-        }
+        },
+
+        success: function (res) {
+          $('form').trigger("reset");
+          $('#submit').removeAttr("disabled");
+          Swal.fire({
+            title: 'Success!',
+            text: 'New User Successfully Added',
+            icon: 'success',
+            confirmButtonText: 'Done'
+          })
+        },
+
       })
     })
 
